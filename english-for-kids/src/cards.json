@@ -1,0 +1,58 @@
+[
+  {
+    "category": "nature",
+    "items": [
+      "./assets/category/animals/cat.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "animals",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "sport",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "cars",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "gadgets",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "celebrities",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "musicians",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  },
+  {
+    "category": "movies",
+    "items": [
+      "./assets/category/nature/lake.jpg",
+      "./assets/category/nature/parrot.jpg"
+    ]
+  }
+]

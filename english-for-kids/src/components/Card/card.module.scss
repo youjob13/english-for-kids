@@ -1,0 +1,32 @@
+.card {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 0px 13px 2px rgba(34, 60, 80, 0.2);
+  transition: .3s;
+
+  &:hover {
+    transform: scale(1.023);
+  }
+
+  &Image {
+    width: 100%;
+    border-radius: 10px;
+
+  }
+
+  &Name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    font-size: 21px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #f0f0f0;
+  }
+}
+
