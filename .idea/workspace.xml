@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: header &amp; menu-nav layout">
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/antDesignComponents/SwitchBtn/Switch.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/antDesignComponents/SwitchBtn/switch.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Navigation/Navigation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Navigation/navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Navigation/navigation.scss" afterDir="false" />
-    </list>
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: header &amp; menu-nav layout" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +113,7 @@
       <workItem from="1624176013051" duration="736000" />
       <workItem from="1624194223148" duration="35000" />
       <workItem from="1624198141101" duration="57000" />
+      <workItem from="1624198342501" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -286,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624194251891</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="feat: header &amp; menu-nav layout">
+      <created>1624198350457</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1624198350457</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
