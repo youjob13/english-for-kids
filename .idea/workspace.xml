@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="init: start task english-for-kids">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/english-for-kids.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/tsconfig.json" afterDir="false" />
-    </list>
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="init: start task english-for-kids" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/english-for-kids" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -136,7 +110,7 @@
       <workItem from="1624171283073" duration="419000" />
       <workItem from="1624171728324" duration="60000" />
       <workItem from="1624171796891" duration="1065000" />
-      <workItem from="1624176013051" duration="429000" />
+      <workItem from="1624176013051" duration="736000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -285,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624115459049</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="init: start task english-for-kids">
+      <created>1624176665464</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1624176665464</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
