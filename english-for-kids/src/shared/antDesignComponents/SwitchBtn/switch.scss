@@ -1,0 +1,21 @@
+.ant-switch {
+  span {
+    position: relative;
+
+    &::before {
+      content: 'play';
+      text-transform: uppercase;
+    }
+  }
+}
+
+.ant-switch-checked {
+  span {
+    position: relative;
+
+    &::before {
+      content: 'train';
+      text-transform: uppercase;
+    }
+  }
+}

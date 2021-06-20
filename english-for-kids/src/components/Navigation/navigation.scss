@@ -1,3 +1,12 @@
-.nav-active {
-  background-color: #000;
+.nav {
+  &-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &-item {
+    font-size: 23px;
+    font-weight: 600;
+  }
 }

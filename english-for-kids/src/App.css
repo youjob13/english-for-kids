@@ -1,0 +1,15 @@
+@import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Gochi Hand', cursive;
+}
+
+.app-content {
+    max-width: 1800px;
+    padding: 0 220px;
+}
+
+li {
+    list-style: none;
+}
