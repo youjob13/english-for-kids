@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="init: start task english-for-kids">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/english-for-kids.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/reportWebVitals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Component" />
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="english-for-kids" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1u1wj9hmcz9ia6A0A4xKTGd9Oeh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\async-race\src\components\Garage\GarageContent" />
+      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\async-race\src\components\Winners\WinnersTable" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="lint" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/english-for-kids/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/english-for-kids/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="" />
+      <created>1623846537083</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623846537083</updated>
+      <workItem from="1623846539016" duration="18305000" />
+      <workItem from="1623868139169" duration="184000" />
+      <workItem from="1623875962092" duration="1646000" />
+      <workItem from="1623877627404" duration="1466000" />
+      <workItem from="1623903994000" duration="7714000" />
+      <workItem from="1623912322791" duration="13000" />
+      <workItem from="1623912337724" duration="647000" />
+      <workItem from="1623915089606" duration="6475000" />
+      <workItem from="1623938925270" duration="2224000" />
+      <workItem from="1623995828956" duration="2481000" />
+      <workItem from="1623998374252" duration="866000" />
+      <workItem from="1624104850387" duration="69000" />
+      <workItem from="1624104937654" duration="4633000" />
+      <workItem from="1624115435557" duration="65000" />
+      <workItem from="1624166966697" duration="222000" />
+      <workItem from="1624167193542" duration="13000" />
+      <workItem from="1624167226376" duration="2023000" />
+      <workItem from="1624169309250" duration="362000" />
+      <workItem from="1624169678793" duration="1265000" />
+      <workItem from="1624171002530" duration="247000" />
+      <workItem from="1624171283073" duration="419000" />
+      <workItem from="1624171728324" duration="60000" />
+      <workItem from="1624171796891" duration="1065000" />
+      <workItem from="1624176013051" duration="429000" />
+    </task>
+    <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
+      <created>1623848443402</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623848443402</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: after deleting last car on page switch to prev page">
+      <created>1623848988996</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623848988996</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor: divide thunk by areas of responsibility">
+      <created>1623851422414</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623851422414</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: layout winners page &amp; state for winners">
+      <created>1623859250096</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623859250096</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: sorting the winners table">
+      <created>1623868023232</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623868023232</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: new deploy version">
+      <created>1623868159061</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1623868159061</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor: code refactor">
+      <created>1623904144060</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1623904144060</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: calculate race time with milliseconds">
+      <created>1623904931902</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1623904931902</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor: remove Timer">
+      <created>1623905068173</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1623905068173</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: page behavior during the race">
+      <created>1623907456406</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1623907456406</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: sort winners table">
+      <created>1623911102735</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1623911102735</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: layout garage page &amp; winners table">
+      <created>1623912221719</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1623912221719</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: new deploy version">
+      <created>1623912370270</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1623912370270</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: generate list winners">
+      <created>1623941167162</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1623941167162</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: end of the race">
+      <created>1623996461060</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1623996461060</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: winners page pagination">
+      <created>1623998224732</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1623998224732</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactor: remove eslint warnings">
+      <created>1623998293532</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1623998293532</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: new deploy version">
+      <created>1623998393871</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1623998393871</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: remove winners from winners table">
+      <created>1624115248752</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1624115248752</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat: remove winners from winners table">
+      <created>1624115278825</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1624115278825</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat: remove winners from winners page">
+      <created>1624115459049</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1624115459049</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor: move global variables into a separate file" />
+    <MESSAGE value="fix: after deleting last car on page switch to prev page" />
+    <MESSAGE value="refactor: divide thunk by areas of responsibility" />
+    <MESSAGE value="feat: layout winners page &amp; state for winners" />
+    <MESSAGE value="feat: sorting the winners table" />
+    <MESSAGE value="refactor: code refactor" />
+    <MESSAGE value="fix: calculate race time with milliseconds" />
+    <MESSAGE value="refactor: remove Timer" />
+    <MESSAGE value="fix: page behavior during the race" />
+    <MESSAGE value="fix: sort winners table" />
+    <MESSAGE value="fix: layout garage page &amp; winners table" />
+    <MESSAGE value="fix: generate list winners" />
+    <MESSAGE value="fix: end of the race" />
+    <MESSAGE value="feat: winners page pagination" />
+    <MESSAGE value="refactor: remove eslint warnings" />
+    <MESSAGE value="feat: new deploy version" />
+    <MESSAGE value="feat: remove winners from winners table" />
+    <MESSAGE value="feat: remove winners from winners page" />
+    <MESSAGE value="init: start task english-for-kids" />
+    <option name="LAST_COMMIT_MESSAGE" value="init: start task english-for-kids" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
