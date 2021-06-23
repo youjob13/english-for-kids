@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: main page layout &amp; card item layout">
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="docs: add links">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="english-for-kids" />
+        <entry key="$PROJECT_DIR$" value="presentation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task-presentation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/english-for-kids" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -78,6 +78,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -119,6 +121,11 @@
       <workItem from="1624207760890" duration="48000" />
       <workItem from="1624279127054" duration="117000" />
       <workItem from="1624282408685" duration="46000" />
+      <workItem from="1624293445711" duration="412000" />
+      <workItem from="1624297283126" duration="93000" />
+      <workItem from="1624297451297" duration="23000" />
+      <workItem from="1624340122938" duration="3000" />
+      <workItem from="1624341687542" duration="1537000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -295,7 +302,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624207803415</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="feat: main page layout &amp; card item layout">
+      <created>1624293472781</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1624293472781</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Initial commit">
+      <created>1624293604277</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1624293604277</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +357,8 @@
     <MESSAGE value="feat: router" />
     <MESSAGE value="feat: header &amp; menu-nav layout" />
     <MESSAGE value="feat: main page layout &amp; card item layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: main page layout &amp; card item layout" />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

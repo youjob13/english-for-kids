@@ -9,7 +9,9 @@ const MainPage = (): ReactElement => {
     <>
       <h2 className={classes.title}>Train & Play</h2>
       <ul className={classes.content}>
-        {cardsData.map((card) => withNavigation(<Card card={card} />))}
+        {cardsData.map((cardCategory) => {
+          return withNavigation(<Card card={cardCategory} />);
+        })}
       </ul>
     </>
   );

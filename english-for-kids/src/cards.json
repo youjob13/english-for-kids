@@ -1,56 +1,48 @@
 [
   {
-    "category": "nature",
-    "items": [
+    "nature": [
       "./assets/category/animals/cat.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "animals",
-    "items": [
+    "animals": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "sport",
-    "items": [
+    "sport": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "cars",
-    "items": [
+    "cars": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "gadgets",
-    "items": [
+    "gadgets": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "celebrities",
-    "items": [
+    "celebrities": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "musicians",
-    "items": [
+    "musicians": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]
   },
   {
-    "category": "movies",
-    "items": [
+    "movies": [
       "./assets/category/nature/lake.jpg",
       "./assets/category/nature/parrot.jpg"
     ]

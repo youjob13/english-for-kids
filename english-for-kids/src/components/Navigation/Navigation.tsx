@@ -17,13 +17,13 @@ const Navigation = (): ReactElement => {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="cat1" className={classes.navItem}>
-            Category 1
+          <NavLink to="category" className={classes.navItem}>
+            Nature
           </NavLink>
         </Menu.Item>
         <Menu.Item key="3">
-          <NavLink to="cat2" className={classes.navItem}>
-            Category 2
+          <NavLink to="category" className={classes.navItem}>
+            Animals
           </NavLink>
         </Menu.Item>
       </Menu>

@@ -3,8 +3,7 @@ import './App.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import MainPage from './components/MainPage/MainPage';
-import Cat1 from './components/cat1';
-import Cat2 from './components/cat2';
+import Category from './components/Category/Category';
 
 const App = (): ReactElement => (
   <div className="app-wrapper">
@@ -12,8 +11,7 @@ const App = (): ReactElement => (
     <main className="app-content">
       <Switch>
         <Route path="/main" component={MainPage} />
-        <Route path="/cat1" component={Cat1} />
-        <Route path="/cat2" component={Cat2} />
+        <Route path="/category" component={Category} />
         <Redirect from="/" to="/main" />
       </Switch>
     </main>
