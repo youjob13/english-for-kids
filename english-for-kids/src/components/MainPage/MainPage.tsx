@@ -1,20 +1,25 @@
 import React, { ReactElement } from 'react';
+import { connect } from 'react-redux';
 import classes from './mainPage.module.scss';
-import Card from '../Card/Card';
-import withNavigation from '../../hoc/withNavigation';
-import cardsData from '../../cards.json';
+import { ICard } from '../../shared/interfaces/cards-models';
+import CardCategoryWrapper from './CardCategoryWrapper';
 
-const MainPage = (): ReactElement => {
+const MainPage = ({ cards }: any): ReactElement => {
   return (
     <>
       <h2 className={classes.title}>Train & Play</h2>
       <ul className={classes.content}>
-        {cardsData.map((cardCategory) => {
-          return withNavigation(<Card card={cardCategory} />);
-        })}
+        {cards.map((card: ICard, index: number) => (
+          <CardCategoryWrapper key={index.toString()} card={card} />
+        ))}
       </ul>
     </>
   );
 };
+const mapStateToProps = (state: any) => {
+  return {
+    cards: state.cardsReducer.cards, // TODO: selectors
+  };
+};
 
-export default MainPage;
+export default connect(mapStateToProps)(MainPage);

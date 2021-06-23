@@ -1,50 +1,58 @@
 [
   {
-    "nature": [
+    "category": "nature",
+    "cards": [
       "./assets/category/animals/cat.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "animals": [
+    "category": "animals",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "sport": [
+    "category": "sport",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "cars": [
+    "category": "cars",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "gadgets": [
+    "category": "gadgets",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "celebrities": [
+    "category": "celebrities",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "musicians": [
+    "category": "musicians",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   },
   {
-    "movies": [
+    "category": "movies",
+    "cards": [
       "./assets/category/nature/lake.jpg",
-      "./assets/category/nature/parrot.jpg"
+      "./assets/category/animals/parrot.jpg"
     ]
   }
 ]

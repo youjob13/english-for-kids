@@ -1,19 +1,24 @@
 import React, { ReactElement } from 'react';
 import classes from './card.module.scss';
 import img from '../../../public/assets/category/animals/cat.jpg';
-import { ICard } from '../../shared/interfaces/cards-models';
 
-const Card = ({ card }: ICard): ReactElement => {
+const Card = (props: any): ReactElement => {
+  const { title, image } = props;
+
   return (
-    <div className={classes.card}>
+    <li className={classes.card}>
       <img
         className={classes.cardImage}
-        src={Object.values(card)[0]![0]}
+        src={image} // TODO: remove !
         alt=""
       />
-      <p className={classes.cardName}>{Object.keys(card)}</p>
-    </div>
+      <p className={classes.cardName}>{title}</p>
+    </li>
   );
 };
 
-export default Card;
+// const mapDispatchToProps = (dispatch: Dispatch) => ({
+//   onCardClick: (categoryName: string) => dispatch(selectCategory(categoryName)),
+// });
+//
+export default Card; /* connect(null, mapDispatchToProps)(Card); */

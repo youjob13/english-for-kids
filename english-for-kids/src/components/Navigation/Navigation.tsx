@@ -1,34 +1,49 @@
 import React, { ReactElement } from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { Menu } from 'antd';
 import classes from './navigation.module.scss';
+import { selectCategory } from '../../store/cardsSlice';
+import { ICard } from '../../shared/interfaces/cards-models';
+import NavigationItem from './NavigationItem';
 
-const Navigation = (): ReactElement => {
+const Navigation = (props: any): ReactElement => {
+  const { cards, onCardCategoryClick } = props;
+
+  const onLinkClick = (category: string) => {
+    onCardCategoryClick(category);
+  };
+
   return (
     <nav className={classes.navMenu}>
-      <Menu
-        style={{ width: 'auto' }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-      >
-        <Menu.Item key="1">
-          <NavLink to="main" className={classes.navItem}>
+      <ul>
+        <li>
+          <NavLink
+            onClick={() => onLinkClick('')}
+            to="main"
+            className={classes.navItem}
+          >
             Main page
           </NavLink>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <NavLink to="category" className={classes.navItem}>
-            Nature
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <NavLink to="category" className={classes.navItem}>
-            Animals
-          </NavLink>
-        </Menu.Item>
-      </Menu>
+        </li>
+        {cards.map((card: ICard, index: number) => (
+          <NavigationItem
+            key={index.toString()}
+            title={card.category}
+            onLinkClick={onLinkClick}
+          />
+        ))}
+      </ul>
     </nav>
   );
 };
 
-export default Navigation;
+const mapStateToProps = (state: any) => ({
+  cards: state.cardsReducer.cards,
+});
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  onCardCategoryClick: (categoryName: string) =>
+    dispatch(selectCategory(categoryName)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
