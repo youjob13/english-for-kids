@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import classes from './header.module.scss';
-import Navigation from '../Navigation/Navigation';
+import Navigation from './Navigation/Navigation';
 import SwitchBtn from '../../shared/antDesignComponents/SwitchBtn/Switch';
 
 const Header = (): ReactElement => {

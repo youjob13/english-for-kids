@@ -3,11 +3,13 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import classes from './navigation.module.scss';
-import { selectCategory } from '../../store/cardsSlice';
-import { ICard } from '../../shared/interfaces/cards-models';
+import { selectCategory } from '../../../store/cardsSlice';
+import { ICard } from '../../../shared/interfaces/cards-models';
 import NavigationItem from './NavigationItem';
+import { INavigationProps } from '../../../shared/interfaces/api-models';
+import { CardsReducerType } from '../../../shared/interfaces/store-models';
 
-const Navigation = (props: any): ReactElement => {
+const Navigation = (props: INavigationProps): ReactElement => {
   const { cards, onCardCategoryClick } = props;
 
   const onLinkClick = (category: string) => {
@@ -38,7 +40,7 @@ const Navigation = (props: any): ReactElement => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: CardsReducerType) => ({
   cards: state.cardsReducer.cards,
 });
 const mapDispatchToProps = (dispatch: Dispatch) => ({

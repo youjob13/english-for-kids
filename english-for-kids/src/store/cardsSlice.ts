@@ -7,7 +7,10 @@ const cardsSlice = createSlice({
   name: 'cardsSlice',
   initialState: {
     cards: [],
-    selectedCategory: {},
+    selectedCategory: {
+      category: '',
+      cards: [''],
+    },
   } as ICardsState,
   reducers: {
     setAllCards: (state: ICardsState, action) => {
@@ -21,9 +24,9 @@ const cardsSlice = createSlice({
       return {
         ...state,
         selectedCategory: {
-          ...state.cards.find(
+          ...(state.cards.find(
             (card) => card.category === categoryName && card.cards
-          ),
+          ) || { category: '', cards: [''] }), // TODO: remove ||
         },
       };
     },

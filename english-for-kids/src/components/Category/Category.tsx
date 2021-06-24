@@ -2,16 +2,16 @@ import React, { ReactElement } from 'react';
 import { connect } from 'react-redux';
 import classes from './category.module.scss';
 import Card from '../Card/Card';
-import { ICard } from '../../shared/interfaces/cards-models';
+import { ICategoryProps } from '../../shared/interfaces/api-models';
+import { CardsReducerType } from '../../shared/interfaces/store-models';
 
-const Category = (props: any): ReactElement => {
-  const { selectedCategory } = props;
+const Category = ({ selectedCategory }: ICategoryProps): ReactElement => {
   const { cards = [], category } = selectedCategory;
 
   return (
     <>
       <ul className={classes.categoryField}>
-        {cards.map((card: ICard, index: number) => (
+        {cards.map((card: string, index: number) => (
           <Card key={index.toString()} title={category} image={card} />
         ))}
       </ul>
@@ -19,7 +19,7 @@ const Category = (props: any): ReactElement => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: CardsReducerType) => ({
   selectedCategory: state.cardsReducer.selectedCategory,
 });
 

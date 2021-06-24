@@ -4,11 +4,13 @@ import { Dispatch } from 'redux';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import { selectCategory } from '../../store/cardsSlice';
+import { ICardCategoryWrapperProps } from '../../shared/interfaces/api-models';
 
 // TODO: rewrite with hoc
-const CardCategoryWrapper = (props: any): ReactElement => {
-  const { card, onCardCategoryClick } = props;
-
+const CardCategoryWrapper = ({
+  card,
+  onCardCategoryClick,
+}: ICardCategoryWrapperProps): ReactElement => {
   const onLinkClick = () => {
     onCardCategoryClick(card.category);
   };
