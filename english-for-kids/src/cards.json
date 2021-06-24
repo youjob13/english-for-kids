@@ -3,16 +3,52 @@
     "category": "nature",
     "cards": [
       {
-        "imageSRC": "./assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Озеро",
-        "audioSRC": "./assets/audio/angry.mp3"
+        "imageSRC": "./assets/category/nature/forest.jpg",
+        "name": "Forest",
+        "translate": "Лес",
+        "audioSRC": "./assets/audio/forest.mp3"
       },
       {
         "imageSRC": "./assets/category/nature/lake.jpg",
         "name": "Lake",
-        "translate": "Попугай",
-        "audioSRC": "./assets/audio/angry.mp3"
+        "translate": "Озеро",
+        "audioSRC": "./assets/audio/lake.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/nature/cloud.jpg",
+        "name": "Cloud",
+        "translate": "Облако",
+        "audioSRC": "./assets/audio/cloud.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/nature/Grass.jpg",
+        "name": "Grass",
+        "translate": "Трава",
+        "audioSRC": "./assets/audio/grass.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/nature/mountain.jpg",
+        "name": "Mountain",
+        "translate": "Гора",
+        "audioSRC": "./assets/audio/mountain.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/nature/ocean.jpg",
+        "name": "Ocean",
+        "translate": "Океан",
+        "audioSRC": "./assets/audio/ocean.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/nature/sand.jpg",
+        "name": "Sand",
+        "translate": "Песок",
+        "audioSRC": "./assets/audio/sand.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/nature/sunset.jpg",
+        "name": "Sunset",
+        "translate": "Закат",
+        "audioSRC": "./assets/audio/sunset.mp3"
       }
     ]
   },
@@ -20,16 +56,52 @@
     "category": "animals",
     "cards": [
       {
-        "imageSRC": "./assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "./assets/audio/angry.mp3"
+        "imageSRC": "./assets/category/animals/cat.jpg",
+        "name": "Cat",
+        "translate": "Кошка",
+        "audioSRC": "./assets/audio/cat.mp3"
       },
       {
         "imageSRC": "./assets/category/animals/parrot.jpg",
         "name": "Parrot",
         "translate": "Попугай",
-        "audioSRC": "./assets/audio/angry.mp3"
+        "audioSRC": "./assets/audio/parrot.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/animals/cow.jpg",
+        "name": "Cow",
+        "translate": "Корова",
+        "audioSRC": "./assets/audio/cow.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/animals/horse.jpg",
+        "name": "Horse",
+        "translate": "Лошадь",
+        "audioSRC": "./assets/audio/horse.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/animals/dog.jpg",
+        "name": "Dog",
+        "translate": "Собака",
+        "audioSRC": "./assets/audio/dog.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/animals/pig.jpg",
+        "name": "Pig",
+        "translate": "Свинья",
+        "audioSRC": "./assets/audio/pig.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/animals/tiger.jpg",
+        "name": "Tiger",
+        "translate": "Тигр",
+        "audioSRC": "./assets/audio/tiger.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/animals/panda.jpg",
+        "name": "Panda",
+        "translate": "Панда",
+        "audioSRC": "./assets/audio/panda.mp3"
       }
     ]
   },
@@ -37,16 +109,52 @@
     "category": "sport",
     "cards": [
       {
-        "imageSRC": "./assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "./assets/audio/angry.mp3"
+        "imageSRC": "./assets/category/sport/boxing.jpg",
+        "name": "Boxing",
+        "translate": "Бокс",
+        "audioSRC": "./assets/audio/boxing.mp3"
       },
       {
-        "imageSRC": "./assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Попугай",
-        "audioSRC": "./assets/audio/angry.mp3"
+        "imageSRC": "./assets/category/sport/esports.jpg",
+        "name": "Esports",
+        "translate": "Кибер спорт",
+        "audioSRC": "./assets/audio/esports.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/sport/football.jpg",
+        "name": "Football",
+        "translate": "Футбол",
+        "audioSRC": "./assets/audio/football.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/sport/formula1.jpg",
+        "name": "Formula 1",
+        "translate": "Формула 1",
+        "audioSRC": "./assets/audio/formula1.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/sport/hockey.jpg",
+        "name": "Hockey",
+        "translate": "Хоккей",
+        "audioSRC": "./assets/audio/hockey.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/sport/powerlifting.jpg",
+        "name": "Powerlifting",
+        "translate": "Пауэрлифтинг",
+        "audioSRC": "./assets/audio/powerlifting.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/sport/weightlift.jpg",
+        "name": "Weightlift",
+        "translate": "Тяжелая атлетика",
+        "audioSRC": "./assets/audio/powerlifting.mp3"
+      },
+      {
+        "imageSRC": "./assets/category/sport/running.jpg",
+        "name": "Running",
+        "translate": "Бег",
+        "audioSRC": "./assets/audio/running.mp3"
       }
     ]
   },
