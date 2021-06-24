@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: remove any type" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: update cards.json, add wrapper for cards" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,6 +128,7 @@
       <workItem from="1624465591262" duration="67000" />
       <workItem from="1624467749235" duration="157000" />
       <workItem from="1624512419386" duration="28000" />
+      <workItem from="1624517265381" duration="72000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -339,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624512439982</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="feat: update cards.json, add wrapper for cards">
+      <created>1624517331255</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1624517331255</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +366,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: move global variables into a separate file" />
     <MESSAGE value="fix: after deleting last car on page switch to prev page" />
     <MESSAGE value="refactor: divide thunk by areas of responsibility" />
     <MESSAGE value="feat: layout winners page &amp; state for winners" />
@@ -383,7 +390,8 @@
     <MESSAGE value="refactor: code refactor" />
     <MESSAGE value="feat: redux &amp; add follow links" />
     <MESSAGE value="refactor: remove any type" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove any type" />
+    <MESSAGE value="feat: update cards.json, add wrapper for cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update cards.json, add wrapper for cards" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

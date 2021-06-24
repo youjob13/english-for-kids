@@ -13,8 +13,17 @@ const CardCategoryWrapper = ({
 }: ICardCategoryWrapperProps): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
 
+  const playCardAudio = () => {
+    setIsShowTranslation(!isShowTranslation);
+    if (!isShowTranslation) {
+      const audio = new Audio(card.audioSRC);
+      audio.play();
+      audio.remove();
+    }
+  };
+
   return (
-    <a href="##" onClick={() => setIsShowTranslation(!isShowTranslation)}>
+    <a href="##" onClick={playCardAudio}>
       <div className={classes.cardWrapper}>
         <p
           className={
@@ -24,6 +33,7 @@ const CardCategoryWrapper = ({
           }
         >
           {card.translate}
+          {card.audioSRC}
         </p>
         <Card title={isStartedGame ? card.name : ''} image={card.imageSRC} />
       </div>

@@ -7,4 +7,5 @@ export interface ICardItem {
   name: string;
   imageSRC: string;
   translate: string;
+  audioSRC: string;
 }
