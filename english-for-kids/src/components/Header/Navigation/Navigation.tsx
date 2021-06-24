@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import classes from './navigation.module.scss';
 import { selectCategory } from '../../../store/cardsSlice';
-import { ICard } from '../../../shared/interfaces/cards-models';
+import { ICardsData } from '../../../shared/interfaces/cards-models';
 import NavigationItem from './NavigationItem';
-import { INavigationProps } from '../../../shared/interfaces/api-models';
 import { CardsReducerType } from '../../../shared/interfaces/store-models';
+import { INavigationProps } from '../../../shared/interfaces/props-models';
 
 const Navigation = (props: INavigationProps): ReactElement => {
   const { cards, onCardCategoryClick } = props;
@@ -28,7 +28,7 @@ const Navigation = (props: INavigationProps): ReactElement => {
             Main page
           </NavLink>
         </li>
-        {cards.map((card: ICard, index: number) => (
+        {cards.map((card: ICardsData, index: number) => (
           <NavigationItem
             key={index.toString()}
             title={card.category}

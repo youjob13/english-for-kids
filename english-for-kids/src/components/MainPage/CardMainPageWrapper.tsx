@@ -4,20 +4,20 @@ import { Dispatch } from 'redux';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import { selectCategory } from '../../store/cardsSlice';
-import { ICardCategoryWrapperProps } from '../../shared/interfaces/api-models';
+import { ICardMainPageWrapperProps } from '../../shared/interfaces/props-models';
 
 // TODO: rewrite with hoc
-const CardCategoryWrapper = ({
+const CardMainPageWrapper = ({
   card,
   onCardCategoryClick,
-}: ICardCategoryWrapperProps): ReactElement => {
+}: ICardMainPageWrapperProps): ReactElement => {
   const onLinkClick = () => {
     onCardCategoryClick(card.category);
   };
-
+  console.log(card);
   return (
     <Link onClick={onLinkClick} to="category">
-      <Card title={card.category} image={card.cards[0]} />
+      <Card title={card.category} image={card.cards[0].imageSRC} />
     </Link>
   );
 };
@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(selectCategory(categoryName)),
 });
 
-export default connect(null, mapDispatchToProps)(CardCategoryWrapper);
+export default connect(null, mapDispatchToProps)(CardMainPageWrapper);

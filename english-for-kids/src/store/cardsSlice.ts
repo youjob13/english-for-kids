@@ -1,6 +1,6 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
-import { ICard } from '../shared/interfaces/cards-models';
+import { ICardsData } from '../shared/interfaces/cards-models';
 import cardsData from '../cards.json';
 
 const cardsSlice = createSlice({
@@ -9,14 +9,14 @@ const cardsSlice = createSlice({
     cards: [],
     selectedCategory: {
       category: '',
-      cards: [''],
+      cards: [],
     },
   } as ICardsState,
   reducers: {
     setAllCards: (state: ICardsState, action) => {
       return {
         ...state,
-        cards: action.payload.map((card: ICard) => card), // TODO: spread operator
+        cards: action.payload.map((card: ICardsData) => card), // TODO: spread operator
       };
     },
     selectCategory: (state: ICardsState, action) => {
@@ -26,7 +26,7 @@ const cardsSlice = createSlice({
         selectedCategory: {
           ...(state.cards.find(
             (card) => card.category === categoryName && card.cards
-          ) || { category: '', cards: [''] }), // TODO: remove ||
+          ) || { category: '', cards: [] }), // TODO: remove ||
         },
       };
     },

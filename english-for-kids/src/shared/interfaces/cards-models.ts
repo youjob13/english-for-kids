@@ -1,4 +1,10 @@
-export interface ICard {
+export interface ICardsData {
   category: string;
-  cards: string[];
+  cards: ICardItem[];
+}
+
+export interface ICardItem {
+  name: string;
+  imageSRC: string;
+  translate: string;
 }

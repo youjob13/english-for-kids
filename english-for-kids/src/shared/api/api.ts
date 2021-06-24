@@ -1,11 +1,11 @@
-import { ICard } from '../interfaces/cards-models';
+import { ICardsData } from '../interfaces/cards-models';
 
 const cardsAPI = {
   baseURL: '../../cards.json',
 
-  async getCards(): Promise<ICard[]> {
+  async getCards(): Promise<ICardsData[]> {
     const response = await fetch(this.baseURL);
-    const cards: ICard[] = await response.json();
+    const cards: ICardsData[] = await response.json();
     return cards;
   },
 };

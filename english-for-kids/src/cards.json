@@ -2,57 +2,121 @@
   {
     "category": "nature",
     "cards": [
-      "./assets/category/animals/cat.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "animals",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "sport",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "cars",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "gadgets",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "celebrities",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "musicians",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   },
   {
     "category": "movies",
     "cards": [
-      "./assets/category/nature/lake.jpg",
-      "./assets/category/animals/parrot.jpg"
+      {
+        "imageSRC": "./assets/category/nature/lake.jpg",
+        "name": "Lake",
+        "translate": "Озеро"
+      },
+      {
+        "imageSRC": "./assets/category/animals/parrot.jpg",
+        "name": "Parrot",
+        "translate": "Попугай"
+      }
     ]
   }
 ]

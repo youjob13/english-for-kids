@@ -1,9 +1,12 @@
 import React, { ReactElement, useState } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import classes from './header.module.scss';
 import Navigation from './Navigation/Navigation';
-import SwitchBtn from '../../shared/antDesignComponents/SwitchBtn/Switch';
+import { toggleGameMode } from '../../store/gameSlice';
+import { IHeaderProps } from '../../shared/interfaces/props-models';
 
-const Header = (): ReactElement => {
+const Header = ({ pressBtnChangeGameMode }: IHeaderProps): ReactElement => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
@@ -12,9 +15,15 @@ const Header = (): ReactElement => {
       <button type="button" onClick={() => setIsOpenMenu(!isOpenMenu)}>
         Menu
       </button>
-      <SwitchBtn />
+      <button type="button" onClick={pressBtnChangeGameMode}>
+        swith
+      </button>
     </header>
   );
 };
 
-export default Header;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  pressBtnChangeGameMode: () => dispatch(toggleGameMode()),
+});
+
+export default connect(null, mapDispatchToProps)(Header);
