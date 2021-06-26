@@ -15,6 +15,12 @@ import { ICardItem, ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
 import { setGivenAnswer, prepareGameProcess } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
+import {
+  getCurrentQuestion,
+  getIsReadyToStartedGame,
+  getIsStartedGame,
+} from '../../store/gameSelectors';
+import getCardsData from '../../store/cardsSelectors';
 
 const Category = ({
   cardsData,
@@ -30,9 +36,9 @@ const Category = ({
   const currentCategoryCards: ICardsData | undefined = cardsData.find(
     (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
   );
-
   const cards = Object.values(currentCategoryCards!)[0];
   console.log(currentQuestion);
+  console.log('HEADER RERENDER');
   if (currentQuestion) playAudio(audioSRC);
   return (
     <>
@@ -58,11 +64,12 @@ const Category = ({
     </>
   );
 };
+
 const mapStateToProps = (state: GameAndCardsReducerType) => ({
-  cardsData: state.cardsReducer.cards,
-  isReadyToStartedGame: state.gameReducer.isReadyToStartedGame,
-  currentQuestion: state.gameReducer.currentQuestion,
-  isStartedGame: state.gameReducer.isStartedGame,
+  cardsData: getCardsData(state.cardsReducer),
+  isReadyToStartedGame: getIsReadyToStartedGame(state.gameReducer),
+  isStartedGame: getIsStartedGame(state.gameReducer),
+  currentQuestion: getCurrentQuestion(state.gameReducer),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

@@ -6,13 +6,13 @@ import Navigation from './Navigation/Navigation';
 import { toggleGameMode } from '../../store/gameSlice';
 import { IHeaderProps } from '../../shared/interfaces/props-models';
 import { CardsReducerType } from '../../shared/interfaces/store-models';
+import getCardsData from '../../store/cardsSelectors';
 
 const Header = ({
   pressBtnChangeGameMode,
   cards,
 }: IHeaderProps): ReactElement => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-
   return (
     <header className={classes.header}>
       {isOpenMenu && <Navigation cards={cards} />}
@@ -27,7 +27,7 @@ const Header = ({
 };
 
 const mapStateToProps = (state: CardsReducerType) => ({
-  cards: state.cardsReducer.cards,
+  cards: getCardsData(state.cardsReducer),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

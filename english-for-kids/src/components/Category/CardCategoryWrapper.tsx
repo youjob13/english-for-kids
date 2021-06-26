@@ -5,12 +5,17 @@ import Card from '../Card/Card';
 import { ICardCategoryWrapperProps } from '../../shared/interfaces/props-models';
 import { GameReducerType } from '../../shared/interfaces/store-models';
 import playAudio from '../../shared/helpersFunction/playSound';
+import {
+  getIsReadyToStartedGame,
+  getIsStartedGame,
+} from '../../store/gameSelectors';
 // TODO: rewrite with hoc
 const CardCategoryWrapper = ({
   card,
   isReadyToStartedGame,
   giveAnswer,
-}: ICardCategoryWrapperProps): ReactElement => {
+  isStartedGame,
+}: ICardCategoryWrapperProps | any): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
   const { name, translate, imageSRC, audioSRC } = card;
 
@@ -25,7 +30,7 @@ const CardCategoryWrapper = ({
   };
 
   const onCardClick = () => {
-    giveAnswer(card);
+    if (isStartedGame) giveAnswer(card);
   };
 
   return (
@@ -67,7 +72,8 @@ const CardCategoryWrapper = ({
 };
 
 const mapStateToProps = (state: GameReducerType) => ({
-  isReadyToStartedGame: state.gameReducer.isReadyToStartedGame,
+  isReadyToStartedGame: getIsReadyToStartedGame(state.gameReducer),
+  isStartedGame: getIsStartedGame(state.gameReducer),
 });
 
 export default connect(mapStateToProps)(CardCategoryWrapper);

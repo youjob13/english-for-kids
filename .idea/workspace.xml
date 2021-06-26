@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: start game, play/repeat question, refactor playAudio" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: compare answer and question, remove right answer from question list" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,6 +136,7 @@
       <workItem from="1624694237964" duration="26000" />
       <workItem from="1624698705223" duration="52000" />
       <workItem from="1624702544660" duration="50000" />
+      <workItem from="1624704087098" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -403,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624702589996</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="feat: compare answer and question, remove right answer from question list">
+      <created>1624704136964</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1624704136964</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +430,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: sort winners table" />
     <MESSAGE value="fix: layout garage page &amp; winners table" />
     <MESSAGE value="fix: generate list winners" />
     <MESSAGE value="fix: end of the race" />
@@ -447,7 +454,8 @@
     <MESSAGE value="refactor: change name, remove any" />
     <MESSAGE value="refactor: change names, feat styles" />
     <MESSAGE value="feat: start game, play/repeat question, refactor playAudio" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: start game, play/repeat question, refactor playAudio" />
+    <MESSAGE value="feat: compare answer and question, remove right answer from question list" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: compare answer and question, remove right answer from question list" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

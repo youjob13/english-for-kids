@@ -5,6 +5,8 @@ import CardMainPageWrapper from './CardMainPageWrapper';
 import { GameAndCardsReducerType } from '../../shared/interfaces/store-models';
 import { IMainPageProps } from '../../shared/interfaces/props-models';
 import { ICardItem } from '../../shared/interfaces/cards-models';
+import getCardsData from '../../store/cardsSelectors';
+import { getIsReadyToStartedGame } from '../../store/gameSelectors';
 
 const MainPage = ({
   cardsData,
@@ -31,8 +33,8 @@ const MainPage = ({
   );
 };
 const mapStateToProps = (state: GameAndCardsReducerType) => ({
-  cardsData: state.cardsReducer.cards, // TODO: selectors
-  isReadyToStartedGame: state.gameReducer.isReadyToStartedGame,
+  cardsData: getCardsData(state.cardsReducer),
+  isReadyToStartedGame: getIsReadyToStartedGame(state.gameReducer),
 });
 
 export default connect(mapStateToProps)(MainPage);
