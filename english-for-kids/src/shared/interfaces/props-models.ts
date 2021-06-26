@@ -2,23 +2,24 @@ import { ICardItem, ICardsData } from './cards-models';
 
 export interface IMainPageProps {
   cardsData: ICardsData[];
-  isStartedGame: boolean;
+  isReadyToStartedGame: boolean;
 }
 
 export interface ICardMainPageWrapperProps {
   cards: ICardItem[];
   category: string;
-  isStartedGame: boolean;
+  isReadyToStartedGame: boolean;
 }
 
 export interface ICardProps {
   title: string;
   imageSRC: string;
-  isStartedGame: boolean;
+  isReadyToStartedGame: boolean;
 }
 
 export interface ICategoryProps {
   cardsData: ICardsData[];
+  isReadyToStartedGame: boolean;
 }
 
 export interface INavigationProps {
@@ -36,5 +37,5 @@ export interface IHeaderProps {
 
 export interface ICardCategoryWrapperProps {
   card: ICardItem;
-  isStartedGame: boolean;
+  isReadyToStartedGame: boolean;
 }

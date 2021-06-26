@@ -6,6 +6,20 @@
   }
 }
 
+.translationBtn {
+  right: 10px;
+}
+
+.playSoundBtn {
+  left: 10px;
+}
+
+.translationBtn, .playSoundBtn {
+  position: absolute;
+  bottom: 10px;
+  z-index: 99;
+}
+
 .translation {
   position: absolute;
   left: 50%;
@@ -15,8 +29,9 @@
   background-color: #fff;
   visibility: hidden;
   opacity: 0;
+
   &Active {
-    visibility:visible;
+    visibility: visible;
     opacity: 1;
   }
 }

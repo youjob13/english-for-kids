@@ -7,13 +7,13 @@ import { ICardMainPageWrapperProps } from '../../shared/interfaces/props-models'
 const CardMainPageWrapper = ({
   category,
   cards,
-  isStartedGame,
+  isReadyToStartedGame,
 }: ICardMainPageWrapperProps): ReactElement => {
   return (
     <Link to={`/section/${category}`}>
       <Card
         title={category}
-        isStartedGame={isStartedGame}
+        isReadyToStartedGame={isReadyToStartedGame}
         imageSRC={cards[0].imageSRC}
       />
     </Link>

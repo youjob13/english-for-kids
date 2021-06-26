@@ -7,12 +7,15 @@ import { ICardProps } from '../../shared/interfaces/props-models';
 //   CardName = cardName.toUpperCase(),
 // }
 
-const Card = ({ title, imageSRC, isStartedGame }: ICardProps): ReactElement => (
-  <li
-    className={
-      isStartedGame ? `${classes.card} ${classes.isStartedGame}` : classes.card
-    }
-  >
+const trainStyles = `${classes.card} ${classes.isStartedGame}`;
+const playStyles = `${classes.card} ${classes}`;
+
+const Card = ({
+  title,
+  imageSRC,
+  isReadyToStartedGame,
+}: ICardProps): ReactElement => (
+  <li className={isReadyToStartedGame ? trainStyles : playStyles}>
     <img
       className={classes.cardImage}
       src={imageSRC} // TODO: remove !

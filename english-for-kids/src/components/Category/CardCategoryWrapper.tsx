@@ -7,45 +7,63 @@ import { GameReducerType } from '../../shared/interfaces/store-models';
 // TODO: rewrite with hoc
 const CardCategoryWrapper = ({
   card,
-  isStartedGame,
+  isReadyToStartedGame,
 }: ICardCategoryWrapperProps): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
   const { name, translate, imageSRC, audioSRC } = card;
 
-  const playCardAudio = () => {
+  const showTranslation = () => {
+    if (isReadyToStartedGame) return;
     setIsShowTranslation(!isShowTranslation);
-    if (!isShowTranslation) {
-      const audio = new Audio(card.audioSRC);
-      audio.play();
-      audio.remove();
-    }
+  };
+
+  const playCardAudio = () => {
+    if (isReadyToStartedGame) return;
+    const audio = new Audio(audioSRC);
+    audio.play();
+    audio.remove();
   };
 
   return (
-    <a href="##" onClick={playCardAudio}>
-      <div className={classes.cardWrapper}>
-        <p
-          className={
-            isShowTranslation
-              ? `${classes.translation} ${classes.translationActive}`
-              : classes.translation
-          }
-        >
-          {translate}
-          {audioSRC}
-        </p>
-        <Card
-          title={isStartedGame ? name : ''}
-          isStartedGame={isStartedGame}
-          imageSRC={imageSRC}
-        />
-      </div>
-    </a>
+    <div className={classes.cardWrapper}>
+      <p
+        className={
+          isShowTranslation
+            ? `${classes.translation} ${classes.translationActive}`
+            : classes.translation
+        }
+      >
+        {translate}
+      </p>
+      {!isReadyToStartedGame && (
+        <>
+          <button
+            type="button"
+            className={classes.translationBtn}
+            onClick={showTranslation}
+          >
+            translate
+          </button>
+          <button
+            type="button"
+            className={classes.playSoundBtn}
+            onClick={playCardAudio}
+          >
+            play sound
+          </button>
+        </>
+      )}
+      <Card
+        title={isReadyToStartedGame ? '' : name}
+        isReadyToStartedGame={isReadyToStartedGame}
+        imageSRC={imageSRC}
+      />
+    </div>
   );
 };
 
 const mapStateToProps = (state: GameReducerType) => ({
-  isStartedGame: state.gameReducer.isStartedGame,
+  isReadyToStartedGame: state.gameReducer.isReadyToStartedGame,
 });
 
 export default connect(mapStateToProps)(CardCategoryWrapper);

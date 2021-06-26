@@ -8,7 +8,7 @@ import { ICardItem } from '../../shared/interfaces/cards-models';
 
 const MainPage = ({
   cardsData,
-  isStartedGame,
+  isReadyToStartedGame,
 }: IMainPageProps): ReactElement => {
   return (
     <>
@@ -22,7 +22,7 @@ const MainPage = ({
               key={index.toString()}
               category={category}
               cards={cards}
-              isStartedGame={isStartedGame}
+              isReadyToStartedGame={isReadyToStartedGame}
             />
           );
         })}
@@ -32,7 +32,7 @@ const MainPage = ({
 };
 const mapStateToProps = (state: GameAndCardsReducerType) => ({
   cardsData: state.cardsReducer.cards, // TODO: selectors
-  isStartedGame: state.gameReducer.isStartedGame,
+  isReadyToStartedGame: state.gameReducer.isReadyToStartedGame,
 });
 
 export default connect(mapStateToProps)(MainPage);

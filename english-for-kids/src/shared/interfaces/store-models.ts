@@ -5,6 +5,7 @@ export interface ICardsState {
 }
 
 export interface IGameState {
+  isReadyToStartedGame: boolean;
   isStartedGame: boolean;
 }
 

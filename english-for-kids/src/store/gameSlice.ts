@@ -4,12 +4,13 @@ import { IGameState } from '../shared/interfaces/store-models';
 const gameSlice = createSlice({
   name: 'gameSlice',
   initialState: {
+    isReadyToStartedGame: false,
     isStartedGame: false,
   } as IGameState,
   reducers: {
     toggleGameMode: (state: IGameState) => ({
       ...state,
-      isStartedGame: !state.isStartedGame,
+      isReadyToStartedGame: !state.isReadyToStartedGame,
     }),
   },
 });
