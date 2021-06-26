@@ -1,7 +1,6 @@
 [
   {
-    "category": "nature",
-    "cards": [
+    "nature": [
       {
         "imageSRC": "../../assets/category/nature/forest.jpg",
         "name": "Forest",
@@ -53,8 +52,7 @@
     ]
   },
   {
-    "category": "animals",
-    "cards": [
+    "animals": [
       {
         "imageSRC": "../../assets/category/animals/cat.jpg",
         "name": "Cat",
@@ -106,8 +104,7 @@
     ]
   },
   {
-    "category": "sport",
-    "cards": [
+    "sport": [
       {
         "imageSRC": "../../assets/category/sport/boxing.jpg",
         "name": "Boxing",
@@ -159,8 +156,7 @@
     ]
   },
   {
-    "category": "cars",
-    "cards": [
+    "cars": [
       {
         "imageSRC": "../../assets/category/nature/lake.jpg",
         "name": "Lake",
@@ -176,8 +172,7 @@
     ]
   },
   {
-    "category": "gadgets",
-    "cards": [
+    "gadgets": [
       {
         "imageSRC": "../../assets/category/nature/lake.jpg",
         "name": "Lake",
@@ -193,8 +188,7 @@
     ]
   },
   {
-    "category": "celebrities",
-    "cards": [
+    "celebrities": [
       {
         "imageSRC": "../../assets/category/nature/lake.jpg",
         "name": "Lake",
@@ -210,8 +204,7 @@
     ]
   },
   {
-    "category": "musicians",
-    "cards": [
+    "musicians": [
       {
         "imageSRC": "../../assets/category/nature/lake.jpg",
         "name": "Lake",
@@ -227,8 +220,7 @@
     ]
   },
   {
-    "category": "movies",
-    "cards": [
+    "movies": [
       {
         "imageSRC": "../../assets/category/nature/lake.jpg",
         "name": "Lake",

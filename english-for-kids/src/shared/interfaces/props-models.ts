@@ -16,7 +16,7 @@ export interface ICardProps {
 }
 
 export interface ICategoryProps {
-  cardsData: ICardsData;
+  cardsData: ICardsData[];
 }
 
 export interface INavigationProps {

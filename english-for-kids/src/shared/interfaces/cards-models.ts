@@ -1,6 +1,5 @@
 export interface ICardsData {
-  category: string;
-  cards: ICardItem[];
+  [key: string]: ICardItem[];
 }
 
 export interface ICardItem {

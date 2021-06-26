@@ -5,19 +5,21 @@ import classes from './category.module.scss';
 import { CardsReducerType } from '../../shared/interfaces/store-models';
 import { ICategoryProps } from '../../shared/interfaces/props-models';
 import CardCategoryWrapper from './CardCategoryWrapper';
-import { ICardItem, ICardsData } from '../../shared/interfaces/cards-models';
+import { ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
 
-const Category = ({ cardsData }: ICategoryProps | any): ReactElement => {
-  const { category } = useParams<RouteParams>();
+const Category = ({ cardsData }: ICategoryProps): ReactElement => {
+  const { category: categoryPath } = useParams<RouteParams>();
+
+  const currentCategoryCards: ICardsData | undefined = cardsData.find(
+    (cards) => Object.keys(cards).toString() === categoryPath
+  );
 
   return (
     <ul className={classes.categoryField}>
-      {cardsData
-        .find((cards: ICardsData) => cards.category === category)
-        .cards.map((card: ICardItem, index: number) => {
-          return <CardCategoryWrapper key={index.toString()} card={card} />;
-        })}
+      {Object.values(currentCategoryCards!)[0].map((card, index) => (
+        <CardCategoryWrapper key={index.toString()} card={card} />
+      ))}
     </ul>
   );
 };

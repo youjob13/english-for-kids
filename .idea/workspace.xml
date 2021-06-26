@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: assets (cards image &amp; audio)" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: router (render cards)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +131,7 @@
       <workItem from="1624517265381" duration="72000" />
       <workItem from="1624519857426" duration="54000" />
       <workItem from="1624521704127" duration="34000" />
+      <workItem from="1624691354529" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -363,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624521733189</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="refactor: router (render cards)">
+      <created>1624691401306</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1624691401306</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +390,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: layout winners page &amp; state for winners" />
     <MESSAGE value="feat: sorting the winners table" />
     <MESSAGE value="fix: calculate race time with milliseconds" />
     <MESSAGE value="refactor: remove Timer" />
@@ -407,7 +414,8 @@
     <MESSAGE value="feat: update cards.json, add wrapper for cards" />
     <MESSAGE value="feat: play audio transcription" />
     <MESSAGE value="feat: assets (cards image &amp; audio)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: assets (cards image &amp; audio)" />
+    <MESSAGE value="refactor: router (render cards)" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: router (render cards)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

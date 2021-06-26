@@ -1,7 +1,7 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
 import { ICardsData } from '../shared/interfaces/cards-models';
-import cardsData from '../cards.json';
+import test from '../test.json';
 
 const cardsSlice = createSlice({
   name: 'cardsSlice',
@@ -26,6 +26,6 @@ export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
     // const cards = await cardsAPI.getCards();
-    const cards = cardsData;
+    const cards = test;
     dispatch(setAllCards(cards));
   };

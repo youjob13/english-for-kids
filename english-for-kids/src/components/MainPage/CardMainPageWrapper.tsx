@@ -7,15 +7,16 @@ import { GameReducerType } from '../../shared/interfaces/store-models';
 
 // TODO: rewrite with hoc
 const CardMainPageWrapper = ({
-  card,
+  category,
+  cards,
   isStartedGame,
-}: ICardMainPageWrapperProps): ReactElement => {
+}: ICardMainPageWrapperProps | any): ReactElement => {
   return (
-    <Link to={`/section/${card.category}`}>
+    <Link to={`/section/${category}`}>
       <Card
-        title={card.category}
+        title={category}
         isStartedGame={isStartedGame}
-        imageSRC={card.cards[0].imageSRC}
+        imageSRC={cards[0].imageSRC}
       />
     </Link>
   );
