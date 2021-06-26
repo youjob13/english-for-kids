@@ -1,9 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import classes from './category.module.scss';
 import Card from '../Card/Card';
-import { selectCategory } from '../../store/cardsSlice';
 import { ICardCategoryWrapperProps } from '../../shared/interfaces/props-models';
 import { GameReducerType } from '../../shared/interfaces/store-models';
 // TODO: rewrite with hoc
@@ -12,6 +10,7 @@ const CardCategoryWrapper = ({
   isStartedGame,
 }: ICardCategoryWrapperProps): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
+  const { name, translate, imageSRC, audioSRC } = card;
 
   const playCardAudio = () => {
     setIsShowTranslation(!isShowTranslation);
@@ -32,10 +31,14 @@ const CardCategoryWrapper = ({
               : classes.translation
           }
         >
-          {card.translate}
-          {card.audioSRC}
+          {translate}
+          {audioSRC}
         </p>
-        <Card title={isStartedGame ? card.name : ''} image={card.imageSRC} />
+        <Card
+          title={isStartedGame ? name : ''}
+          isStartedGame={isStartedGame}
+          imageSRC={imageSRC}
+        />
       </div>
     </a>
   );
@@ -45,12 +48,4 @@ const mapStateToProps = (state: GameReducerType) => ({
   isStartedGame: state.gameReducer.isStartedGame,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onCardCategoryClick: (categoryName: string) =>
-    dispatch(selectCategory(categoryName)),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CardCategoryWrapper);
+export default connect(mapStateToProps)(CardCategoryWrapper);

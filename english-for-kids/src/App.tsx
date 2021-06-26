@@ -11,7 +11,7 @@ const App = (): ReactElement => (
     <main className="app-content">
       <Switch>
         <Route path="/main" component={MainPage} />
-        <Route path="/category" component={Category} />
+        <Route path="/section/:category" component={Category} />
         <Redirect from="/" to="/main" />
       </Switch>
     </main>

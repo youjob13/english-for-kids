@@ -6,27 +6,25 @@ export interface IMainPageProps {
 
 export interface ICardMainPageWrapperProps {
   card: ICardsData;
-  onCardCategoryClick: (category: string) => void;
+  isStartedGame: boolean;
 }
 
 export interface ICardProps {
   title: string;
-  image: string;
+  imageSRC: string;
   isStartedGame: boolean;
 }
 
 export interface ICategoryProps {
-  selectedCategory: ICardsData;
+  cardsData: ICardsData;
 }
 
 export interface INavigationProps {
   cards: ICardsData[];
-  onCardCategoryClick: (category: string) => void;
 }
 
 export interface INavigationItemProps {
-  title: string;
-  onLinkClick: (title: string) => void;
+  category: string;
 }
 
 export interface IHeaderProps {

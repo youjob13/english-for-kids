@@ -1,7 +1,6 @@
 import { ICardsData } from './cards-models';
 
 export interface ICardsState {
-  selectedCategory: ICardsData; // TODO: remove error
   cards: ICardsData[];
 }
 

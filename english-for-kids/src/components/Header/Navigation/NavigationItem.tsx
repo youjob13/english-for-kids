@@ -3,17 +3,10 @@ import { NavLink } from 'react-router-dom';
 import classes from './navigation.module.scss';
 import { INavigationItemProps } from '../../../shared/interfaces/props-models';
 
-const NavigationItem = ({
-  title,
-  onLinkClick,
-}: INavigationItemProps): ReactElement => (
+const NavigationItem = ({ category }: INavigationItemProps): ReactElement => (
   <li>
-    <NavLink
-      onClick={() => onLinkClick(title)}
-      to="category"
-      className={classes.navItem}
-    >
-      {title}
+    <NavLink to={`/section/${category}`} className={classes.navItem}>
+      {category}
     </NavLink>
   </li>
 );

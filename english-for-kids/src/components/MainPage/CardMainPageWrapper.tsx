@@ -1,30 +1,28 @@
 import React, { ReactElement } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
-import { selectCategory } from '../../store/cardsSlice';
 import { ICardMainPageWrapperProps } from '../../shared/interfaces/props-models';
+import { GameReducerType } from '../../shared/interfaces/store-models';
 
 // TODO: rewrite with hoc
 const CardMainPageWrapper = ({
   card,
-  onCardCategoryClick,
+  isStartedGame,
 }: ICardMainPageWrapperProps): ReactElement => {
-  const onLinkClick = () => {
-    onCardCategoryClick(card.category);
-  };
-  console.log(card);
   return (
-    <Link onClick={onLinkClick} to="category">
-      <Card title={card.category} image={card.cards[0].imageSRC} />
+    <Link to={`/section/${card.category}`}>
+      <Card
+        title={card.category}
+        isStartedGame={isStartedGame}
+        imageSRC={card.cards[0].imageSRC}
+      />
     </Link>
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  onCardCategoryClick: (categoryName: string) =>
-    dispatch(selectCategory(categoryName)),
+const mapStateToProps = (state: GameReducerType) => ({
+  isStartedGame: state.gameReducer.isStartedGame,
 });
 
-export default connect(null, mapDispatchToProps)(CardMainPageWrapper);
+export default connect(mapStateToProps)(CardMainPageWrapper);
