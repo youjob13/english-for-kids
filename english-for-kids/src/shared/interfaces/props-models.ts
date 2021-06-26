@@ -1,11 +1,13 @@
 import { ICardItem, ICardsData } from './cards-models';
 
 export interface IMainPageProps {
-  cards: ICardsData[];
+  cardsData: ICardsData[];
+  isStartedGame: boolean;
 }
 
 export interface ICardMainPageWrapperProps {
-  card: ICardsData;
+  cards: ICardItem[];
+  category: string;
   isStartedGame: boolean;
 }
 
@@ -29,6 +31,7 @@ export interface INavigationItemProps {
 
 export interface IHeaderProps {
   pressBtnChangeGameMode: () => void;
+  cards: ICardsData[];
 }
 
 export interface ICardCategoryWrapperProps {

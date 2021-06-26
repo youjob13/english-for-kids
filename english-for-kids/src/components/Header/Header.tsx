@@ -5,13 +5,17 @@ import classes from './header.module.scss';
 import Navigation from './Navigation/Navigation';
 import { toggleGameMode } from '../../store/gameSlice';
 import { IHeaderProps } from '../../shared/interfaces/props-models';
+import { CardsReducerType } from '../../shared/interfaces/store-models';
 
-const Header = ({ pressBtnChangeGameMode }: IHeaderProps): ReactElement => {
+const Header = ({
+  pressBtnChangeGameMode,
+  cards,
+}: IHeaderProps): ReactElement => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
     <header className={classes.header}>
-      {isOpenMenu && <Navigation />}
+      {isOpenMenu && <Navigation cards={cards} />}
       <button type="button" onClick={() => setIsOpenMenu(!isOpenMenu)}>
         Menu
       </button>
@@ -22,8 +26,12 @@ const Header = ({ pressBtnChangeGameMode }: IHeaderProps): ReactElement => {
   );
 };
 
+const mapStateToProps = (state: CardsReducerType) => ({
+  cards: state.cardsReducer.cards,
+});
+
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   pressBtnChangeGameMode: () => dispatch(toggleGameMode()),
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

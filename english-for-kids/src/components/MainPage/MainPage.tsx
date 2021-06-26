@@ -2,27 +2,37 @@ import React, { ReactElement } from 'react';
 import { connect } from 'react-redux';
 import classes from './mainPage.module.scss';
 import CardMainPageWrapper from './CardMainPageWrapper';
-import { CardsReducerType } from '../../shared/interfaces/store-models';
+import { GameAndCardsReducerType } from '../../shared/interfaces/store-models';
 import { IMainPageProps } from '../../shared/interfaces/props-models';
+import { ICardItem } from '../../shared/interfaces/cards-models';
 
-const MainPage = ({ cards }: IMainPageProps): ReactElement => {
+const MainPage = ({
+  cardsData,
+  isStartedGame,
+}: IMainPageProps): ReactElement => {
   return (
     <>
       <h2 className={classes.title}>Train & Play</h2>
       <ul className={classes.content}>
-        {cards.map((card: any, index: number) => (
-          <CardMainPageWrapper
-            key={index.toString()}
-            category={Object.keys(card).toString()}
-            cards={Object.values(card)[0]}
-          />
-        ))}
+        {cardsData.map((cardsDataItem, index) => {
+          const category = Object.keys(cardsDataItem).toString();
+          const cards: ICardItem[] = Object.values(cardsDataItem)[0];
+          return (
+            <CardMainPageWrapper
+              key={index.toString()}
+              category={category}
+              cards={cards}
+              isStartedGame={isStartedGame}
+            />
+          );
+        })}
       </ul>
     </>
   );
 };
-const mapStateToProps = (state: CardsReducerType) => ({
-  cards: state.cardsReducer.cards, // TODO: selectors
+const mapStateToProps = (state: GameAndCardsReducerType) => ({
+  cardsData: state.cardsReducer.cards, // TODO: selectors
+  isStartedGame: state.gameReducer.isStartedGame,
 });
 
 export default connect(mapStateToProps)(MainPage);

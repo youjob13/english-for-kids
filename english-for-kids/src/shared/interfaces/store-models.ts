@@ -10,3 +10,7 @@ export interface IGameState {
 
 export type CardsReducerType = { cardsReducer: ICardsState }; // TODO: change name
 export type GameReducerType = { gameReducer: IGameState }; // TODO: change name
+export type GameAndCardsReducerType = {
+  gameReducer: IGameState;
+  cardsReducer: ICardsState;
+};

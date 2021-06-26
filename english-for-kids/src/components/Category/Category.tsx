@@ -12,7 +12,7 @@ const Category = ({ cardsData }: ICategoryProps): ReactElement => {
   const { category: categoryPath } = useParams<RouteParams>();
 
   const currentCategoryCards: ICardsData | undefined = cardsData.find(
-    (cards) => Object.keys(cards).toString() === categoryPath
+    (cardsDatItem) => Object.keys(cardsDatItem).toString() === categoryPath
   );
 
   return (
