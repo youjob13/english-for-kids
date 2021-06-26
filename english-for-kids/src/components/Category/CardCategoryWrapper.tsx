@@ -15,7 +15,7 @@ const CardCategoryWrapper = ({
   isReadyToStartedGame,
   giveAnswer,
   isStartedGame,
-}: ICardCategoryWrapperProps | any): ReactElement => {
+}: ICardCategoryWrapperProps): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
   const { name, translate, imageSRC, audioSRC } = card;
 
@@ -35,7 +35,7 @@ const CardCategoryWrapper = ({
 
   return (
     <div
-      onClick={onCardClick} // TODO: ask the question to Ivan
+      onClick={onCardClick}
       role="button"
       tabIndex={0}
       onKeyDown={() => console.log('as')}

@@ -21,6 +21,7 @@ export interface ICategoryProps {
   giveAnswer: (card: ICardItem) => void;
   startNewGame: (cards: ICardItem[]) => void;
   cardsData: ICardsData[];
+  currentGameCardList: ICardItem[];
   currentQuestion: ICardItem | any;
   isReadyToStartedGame: boolean;
   isStartedGame: boolean;
@@ -43,4 +44,5 @@ export interface ICardCategoryWrapperProps {
   giveAnswer: (card: ICardItem) => void;
   card: ICardItem;
   isReadyToStartedGame: boolean;
+  isStartedGame: boolean;
 }

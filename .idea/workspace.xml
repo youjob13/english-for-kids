@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: add selectors &amp; install reselect" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: remove any &amp; add getCurrentCardList selector">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,6 +140,8 @@
       <workItem from="1624702544660" duration="50000" />
       <workItem from="1624704087098" duration="54000" />
       <workItem from="1624707119254" duration="47000" />
+      <workItem from="1624707689707" duration="25000" />
+      <workItem from="1624716704175" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -419,7 +423,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624707161408</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="refactor: change a tag on div">
+      <created>1624707708080</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1624707708080</updated>
+    </task>
+    <task id="LOCAL-00042" summary="refactor: remove any &amp; add getCurrentCardList selector">
+      <created>1624716745393</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1624716745393</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,8 +456,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: generate list winners" />
-    <MESSAGE value="fix: end of the race" />
     <MESSAGE value="feat: winners page pagination" />
     <MESSAGE value="refactor: remove eslint warnings" />
     <MESSAGE value="feat: new deploy version" />
@@ -463,7 +479,9 @@
     <MESSAGE value="feat: start game, play/repeat question, refactor playAudio" />
     <MESSAGE value="feat: compare answer and question, remove right answer from question list" />
     <MESSAGE value="refactor: add selectors &amp; install reselect" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: add selectors &amp; install reselect" />
+    <MESSAGE value="refactor: change a tag on div" />
+    <MESSAGE value="refactor: remove any &amp; add getCurrentCardList selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove any &amp; add getCurrentCardList selector" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
