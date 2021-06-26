@@ -1,4 +1,4 @@
-import { ICardsData } from './cards-models';
+import { ICardItem, ICardsData } from './cards-models';
 
 export interface ICardsState {
   cards: ICardsData[];
@@ -7,6 +7,8 @@ export interface ICardsState {
 export interface IGameState {
   isReadyToStartedGame: boolean;
   isStartedGame: boolean;
+  currentGameCardList: ICardItem[];
+  currentQuestion: ICardItem | null;
 }
 
 export type CardsReducerType = { cardsReducer: ICardsState }; // TODO: change name

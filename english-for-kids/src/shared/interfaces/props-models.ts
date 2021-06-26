@@ -18,8 +18,11 @@ export interface ICardProps {
 }
 
 export interface ICategoryProps {
+  startNewGame: (cards: ICardItem[]) => void;
   cardsData: ICardsData[];
+  currentQuestion: ICardItem | any;
   isReadyToStartedGame: boolean;
+  isStartedGame: boolean;
 }
 
 export interface INavigationProps {

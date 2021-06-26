@@ -4,6 +4,7 @@ import classes from './category.module.scss';
 import Card from '../Card/Card';
 import { ICardCategoryWrapperProps } from '../../shared/interfaces/props-models';
 import { GameReducerType } from '../../shared/interfaces/store-models';
+import playAudio from '../../shared/helpersFunction/playSound';
 // TODO: rewrite with hoc
 const CardCategoryWrapper = ({
   card,
@@ -19,9 +20,7 @@ const CardCategoryWrapper = ({
 
   const playCardAudio = () => {
     if (isReadyToStartedGame) return;
-    const audio = new Audio(audioSRC);
-    audio.play();
-    audio.remove();
+    playAudio(audioSRC);
   };
 
   return (

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: change name, remove any" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: change names, feat styles" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +134,7 @@
       <workItem from="1624691354529" duration="51000" />
       <workItem from="1624693387885" duration="51000" />
       <workItem from="1624694237964" duration="26000" />
+      <workItem from="1624698705223" duration="52000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -387,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624694257800</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="refactor: change names, feat styles">
+      <created>1624698753362</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1624698753362</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +414,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: remove Timer" />
     <MESSAGE value="fix: page behavior during the race" />
     <MESSAGE value="fix: sort winners table" />
     <MESSAGE value="fix: layout garage page &amp; winners table" />
@@ -431,7 +438,8 @@
     <MESSAGE value="refactor: router (render cards)" />
     <MESSAGE value="refactor: structure data from back file" />
     <MESSAGE value="refactor: change name, remove any" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: change name, remove any" />
+    <MESSAGE value="refactor: change names, feat styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: change names, feat styles" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
