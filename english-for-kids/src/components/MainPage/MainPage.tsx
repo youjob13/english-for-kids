@@ -20,6 +20,7 @@ const MainPage = ({
           const category = Object.keys(cardsDataItem).toString();
           const cards: ICardItem[] = Object.values(cardsDataItem)[0];
           return (
+            // TODO: remove CardMainPageWrapper
             <CardMainPageWrapper
               key={index.toString()}
               category={category}

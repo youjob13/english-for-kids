@@ -37,9 +37,9 @@ const Category = ({
     (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
   );
   const cards = Object.values(currentCategoryCards!)[0];
-  console.log(currentQuestion);
-  console.log('HEADER RERENDER');
+
   if (currentQuestion) playAudio(audioSRC);
+
   return (
     <>
       <ul className={classes.categoryField}>

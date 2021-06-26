@@ -34,7 +34,13 @@ const CardCategoryWrapper = ({
   };
 
   return (
-    <a href="##" onClick={onCardClick} className={classes.cardWrapper}>
+    <div
+      onClick={onCardClick} // TODO: ask the question to Ivan
+      role="button"
+      tabIndex={0}
+      onKeyDown={() => console.log('as')}
+      className={classes.cardWrapper}
+    >
       <p
         className={
           isShowTranslation
@@ -67,7 +73,7 @@ const CardCategoryWrapper = ({
         isReadyToStartedGame={isReadyToStartedGame}
         imageSRC={imageSRC}
       />
-    </a>
+    </div>
   );
 };
 
