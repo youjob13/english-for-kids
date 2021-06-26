@@ -18,6 +18,7 @@ export interface ICardProps {
 }
 
 export interface ICategoryProps {
+  giveAnswer: (card: ICardItem) => void;
   startNewGame: (cards: ICardItem[]) => void;
   cardsData: ICardsData[];
   currentQuestion: ICardItem | any;
@@ -39,6 +40,7 @@ export interface IHeaderProps {
 }
 
 export interface ICardCategoryWrapperProps {
+  giveAnswer: (card: ICardItem) => void;
   card: ICardItem;
   isReadyToStartedGame: boolean;
 }

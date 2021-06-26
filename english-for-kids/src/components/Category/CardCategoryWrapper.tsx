@@ -9,6 +9,7 @@ import playAudio from '../../shared/helpersFunction/playSound';
 const CardCategoryWrapper = ({
   card,
   isReadyToStartedGame,
+  giveAnswer,
 }: ICardCategoryWrapperProps): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
   const { name, translate, imageSRC, audioSRC } = card;
@@ -23,8 +24,12 @@ const CardCategoryWrapper = ({
     playAudio(audioSRC);
   };
 
+  const onCardClick = () => {
+    giveAnswer(card);
+  };
+
   return (
-    <div className={classes.cardWrapper}>
+    <a href="##" onClick={onCardClick} className={classes.cardWrapper}>
       <p
         className={
           isShowTranslation
@@ -57,7 +62,7 @@ const CardCategoryWrapper = ({
         isReadyToStartedGame={isReadyToStartedGame}
         imageSRC={imageSRC}
       />
-    </div>
+    </a>
   );
 };
 

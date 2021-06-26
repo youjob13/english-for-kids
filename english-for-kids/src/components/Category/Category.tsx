@@ -13,7 +13,7 @@ import { ICategoryProps } from '../../shared/interfaces/props-models';
 import CardCategoryWrapper from './CardCategoryWrapper';
 import { ICardItem, ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
-import { prepareGameProcess } from '../../store/gameSlice';
+import { setGivenAnswer, prepareGameProcess } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
 
 const Category = ({
@@ -22,6 +22,7 @@ const Category = ({
   startNewGame,
   currentQuestion,
   isStartedGame,
+  giveAnswer,
 }: ICategoryProps): ReactElement => {
   const { category: categoryPath } = useParams<RouteParams>();
   const { audioSRC }: ICardItem = currentQuestion || '';
@@ -31,14 +32,17 @@ const Category = ({
   );
 
   const cards = Object.values(currentCategoryCards!)[0];
-
+  console.log(currentQuestion);
   if (currentQuestion) playAudio(audioSRC);
-
   return (
     <>
       <ul className={classes.categoryField}>
         {cards.map((card, index) => (
-          <CardCategoryWrapper key={index.toString()} card={card} />
+          <CardCategoryWrapper
+            key={index.toString()}
+            giveAnswer={giveAnswer}
+            card={card}
+          />
         ))}
       </ul>
       {isReadyToStartedGame &&
@@ -65,6 +69,10 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   startNewGame: (cards: ICardItem[]) =>
     (dispatch as ThunkDispatch<IGameState, unknown, AnyAction>)(
       prepareGameProcess(cards)
+    ),
+  giveAnswer: (answer: ICardItem) =>
+    (dispatch as ThunkDispatch<IGameState, unknown, AnyAction>)(
+      setGivenAnswer(answer)
     ),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Category);
