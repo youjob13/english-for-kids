@@ -25,7 +25,7 @@ export const { setAllCards } = cardsSlice.actions;
 export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    // const cards = await cardsAPI.getCards();
     const cards = test;
+
     dispatch(setAllCards(cards));
   };

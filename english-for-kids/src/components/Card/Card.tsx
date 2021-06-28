@@ -15,10 +15,10 @@ const Card = ({
   imageSRC,
   isReadyToStartedGame,
 }: ICardProps): ReactElement => (
-  <li className={isReadyToStartedGame ? trainStyles : playStyles}>
+  <li className={isReadyToStartedGame ? playStyles : trainStyles}>
     <img
       className={classes.cardImage}
-      src={imageSRC} // TODO: remove !
+      src={process.env.PUBLIC_URL + imageSRC} // TODO: remove !
       alt=""
     />
     <p className={classes.cardName}>{title}</p>

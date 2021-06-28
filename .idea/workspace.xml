@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: remove any &amp; add getCurrentCardList selector">
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="fear: new version english-for-kids deploy (1)">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_23_2021_8_41_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_23_2021_8_41_AM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="presentation" />
+        <entry key="$PROJECT_DIR$" value="gh-pages" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,6 +143,7 @@
       <workItem from="1624707119254" duration="47000" />
       <workItem from="1624707689707" duration="25000" />
       <workItem from="1624716704175" duration="360000" />
+      <workItem from="1624717159732" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -437,7 +439,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624716745393</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="refactor: remove any &amp; add getCurrentCardList selector">
+      <created>1624717176773</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1624717176773</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fear: new version english-for-kids deploy (1)">
+      <created>1624717313084</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1624717313084</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +472,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: winners page pagination" />
     <MESSAGE value="refactor: remove eslint warnings" />
     <MESSAGE value="feat: new deploy version" />
     <MESSAGE value="feat: remove winners from winners table" />
@@ -481,7 +496,8 @@
     <MESSAGE value="refactor: add selectors &amp; install reselect" />
     <MESSAGE value="refactor: change a tag on div" />
     <MESSAGE value="refactor: remove any &amp; add getCurrentCardList selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove any &amp; add getCurrentCardList selector" />
+    <MESSAGE value="fear: new version english-for-kids deploy (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fear: new version english-for-kids deploy (1)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
