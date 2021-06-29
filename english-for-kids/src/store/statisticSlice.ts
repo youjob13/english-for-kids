@@ -16,3 +16,10 @@ const statisticSlice = createSlice({
 export default statisticSlice.reducer;
 
 export const { s } = statisticSlice.actions;
+
+export interface IWordStatistic {
+  trainCounter?: number;
+  askedCounter?: number;
+  rightAnswerCounter?: number;
+  failAnswerCounter?: number;
+}

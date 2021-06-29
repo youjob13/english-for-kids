@@ -6,10 +6,12 @@ import {
   GameMode,
   ICardCategoryWrapperProps,
 } from '../../shared/interfaces/props-models';
-import { GameReducerType } from '../../shared/interfaces/store-models';
+import { GameAndCardsReducerType } from '../../shared/interfaces/store-models';
 import playAudio from '../../shared/helpersFunction/playSound';
 import { getGameModeStatus } from '../../store/gameSelectors';
 import { ICardItem } from '../../shared/interfaces/cards-models';
+import { IWordStatistic } from '../../store/statisticSlice';
+import compareAnswerAndQuestion from '../../shared/helpersFunction/compareTwoObjects';
 
 const checkIsGuessedCard = (
   currentGameCardList: ICardItem[],
@@ -19,6 +21,73 @@ const checkIsGuessedCard = (
     (cardFromGameList) =>
       JSON.stringify(cardFromGameList) === JSON.stringify(card)
   ); // TODO: try realise with reselect
+};
+
+const addUpdatedWordStatisticToDataBase = (
+  // TODO: think about using some pattern
+  word: ICardItem,
+  updatedProp: string,
+  currentQuestion?: ICardItem
+): void => {
+  const currentWordStatistic: IWordStatistic = JSON.parse(
+    localStorage.getItem(word.name)!
+  );
+
+  if (updatedProp === 'answerCounter' && currentQuestion) {
+    const answerResult = compareAnswerAndQuestion(word, currentQuestion);
+    console.log(answerResult);
+
+    if (answerResult) {
+      const currentWordStatisticLocal: IWordStatistic = JSON.parse(
+        // TODO: remove
+        localStorage.getItem(currentQuestion.name)!
+      );
+      const currentRightAnswerCounter =
+        (currentWordStatisticLocal &&
+          currentWordStatisticLocal.rightAnswerCounter) ||
+        0;
+
+      localStorage[word.name] = JSON.stringify({
+        ...currentWordStatistic,
+        rightAnswerCounter: currentRightAnswerCounter + 1,
+      });
+    } else {
+      const currentWordStatisticLocal: IWordStatistic = JSON.parse(
+        // TODO: remove
+        localStorage.getItem(currentQuestion.name)!
+      );
+      const currentFailAnswerCounter =
+        (currentWordStatisticLocal &&
+          currentWordStatisticLocal.failAnswerCounter) ||
+        0;
+
+      console.log(currentWordStatisticLocal);
+      localStorage[currentQuestion.name] = JSON.stringify({
+        ...currentWordStatistic,
+        failAnswerCounter: currentFailAnswerCounter + 1,
+      });
+    }
+  }
+
+  if (updatedProp === 'trainCounter') {
+    const currentTrainCounter =
+      (currentWordStatistic && currentWordStatistic.trainCounter) || 0;
+
+    localStorage[word.name] = JSON.stringify({
+      ...currentWordStatistic,
+      trainCounter: currentTrainCounter + 1,
+    });
+  }
+
+  if (updatedProp === 'askedCounter') {
+    const currentAskedCounter =
+      (currentWordStatistic && currentWordStatistic.askedCounter) || 0;
+
+    localStorage[word.name] = JSON.stringify({
+      ...currentWordStatistic,
+      askedCounter: currentAskedCounter + 1,
+    });
+  }
 };
 
 const CardCategoryWrapper = ({
@@ -40,10 +109,18 @@ const CardCategoryWrapper = ({
   const playCardAudio = () => {
     if (gameMode === GameMode.READY_TO_GAME) return;
     playAudio(audioSRC);
+    addUpdatedWordStatisticToDataBase(card, 'trainCounter'); // TODO: enum;
   };
 
   const onCardClick = () => {
-    if (gameMode === GameMode.IN_GAME) giveAnswer(card);
+    if (gameMode === GameMode.IN_GAME) {
+      giveAnswer(card);
+      addUpdatedWordStatisticToDataBase(
+        card,
+        'answerCounter',
+        currentGameCardList[0]
+      ); // TODO: enum;
+    }
   };
 
   return (
@@ -66,6 +143,7 @@ const CardCategoryWrapper = ({
         }
       >
         <div className={classes.cardFront}>
+          {/* TODO: divide two components */}
           <Card
             title={
               gameMode === GameMode.NO_GAME ||
@@ -115,10 +193,11 @@ const CardCategoryWrapper = ({
   );
 };
 
-const mapStateToProps = (state: GameReducerType) => ({
+const mapStateToProps = (state: GameAndCardsReducerType) => ({
   lastAnswer: state.gameReducer.lastAnswer,
   currentGameCardList: state.gameReducer.currentGameCardList,
   gameMode: getGameModeStatus(state.gameReducer),
+  playingList: state.cardsReducer.playingList,
 });
 
 export default connect(mapStateToProps)(CardCategoryWrapper);

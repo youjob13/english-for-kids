@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: statistic slice" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: remove any type, move getAllCards to MainPage.tsx" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,13 +147,7 @@
       <workItem from="1624950633639" duration="15000" />
       <workItem from="1624963400712" duration="68000" />
       <workItem from="1624964358847" duration="21000" />
-    </task>
-    <task id="LOCAL-00002" summary="fix: after deleting last car on page switch to prev page">
-      <created>1623848988996</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1623848988996</updated>
+      <workItem from="1624966837112" duration="20000" />
     </task>
     <task id="LOCAL-00003" summary="refactor: divide thunk by areas of responsibility">
       <created>1623851422414</created>
@@ -491,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624964374172</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="refactor: remove any type, move getAllCards to MainPage.tsx">
+      <created>1624966850580</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1624966850580</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +511,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: router" />
     <MESSAGE value="feat: header &amp; menu-nav layout" />
     <MESSAGE value="feat: main page layout &amp; card item layout" />
     <MESSAGE value="Initial commit" />
@@ -535,7 +535,8 @@
     <MESSAGE value="feat: end game popup, disabled card after right answer" />
     <MESSAGE value="feat: card flipping" />
     <MESSAGE value="feat: statistic slice" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: statistic slice" />
+    <MESSAGE value="refactor: remove any type, move getAllCards to MainPage.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove any type, move getAllCards to MainPage.tsx" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

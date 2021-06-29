@@ -5,9 +5,12 @@ import { GameMode } from './props-models';
 
 export interface ICardsState {
   cards: ICardsData[];
+  playingList: string[];
 }
 
-export interface IStatisticState {}
+export interface IStatisticState {
+  s?: string;
+}
 
 export interface IGameState {
   currentGameCardList: ICardItem[];
@@ -19,6 +22,7 @@ export interface IGameState {
 
 export type CardsReducerType = { cardsReducer: ICardsState }; // TODO: change name
 export type GameReducerType = { gameReducer: IGameState }; // TODO: change name
+export type StatisticReducerType = { statisticReducer: IStatisticState }; // TODO: change name
 export type StateType<T> = CombinedState<T>; // TODO: change name
 
 export type ThunkActionType<T> = ThunkAction<void, T, unknown, AnyAction>;

@@ -1,26 +1,40 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
-import { ICardsData } from '../shared/interfaces/cards-models';
 import test from '../test.json';
 
 const cardsSlice = createSlice({
   name: 'cardsSlice',
   initialState: {
     cards: [],
+    playingList: [],
   } as ICardsState,
   reducers: {
-    setAllCards: (state: ICardsState, action) => {
+    updatePlayingList: (state: ICardsState, action) => ({
+      ...state,
+      playingList: [...state.playingList, action.payload],
+    }),
+    removeWordFromPLayingList: (state: ICardsState) => {
+      console.log(
+        state.playingList.filter(
+          (word, index) => index < state.playingList.length
+        )
+      );
       return {
         ...state,
-        cards: action.payload.map((card: ICardsData) => card), // TODO: spread operator
+        playingList: [],
       };
     },
+    setAllCards: (state: ICardsState, action) => ({
+      ...state,
+      cards: [...action.payload],
+    }),
   },
 });
 
 export default cardsSlice.reducer;
 
-export const { setAllCards } = cardsSlice.actions;
+export const { removeWordFromPLayingList, updatePlayingList, setAllCards } =
+  cardsSlice.actions;
 
 export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
