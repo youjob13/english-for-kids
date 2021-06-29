@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: end game popup, disabled card after right answer" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: card flipping" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,6 +145,7 @@
       <workItem from="1624943374944" duration="32000" />
       <workItem from="1624948614396" duration="51000" />
       <workItem from="1624950633639" duration="15000" />
+      <workItem from="1624963400712" duration="68000" />
     </task>
     <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
       <created>1623848443402</created>
@@ -482,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624950644538</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="feat: card flipping">
+      <created>1624963462430</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1624963462430</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +509,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: remove winners from winners page" />
     <MESSAGE value="init: start task english-for-kids" />
     <MESSAGE value="feat: router" />
     <MESSAGE value="feat: header &amp; menu-nav layout" />
@@ -526,7 +533,8 @@
     <MESSAGE value="fix: set right SRC for cards assets" />
     <MESSAGE value="feat: styles for menu and header btns" />
     <MESSAGE value="feat: end game popup, disabled card after right answer" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: end game popup, disabled card after right answer" />
+    <MESSAGE value="feat: card flipping" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: card flipping" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

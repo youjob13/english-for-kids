@@ -12,6 +12,10 @@ const gameSlice = createSlice({
     currentGameCardList: [],
     currentQuestion: null,
     lastAnswer: null,
+    currentGameStatistic: {
+      rightAnswers: 0,
+      allAnswers: 0,
+    },
   } as IGameState,
   reducers: {
     toggleGameMode: (state: IGameState) => ({
@@ -43,11 +47,19 @@ const gameSlice = createSlice({
         lastAnswer: answer,
         currentGameCardList: state.currentGameCardList.filter(
           (card) => JSON.stringify(card) !== JSON.stringify(answer)
-        ), // TODO: ++ right attempt & all attempt
+        ),
+        currentGameStatistic: {
+          rightAnswers: state.currentGameStatistic.rightAnswers + 1,
+          allAnswers: state.currentGameStatistic.allAnswers + 1,
+        },
       };
     },
     setFalseAnswer: (state: IGameState) => ({
       ...state, // TODO: ++ false attempt & all attempt
+      currentGameStatistic: {
+        ...state.currentGameStatistic,
+        allAnswers: state.currentGameStatistic.allAnswers + 1,
+      },
     }),
     stopGame: (state: IGameState) => ({
       ...state,
