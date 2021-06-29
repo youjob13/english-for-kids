@@ -15,7 +15,7 @@ const Header = ({
   cards,
 }: IHeaderProps): ReactElement => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  document.addEventListener('click', (e: any) => console.log(e.target));
+
   return (
     <header className={classes.header}>
       {isOpenMenu && <Navigation cards={cards} />}

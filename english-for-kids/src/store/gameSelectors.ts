@@ -1,8 +1,10 @@
 import { IGameState } from '../shared/interfaces/store-models';
+import { GameMode } from '../shared/interfaces/props-models';
+import { ICardItem } from '../shared/interfaces/cards-models';
 
-export const getCurrentQuestion = (state: IGameState) => state.currentQuestion;
-export const getIsStartedGame = (state: IGameState) => state.isStartedGame;
-export const getCurrentGameCardList = (state: IGameState) =>
+export const getCurrentQuestion = (state: IGameState): ICardItem | null =>
+  state.currentQuestion;
+export const getCurrentGameCardList = (state: IGameState): ICardItem[] =>
   state.currentGameCardList;
-export const getIsReadyToStartedGame = (state: IGameState) =>
-  state.isReadyToStartedGame;
+export const getGameModeStatus = (state: IGameState): GameMode =>
+  state.gameMode;

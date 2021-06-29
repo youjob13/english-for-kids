@@ -3,25 +3,32 @@ import { IGameState } from '../shared/interfaces/store-models';
 import { ICardItem } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helpersFunction/arraySort';
 import compareAnswerAndQuestion from '../shared/helpersFunction/compareTwoObjects';
+import { GameMode } from '../shared/interfaces/props-models';
 
 const gameSlice = createSlice({
   name: 'gameSlice',
   initialState: {
-    isReadyToStartedGame: false,
-    isStartedGame: false,
+    gameMode: GameMode.NO_GAME,
     currentGameCardList: [],
     currentQuestion: null,
+    lastAnswer: null,
   } as IGameState,
   reducers: {
     toggleGameMode: (state: IGameState) => ({
       ...state,
-      isReadyToStartedGame: !state.isReadyToStartedGame,
+      gameMode:
+        state.gameMode === GameMode.NO_GAME
+          ? GameMode.READY_TO_GAME
+          : GameMode.NO_GAME,
+      currentQuestion: null,
+      lastAnswer: null,
+      currentGameCardList: [],
     }),
     startGame: (state: IGameState, action) => {
       const cards: ICardItem[] = action.payload;
       return {
         ...state,
-        isStartedGame: true,
+        gameMode: GameMode.IN_GAME,
         currentGameCardList: cards.map((card) => card),
       };
     },
@@ -33,6 +40,7 @@ const gameSlice = createSlice({
       const answer: ICardItem = action.payload;
       return {
         ...state,
+        lastAnswer: answer,
         currentGameCardList: state.currentGameCardList.filter(
           (card) => JSON.stringify(card) !== JSON.stringify(answer)
         ), // TODO: ++ right attempt & all attempt
@@ -41,17 +49,27 @@ const gameSlice = createSlice({
     setFalseAnswer: (state: IGameState) => ({
       ...state, // TODO: ++ false attempt & all attempt
     }),
+    stopGame: (state: IGameState) => ({
+      ...state,
+      gameMode: GameMode.SHOW_RESULT,
+    }),
+    setNoGameMode: (state: IGameState) => ({
+      ...state,
+      gameMode: GameMode.READY_TO_GAME,
+    }),
   },
 });
 
 export default gameSlice.reducer;
 
 export const {
+  stopGame,
   setFalseAnswer,
   setRightAnswer,
   setAudioQuestion,
   startGame,
   toggleGameMode,
+  setNoGameMode,
 } = gameSlice.actions;
 
 export const prepareGameProcess =
@@ -68,9 +86,18 @@ export const setGivenAnswer =
     const answerResult = compareAnswerAndQuestion(answer, question);
 
     if (answerResult) {
+      // TODO: watch strategy pattern
       dispatch(setRightAnswer(answer));
       dispatch(setAudioQuestion());
-    } else {
-      dispatch(setFalseAnswer());
+
+      const newQuestion = getState().gameReducer.currentQuestion;
+      if (!newQuestion) {
+        dispatch(stopGame());
+        setTimeout(() => {
+          dispatch(setNoGameMode());
+        }, 3000);
+      }
+      return;
     }
+    dispatch(setFalseAnswer());
   };

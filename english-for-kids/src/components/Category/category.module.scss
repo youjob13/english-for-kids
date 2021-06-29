@@ -38,4 +38,10 @@
 
 .cardWrapper {
   position: relative;
+  &Guessed {
+    pointer-events: none;
+    filter: brightness(0.7);
+  }
 }
+
+

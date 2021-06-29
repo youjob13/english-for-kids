@@ -9,36 +9,43 @@ import {
   GameAndCardsReducerType,
   IGameState,
 } from '../../shared/interfaces/store-models';
-import { ICategoryProps } from '../../shared/interfaces/props-models';
+import { GameMode, ICategoryProps } from '../../shared/interfaces/props-models';
 import CardCategoryWrapper from './CardCategoryWrapper';
 import { ICardItem, ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
-import { setGivenAnswer, prepareGameProcess } from '../../store/gameSlice';
+import { prepareGameProcess, setGivenAnswer } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
 import {
   getCurrentQuestion,
-  getIsReadyToStartedGame,
-  getIsStartedGame,
+  getGameModeStatus,
 } from '../../store/gameSelectors';
 import getCardsData from '../../store/cardsSelectors';
 
+const defineCurrentCategoryCards = (
+  cardsData: ICardsData[],
+  categoryPath: string
+): ICardsData | undefined => {
+  return cardsData.find(
+    (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
+  );
+};
+
 const Category = ({
   cardsData,
-  isReadyToStartedGame,
   startNewGame,
   currentQuestion,
-  isStartedGame,
   giveAnswer,
+  gameMode,
 }: ICategoryProps): ReactElement => {
   const { category: categoryPath } = useParams<RouteParams>();
   const { audioSRC }: ICardItem = currentQuestion || '';
 
-  const currentCategoryCards: ICardsData | undefined = cardsData.find(
-    (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
-  );
+  const currentCategoryCards: ICardsData | undefined =
+    defineCurrentCategoryCards(cardsData, categoryPath);
+
   const cards = Object.values(currentCategoryCards!)[0];
 
-  if (currentQuestion) playAudio(audioSRC);
+  if (currentQuestion) playAudio(audioSRC); // TODO: try move in CardCategoryWrapper
 
   return (
     <>
@@ -51,25 +58,24 @@ const Category = ({
           />
         ))}
       </ul>
-      {isReadyToStartedGame &&
-        (!isStartedGame ? (
-          <button type="button" onClick={() => startNewGame(cards)}>
-            Start Game
-          </button>
-        ) : (
-          <button type="button" onClick={() => playAudio(audioSRC)}>
-            Repeat
-          </button>
-        ))}
+      {gameMode === GameMode.READY_TO_GAME && (
+        <button type="button" onClick={() => startNewGame(cards)}>
+          Start Game
+        </button>
+      )}
+      {gameMode === GameMode.IN_GAME && (
+        <button type="button" onClick={() => playAudio(audioSRC)}>
+          Repeat
+        </button>
+      )}
     </>
   );
 };
 
 const mapStateToProps = (state: GameAndCardsReducerType) => ({
   cardsData: getCardsData(state.cardsReducer),
-  isReadyToStartedGame: getIsReadyToStartedGame(state.gameReducer),
-  isStartedGame: getIsStartedGame(state.gameReducer),
   currentQuestion: getCurrentQuestion(state.gameReducer),
+  gameMode: getGameModeStatus(state.gameReducer),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

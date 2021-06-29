@@ -2,35 +2,48 @@ import React, { ReactElement, useState } from 'react';
 import { connect } from 'react-redux';
 import classes from './category.module.scss';
 import Card from '../Card/Card';
-import { ICardCategoryWrapperProps } from '../../shared/interfaces/props-models';
+import {
+  GameMode,
+  ICardCategoryWrapperProps,
+} from '../../shared/interfaces/props-models';
 import { GameReducerType } from '../../shared/interfaces/store-models';
 import playAudio from '../../shared/helpersFunction/playSound';
-import {
-  getIsReadyToStartedGame,
-  getIsStartedGame,
-} from '../../store/gameSelectors';
-// TODO: rewrite with hoc
+import { getGameModeStatus } from '../../store/gameSelectors';
+import { ICardItem } from '../../shared/interfaces/cards-models';
+
+const checkIsGuessedCard = (
+  currentGameCardList: ICardItem[],
+  card: ICardItem
+): boolean => {
+  return currentGameCardList.some(
+    (cardFromGameList) =>
+      JSON.stringify(cardFromGameList) === JSON.stringify(card)
+  ); // TODO: try realise with reselect
+};
+
 const CardCategoryWrapper = ({
   card,
-  isReadyToStartedGame,
   giveAnswer,
-  isStartedGame,
+  currentGameCardList,
+  gameMode,
 }: ICardCategoryWrapperProps): ReactElement => {
   const [isShowTranslation, setIsShowTranslation] = useState(false);
   const { name, translate, imageSRC, audioSRC } = card;
 
+  const isGuessedCard = checkIsGuessedCard(currentGameCardList, card);
+
   const showTranslation = () => {
-    if (isReadyToStartedGame) return;
+    if (gameMode === GameMode.READY_TO_GAME) return;
     setIsShowTranslation(!isShowTranslation);
   };
 
   const playCardAudio = () => {
-    if (isReadyToStartedGame) return;
+    if (gameMode === GameMode.READY_TO_GAME) return;
     playAudio(audioSRC);
   };
 
   const onCardClick = () => {
-    if (isStartedGame) giveAnswer(card);
+    if (gameMode === GameMode.IN_GAME) giveAnswer(card);
   };
 
   return (
@@ -39,7 +52,11 @@ const CardCategoryWrapper = ({
       role="button"
       tabIndex={0}
       onKeyDown={() => console.log('as')}
-      className={classes.cardWrapper}
+      className={
+        gameMode === GameMode.IN_GAME && !isGuessedCard
+          ? classes.cardWrapperGuessed
+          : classes.cardWrapper
+      }
     >
       <p
         className={
@@ -50,7 +67,7 @@ const CardCategoryWrapper = ({
       >
         {translate}
       </p>
-      {!isReadyToStartedGame && (
+      {gameMode === GameMode.NO_GAME && (
         <>
           <button
             type="button"
@@ -69,8 +86,12 @@ const CardCategoryWrapper = ({
         </>
       )}
       <Card
-        title={isReadyToStartedGame ? '' : name}
-        isReadyToStartedGame={isReadyToStartedGame}
+        title={
+          gameMode === GameMode.NO_GAME || gameMode === GameMode.READY_TO_GAME
+            ? name
+            : ''
+        }
+        isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
         imageSRC={imageSRC}
       />
     </div>
@@ -78,8 +99,9 @@ const CardCategoryWrapper = ({
 };
 
 const mapStateToProps = (state: GameReducerType) => ({
-  isReadyToStartedGame: getIsReadyToStartedGame(state.gameReducer),
-  isStartedGame: getIsStartedGame(state.gameReducer),
+  lastAnswer: state.gameReducer.lastAnswer,
+  currentGameCardList: state.gameReducer.currentGameCardList,
+  gameMode: getGameModeStatus(state.gameReducer),
 });
 
 export default connect(mapStateToProps)(CardCategoryWrapper);

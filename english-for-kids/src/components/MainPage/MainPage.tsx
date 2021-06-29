@@ -6,12 +6,9 @@ import { GameAndCardsReducerType } from '../../shared/interfaces/store-models';
 import { IMainPageProps } from '../../shared/interfaces/props-models';
 import { ICardItem } from '../../shared/interfaces/cards-models';
 import getCardsData from '../../store/cardsSelectors';
-import { getIsReadyToStartedGame } from '../../store/gameSelectors';
+import { getGameModeStatus } from '../../store/gameSelectors';
 
-const MainPage = ({
-  cardsData,
-  isReadyToStartedGame,
-}: IMainPageProps): ReactElement => {
+const MainPage = ({ cardsData, gameMode }: IMainPageProps): ReactElement => {
   return (
     <>
       <h2 className={classes.title}>Train & Play</h2>
@@ -25,7 +22,7 @@ const MainPage = ({
               key={index.toString()}
               category={category}
               cards={cards}
-              isReadyToStartedGame={isReadyToStartedGame}
+              gameMode={gameMode}
             />
           );
         })}
@@ -35,7 +32,7 @@ const MainPage = ({
 };
 const mapStateToProps = (state: GameAndCardsReducerType) => ({
   cardsData: getCardsData(state.cardsReducer),
-  isReadyToStartedGame: getIsReadyToStartedGame(state.gameReducer),
+  gameMode: getGameModeStatus(state.gameReducer),
 });
 
 export default connect(mapStateToProps)(MainPage);
