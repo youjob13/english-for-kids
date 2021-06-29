@@ -9,7 +9,11 @@ const Navigation = ({ cards }: INavigationProps): ReactElement => {
     <nav className={classes.navMenu}>
       <ul>
         <li>
-          <NavLink to="/main" className={classes.navItem}>
+          <NavLink
+            to="/main"
+            className={classes.navItem}
+            activeClassName={classes.navItemActive}
+          >
             Main page
           </NavLink>
         </li>

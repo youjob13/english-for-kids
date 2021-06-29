@@ -46,3 +46,13 @@ export interface ICardCategoryWrapperProps {
   isReadyToStartedGame: boolean;
   isStartedGame: boolean;
 }
+
+export interface IMenuBtnProps {
+  onMenuBtnClick: () => void;
+}
+
+export interface ISwitchProps {
+  on: string;
+  off: string;
+  onCheckboxClick: () => void;
+}

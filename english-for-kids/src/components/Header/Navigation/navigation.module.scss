@@ -3,10 +3,52 @@
     position: absolute;
     left: 0;
     top: 0;
+    background-color: #110f0f;
+    padding: 1.7em 3em;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+
+    animation: showMenu 0.7s ease;
+
   }
 
   &Item {
     font-size: 23px;
     font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    transition: .2s;
+    display: block;
+    position: relative;
+    margin-bottom: 6px;
+
+    &Active, &:hover {
+      color: #208dbf;
+      transform: translateX(0.3em);
+      text-shadow: 0 3px 10px rgba(25, 171, 241, 0.5);
+    }
+
+    &Active {
+      &::before {
+        content: '';
+        background-color: rgba(#208dbf, 0.12);
+        position: absolute;
+        left: -3em;
+        top: 0;
+        bottom: 0;
+        right: -1.75em;
+
+      }
+    }
+  }
+}
+
+@keyframes showMenu {
+  0% {
+    transform: translateX(-20em);
+
+  }
+  100% {
+    transform: translateX(0);
   }
 }
