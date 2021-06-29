@@ -58,42 +58,59 @@ const CardCategoryWrapper = ({
           : classes.cardWrapper
       }
     >
-      <p
+      <div
         className={
-          isShowTranslation
-            ? `${classes.translation} ${classes.translationActive}`
-            : classes.translation
+          !isShowTranslation
+            ? classes.cardContainer
+            : classes.cardContainerRotated
         }
       >
-        {translate}
-      </p>
-      {gameMode === GameMode.NO_GAME && (
-        <>
-          <button
-            type="button"
-            className={classes.translationBtn}
-            onClick={showTranslation}
-          >
-            translate
-          </button>
-          <button
-            type="button"
-            className={classes.playSoundBtn}
-            onClick={playCardAudio}
-          >
-            play sound
-          </button>
-        </>
-      )}
-      <Card
-        title={
-          gameMode === GameMode.NO_GAME || gameMode === GameMode.READY_TO_GAME
-            ? name
-            : ''
-        }
-        isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
-        imageSRC={imageSRC}
-      />
+        <div className={classes.cardFront}>
+          <Card
+            title={
+              gameMode === GameMode.NO_GAME ||
+              gameMode === GameMode.READY_TO_GAME
+                ? name
+                : ''
+            }
+            isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
+            imageSRC={imageSRC}
+          />
+          {gameMode === GameMode.NO_GAME && (
+            <>
+              <button
+                type="button"
+                className={classes.translationBtn}
+                onClick={showTranslation}
+              >
+                translate
+              </button>
+              <button
+                type="button"
+                className={classes.playSoundBtn}
+                onClick={playCardAudio}
+              >
+                play sound
+              </button>
+            </>
+          )}
+        </div>
+        <div
+          className={classes.cardBack}
+          onMouseLeave={() => setIsShowTranslation(false)}
+        >
+          <Card
+            title={
+              gameMode === GameMode.NO_GAME ||
+              gameMode === GameMode.READY_TO_GAME
+                ? translate
+                : ''
+            }
+            isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
+            imageSRC={imageSRC}
+          />
+        </div>
+      </div>
     </div>
   );
 };

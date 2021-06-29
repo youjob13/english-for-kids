@@ -27,21 +27,47 @@
   transform: translate(-50%, -50%);
   z-index: 9;
   background-color: #fff;
-  visibility: hidden;
-  opacity: 0;
-
-  &Active {
-    visibility: visible;
-    opacity: 1;
-  }
 }
 
 .cardWrapper {
   position: relative;
+
   &Guessed {
     pointer-events: none;
     filter: brightness(0.7);
   }
 }
 
+.cardContainer {
+  position: relative;
+  perspective: 1000px;
+  height: 14em; // TODO: ss
+
+  &Rotated {
+    .cardFront {
+      transform: rotateY(180deg);
+    }
+
+    .cardBack {
+      transform: rotateY(360deg);
+    }
+  }
+}
+
+.cardBack, .cardFront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+}
+
+.cardFront {
+}
 

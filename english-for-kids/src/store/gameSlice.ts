@@ -86,13 +86,13 @@ export const setGivenAnswer =
     const answerResult = compareAnswerAndQuestion(answer, question);
 
     if (answerResult) {
-      // TODO: watch strategy pattern
       dispatch(setRightAnswer(answer));
       dispatch(setAudioQuestion());
 
       const newQuestion = getState().gameReducer.currentQuestion;
       if (!newQuestion) {
         dispatch(stopGame());
+
         setTimeout(() => {
           dispatch(setNoGameMode());
         }, 3000);
