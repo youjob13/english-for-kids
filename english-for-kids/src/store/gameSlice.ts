@@ -1,5 +1,10 @@
-import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
-import { IGameState } from '../shared/interfaces/store-models';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  GameReducerType,
+  StateType,
+  IGameState,
+  ThunkActionType,
+} from '../shared/interfaces/store-models';
 import { ICardItem } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helpersFunction/arraySort';
 import compareAnswerAndQuestion from '../shared/helpersFunction/compareTwoObjects';
@@ -85,15 +90,15 @@ export const {
 } = gameSlice.actions;
 
 export const prepareGameProcess =
-  (cards: ICardItem[]): ThunkAction<void, IGameState, unknown, AnyAction> =>
+  (cards: ICardItem[]): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch): Promise<void> => {
     dispatch(startGame(sortCurrentGameQuestionList(cards)));
     dispatch(setAudioQuestion());
   };
 
 export const setGivenAnswer =
-  (answer: ICardItem): ThunkAction<void, IGameState, unknown, AnyAction> =>
-  async (dispatch, getState: any): Promise<void> => {
+  (answer: ICardItem): ThunkActionType<StateType<GameReducerType>> =>
+  async (dispatch, getState): Promise<void> => {
     const question = getState().gameReducer.currentQuestion;
     const answerResult = compareAnswerAndQuestion(answer, question);
 

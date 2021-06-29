@@ -21,6 +21,7 @@ export interface IAppProps {
 export interface IMainPageProps {
   cardsData: ICardsData[];
   gameMode: GameMode;
+  getCards: () => void;
 }
 
 export interface ICardMainPageWrapperProps {
@@ -42,7 +43,7 @@ export interface ICategoryProps {
   startNewGame: (cards: ICardItem[]) => void;
   cardsData: ICardsData[];
   currentGameCardList: ICardItem[];
-  currentQuestion: ICardItem | any;
+  currentQuestion: ICardItem | null;
   gameMode: GameMode;
 }
 

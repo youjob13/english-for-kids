@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: card flipping" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: statistic slice" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,13 +146,7 @@
       <workItem from="1624948614396" duration="51000" />
       <workItem from="1624950633639" duration="15000" />
       <workItem from="1624963400712" duration="68000" />
-    </task>
-    <task id="LOCAL-00001" summary="refactor: move global variables into a separate file">
-      <created>1623848443402</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1623848443402</updated>
+      <workItem from="1624964358847" duration="21000" />
     </task>
     <task id="LOCAL-00002" summary="fix: after deleting last car on page switch to prev page">
       <created>1623848988996</created>
@@ -490,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624963462430</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="feat: statistic slice">
+      <created>1624964374172</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1624964374172</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +510,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init: start task english-for-kids" />
     <MESSAGE value="feat: router" />
     <MESSAGE value="feat: header &amp; menu-nav layout" />
     <MESSAGE value="feat: main page layout &amp; card item layout" />
@@ -534,7 +534,8 @@
     <MESSAGE value="feat: styles for menu and header btns" />
     <MESSAGE value="feat: end game popup, disabled card after right answer" />
     <MESSAGE value="feat: card flipping" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: card flipping" />
+    <MESSAGE value="feat: statistic slice" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: statistic slice" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

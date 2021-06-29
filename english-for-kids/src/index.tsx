@@ -5,10 +5,7 @@ import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import store from './store/store';
-import { getAllCards } from './store/cardsSlice';
 import App from './App';
-
-(store as any).dispatch(getAllCards());
 
 ReactDOM.render(
   <React.StrictMode>

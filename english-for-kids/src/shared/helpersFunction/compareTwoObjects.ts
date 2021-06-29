@@ -2,7 +2,7 @@ import { ICardItem } from '../interfaces/cards-models'; // TODO: do with generic
 
 const compareAnswerAndQuestion = (
   answer: ICardItem,
-  question: ICardItem
+  question: ICardItem | null
 ): boolean => {
   return JSON.stringify(answer) === JSON.stringify(question);
 };

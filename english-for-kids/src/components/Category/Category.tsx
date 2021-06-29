@@ -2,12 +2,12 @@ import React, { ReactElement } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Dispatch } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from '@reduxjs/toolkit';
 import classes from './category.module.scss';
 import {
   GameAndCardsReducerType,
-  IGameState,
+  GameReducerType,
+  StateType,
+  ThunkDispatchType,
 } from '../../shared/interfaces/store-models';
 import { GameMode, ICategoryProps } from '../../shared/interfaces/props-models';
 import CardCategoryWrapper from './CardCategoryWrapper';
@@ -38,7 +38,7 @@ const Category = ({
   gameMode,
 }: ICategoryProps): ReactElement => {
   const { category: categoryPath } = useParams<RouteParams>();
-  const { audioSRC }: ICardItem = currentQuestion || '';
+  const { audioSRC }: ICardItem = currentQuestion! || '';
 
   const currentCategoryCards: ICardsData | undefined =
     defineCurrentCategoryCards(cardsData, categoryPath);
@@ -80,11 +80,11 @@ const mapStateToProps = (state: GameAndCardsReducerType) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   startNewGame: (cards: ICardItem[]) =>
-    (dispatch as ThunkDispatch<IGameState, unknown, AnyAction>)(
+    (dispatch as ThunkDispatchType<StateType<GameReducerType>>)(
       prepareGameProcess(cards)
     ),
   giveAnswer: (answer: ICardItem) =>
-    (dispatch as ThunkDispatch<IGameState, unknown, AnyAction>)(
+    (dispatch as ThunkDispatchType<StateType<GameReducerType>>)(
       setGivenAnswer(answer)
     ),
 });
