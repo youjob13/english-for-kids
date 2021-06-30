@@ -174,16 +174,34 @@
   {
     "gadgets": [
       {
-        "imageSRC": "/assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/gadgets/speakers.jpg",
+        "name": "Speakers",
+        "translate": "Колонки",
+        "audioSRC": "/assets/audio/speakers.mp3"
       },
       {
-        "imageSRC": "/assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Попугай",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/gadgets/headphone.jpg",
+        "name": "headphone",
+        "translate": "наушники",
+        "audioSRC": "/assets/audio/headphone.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/gadgets/pc.jpg",
+        "name": "computer",
+        "translate": "компьютер",
+        "audioSRC": "/assets/audio/computer.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/gadgets/tablet.jpg",
+        "name": "tablet",
+        "translate": "планшет",
+        "audioSRC": "/assets/audio/tablet.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/gadgets/phone.jpg",
+        "name": "phone",
+        "translate": "телефон",
+        "audioSRC": "/assets/audio/phone.mp3"
       }
     ]
   },
@@ -204,34 +222,106 @@
     ]
   },
   {
-    "musicians": [
+    "genres of music": [
       {
-        "imageSRC": "/assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/music/dubstep.jpg",
+        "name": "Dubstep",
+        "translate": "Даб степ",
+        "audioSRC": "/assets/audio/dubstep.mp3"
       },
       {
-        "imageSRC": "/assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Попугай",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/music/hip-hop.jpg",
+        "name": "Hip hop",
+        "translate": "Хип хоп",
+        "audioSRC": "/assets/audio/hip_hop.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/music/jazz.jpg",
+        "name": "Jazz",
+        "translate": "Джаз",
+        "audioSRC": "/assets/audio/jazz.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/music/r&b.jpg",
+        "name": "R & B",
+        "translate": "Эр эн би)",
+        "audioSRC": "/assets/audio/r&b.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/music/rap.jpg",
+        "name": "Rap",
+        "translate": "Рэп",
+        "audioSRC": "/assets/audio/rap.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/music/reggae.jpg",
+        "name": "Reggae",
+        "translate": "Регги",
+        "audioSRC": "/assets/audio/reggae.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/music/rock.jpg",
+        "name": "Rock",
+        "translate": "рок",
+        "audioSRC": "/assets/audio/rock.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/music/trash.jpg",
+        "name": "Trash",
+        "translate": "Треш",
+        "audioSRC": "/assets/audio/trash.mp3"
       }
     ]
   },
   {
     "movies": [
       {
-        "imageSRC": "/assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/movies/harry-potter.jpg",
+        "name": "Harry Potter",
+        "translate": "Гарри Поттер",
+        "audioSRC": "/assets/audio/harry_potter.mp3"
       },
       {
-        "imageSRC": "/assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Попугай",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/movies/cars.jpg",
+        "name": "Cars",
+        "translate": "Тачки",
+        "audioSRC": "/assets/audio/cars.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/movies/clockwork-orange.jpg",
+        "name": "A clockwork orange",
+        "translate": "Заводной апельсин",
+        "audioSRC": "/assets/audio/clockwork_orange.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/movies/friends.jpg",
+        "name": "Friends",
+        "translate": "Друзья",
+        "audioSRC": "/assets/audio/friends.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/movies/hannibal.jpg",
+        "name": "Hannibal",
+        "translate": "Ганибал",
+        "audioSRC": "/assets/audio/hannibal.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/movies/joker.jpg",
+        "name": "Joker",
+        "translate": "Шутник",
+        "audioSRC": "/assets/audio/joker.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/movies/seven.jpg",
+        "name": "Seven",
+        "translate": "Семь",
+        "audioSRC": "/assets/audio/seven.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/movies/taxi-driver.jpg",
+        "name": "Cabbie",
+        "translate": "Таксист",
+        "audioSRC": "/assets/audio/cabbie.mp3"
       }
     ]
   }
