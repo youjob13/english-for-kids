@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import classes from './card.module.scss';
 import img from '../../../public/assets/category/animals/cat.jpg';
 import { ICardProps } from '../../shared/interfaces/props-models';
+import capitalizeWord from '../../shared/helpersFunction/capitalizeWord';
 
 const TRAIN_STYLES = `${classes.card} ${classes.isStartedGame}`;
 const PLAY_STYLES = `${classes.card} ${classes}`;
@@ -19,7 +20,7 @@ const Card = ({
       src={process.env.PUBLIC_URL + imageSRC}
       alt=""
     />
-    <p className={CARD_NAME_STYLES}>{title}</p>
+    <p className={CARD_NAME_STYLES}>{title && capitalizeWord(title)}</p>
   </li>
 );
 

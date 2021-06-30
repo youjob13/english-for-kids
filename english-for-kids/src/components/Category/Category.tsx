@@ -12,8 +12,12 @@ import { ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
 import { prepareGameProcess } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
+import capitalizeWord from '../../shared/helpersFunction/capitalizeWord';
 
+const TITLE_STYLES = classes.title;
 const CATEGORY_FIELD_STYLES = classes.categoryField;
+const START_GAME_STYLES = classes.startGame;
+const REPEAT_WORD_STYLES = classes.repeatWord;
 
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
@@ -53,18 +57,27 @@ const Category = (): ReactElement => {
 
   return (
     <>
+      <h2 className={TITLE_STYLES}>Category: {capitalizeWord(categoryPath)}</h2>
       <ul className={CATEGORY_FIELD_STYLES}>
         {cards.map((card, index) => (
           <CardGameWrapper key={index.toString()} card={card} />
         ))}
       </ul>
       {gameMode === GameMode.READY_TO_GAME && (
-        <button type="button" onClick={onStartGameClick}>
+        <button
+          className={START_GAME_STYLES}
+          type="button"
+          onClick={onStartGameClick}
+        >
           Start Game
         </button>
       )}
       {gameMode === GameMode.IN_GAME && (
-        <button type="button" onClick={() => playAudio(audioSRC)}>
+        <button
+          className={REPEAT_WORD_STYLES}
+          type="button"
+          onClick={() => playAudio(audioSRC)}
+        >
           Repeat
         </button>
       )}

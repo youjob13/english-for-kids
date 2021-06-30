@@ -1,3 +1,11 @@
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  padding: 1.7rem 0;
+  color: #fff;
+  text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
 .category {
   &Field {
     display: grid;
@@ -7,17 +15,33 @@
 }
 
 .translationBtn {
-  right: 10px;
+  right: 0.6rem;
 }
 
 .playSoundBtn {
-  left: 10px;
+  left: 0.6rem;
+}
+
+.buttonImages {
+  width: 20px;
+  transition: .2s;
+  cursor: pointer;
 }
 
 .translationBtn, .playSoundBtn {
   position: absolute;
-  bottom: 10px;
-  z-index: 99;
+  bottom: 0.4em;
+  z-index: 9;
+  background-color: transparent;
+
+  &:hover > .buttonImages {
+    filter: brightness(0.77)
+  }
+
+}
+
+.translationBtn {
+  bottom: 0.3em;
 }
 
 .translation {
@@ -41,7 +65,7 @@
 .cardContainer {
   position: relative;
   perspective: 1000px;
-  height: 14em; // TODO: ss
+  height: 12em;
 
   &Rotated {
     .cardFront {
@@ -68,6 +92,44 @@
   transform: rotateY(180deg);
 }
 
-.cardFront {
+.repeatWord, .startGame {
+  position: fixed;
+  cursor: pointer;
+  right: 0;
+  top: 50%;
+  background-color: #208dbf;
+  box-shadow: 0px 0px 7px 4px rgba(255, 255, 255, 0.34) inset;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  color: #fff;
+  padding: 10px;
+  font-size: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: .2s;
+  transform: translate(-30%, -50%);
+
+  &:hover {
+    background-color: #1c98ce;
+  }
+
+  &:active {
+    background-color: #1289bd;
+  }
 }
 
+.startGame {
+  animation: showMenu 0.7s ease;
+}
+
+@keyframes showMenu {
+  0% {
+    transform: translate(100%, -50%);
+
+
+  }
+  100% {
+    transform: translate(-30%, -50%);
+  }
+}

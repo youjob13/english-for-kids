@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: track game statistics">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: create styles constants, replace connect on hooks, create CardFront component">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_6_23_2021_8_41_AM__Default_Changelist_.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/english-for-kids" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../photographer" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -152,13 +152,7 @@
       <workItem from="1624966837112" duration="20000" />
       <workItem from="1624977342035" duration="47000" />
       <workItem from="1625029595404" duration="8000" />
-    </task>
-    <task id="LOCAL-00004" summary="feat: layout winners page &amp; state for winners">
-      <created>1623859250096</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1623859250096</updated>
+      <workItem from="1625037827834" duration="124000" />
     </task>
     <task id="LOCAL-00005" summary="feat: sorting the winners table">
       <created>1623868023232</created>
@@ -496,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624977384865</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="refactor: create styles constants, replace connect on hooks, create CardFront component">
+      <created>1625037903504</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1625037903505</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +516,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: main page layout &amp; card item layout" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="refactor: code refactor" />
     <MESSAGE value="feat: redux &amp; add follow links" />
@@ -540,7 +540,8 @@
     <MESSAGE value="feat: statistic slice" />
     <MESSAGE value="refactor: remove any type, move getAllCards to MainPage.tsx" />
     <MESSAGE value="feat: track game statistics" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: track game statistics" />
+    <MESSAGE value="refactor: create styles constants, replace connect on hooks, create CardFront component" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: create styles constants, replace connect on hooks, create CardFront component" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

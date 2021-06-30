@@ -2,8 +2,8 @@
   &Menu {
     position: absolute;
     left: 0;
-    top: 0;
-    background-color: #110f0f;
+    top: 10em;
+    background-color: #7bb4c7;
     padding: 1.7em 3em;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
@@ -31,13 +31,12 @@
     &Active {
       &::before {
         content: '';
-        background-color: rgba(#208dbf, 0.12);
+        background-color: rgba(#208dbf, 0.32);
         position: absolute;
         left: -3em;
         top: 0;
         bottom: 0;
         right: -1.75em;
-
       }
     }
   }

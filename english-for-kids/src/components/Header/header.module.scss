@@ -1,9 +1,20 @@
 .header {
   position: relative;
   max-width: 1800px;
-  padding: 0 220px;
+  padding: 2.6rem 14em;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 60px 0;
+  background-color: #1c98ce;
+  height: 50px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background-color: #105474;
+  }
 }

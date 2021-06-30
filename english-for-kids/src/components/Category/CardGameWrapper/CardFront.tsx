@@ -7,9 +7,12 @@ import {
 } from '../../../shared/interfaces/props-models';
 import { GameReducerType } from '../../../shared/interfaces/store-models';
 import classes from '../category.module.scss';
+import speakerImg from '../../../assets/images/speaker.png';
+import rotateArrowsImg from '../../../assets/images/rotate-arrows.png';
 
 const TRANSLATION_BTN_STYLES = classes.translationBtn;
 const PLAY_SOUND_BTN_STYLES = classes.playSoundBtn;
+const BUTTON_IMAGES_STYLES = classes.buttonImages;
 
 const CardFront = ({
   title,
@@ -36,14 +39,22 @@ const CardFront = ({
             className={TRANSLATION_BTN_STYLES}
             onClick={showTranslation}
           >
-            translate
+            <img
+              className={BUTTON_IMAGES_STYLES}
+              src={rotateArrowsImg}
+              alt="rotate arrows"
+            />
           </button>
           <button
             type="button"
             className={PLAY_SOUND_BTN_STYLES}
             onClick={playCardAudio}
           >
-            play sound
+            <img
+              className={BUTTON_IMAGES_STYLES}
+              src={speakerImg}
+              alt="speaker"
+            />
           </button>
         </>
       )}
