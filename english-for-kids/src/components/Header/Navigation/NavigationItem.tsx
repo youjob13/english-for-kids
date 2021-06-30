@@ -4,12 +4,15 @@ import classes from './navigation.module.scss';
 import { INavigationItemProps } from '../../../shared/interfaces/props-models';
 import capitalizeWord from '../../../shared/helpersFunction/capitalizeWord';
 
+const NAV_ITEM = classes.navItem;
+const NAV_ITEM_ACTIVE = classes.navItemActive;
+
 const NavigationItem = ({ category }: INavigationItemProps): ReactElement => (
   <li>
     <NavLink
       to={`/section/${category}`}
-      className={classes.navItem}
-      activeClassName={classes.navItemActive}
+      className={NAV_ITEM}
+      activeClassName={NAV_ITEM_ACTIVE}
     >
       {capitalizeWord(category)}
     </NavLink>

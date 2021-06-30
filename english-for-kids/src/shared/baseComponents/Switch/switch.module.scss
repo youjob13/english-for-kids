@@ -1,4 +1,4 @@
-.checkboxGreen {
+.checkbox {
   display: inline-block;
   height: 28px;
   line-height: 28px;
@@ -9,7 +9,7 @@
   user-select: none;
 }
 
-.checkboxGreen .checkboxGreenSwitch {
+.checkbox .checkboxSwitch {
   display: inline-block;
   height: 28px;
   width: 90px;
@@ -20,7 +20,7 @@
   transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
 }
 
-.checkboxGreen .checkboxGreenSwitch:before {
+.checkbox .checkboxSwitch:before {
   content: attr(data-label-on);
   display: inline-block;
   box-sizing: border-box;
@@ -36,7 +36,7 @@
   line-height: 28px;
 }
 
-.checkboxGreen .checkboxGreenSwitch:after {
+.checkbox .checkboxSwitch:after {
   content: attr(data-label-off);
   display: inline-block;
   box-sizing: border-box;
@@ -55,7 +55,7 @@
   transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
 }
 
-.checkboxGreen .inputSwitch {
+.checkbox .inputSwitch {
   display: block;
   width: 0;
   height: 0;
@@ -64,16 +64,16 @@
   opacity: 0;
 }
 
-.checkboxGreen .inputSwitch:checked + .checkboxGreenSwitch {
+.checkbox .inputSwitch:checked + .checkboxSwitch {
   background-color: #70c767;
 }
 
-.checkboxGreen .inputSwitch:checked + .checkboxGreenSwitch:before {
+.checkbox .inputSwitch:checked + .checkboxSwitch:before {
   content: attr(data-label-off);
   left: 0;
 }
 
-.checkboxGreen .inputSwitch:checked + .checkboxGreenSwitch:after {
+.checkbox .inputSwitch:checked + .checkboxSwitch:after {
   content: attr(data-label-on);
   color: #4fb743;
   background-color: #fff;
@@ -81,21 +81,21 @@
 }
 
 /* Hover */
-.checkboxGreen .inputSwitch:not(:disabled) + .checkboxGreenSwitch:hover {
+.checkbox .inputSwitch:not(:disabled) + .checkboxSwitch:hover {
   cursor: pointer;
 }
 
-.checkboxGreen .inputSwitch:not(:disabled) + .checkboxGreenSwitch:hover:after {
+.checkbox .inputSwitch:not(:disabled) + .checkboxSwitch:hover:after {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Disabled */
-.checkboxGreen input[type=checkbox]:disabled + .checkboxGreenSwitch {
+.checkbox input[type=checkbox]:disabled + .checkboxSwitch {
   opacity: 0.6;
   filter: grayscale(50%);
 }
 
 /* Focus */
-.checkboxGreen.focused .checkboxGreenSwitch:after {
+.checkbox.focused .checkboxSwitch:after {
   box-shadow: inset 0px 0px 4px #ff5623;
 }

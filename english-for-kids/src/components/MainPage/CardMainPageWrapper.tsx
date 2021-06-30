@@ -6,7 +6,6 @@ import {
   ICardMainPageWrapperProps,
 } from '../../shared/interfaces/props-models';
 
-// TODO: rewrite with hoc
 const CardMainPageWrapper = ({
   category,
   cards,

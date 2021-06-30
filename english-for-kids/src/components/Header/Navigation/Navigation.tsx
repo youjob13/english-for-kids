@@ -4,24 +4,25 @@ import { INavigationProps } from '../../../shared/interfaces/props-models';
 import NavigationItem from './NavigationItem';
 import classes from './navigation.module.scss';
 
-const Navigation = ({ cards }: INavigationProps): ReactElement => {
+const NAV_MENU = classes.navMenu;
+const NAV_ITEM = classes.navItem;
+const NAV_ITEM_ACTIVE = classes.navItemActive;
+
+const Navigation = ({ categories }: INavigationProps): ReactElement => {
   return (
-    <nav className={classes.navMenu}>
+    <nav className={NAV_MENU}>
       <ul>
         <li>
           <NavLink
             to="/main"
-            className={classes.navItem}
-            activeClassName={classes.navItemActive}
+            className={NAV_ITEM}
+            activeClassName={NAV_ITEM_ACTIVE}
           >
             Main page
           </NavLink>
         </li>
-        {cards.map((card, index) => (
-          <NavigationItem
-            key={index.toString()}
-            category={Object.keys(card).toString()}
-          />
+        {categories.map((category, index) => (
+          <NavigationItem key={index.toString()} category={category} />
         ))}
       </ul>
     </nav>

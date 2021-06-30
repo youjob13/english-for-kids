@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: remove any type, move getAllCards to MainPage.tsx" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: track game statistics">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,13 +150,8 @@
       <workItem from="1624963400712" duration="68000" />
       <workItem from="1624964358847" duration="21000" />
       <workItem from="1624966837112" duration="20000" />
-    </task>
-    <task id="LOCAL-00003" summary="refactor: divide thunk by areas of responsibility">
-      <created>1623851422414</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1623851422414</updated>
+      <workItem from="1624977342035" duration="47000" />
+      <workItem from="1625029595404" duration="8000" />
     </task>
     <task id="LOCAL-00004" summary="feat: layout winners page &amp; state for winners">
       <created>1623859250096</created>
@@ -492,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624966850580</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="feat: track game statistics">
+      <created>1624977384864</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1624977384865</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +515,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: header &amp; menu-nav layout" />
     <MESSAGE value="feat: main page layout &amp; card item layout" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="refactor: code refactor" />
@@ -536,7 +539,8 @@
     <MESSAGE value="feat: card flipping" />
     <MESSAGE value="feat: statistic slice" />
     <MESSAGE value="refactor: remove any type, move getAllCards to MainPage.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: remove any type, move getAllCards to MainPage.tsx" />
+    <MESSAGE value="feat: track game statistics" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: track game statistics" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

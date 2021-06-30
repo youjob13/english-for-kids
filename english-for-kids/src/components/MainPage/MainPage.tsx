@@ -1,32 +1,34 @@
 import React, { ReactElement, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
 import classes from './mainPage.module.scss';
 import CardMainPageWrapper from './CardMainPageWrapper';
 import {
-  GameAndCardsReducerType,
-  ICardsState,
-  ThunkDispatchType,
+  CardsReducerType,
+  GameReducerType,
 } from '../../shared/interfaces/store-models';
-import { IMainPageProps } from '../../shared/interfaces/props-models';
 import { ICardItem } from '../../shared/interfaces/cards-models';
-import getCardsData from '../../store/cardsSelectors';
-import { getGameModeStatus } from '../../store/gameSelectors';
 import { getAllCards } from '../../store/cardsSlice';
 
-const MainPage = ({
-  cardsData,
-  gameMode,
-  getCards,
-}: IMainPageProps): ReactElement => {
+const TITLE_STYLES = classes.title;
+const CONTENT_STYLES = classes.content;
+
+const MainPage = (): ReactElement => {
+  const { cards: cardsData } = useSelector(
+    (state: CardsReducerType) => state.cardsReducer
+  );
+  const { gameMode } = useSelector(
+    (state: GameReducerType) => state.gameReducer
+  );
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getCards();
+    dispatch(getAllCards());
   }, []);
 
   return (
     <>
-      <h2 className={classes.title}>Train & Play</h2>
-      <ul className={classes.content}>
+      <h2 className={TITLE_STYLES}>Train & Play</h2>
+      <ul className={CONTENT_STYLES}>
         {cardsData.map((cardsDataItem, index) => {
           const category = Object.keys(cardsDataItem).toString();
           const cards: ICardItem[] = Object.values(cardsDataItem)[0];
@@ -44,13 +46,5 @@ const MainPage = ({
     </>
   );
 };
-const mapStateToProps = (state: GameAndCardsReducerType) => ({
-  cardsData: getCardsData(state.cardsReducer),
-  gameMode: getGameModeStatus(state.gameReducer),
-});
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getCards: () => (dispatch as ThunkDispatchType<ICardsState>)(getAllCards()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;

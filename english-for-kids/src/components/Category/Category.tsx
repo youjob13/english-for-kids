@@ -1,25 +1,19 @@
-import React, { ReactElement } from 'react';
-import { connect } from 'react-redux';
+import React, { ReactElement, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Dispatch } from 'redux';
 import classes from './category.module.scss';
 import {
-  GameAndCardsReducerType,
+  CardsReducerType,
   GameReducerType,
-  StateType,
-  ThunkDispatchType,
 } from '../../shared/interfaces/store-models';
-import { GameMode, ICategoryProps } from '../../shared/interfaces/props-models';
-import CardCategoryWrapper from './CardCategoryWrapper';
-import { ICardItem, ICardsData } from '../../shared/interfaces/cards-models';
+import { GameMode } from '../../shared/interfaces/props-models';
+import CardGameWrapper from './CardGameWrapper/CardGameWrapper';
+import { ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
-import { prepareGameProcess, setGivenAnswer } from '../../store/gameSlice';
+import { prepareGameProcess } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
-import {
-  getCurrentQuestion,
-  getGameModeStatus,
-} from '../../store/gameSelectors';
-import getCardsData from '../../store/cardsSelectors';
+
+const CATEGORY_FIELD_STYLES = classes.categoryField;
 
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
@@ -30,36 +24,42 @@ const defineCurrentCategoryCards = (
   );
 };
 
-const Category = ({
-  cardsData,
-  startNewGame,
-  currentQuestion,
-  giveAnswer,
-  gameMode,
-}: ICategoryProps): ReactElement => {
+const Category = (): ReactElement => {
+  const dispatch = useDispatch();
   const { category: categoryPath } = useParams<RouteParams>();
-  const { audioSRC }: ICardItem = currentQuestion! || '';
+  const { gameMode, currentQuestion } = useSelector(
+    (state: GameReducerType) => state.gameReducer
+  );
+  const { cards: cardsData } = useSelector(
+    (state: CardsReducerType) => state.cardsReducer
+  );
 
-  const currentCategoryCards: ICardsData | undefined =
-    defineCurrentCategoryCards(cardsData, categoryPath);
+  useEffect(() => {
+    playAudio(audioSRC);
+  }, [currentQuestion]);
+
+  const audioSRC = (currentQuestion && currentQuestion.audioSRC) || '';
+
+  const currentCategoryCards = defineCurrentCategoryCards(
+    cardsData,
+    categoryPath
+  );
 
   const cards = Object.values(currentCategoryCards!)[0];
 
-  if (currentQuestion) playAudio(audioSRC); // TODO: try move in CardCategoryWrapper
+  const onStartGameClick = () => {
+    dispatch(prepareGameProcess(cards));
+  };
 
   return (
     <>
-      <ul className={classes.categoryField}>
+      <ul className={CATEGORY_FIELD_STYLES}>
         {cards.map((card, index) => (
-          <CardCategoryWrapper
-            key={index.toString()}
-            giveAnswer={giveAnswer}
-            card={card}
-          />
+          <CardGameWrapper key={index.toString()} card={card} />
         ))}
       </ul>
       {gameMode === GameMode.READY_TO_GAME && (
-        <button type="button" onClick={() => startNewGame(cards)}>
+        <button type="button" onClick={onStartGameClick}>
           Start Game
         </button>
       )}
@@ -72,20 +72,4 @@ const Category = ({
   );
 };
 
-const mapStateToProps = (state: GameAndCardsReducerType) => ({
-  cardsData: getCardsData(state.cardsReducer),
-  currentQuestion: getCurrentQuestion(state.gameReducer),
-  gameMode: getGameModeStatus(state.gameReducer),
-});
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  startNewGame: (cards: ICardItem[]) =>
-    (dispatch as ThunkDispatchType<StateType<GameReducerType>>)(
-      prepareGameProcess(cards)
-    ),
-  giveAnswer: (answer: ICardItem) =>
-    (dispatch as ThunkDispatchType<StateType<GameReducerType>>)(
-      setGivenAnswer(answer)
-    ),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default Category;
