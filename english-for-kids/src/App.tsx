@@ -10,6 +10,7 @@ import { GameReducerType } from './shared/interfaces/store-models';
 import { GameMode } from './shared/interfaces/props-models';
 import Statistics from './components/Statistics/Statistics';
 import { getAllCards } from './store/cardsSlice';
+import Footer from './components/Footer/Footer';
 
 const App = (): ReactElement => {
   const gameMode = useSelector(
@@ -33,6 +34,7 @@ const App = (): ReactElement => {
         </Switch>
         {gameMode === GameMode.SHOW_RESULT && <EndGamePopup />}
       </main>
+      <Footer />
     </div>
   );
 };

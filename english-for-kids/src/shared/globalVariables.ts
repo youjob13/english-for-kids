@@ -3,6 +3,11 @@ import classesCategory from '../components/Category/category.module.scss';
 import classesCard from '../components/Card/card.module.scss';
 import classesEndGamePopup from '../components/EndGamePopup/endGamePopup.module.scss';
 import classesNavigation from '../components/Header/Navigation/navigation.module.scss';
+import classesFooter from '../components/Footer/footer.module.scss';
+
+export const FOOTER_STYLES = classesFooter.footer;
+export const FOOTER_LOGO_STYLES = classesFooter.footerLogo;
+export const FOOTER_LINK_STYLES = classesFooter.footerLink;
 
 export const CONTENT_STYLES = classesMainPage.content;
 

@@ -6,12 +6,11 @@ body {
 
 .app-content {
     max-width: 1800px;
-    padding: 0 14em;
+    padding: 1.7rem 14em;
     background-image: url("./assets/images/main-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: calc(100vh - 133px);
 }
 
 button {
