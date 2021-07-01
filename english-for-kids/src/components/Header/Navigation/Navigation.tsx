@@ -20,6 +20,13 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
           >
             Main page
           </NavLink>
+          <NavLink
+            to="/statistics"
+            className={NAV_ITEM}
+            activeClassName={NAV_ITEM_ACTIVE}
+          >
+            Statistics
+          </NavLink>
         </li>
         {categories.map((category, index) => (
           <NavigationItem key={index.toString()} category={category} />

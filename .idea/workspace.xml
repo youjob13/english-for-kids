@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: styles" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: statistics page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,20 +152,9 @@
       <workItem from="1625029595404" duration="8000" />
       <workItem from="1625037827834" duration="124000" />
       <workItem from="1625066245375" duration="45000" />
-    </task>
-    <task id="LOCAL-00006" summary="feat: new deploy version">
-      <created>1623868159061</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1623868159061</updated>
-    </task>
-    <task id="LOCAL-00007" summary="refactor: code refactor">
-      <created>1623904144060</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1623904144060</updated>
+      <workItem from="1625070285258" duration="22000" />
+      <workItem from="1625116866710" duration="6000" />
+      <workItem from="1625122721207" duration="42000" />
     </task>
     <task id="LOCAL-00008" summary="fix: calculate race time with milliseconds">
       <created>1623904931902</created>
@@ -496,7 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625066276723</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="feat: new cards">
+      <created>1625070302950</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1625070302950</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat: statistics page">
+      <created>1625122746000</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1625122746001</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,8 +518,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: code refactor" />
-    <MESSAGE value="feat: redux &amp; add follow links" />
     <MESSAGE value="refactor: remove any type" />
     <MESSAGE value="feat: update cards.json, add wrapper for cards" />
     <MESSAGE value="feat: play audio transcription" />
@@ -540,7 +541,9 @@
     <MESSAGE value="feat: track game statistics" />
     <MESSAGE value="refactor: create styles constants, replace connect on hooks, create CardFront component" />
     <MESSAGE value="feat: styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: styles" />
+    <MESSAGE value="feat: new cards" />
+    <MESSAGE value="feat: statistics page" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: statistics page" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

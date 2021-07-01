@@ -1,4 +1,5 @@
 import { ICardItem } from './cards-models';
+import { IWordStatisticData } from './api-models';
 
 // export type GameModeType = 'no-game' | 'in-game' | 'show-result';
 
@@ -27,6 +28,11 @@ export interface ICardFrontProps {
   imageSRC: string;
   isReadyToStartedGame: boolean;
   showTranslation: () => void;
+}
+
+export interface ITableCellProps {
+  index: number;
+  word: IWordStatisticData;
 }
 
 export interface INavigationProps {

@@ -1,5 +1,5 @@
-import React, { ReactElement, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { ReactElement } from 'react';
+import { useSelector } from 'react-redux';
 import classes from './mainPage.module.scss';
 import CardMainPageWrapper from './CardMainPageWrapper';
 import {
@@ -7,7 +7,6 @@ import {
   GameReducerType,
 } from '../../shared/interfaces/store-models';
 import { ICardItem } from '../../shared/interfaces/cards-models';
-import { getAllCards } from '../../store/cardsSlice';
 
 const TITLE_STYLES = classes.title;
 const CONTENT_STYLES = classes.content;
@@ -19,11 +18,6 @@ const MainPage = (): ReactElement => {
   const { gameMode } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllCards());
-  }, []);
 
   return (
     <>
