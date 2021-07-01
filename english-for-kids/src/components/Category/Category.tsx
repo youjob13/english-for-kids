@@ -18,6 +18,7 @@ import {
   REPEAT_WORD_STYLES,
   START_GAME_STYLES,
 } from '../../shared/globalVariables';
+import { getWordStatistic } from '../../shared/api/api';
 
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
@@ -26,6 +27,18 @@ const defineCurrentCategoryCards = (
   return cardsData.find(
     (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
   );
+};
+
+const addUpdatedAskedWordStatisticToDataBase = (wordName: string): void => {
+  const currentWordStatistic = getWordStatistic(wordName);
+
+  const currentAskedCounter =
+    (currentWordStatistic && currentWordStatistic.askedCounter) || 0;
+
+  localStorage[wordName] = JSON.stringify({
+    ...currentWordStatistic,
+    askedCounter: currentAskedCounter + 1,
+  });
 };
 
 const Category = (): ReactElement => {
@@ -38,11 +51,13 @@ const Category = (): ReactElement => {
     (state: CardsReducerType) => state.cardsReducer
   );
 
+  const audioSRC = (currentQuestion && currentQuestion.audioSRC) || '';
+
   useEffect(() => {
     playAudio(audioSRC);
+    if (currentQuestion)
+      addUpdatedAskedWordStatisticToDataBase(currentQuestion.name);
   }, [currentQuestion]);
-
-  const audioSRC = (currentQuestion && currentQuestion.audioSRC) || '';
 
   const currentCategoryCards = defineCurrentCategoryCards(
     cardsData,

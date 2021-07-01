@@ -8,6 +8,7 @@ import {
 } from '../../../shared/interfaces/api-models';
 import { CardsReducerType } from '../../../shared/interfaces/store-models';
 import { ICardItem } from '../../../shared/interfaces/cards-models';
+import capitalizeWord from '../../../shared/helpersFunction/capitalizeWord';
 
 const TABLE_STYLES = classes.table;
 const TABLE_ROW_STYLES = classes.tableRow;
@@ -31,14 +32,19 @@ const sortList = (
     case SortingTypes.TRANSLATION: {
       return unsortedList.sort();
     }
-    case SortingTypes.GUESSED: {
+    case SortingTypes.ASKED: {
       return unsortedList.sort((a, b) =>
-        sortBy.sortToTop ? a.guessed - b.guessed : b.guessed - a.guessed
+        sortBy.sortToTop ? a.asked - b.asked : b.asked - a.asked
       );
     }
-    case SortingTypes.PLAY: {
+    case SortingTypes.TRAIN: {
       return unsortedList.sort((a, b) =>
         sortBy.sortToTop ? a.train - b.train : b.train - a.train
+      );
+    }
+    case SortingTypes.HIT: {
+      return unsortedList.sort((a, b) =>
+        sortBy.sortToTop ? a.hit - b.hit : b.hit - a.hit
       );
     }
     case SortingTypes.WRONG: {
@@ -59,12 +65,21 @@ const sortList = (
   }
 };
 
+const calcWrongPercent = (
+  askedAnswers: number,
+  trueAnswers: number
+): number => {
+  return Math.floor((askedAnswers * 100) / trueAnswers);
+};
+
 const StatisticsTable = (): ReactElement => {
   const { cards: cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
 
-  const arr2: IWordStatisticData[] = cardsData
+  const items = { ...localStorage };
+
+  const statisticsParams: IWordStatisticData[] = cardsData
     .map((cardsDataItem) => {
       const category = Object.keys(cardsDataItem).toString();
       const cards: ICardItem[] = Object.values(cardsDataItem)[0];
@@ -72,17 +87,35 @@ const StatisticsTable = (): ReactElement => {
         return {
           wordName: card.name,
           translation: card.translate,
-          guessed: 0,
-          train: 0,
-          wrong: 0,
-          wrongPercent: 0,
+          asked:
+            (items[capitalizeWord(card.name)] &&
+              JSON.parse(items[capitalizeWord(card.name)]).askedCounter) ||
+            0,
+          train:
+            (items[capitalizeWord(card.name)] &&
+              JSON.parse(items[capitalizeWord(card.name)]).trainCounter) ||
+            0,
+          hit:
+            (items[capitalizeWord(card.name)] &&
+              JSON.parse(items[capitalizeWord(card.name)]).trueAnswerCounter) ||
+            0,
+          wrong:
+            (items[capitalizeWord(card.name)] &&
+              JSON.parse(items[capitalizeWord(card.name)])
+                .falseAnswerCounter) ||
+            0,
+          wrongPercent:
+            (items[capitalizeWord(card.name)] &&
+              calcWrongPercent(
+                JSON.parse(items[capitalizeWord(card.name)]).askedAnswerCounter,
+                JSON.parse(items[capitalizeWord(card.name)]).trueAnswerCounter
+              )) ||
+            0,
           category,
         };
       });
     })
     .flat();
-
-  console.log(arr2);
 
   const [sortingType, setSortingType] = useState({
     sortBy: '',
@@ -142,32 +175,47 @@ const StatisticsTable = (): ReactElement => {
           <th
             onClick={() =>
               setSortingType({
-                sortBy: SortingTypes.GUESSED,
+                sortBy: SortingTypes.ASKED,
                 sortToTop: !sortingType.sortToTop,
               })
             }
             className={
-              sortingType.sortBy === SortingTypes.GUESSED
+              sortingType.sortBy === SortingTypes.ASKED
                 ? TABLE_TITLE_ACTIVE_STYLES
                 : TABLE_TITLE_STYLES
             }
           >
-            Guessed
+            Asked
           </th>
           <th
             onClick={() =>
               setSortingType({
-                sortBy: SortingTypes.PLAY,
+                sortBy: SortingTypes.TRAIN,
                 sortToTop: !sortingType.sortToTop,
               })
             }
             className={
-              sortingType.sortBy === SortingTypes.PLAY
+              sortingType.sortBy === SortingTypes.TRAIN
                 ? TABLE_TITLE_ACTIVE_STYLES
                 : TABLE_TITLE_STYLES
             }
           >
-            Play
+            Train
+          </th>
+          <th
+            onClick={() =>
+              setSortingType({
+                sortBy: SortingTypes.HIT,
+                sortToTop: !sortingType.sortToTop,
+              })
+            }
+            className={
+              sortingType.sortBy === SortingTypes.HIT
+                ? TABLE_TITLE_ACTIVE_STYLES
+                : TABLE_TITLE_STYLES
+            }
+          >
+            Hit
           </th>
           <th
             onClick={() =>
@@ -202,7 +250,7 @@ const StatisticsTable = (): ReactElement => {
         </tr>
       </thead>
       <tbody className={TABLE_BODY_STYLES}>
-        {sortList(arr2, sortingType).map((elem, index) => (
+        {sortList(statisticsParams, sortingType).map((elem, index) => (
           <TableCell key={index.toString()} word={elem} index={index + 1} />
         ))}
       </tbody>

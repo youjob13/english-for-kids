@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: move out global constants" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: footer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,13 +157,7 @@
       <workItem from="1625122721207" duration="42000" />
       <workItem from="1625124066238" duration="19000" />
       <workItem from="1625125629041" duration="44000" />
-    </task>
-    <task id="LOCAL-00010" summary="fix: page behavior during the race">
-      <created>1623907456406</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1623907456406</updated>
+      <workItem from="1625126965137" duration="19000" />
     </task>
     <task id="LOCAL-00011" summary="fix: sort winners table">
       <created>1623911102735</created>
@@ -501,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625125668092</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="feat: footer">
+      <created>1625126978622</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1625126978622</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +521,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: update cards.json, add wrapper for cards" />
     <MESSAGE value="feat: play audio transcription" />
     <MESSAGE value="feat: assets (cards image &amp; audio)" />
     <MESSAGE value="refactor: router (render cards)" />
@@ -545,7 +545,8 @@
     <MESSAGE value="feat: new cards" />
     <MESSAGE value="feat: statistics page" />
     <MESSAGE value="refactor: move out global constants" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: move out global constants" />
+    <MESSAGE value="feat: footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: footer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

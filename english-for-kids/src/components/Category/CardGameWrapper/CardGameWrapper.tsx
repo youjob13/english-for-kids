@@ -8,7 +8,6 @@ import {
 import { GameReducerType } from '../../../shared/interfaces/store-models';
 import playAudio from '../../../shared/helpersFunction/playSound';
 import { ICardItem } from '../../../shared/interfaces/cards-models';
-import { IWordStatistic } from '../../../store/statisticSlice';
 import { setGivenAnswer } from '../../../store/gameSlice';
 import CardFront from './CardFront';
 import {
@@ -19,6 +18,7 @@ import {
   CARD_WRAPPER_GUESSED_STYLES,
   CARD_WRAPPER_STYLES,
 } from '../../../shared/globalVariables';
+import { getWordStatistic } from '../../../shared/api/api';
 
 const checkIsGuessedCard = (
   currentGameCardList: ICardItem[],
@@ -28,10 +28,6 @@ const checkIsGuessedCard = (
     (cardFromGameList) =>
       JSON.stringify(cardFromGameList) === JSON.stringify(card)
   ); // TODO: try realise with reselect
-};
-
-const getWordStatistic = (wordName: string): IWordStatistic => {
-  return JSON.parse(localStorage.getItem(wordName)!);
 };
 
 const addUpdatedTrainWordStatisticToDataBase = (wordName: string): void => {

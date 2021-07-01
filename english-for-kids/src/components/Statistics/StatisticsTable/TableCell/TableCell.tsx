@@ -11,8 +11,9 @@ const TableCell = ({ index, word }: ITableCellProps): ReactElement => {
     category,
     wordName,
     translation,
-    guessed,
+    asked,
     train,
+    hit,
     wrong,
     wrongPercent,
   } = word;
@@ -23,8 +24,9 @@ const TableCell = ({ index, word }: ITableCellProps): ReactElement => {
       <td className={TABLE_CELL_STYLES}>{capitalizeWord(category)}</td>
       <td className={TABLE_CELL_STYLES}>{capitalizeWord(wordName)}</td>
       <td className={TABLE_CELL_STYLES}>{capitalizeWord(translation)}</td>
-      <td className={TABLE_CELL_STYLES}>{guessed || 0}</td>
+      <td className={TABLE_CELL_STYLES}>{asked || 0}</td>
       <td className={TABLE_CELL_STYLES}>{train || 0}</td>
+      <td className={TABLE_CELL_STYLES}>{hit || 0}</td>
       <td className={TABLE_CELL_STYLES}>{wrong || 0}</td>
       <td className={TABLE_CELL_STYLES}>{wrongPercent || 0}%</td>
     </tr>

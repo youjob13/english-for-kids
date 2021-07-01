@@ -9,6 +9,7 @@ import { ICardItem } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helpersFunction/arraySort';
 import compareAnswerAndQuestion from '../shared/helpersFunction/compareTwoObjects';
 import { GameMode } from '../shared/interfaces/props-models';
+import { getWordStatistic } from '../shared/api/api';
 
 const gameSlice = createSlice({
   name: 'gameSlice',
@@ -96,6 +97,34 @@ export const prepareGameProcess =
     dispatch(setAudioQuestion());
   };
 
+const addUpdatedTrueAnswerWordStatisticToDataBase = (
+  wordName: string
+): void => {
+  const currentWordStatistic = getWordStatistic(wordName);
+
+  const currentTrueAnswerCounter =
+    (currentWordStatistic && currentWordStatistic.trueAnswerCounter) || 0;
+
+  localStorage[wordName] = JSON.stringify({
+    ...currentWordStatistic,
+    trueAnswerCounter: currentTrueAnswerCounter + 1,
+  });
+};
+
+const addUpdatedFalseAnswerWordStatisticToDataBase = (
+  wordName: string
+): void => {
+  const currentWordStatistic = getWordStatistic(wordName);
+
+  const currentTrueAnswerCounter =
+    (currentWordStatistic && currentWordStatistic.falseAnswerCounter) || 0;
+
+  localStorage[wordName] = JSON.stringify({
+    ...currentWordStatistic,
+    falseAnswerCounter: currentTrueAnswerCounter + 1,
+  });
+};
+
 export const setGivenAnswer =
   (answer: ICardItem): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch, getState): Promise<void> => {
@@ -105,7 +134,7 @@ export const setGivenAnswer =
     if (answerResult) {
       dispatch(setRightAnswer(answer));
       dispatch(setAudioQuestion());
-
+      addUpdatedTrueAnswerWordStatisticToDataBase(answer.name);
       const newQuestion = getState().gameReducer.currentQuestion;
       if (!newQuestion) {
         dispatch(stopGame());
@@ -117,4 +146,5 @@ export const setGivenAnswer =
       return;
     }
     dispatch(setFalseAnswer());
+    addUpdatedFalseAnswerWordStatisticToDataBase(answer.name);
   };

@@ -20,6 +20,6 @@ export const { s } = statisticSlice.actions;
 export interface IWordStatistic {
   trainCounter?: number;
   askedCounter?: number;
-  rightAnswerCounter?: number;
-  failAnswerCounter?: number;
+  trueAnswerCounter?: number;
+  falseAnswerCounter?: number;
 }
