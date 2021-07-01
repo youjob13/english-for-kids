@@ -1,7 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import classes from './category.module.scss';
 import {
   CardsReducerType,
   GameReducerType,
@@ -13,11 +12,12 @@ import { RouteParams } from '../../shared/interfaces/api-models';
 import { prepareGameProcess } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
 import capitalizeWord from '../../shared/helpersFunction/capitalizeWord';
-
-const TITLE_STYLES = classes.title;
-const CATEGORY_FIELD_STYLES = classes.categoryField;
-const START_GAME_STYLES = classes.startGame;
-const REPEAT_WORD_STYLES = classes.repeatWord;
+import Title from '../../shared/baseComponents/Title/Title';
+import {
+  CATEGORY_FIELD_STYLES,
+  REPEAT_WORD_STYLES,
+  START_GAME_STYLES,
+} from '../../shared/globalVariables';
 
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
@@ -51,13 +51,13 @@ const Category = (): ReactElement => {
 
   const cards = Object.values(currentCategoryCards!)[0];
 
-  const onStartGameClick = () => {
+  const onStartGameClick = (): void => {
     dispatch(prepareGameProcess(cards));
   };
 
   return (
     <>
-      <h2 className={TITLE_STYLES}>Category: {capitalizeWord(categoryPath)}</h2>
+      <Title>Category: {capitalizeWord(categoryPath)}</Title>
       <ul className={CATEGORY_FIELD_STYLES}>
         {cards.map((card, index) => (
           <CardGameWrapper key={index.toString()} card={card} />

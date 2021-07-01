@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classes from '../category.module.scss';
 import Card from '../../Card/Card';
 import {
   GameMode,
@@ -12,13 +11,14 @@ import { ICardItem } from '../../../shared/interfaces/cards-models';
 import { IWordStatistic } from '../../../store/statisticSlice';
 import { setGivenAnswer } from '../../../store/gameSlice';
 import CardFront from './CardFront';
-
-const CARD_WRAPPER_GUESSED_STYLES = classes.cardWrapperGuessed;
-const CARD_WRAPPER_STYLES = classes.cardWrapper;
-const CARD_CONTAINER_STYLES = classes.cardContainer;
-const CARD_CONTAINER_ROTATED_STYLES = classes.cardContainerRotated;
-const CARD_FRONT_STYLES = classes.cardFront;
-const CARD_BACK_STYLES = classes.cardBack;
+import {
+  CARD_BACK_STYLES,
+  CARD_CONTAINER_ROTATED_STYLES,
+  CARD_CONTAINER_STYLES,
+  CARD_FRONT_STYLES,
+  CARD_WRAPPER_GUESSED_STYLES,
+  CARD_WRAPPER_STYLES,
+} from '../../../shared/globalVariables';
 
 const checkIsGuessedCard = (
   currentGameCardList: ICardItem[],
@@ -56,29 +56,25 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
 
   const isGuessedCard = checkIsGuessedCard(currentGameCardList, card);
 
-  const onShowTranslationClick = () => {
+  const onShowTranslationClick = (): void => {
     if (gameMode === GameMode.READY_TO_GAME) return;
     setIsShowTranslation(!isShowTranslation);
   };
 
-  const onPlayCardAudioClick = () => {
+  const onPlayCardAudioClick = (): void => {
     if (gameMode === GameMode.READY_TO_GAME) return;
     playAudio(audioSRC);
     addUpdatedTrainWordStatisticToDataBase(card.name);
   };
 
-  const onCardClick = () => {
+  const onCardClick = (): void => {
     if (gameMode === GameMode.IN_GAME) {
       dispatch(setGivenAnswer(card));
     }
   };
 
   return (
-    <div
-      onClick={onCardClick}
-      role="button"
-      tabIndex={0}
-      onKeyDown={() => console.log('as')}
+    <li
       className={
         gameMode === GameMode.IN_GAME && !isGuessedCard
           ? CARD_WRAPPER_GUESSED_STYLES
@@ -86,6 +82,10 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
       }
     >
       <div
+        role="button"
+        onClick={onCardClick}
+        onKeyPress={() => console.log('onKeyPress')}
+        tabIndex={0}
         className={
           !isShowTranslation
             ? CARD_CONTAINER_STYLES
@@ -122,7 +122,7 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
           />
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 

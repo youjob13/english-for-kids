@@ -6,13 +6,13 @@ import {
   ICardFrontProps,
 } from '../../../shared/interfaces/props-models';
 import { GameReducerType } from '../../../shared/interfaces/store-models';
-import classes from '../category.module.scss';
 import speakerImg from '../../../assets/images/speaker.png';
 import rotateArrowsImg from '../../../assets/images/rotate-arrows.png';
-
-const TRANSLATION_BTN_STYLES = classes.translationBtn;
-const PLAY_SOUND_BTN_STYLES = classes.playSoundBtn;
-const BUTTON_IMAGES_STYLES = classes.buttonImages;
+import {
+  BUTTON_IMAGES_STYLES,
+  PLAY_SOUND_BTN_STYLES,
+  TRANSLATION_BTN_STYLES,
+} from '../../../shared/globalVariables';
 
 const CardFront = ({
   title,

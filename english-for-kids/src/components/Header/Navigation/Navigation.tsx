@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { INavigationProps } from '../../../shared/interfaces/props-models';
 import NavigationItem from './NavigationItem';
-import classes from './navigation.module.scss';
-
-const NAV_MENU = classes.navMenu;
-const NAV_ITEM = classes.navItem;
-const NAV_ITEM_ACTIVE = classes.navItemActive;
+import {
+  NAV_ITEM,
+  NAV_ITEM_ACTIVE,
+  NAV_MENU,
+} from '../../../shared/globalVariables';
 
 const Navigation = ({ categories }: INavigationProps): ReactElement => {
   return (

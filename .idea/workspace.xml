@@ -155,13 +155,7 @@
       <workItem from="1625070285258" duration="22000" />
       <workItem from="1625116866710" duration="6000" />
       <workItem from="1625122721207" duration="42000" />
-    </task>
-    <task id="LOCAL-00008" summary="fix: calculate race time with milliseconds">
-      <created>1623904931902</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1623904931902</updated>
+      <workItem from="1625124066238" duration="19000" />
     </task>
     <task id="LOCAL-00009" summary="refactor: remove Timer">
       <created>1623905068173</created>
@@ -499,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625122746001</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="feat: statistics page">
+      <created>1625124080365</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1625124080365</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

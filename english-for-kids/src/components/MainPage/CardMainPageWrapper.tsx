@@ -12,13 +12,15 @@ const CardMainPageWrapper = ({
   gameMode,
 }: ICardMainPageWrapperProps): ReactElement => {
   return (
-    <Link to={`/section/${category}`}>
-      <Card
-        title={category}
-        isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
-        imageSRC={cards[0].imageSRC}
-      />
-    </Link>
+    <li>
+      <Link to={`/section/${category}`}>
+        <Card
+          title={category}
+          isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
+          imageSRC={cards[0].imageSRC}
+        />
+      </Link>
+    </li>
   );
 };
 
