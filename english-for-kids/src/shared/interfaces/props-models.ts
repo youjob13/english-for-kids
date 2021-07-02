@@ -22,6 +22,10 @@ export interface ICardProps {
   isReadyToStartedGame: boolean;
 }
 
+export interface IEndGamePopupProps {
+  answersList: boolean[];
+}
+
 export interface ICardFrontProps {
   playCardAudio: () => void;
   title: string;

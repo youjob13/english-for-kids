@@ -16,14 +16,14 @@ export interface IGameState {
   currentGameCardList: ICardItem[];
   currentQuestion: ICardItem | null;
   lastAnswer: ICardItem | null;
-  gameMode: GameMode; // TODO: ?;
-  currentGameStatistic: { rightAnswers: number; allAnswers: number };
+  gameMode: GameMode;
+  currentGameAnswers: boolean[];
 }
 
-export type CardsReducerType = { cardsReducer: ICardsState }; // TODO: change name
-export type GameReducerType = { gameReducer: IGameState }; // TODO: change name
-export type StatisticReducerType = { statisticReducer: IStatisticState }; // TODO: change name
-export type StateType<T> = CombinedState<T>; // TODO: change name
+export type CardsReducerType = { cardsReducer: ICardsState };
+export type GameReducerType = { gameReducer: IGameState };
+export type StatisticReducerType = { statisticReducer: IStatisticState };
+export type StateType<T> = CombinedState<T>;
 
 export type ThunkActionType<T> = ThunkAction<void, T, unknown, AnyAction>;
 export type ThunkDispatchType<T> = ThunkDispatch<T, unknown, AnyAction>;

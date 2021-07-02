@@ -24,6 +24,7 @@ export const CARD_BACK_STYLES = classesCategory.cardBack;
 export const TRANSLATION_BTN_STYLES = classesCategory.translationBtn;
 export const PLAY_SOUND_BTN_STYLES = classesCategory.playSoundBtn;
 export const BUTTON_IMAGES_STYLES = classesCategory.buttonImages;
+export const STAR_STYLES = classesCategory.star;
 
 export const TRAIN_STYLES = `${classesCard.card} ${classesCard.isStartedGame}`;
 export const PLAY_STYLES = `${classesCard.card} ${classesCard}`;
@@ -33,6 +34,8 @@ export const CARD_NAME_STYLES = classesCard.cardName;
 export const OVERLAY_STYLES = classesEndGamePopup.overlay;
 export const TEXT_CONTENT_STYLES = classesEndGamePopup.content;
 export const TITLE_STYLES = classesEndGamePopup.title;
+export const WRONGS_STYLES = classesEndGamePopup.wrongs;
+export const ENG_GAME_POPUP_IMAGE_STYLES = classesEndGamePopup.image;
 
 export const NAV_MENU = classesNavigation.navMenu;
 export const NAV_ITEM = classesNavigation.navItem;

@@ -13,8 +13,8 @@ import { getAllCards } from './store/cardsSlice';
 import Footer from './components/Footer/Footer';
 
 const App = (): ReactElement => {
-  const gameMode = useSelector(
-    (state: GameReducerType) => state.gameReducer.gameMode
+  const { gameMode, currentGameAnswers } = useSelector(
+    (state: GameReducerType) => state.gameReducer
   );
   const dispatch = useDispatch();
 
@@ -32,7 +32,9 @@ const App = (): ReactElement => {
           <Route path="/section/:category" component={Category} />
           <Redirect from="/" to="/main" />
         </Switch>
-        {gameMode === GameMode.SHOW_RESULT && <EndGamePopup />}
+        {gameMode === GameMode.SHOW_RESULT && (
+          <EndGamePopup answersList={currentGameAnswers} />
+        )}
       </main>
       <Footer />
     </div>

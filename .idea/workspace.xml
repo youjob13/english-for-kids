@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: footer" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: stars after give answer &amp; count wrong answers" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,20 +158,9 @@
       <workItem from="1625124066238" duration="19000" />
       <workItem from="1625125629041" duration="44000" />
       <workItem from="1625126965137" duration="19000" />
-    </task>
-    <task id="LOCAL-00011" summary="fix: sort winners table">
-      <created>1623911102735</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1623911102735</updated>
-    </task>
-    <task id="LOCAL-00012" summary="fix: layout garage page &amp; winners table">
-      <created>1623912221719</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1623912221719</updated>
+      <workItem from="1625150263231" duration="54000" />
+      <workItem from="1625227200776" duration="21000" />
+      <workItem from="1625232634306" duration="62000" />
     </task>
     <task id="LOCAL-00013" summary="feat: new deploy version">
       <created>1623912370270</created>
@@ -502,7 +491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625126978622</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="feat: get data from statistics">
+      <created>1625150310226</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1625150310226</updated>
+    </task>
+    <task id="LOCAL-00061" summary="feat: stars after give answer &amp; count wrong answers">
+      <created>1625232689802</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1625232689802</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,8 +524,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: play audio transcription" />
-    <MESSAGE value="feat: assets (cards image &amp; audio)" />
     <MESSAGE value="refactor: router (render cards)" />
     <MESSAGE value="refactor: structure data from back file" />
     <MESSAGE value="refactor: change name, remove any" />
@@ -546,7 +547,9 @@
     <MESSAGE value="feat: statistics page" />
     <MESSAGE value="refactor: move out global constants" />
     <MESSAGE value="feat: footer" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: footer" />
+    <MESSAGE value="feat: get data from statistics" />
+    <MESSAGE value="feat: stars after give answer &amp; count wrong answers" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: stars after give answer &amp; count wrong answers" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

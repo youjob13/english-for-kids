@@ -10,6 +10,7 @@ import sortCurrentGameQuestionList from '../shared/helpersFunction/arraySort';
 import compareAnswerAndQuestion from '../shared/helpersFunction/compareTwoObjects';
 import { GameMode } from '../shared/interfaces/props-models';
 import { getWordStatistic } from '../shared/api/api';
+import playAudio from '../shared/helpersFunction/playSound';
 
 const gameSlice = createSlice({
   name: 'gameSlice',
@@ -18,10 +19,7 @@ const gameSlice = createSlice({
     currentGameCardList: [],
     currentQuestion: null,
     lastAnswer: null,
-    currentGameStatistic: {
-      rightAnswers: 0,
-      allAnswers: 0,
-    },
+    currentGameAnswers: [],
   } as IGameState,
   reducers: {
     toggleGameMode: (state: IGameState) => ({
@@ -54,18 +52,12 @@ const gameSlice = createSlice({
         currentGameCardList: state.currentGameCardList.filter(
           (card) => JSON.stringify(card) !== JSON.stringify(answer)
         ),
-        currentGameStatistic: {
-          rightAnswers: state.currentGameStatistic.rightAnswers + 1,
-          allAnswers: state.currentGameStatistic.allAnswers + 1,
-        },
+        currentGameAnswers: [...state.currentGameAnswers, true],
       };
     },
     setFalseAnswer: (state: IGameState) => ({
-      ...state, // TODO: ++ false attempt & all attempt
-      currentGameStatistic: {
-        ...state.currentGameStatistic,
-        allAnswers: state.currentGameStatistic.allAnswers + 1,
-      },
+      ...state,
+      currentGameAnswers: [...state.currentGameAnswers, false],
     }),
     stopGame: (state: IGameState) => ({
       ...state,
@@ -74,6 +66,10 @@ const gameSlice = createSlice({
     setNoGameMode: (state: IGameState) => ({
       ...state,
       gameMode: GameMode.READY_TO_GAME,
+    }),
+    resetGameStatistics: (state: IGameState) => ({
+      ...state,
+      currentGameAnswers: [],
     }),
   },
 });
@@ -88,6 +84,7 @@ export const {
   startGame,
   toggleGameMode,
   setNoGameMode,
+  resetGameStatistics,
 } = gameSlice.actions;
 
 export const prepareGameProcess =
@@ -133,18 +130,23 @@ export const setGivenAnswer =
 
     if (answerResult) {
       dispatch(setRightAnswer(answer));
-      dispatch(setAudioQuestion());
+
+      playAudio('/assets/success.mp3');
       addUpdatedTrueAnswerWordStatisticToDataBase(answer.name);
+      dispatch(setAudioQuestion());
+
       const newQuestion = getState().gameReducer.currentQuestion;
       if (!newQuestion) {
         dispatch(stopGame());
-
         setTimeout(() => {
           dispatch(setNoGameMode());
+          dispatch(resetGameStatistics());
         }, 3000);
       }
+
       return;
     }
     dispatch(setFalseAnswer());
+    playAudio('/assets/error.mp3');
     addUpdatedFalseAnswerWordStatisticToDataBase(answer.name);
   };

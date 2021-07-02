@@ -6,7 +6,6 @@ import {
   ICardCategoryWrapperProps,
 } from '../../../shared/interfaces/props-models';
 import { GameReducerType } from '../../../shared/interfaces/store-models';
-import playAudio from '../../../shared/helpersFunction/playSound';
 import { ICardItem } from '../../../shared/interfaces/cards-models';
 import { setGivenAnswer } from '../../../store/gameSlice';
 import CardFront from './CardFront';
@@ -19,6 +18,7 @@ import {
   CARD_WRAPPER_STYLES,
 } from '../../../shared/globalVariables';
 import { getWordStatistic } from '../../../shared/api/api';
+import playAudio from '../../../shared/helpersFunction/playSound';
 
 const checkIsGuessedCard = (
   currentGameCardList: ICardItem[],

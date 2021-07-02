@@ -16,6 +16,7 @@ import Title from '../../shared/baseComponents/Title/Title';
 import {
   CATEGORY_FIELD_STYLES,
   REPEAT_WORD_STYLES,
+  STAR_STYLES,
   START_GAME_STYLES,
 } from '../../shared/globalVariables';
 import { getWordStatistic } from '../../shared/api/api';
@@ -44,7 +45,7 @@ const addUpdatedAskedWordStatisticToDataBase = (wordName: string): void => {
 const Category = (): ReactElement => {
   const dispatch = useDispatch();
   const { category: categoryPath } = useParams<RouteParams>();
-  const { gameMode, currentQuestion } = useSelector(
+  const { gameMode, currentQuestion, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
   const { cards: cardsData } = useSelector(
@@ -95,6 +96,23 @@ const Category = (): ReactElement => {
         >
           Repeat
         </button>
+      )}
+      {currentGameAnswers.map((answer, index) =>
+        answer ? (
+          <img
+            className={STAR_STYLES}
+            src={`${process.env.PUBLIC_URL}/assets/star.webp`}
+            alt="star"
+            key={index.toString()}
+          />
+        ) : (
+          <img
+            className={STAR_STYLES}
+            src={`${process.env.PUBLIC_URL}/assets/lose_star.png`}
+            alt="star"
+            key={index.toString()}
+          />
+        )
       )}
     </>
   );
