@@ -6,7 +6,7 @@ import {
   GameReducerType,
 } from '../../shared/interfaces/store-models';
 import { GameMode } from '../../shared/interfaces/props-models';
-import CardGameWrapper from './CardGameWrapper/CardGameWrapper';
+import CardGame from './CardGame/CardGame';
 import { ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
 import { prepareGameProcess } from '../../store/gameSlice';
@@ -24,11 +24,10 @@ import { getWordStatistic } from '../../shared/api/api';
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
   categoryPath: string
-): ICardsData | undefined => {
-  return cardsData.find(
+): ICardsData | undefined =>
+  cardsData.find(
     (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
   );
-};
 
 const addUpdatedAskedWordStatisticToDataBase = (wordName: string): void => {
   const currentWordStatistic = getWordStatistic(wordName);
@@ -52,13 +51,7 @@ const Category = (): ReactElement => {
     (state: CardsReducerType) => state.cardsReducer
   );
 
-  const audioSRC = (currentQuestion && currentQuestion.audioSRC) || '';
-
-  useEffect(() => {
-    playAudio(audioSRC);
-    if (currentQuestion)
-      addUpdatedAskedWordStatisticToDataBase(currentQuestion.name);
-  }, [currentQuestion]);
+  const audioSRC = currentQuestion && currentQuestion.audioSRC;
 
   const currentCategoryCards = defineCurrentCategoryCards(
     cardsData,
@@ -66,6 +59,15 @@ const Category = (): ReactElement => {
   );
 
   const cards = Object.values(currentCategoryCards!)[0];
+
+  useEffect(() => {
+    if (audioSRC) {
+      playAudio(audioSRC);
+    }
+    if (currentQuestion) {
+      addUpdatedAskedWordStatisticToDataBase(currentQuestion.name);
+    }
+  }, [currentQuestion]);
 
   const onStartGameClick = (): void => {
     dispatch(prepareGameProcess(cards));
@@ -76,7 +78,7 @@ const Category = (): ReactElement => {
       <Title>Category: {capitalizeWord(categoryPath)}</Title>
       <ul className={CATEGORY_FIELD_STYLES}>
         {cards.map((card, index) => (
-          <CardGameWrapper key={index.toString()} card={card} />
+          <CardGame key={index.toString()} card={card} />
         ))}
       </ul>
       {gameMode === GameMode.READY_TO_GAME && (
@@ -92,7 +94,7 @@ const Category = (): ReactElement => {
         <button
           className={REPEAT_WORD_STYLES}
           type="button"
-          onClick={() => playAudio(audioSRC)}
+          onClick={() => audioSRC && playAudio(audioSRC)}
         >
           Repeat
         </button>

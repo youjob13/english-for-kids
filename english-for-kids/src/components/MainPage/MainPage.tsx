@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import CardMainPageWrapper from './CardMainPageWrapper';
+import CardMainPage from './CardMainPage/CardMainPage';
 import {
   CardsReducerType,
   GameReducerType,
@@ -26,7 +26,7 @@ const MainPage = (): ReactElement => {
           const cards: ICardItem[] = Object.values(cardsDataItem)[0];
 
           return (
-            <CardMainPageWrapper
+            <CardMainPage
               key={index.toString()}
               category={category}
               cards={cards}

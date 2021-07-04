@@ -7,11 +7,16 @@ const cardsSlice = createSlice({
   initialState: {
     cards: [],
     playingList: [],
+    isFetching: true,
   } as ICardsState,
   reducers: {
     updatePlayingList: (state: ICardsState, action) => ({
       ...state,
       playingList: [...state.playingList, action.payload],
+    }),
+    toggleIsFetching: (state: ICardsState, action) => ({
+      ...state,
+      isFetching: action.payload,
     }),
     removeWordFromPLayingList: (state: ICardsState) => {
       return {
@@ -28,13 +33,20 @@ const cardsSlice = createSlice({
 
 export default cardsSlice.reducer;
 
-export const { removeWordFromPLayingList, updatePlayingList, setAllCards } =
-  cardsSlice.actions;
+export const {
+  toggleIsFetching,
+  removeWordFromPLayingList,
+  updatePlayingList,
+  setAllCards,
+} = cardsSlice.actions;
 
 export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
     const cards = test;
-
-    dispatch(setAllCards(cards));
+    dispatch(toggleIsFetching(false));
+    setTimeout(() => {
+      dispatch(toggleIsFetching(true));
+      dispatch(setAllCards(cards));
+    }, 1000);
   };

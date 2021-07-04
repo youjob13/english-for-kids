@@ -1,23 +1,22 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import Card from '../../Card/Card';
+import Card from '../../../Card/Card';
 import {
   GameMode,
   ICardFrontProps,
-} from '../../../shared/interfaces/props-models';
-import { GameReducerType } from '../../../shared/interfaces/store-models';
-import speakerImg from '../../../assets/images/speaker.png';
-import rotateArrowsImg from '../../../assets/images/rotate-arrows.png';
+} from '../../../../shared/interfaces/props-models';
+import { GameReducerType } from '../../../../shared/interfaces/store-models';
+import speakerImg from '../../../../assets/images/speaker.png';
+import rotateArrowsImg from '../../../../assets/images/rotate-arrows.png';
 import {
   BUTTON_IMAGES_STYLES,
   PLAY_SOUND_BTN_STYLES,
   TRANSLATION_BTN_STYLES,
-} from '../../../shared/stylesVariables';
+} from '../../../../shared/stylesVariables';
 
 const CardFront = ({
   title,
   imageSRC,
-  isReadyToStartedGame,
   playCardAudio,
   showTranslation,
 }: ICardFrontProps): ReactElement => {
@@ -29,7 +28,7 @@ const CardFront = ({
     <>
       <Card
         title={title}
-        isReadyToStartedGame={isReadyToStartedGame}
+        isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
         imageSRC={imageSRC}
       />
       {gameMode === GameMode.NO_GAME && (

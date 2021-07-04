@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react';
 
-const useOnClickOutside = (
+const useOnClickOutsideOrNavItem = (
   ref: RefObject<HTMLElement>,
   handler: (e: Event) => void
 ): void => {
@@ -24,4 +24,4 @@ const useOnClickOutside = (
   }, [ref, handler]);
 };
 
-export default useOnClickOutside;
+export default useOnClickOutsideOrNavItem;

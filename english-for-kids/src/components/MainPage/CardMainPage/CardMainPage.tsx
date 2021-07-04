@@ -1,12 +1,12 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import Card from '../Card/Card';
+import Card from '../../Card/Card';
 import {
   GameMode,
   ICardMainPageWrapperProps,
-} from '../../shared/interfaces/props-models';
+} from '../../../shared/interfaces/props-models';
 
-const CardMainPageWrapper = ({
+const CardMainPage = ({
   category,
   cards,
   gameMode,
@@ -24,4 +24,4 @@ const CardMainPageWrapper = ({
   );
 };
 
-export default CardMainPageWrapper;
+export default CardMainPage;

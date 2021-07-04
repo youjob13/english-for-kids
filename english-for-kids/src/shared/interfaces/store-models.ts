@@ -5,6 +5,7 @@ import { GameMode } from './props-models';
 
 export interface ICardsState {
   cards: ICardsData[];
+  isFetching: boolean;
   playingList: string[];
 }
 

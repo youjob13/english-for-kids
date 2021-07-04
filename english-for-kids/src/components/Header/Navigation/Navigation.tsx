@@ -8,14 +8,14 @@ import {
   NAV_MENU_HIDDEN_STYLES,
   NAV_MENU_STYLES,
 } from '../../../shared/stylesVariables';
-import useOnClickOutside from '../../../shared/hooks/useOnClickOutside';
+import useOnClickOutsideOrNavItem from '../../../shared/hooks/useOnClickOutsideOrNavItem';
 import MenuContext from '../../../shared/context';
 
 const Navigation = ({ categories }: INavigationProps): ReactElement => {
   const { isOpenMenu, toggleMenu } = useContext(MenuContext);
   const node = useRef<HTMLElement>(null);
 
-  useOnClickOutside(node, () => {
+  useOnClickOutsideOrNavItem(node, () => {
     if (isOpenMenu) toggleMenu();
   });
 

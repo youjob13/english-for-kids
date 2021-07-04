@@ -8,7 +8,7 @@ import {
 import { GameReducerType } from '../../../shared/interfaces/store-models';
 import { ICardItem } from '../../../shared/interfaces/cards-models';
 import { setGivenAnswer } from '../../../store/gameSlice';
-import CardFront from './CardFront';
+import CardFront from './CardFront/CardFront';
 import {
   CARD_BACK_STYLES,
   CARD_CONTAINER_ROTATED_STYLES,
@@ -23,12 +23,11 @@ import playAudio from '../../../shared/helpersFunction/playSound';
 const checkIsGuessedCard = (
   currentGameCardList: ICardItem[],
   card: ICardItem
-): boolean => {
-  return currentGameCardList.some(
+): boolean =>
+  currentGameCardList.some(
     (cardFromGameList) =>
       JSON.stringify(cardFromGameList) === JSON.stringify(card)
-  ); // TODO: try realise with reselect
-};
+  );
 
 const addUpdatedTrainWordStatisticToDataBase = (wordName: string): void => {
   const currentWordStatistic = getWordStatistic(wordName);
@@ -42,7 +41,7 @@ const addUpdatedTrainWordStatisticToDataBase = (wordName: string): void => {
   });
 };
 
-const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
+const CardGame = ({ card }: ICardCategoryWrapperProps): ReactElement => {
   const dispatch = useDispatch();
   const { gameMode, currentGameCardList } = useSelector(
     (state: GameReducerType) => state.gameReducer
@@ -64,13 +63,16 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
   };
 
   const onCardClick = (): void => {
-    if (gameMode === GameMode.IN_GAME) {
-      dispatch(setGivenAnswer(card));
-    }
+    dispatch(setGivenAnswer(card));
   };
 
   return (
     <li
+      role="row"
+      onClick={() => gameMode === GameMode.IN_GAME && onCardClick()}
+      onKeyPress={() => console.log('onKeyPress')}
+      tabIndex={0}
+      onMouseLeave={() => setIsShowTranslation(false)}
       className={
         gameMode === GameMode.IN_GAME && !isGuessedCard
           ? CARD_WRAPPER_GUESSED_STYLES
@@ -78,11 +80,6 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
       }
     >
       <div
-        role="button"
-        onClick={onCardClick}
-        onKeyPress={() => console.log('onKeyPress')}
-        tabIndex={0}
-        onMouseLeave={() => setIsShowTranslation(false)}
         className={
           !isShowTranslation
             ? CARD_CONTAINER_STYLES
@@ -97,7 +94,6 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
                 ? name
                 : ''
             }
-            isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
             imageSRC={imageSRC}
             playCardAudio={onPlayCardAudioClick}
             showTranslation={onShowTranslationClick}
@@ -120,4 +116,4 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
   );
 };
 
-export default CardGameWrapper;
+export default CardGame;

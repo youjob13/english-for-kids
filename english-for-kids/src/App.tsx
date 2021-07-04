@@ -1,19 +1,27 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { Suspense, ReactElement, useEffect, lazy } from 'react';
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { getAllCards } from './store/cardsSlice';
+import { GameMode } from './shared/interfaces/props-models';
+import {
+  CardsReducerType,
+  GameReducerType,
+} from './shared/interfaces/store-models';
 import Header from './components/Header/Header';
 import MainPage from './components/MainPage/MainPage';
 import Category from './components/Category/Category';
 import EndGamePopup from './components/EndGamePopup/EndGamePopup';
-import { GameReducerType } from './shared/interfaces/store-models';
-import { GameMode } from './shared/interfaces/props-models';
-import Statistics from './components/Statistics/Statistics';
-import { getAllCards } from './store/cardsSlice';
 import Footer from './components/Footer/Footer';
+import Preloader from './shared/baseComponents/Preloader/Preloader';
+
+const Statistics = lazy(() => import('./components/Statistics/Statistics'));
 
 const App = (): ReactElement => {
   const dispatch = useDispatch();
+  const { isFetching } = useSelector(
+    (state: CardsReducerType) => state.cardsReducer
+  );
   const { gameMode, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
@@ -26,14 +34,26 @@ const App = (): ReactElement => {
     <div className="app-wrapper">
       <Header />
       <main className="app-content">
-        <Switch>
-          <Route path="/main" component={MainPage} />
-          <Route path="/statistics" component={Statistics} />
-          <Route path="/section/:category" component={Category} />
-          <Redirect from="/" to="/main" />
-        </Switch>
+        {!isFetching ? (
+          <Preloader />
+        ) : (
+          <Switch>
+            <Route path="/main" component={MainPage} />
+            <Route path="/section/:category" component={Category} />
+            <Route
+              path="/statistics"
+              render={() => (
+                <Suspense fallback={<Preloader />}>
+                  <Statistics />
+                </Suspense>
+              )}
+            />
+            <Redirect exact from="/" to="/main" />
+            <Route path="*" render={() => <div>404</div>} />
+          </Switch>
+        )}
         {gameMode === GameMode.SHOW_RESULT && (
-          <EndGamePopup answersList={currentGameAnswers} />
+          <EndGamePopup answersList={currentGameAnswers} /> // TODO: move out
         )}
       </main>
       <Footer />

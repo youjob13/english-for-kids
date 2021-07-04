@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: stars after give answer &amp; count wrong answers" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="fix: behavior menu">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,20 +164,9 @@
       <workItem from="1625227200776" duration="21000" />
       <workItem from="1625232634306" duration="62000" />
       <workItem from="1625234027245" duration="24000" />
-    </task>
-    <task id="LOCAL-00014" summary="fix: generate list winners">
-      <created>1623941167162</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1623941167162</updated>
-    </task>
-    <task id="LOCAL-00015" summary="fix: end of the race">
-      <created>1623996461060</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1623996461060</updated>
+      <workItem from="1625385320511" duration="101000" />
+      <workItem from="1625387509528" duration="593000" />
+      <workItem from="1625403489973" duration="9000" />
     </task>
     <task id="LOCAL-00016" summary="feat: winners page pagination">
       <created>1623998224732</created>
@@ -506,7 +497,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625234044753</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="fix: behavior menu">
+      <created>1625385381551</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1625385381551</updated>
+    </task>
+    <task id="LOCAL-00064" summary="fix: behavior menu">
+      <created>1625385417656</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1625385417656</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +530,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: router (render cards)" />
     <MESSAGE value="refactor: structure data from back file" />
     <MESSAGE value="refactor: change name, remove any" />
     <MESSAGE value="refactor: change names, feat styles" />
@@ -550,7 +554,8 @@
     <MESSAGE value="feat: footer" />
     <MESSAGE value="feat: get data from statistics" />
     <MESSAGE value="feat: stars after give answer &amp; count wrong answers" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: stars after give answer &amp; count wrong answers" />
+    <MESSAGE value="fix: behavior menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: behavior menu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

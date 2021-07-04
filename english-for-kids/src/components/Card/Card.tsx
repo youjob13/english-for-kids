@@ -20,7 +20,7 @@ const Card = ({
       src={process.env.PUBLIC_URL + imageSRC}
       alt=""
     />
-    <p className={CARD_NAME_STYLES}>{title && capitalizeWord(title)}</p>
+    {title && <p className={CARD_NAME_STYLES}>{capitalizeWord(title)}</p>}
   </div>
 );
 

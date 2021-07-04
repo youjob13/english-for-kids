@@ -30,7 +30,6 @@ export interface ICardFrontProps {
   playCardAudio: () => void;
   title: string;
   imageSRC: string;
-  isReadyToStartedGame: boolean;
   showTranslation: () => void;
 }
 
