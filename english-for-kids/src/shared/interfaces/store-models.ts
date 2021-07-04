@@ -10,7 +10,8 @@ export interface ICardsState {
 }
 
 export interface IStatisticState {
-  s?: string;
+  statisticsData: any;
+  isFetching: boolean;
 }
 
 export interface IGameState {

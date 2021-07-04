@@ -44,7 +44,9 @@ export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
     const cards = test;
+
     dispatch(toggleIsFetching(false));
+
     setTimeout(() => {
       dispatch(toggleIsFetching(true));
       dispatch(setAllCards(cards));

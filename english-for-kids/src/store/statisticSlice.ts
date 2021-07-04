@@ -1,21 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { IStatisticState } from '../shared/interfaces/store-models';
+import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
+import {
+  ICardsState,
+  IStatisticState,
+} from '../shared/interfaces/store-models';
 
 const statisticSlice = createSlice({
   name: 'statisticSlice',
-  initialState: {} as IStatisticState,
+  initialState: {
+    statisticsData: [],
+    isFetching: true,
+  } as IStatisticState,
   reducers: {
-    s: (state: IStatisticState) => {
-      return {
-        ...state,
-      };
-    },
+    toggleIsFetching: (state: IStatisticState, action) => ({
+      ...state,
+      isFetching: action.payload,
+    }),
+    setStatisticsData: (state: IStatisticState, action) => ({
+      ...state,
+      statisticsData: action.payload,
+    }),
   },
 });
 
 export default statisticSlice.reducer;
 
-export const { s } = statisticSlice.actions;
+export const { toggleIsFetching, setStatisticsData } = statisticSlice.actions;
 
 export interface IWordStatistic {
   trainCounter?: number;
@@ -23,3 +32,15 @@ export interface IWordStatistic {
   trueAnswerCounter?: number;
   falseAnswerCounter?: number;
 }
+
+export const getStatistics =
+  (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    const statisticsData = { ...localStorage };
+
+    dispatch(toggleIsFetching(false));
+    setTimeout(() => {
+      dispatch(toggleIsFetching(true));
+      dispatch(setStatisticsData(statisticsData));
+    }, 1000);
+  };

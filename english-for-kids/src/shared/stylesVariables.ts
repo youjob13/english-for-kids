@@ -7,6 +7,12 @@ import classesFooter from '../components/Footer/footer.module.scss';
 import classesStatistics from '../components/Statistics/statistics.module.scss';
 import classesMenuBtn from './baseComponents/MenuBtn/menuBtn.module.scss';
 
+export const TABLE_STYLES = classesStatistics.table;
+export const TABLE_ROW_STYLES = classesStatistics.tableRow;
+export const TABLE_TITLE_STYLES = classesStatistics.tableTitle;
+export const TABLE_TITLE_ACTIVE_STYLES = `${classesStatistics.tableTitle} ${classesStatistics.tableTitleActive}`;
+export const TABLE_BODY_STYLES = classesStatistics.tableBody;
+
 export const LABEL_STYLES = classesMenuBtn.label;
 export const MENU_BTN_STYLES = classesMenuBtn.inputMenuBtn;
 export const MENU_BTN_ACTIVE_STYLES = classesMenuBtn.inputMenuBtnActive;

@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import StatisticsTable from './StatisticsTable/StatisticsTable';
 import Title from '../../shared/baseComponents/Title/Title';
 import {
@@ -7,8 +8,14 @@ import {
   STATISTICS_HEADER_STYLES,
   TABLE_WRAPPER_STYLES,
 } from '../../shared/stylesVariables';
+import { getStatistics } from '../../store/statisticSlice';
 
 const Statistics = (): ReactElement => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getStatistics());
+  }, []);
+
   return (
     <>
       <div className={STATISTICS_HEADER_STYLES}>

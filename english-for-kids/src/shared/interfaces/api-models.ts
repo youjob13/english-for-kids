@@ -2,6 +2,17 @@ export interface RouteParams {
   category: string;
 }
 
+export interface ITableHeaderData {
+  type: SortingTypes;
+  name: string;
+}
+
+export interface ITableHeader {
+  content: ITableHeaderData;
+  selectSorting: (sortingTypeName: string) => void;
+  selectedSortingType: string;
+}
+
 export interface IWordStatisticData {
   category: string;
   wordName: string;
