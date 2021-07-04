@@ -13,10 +13,10 @@ import { getAllCards } from './store/cardsSlice';
 import Footer from './components/Footer/Footer';
 
 const App = (): ReactElement => {
+  const dispatch = useDispatch();
   const { gameMode, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllCards());

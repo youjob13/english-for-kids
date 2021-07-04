@@ -12,7 +12,7 @@ import {
   BUTTON_IMAGES_STYLES,
   PLAY_SOUND_BTN_STYLES,
   TRANSLATION_BTN_STYLES,
-} from '../../../shared/globalVariables';
+} from '../../../shared/stylesVariables';
 
 const CardFront = ({
   title,

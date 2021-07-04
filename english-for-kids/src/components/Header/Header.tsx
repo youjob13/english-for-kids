@@ -6,9 +6,10 @@ import { toggleGameMode } from '../../store/gameSlice';
 import { CardsReducerType } from '../../shared/interfaces/store-models';
 import Switch from '../../shared/baseComponents/Switch/Switch';
 import MenuBtn from '../../shared/baseComponents/MenuBtn/MenuBtn';
+import MenuContext from '../../shared/context';
 
 const Header = (): ReactElement => {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenMenu, toggleMenu] = useState(false);
   const dispatch = useDispatch();
   const cards = useSelector(
     (state: CardsReducerType) => state.cardsReducer.cards
@@ -20,12 +21,18 @@ const Header = (): ReactElement => {
     dispatch(toggleGameMode());
   };
 
+  const toggleMenuMode = () => {
+    toggleMenu(!isOpenMenu);
+  };
+
   return (
-    <header className={classes.header}>
-      {isOpenMenu && <Navigation categories={cardsCategories} />}
-      <MenuBtn onMenuBtnClick={() => setIsOpenMenu(!isOpenMenu)} />
-      <Switch on="Play" off="Train" onCheckboxClick={onSwitchClick} />
-    </header>
+    <MenuContext.Provider value={{ isOpenMenu, toggleMenu: toggleMenuMode }}>
+      <header className={classes.header}>
+        <Navigation categories={cardsCategories} />
+        <MenuBtn />
+        <Switch on="Play" off="Train" onCheckboxClick={onSwitchClick} />
+      </header>
+    </MenuContext.Provider>
   );
 };
 

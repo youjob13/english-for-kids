@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
-import classes from './statistics.module.scss';
 import StatisticsTable from './StatisticsTable/StatisticsTable';
 import Title from '../../shared/baseComponents/Title/Title';
-
-const STATISTICS_HEADER_STYLES = classes.statisticsHeader;
-const BUTTONS_WRAPPER_STYLES = classes.buttonsWrapper;
-const BUTTON_STYLES = classes.button;
+import {
+  BUTTON_STYLES,
+  BUTTONS_WRAPPER_STYLES,
+  STATISTICS_HEADER_STYLES,
+  TABLE_WRAPPER_STYLES,
+} from '../../shared/stylesVariables';
 
 const Statistics = (): ReactElement => {
   return (
@@ -21,7 +22,9 @@ const Statistics = (): ReactElement => {
           </button>
         </div>
       </div>
-      <StatisticsTable />
+      <div className={TABLE_WRAPPER_STYLES}>
+        <StatisticsTable />
+      </div>
     </>
   );
 };

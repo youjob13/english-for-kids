@@ -18,7 +18,7 @@ import {
   REPEAT_WORD_STYLES,
   STAR_STYLES,
   START_GAME_STYLES,
-} from '../../shared/globalVariables';
+} from '../../shared/stylesVariables';
 import { getWordStatistic } from '../../shared/api/api';
 
 const defineCurrentCategoryCards = (

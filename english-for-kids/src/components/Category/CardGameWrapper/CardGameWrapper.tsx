@@ -16,7 +16,7 @@ import {
   CARD_FRONT_STYLES,
   CARD_WRAPPER_GUESSED_STYLES,
   CARD_WRAPPER_STYLES,
-} from '../../../shared/globalVariables';
+} from '../../../shared/stylesVariables';
 import { getWordStatistic } from '../../../shared/api/api';
 import playAudio from '../../../shared/helpersFunction/playSound';
 
@@ -82,6 +82,7 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
         onClick={onCardClick}
         onKeyPress={() => console.log('onKeyPress')}
         tabIndex={0}
+        onMouseLeave={() => setIsShowTranslation(false)}
         className={
           !isShowTranslation
             ? CARD_CONTAINER_STYLES
@@ -102,10 +103,7 @@ const CardGameWrapper = ({ card }: ICardCategoryWrapperProps): ReactElement => {
             showTranslation={onShowTranslationClick}
           />
         </div>
-        <div
-          className={CARD_BACK_STYLES}
-          onMouseLeave={() => setIsShowTranslation(false)}
-        >
+        <div className={CARD_BACK_STYLES}>
           <Card
             title={
               gameMode === GameMode.NO_GAME ||

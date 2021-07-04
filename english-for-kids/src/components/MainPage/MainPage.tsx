@@ -7,7 +7,7 @@ import {
 } from '../../shared/interfaces/store-models';
 import { ICardItem } from '../../shared/interfaces/cards-models';
 import Title from '../../shared/baseComponents/Title/Title';
-import { CONTENT_STYLES } from '../../shared/globalVariables';
+import { CONTENT_STYLES } from '../../shared/stylesVariables';
 
 const MainPage = (): ReactElement => {
   const { cards: cardsData } = useSelector(

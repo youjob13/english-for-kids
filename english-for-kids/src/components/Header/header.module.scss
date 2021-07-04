@@ -1,12 +1,12 @@
 .header {
   position: relative;
   max-width: 1800px;
-  padding: 2.6rem 14em;
+  padding: 0.5em 14em;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #1c98ce;
-  height: 50px;
+  height: 80px;
 
   &::after {
     content: '';
@@ -16,5 +16,11 @@
     right: 0;
     height: 0.5rem;
     background-color: #105474;
+  }
+}
+
+@media (max-width: 1440px) {
+  .header {
+    height: 50px;
   }
 }

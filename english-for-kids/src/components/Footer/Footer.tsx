@@ -3,7 +3,7 @@ import {
   FOOTER_LINK_STYLES,
   FOOTER_LOGO_STYLES,
   FOOTER_STYLES,
-} from '../../shared/globalVariables';
+} from '../../shared/stylesVariables';
 import RSS_LOGO from '../../assets/images/RSS_logo.svg';
 import GITHUB_LOGO from '../../assets/images/github.png';
 

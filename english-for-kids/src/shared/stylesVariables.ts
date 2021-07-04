@@ -4,6 +4,17 @@ import classesCard from '../components/Card/card.module.scss';
 import classesEndGamePopup from '../components/EndGamePopup/endGamePopup.module.scss';
 import classesNavigation from '../components/Header/Navigation/navigation.module.scss';
 import classesFooter from '../components/Footer/footer.module.scss';
+import classesStatistics from '../components/Statistics/statistics.module.scss';
+import classesMenuBtn from './baseComponents/MenuBtn/menuBtn.module.scss';
+
+export const LABEL_STYLES = classesMenuBtn.label;
+export const MENU_BTN_STYLES = classesMenuBtn.inputMenuBtn;
+export const MENU_BTN_ACTIVE_STYLES = classesMenuBtn.inputMenuBtnActive;
+
+export const STATISTICS_HEADER_STYLES = classesStatistics.statisticsHeader;
+export const BUTTONS_WRAPPER_STYLES = classesStatistics.buttonsWrapper;
+export const BUTTON_STYLES = classesStatistics.button;
+export const TABLE_WRAPPER_STYLES = classesStatistics.tableWrapper;
 
 export const FOOTER_STYLES = classesFooter.footer;
 export const FOOTER_LOGO_STYLES = classesFooter.footerLogo;
@@ -37,6 +48,7 @@ export const TITLE_STYLES = classesEndGamePopup.title;
 export const WRONGS_STYLES = classesEndGamePopup.wrongs;
 export const ENG_GAME_POPUP_IMAGE_STYLES = classesEndGamePopup.image;
 
-export const NAV_MENU = classesNavigation.navMenu;
-export const NAV_ITEM = classesNavigation.navItem;
-export const NAV_ITEM_ACTIVE = classesNavigation.navItemActive;
+export const NAV_MENU_STYLES = classesNavigation.navMenu;
+export const NAV_ITEM_STYLES = classesNavigation.navItem;
+export const NAV_ITEM_ACTIVE_STYLES = classesNavigation.navItemActive;
+export const NAV_MENU_HIDDEN_STYLES = `${classesNavigation.navMenu} ${classesNavigation.navMenuHidden}`;

@@ -14,11 +14,6 @@ const cardsSlice = createSlice({
       playingList: [...state.playingList, action.payload],
     }),
     removeWordFromPLayingList: (state: ICardsState) => {
-      console.log(
-        state.playingList.filter(
-          (word, index) => index < state.playingList.length
-        )
-      );
       return {
         ...state,
         playingList: [],

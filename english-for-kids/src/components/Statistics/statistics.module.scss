@@ -33,6 +33,11 @@
 .table {
   text-align: center;
 
+  &Wrapper {
+    overflow-y: scroll;
+    height: 75%;
+  }
+
   &Row {
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 3fr 1fr 1fr 1fr 1fr 1fr;

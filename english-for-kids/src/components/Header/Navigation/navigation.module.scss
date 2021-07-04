@@ -8,7 +8,12 @@
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     z-index: 99;
-    animation: showMenu 0.7s ease;
+    transform: translateX(0);
+    transition: .4s;
+
+    &Hidden {
+      transform: translateX(-100%);
+    }
 
   }
 
@@ -29,6 +34,8 @@
     }
 
     &Active {
+      pointer-events: none;
+
       &::before {
         content: '';
         background-color: rgba(#208dbf, 0.32);
@@ -39,15 +46,5 @@
         right: -1.75em;
       }
     }
-  }
-}
-
-@keyframes showMenu {
-  0% {
-    transform: translateX(-20em);
-
-  }
-  100% {
-    transform: translateX(0);
   }
 }

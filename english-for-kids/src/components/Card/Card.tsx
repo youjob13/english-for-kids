@@ -7,7 +7,7 @@ import {
   CARD_NAME_STYLES,
   PLAY_STYLES,
   TRAIN_STYLES,
-} from '../../shared/globalVariables';
+} from '../../shared/stylesVariables';
 
 const Card = ({
   title,

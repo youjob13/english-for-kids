@@ -3,6 +3,27 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+    height: 85%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .category {
+    &Field {
+      height: 80%;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .categoryField {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .categoryField {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -51,6 +72,7 @@
 
 .cardWrapper {
   position: relative;
+  height: 100%;
 
   &Guessed {
     pointer-events: none;
@@ -58,10 +80,16 @@
   }
 }
 
+@media (max-width: 992px) {
+  .cardWrapper {
+    height: 10rem;
+  }
+}
+
 .cardContainer {
   position: relative;
   perspective: 1000px;
-  height: 12em;
+  height: 100%;
 
   &Rotated {
     .cardFront {

@@ -1,20 +1,21 @@
-import React, { ReactElement } from 'react';
-import classes from './menuBtn.module.scss';
-import { IMenuBtnProps } from '../../interfaces/props-models';
+import React, { ReactElement, useContext } from 'react';
+import {
+  LABEL_STYLES,
+  MENU_BTN_ACTIVE_STYLES,
+  MENU_BTN_STYLES,
+} from '../../stylesVariables';
+import MenuContext from '../../context';
 
-const LABEL_STYLES = classes.label;
-const MENU_BTN_STYLES = classes.inputMenuBtn;
-
-const MenuBtn = ({ onMenuBtnClick }: IMenuBtnProps): ReactElement => {
-  const randomId = (Date.now() + 11).toString();
+const MenuBtn = (): ReactElement => {
+  const { isOpenMenu, toggleMenu } = useContext(MenuContext);
 
   return (
-    <label className={LABEL_STYLES} htmlFor={randomId}>
+    <label className={LABEL_STYLES} htmlFor="menuId">
       <input
-        className={MENU_BTN_STYLES}
-        onChange={onMenuBtnClick}
+        className={isOpenMenu ? MENU_BTN_ACTIVE_STYLES : MENU_BTN_STYLES}
+        onChange={toggleMenu}
         type="checkbox"
-        id={randomId}
+        id="menuId"
       />
       <span />
       <span />

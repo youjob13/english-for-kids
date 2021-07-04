@@ -5,3 +5,9 @@
   color: #fff;
   text-shadow: 0 0 5px rgb(0, 0, 0);
 }
+
+@media (max-width: 1440px) {
+  .title {
+    font-size: 40px;
+  }
+}

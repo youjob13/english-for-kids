@@ -52,6 +52,7 @@ export interface ICardCategoryWrapperProps {
 }
 
 export interface IMenuBtnProps {
+  isOpenMenu: boolean;
   onMenuBtnClick: () => void;
 }
 

@@ -5,7 +5,7 @@ import {
   TEXT_CONTENT_STYLES,
   TITLE_STYLES,
   WRONGS_STYLES,
-} from '../../shared/globalVariables';
+} from '../../shared/stylesVariables';
 import { IEndGamePopupProps } from '../../shared/interfaces/props-models';
 import playAudio from '../../shared/helpersFunction/playSound';
 
