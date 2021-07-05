@@ -36,7 +36,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
           <NavLink
             to="/main"
             className={NAV_ITEM_STYLES}
-            activeClassName={NAV_ITEM_ACTIVE_STYLES}
+            activeClassName={NAV_ITEM_ACTIVE_STYLES} // TODO: to do icon
           >
             Main page
           </NavLink>

@@ -16,10 +16,10 @@ import Title from '../../shared/baseComponents/Title/Title';
 import {
   CATEGORY_FIELD_STYLES,
   REPEAT_WORD_STYLES,
-  STAR_STYLES,
   START_GAME_STYLES,
 } from '../../shared/stylesVariables';
 import { getWordStatistic } from '../../shared/api/api';
+import AnswerList from './AnswerList/AnswerList';
 
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
@@ -99,23 +99,7 @@ const Category = (): ReactElement => {
           Repeat
         </button>
       )}
-      {currentGameAnswers.map((answer, index) =>
-        answer ? (
-          <img
-            className={STAR_STYLES}
-            src={`${process.env.PUBLIC_URL}/assets/star.webp`}
-            alt="star"
-            key={index.toString()}
-          />
-        ) : (
-          <img
-            className={STAR_STYLES}
-            src={`${process.env.PUBLIC_URL}/assets/lose_star.png`}
-            alt="star"
-            key={index.toString()}
-          />
-        )
-      )}
+      <AnswerList answerList={currentGameAnswers} />
     </>
   );
 };

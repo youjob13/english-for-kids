@@ -6,6 +6,10 @@ import classesNavigation from '../components/Header/Navigation/navigation.module
 import classesFooter from '../components/Footer/footer.module.scss';
 import classesStatistics from '../components/Statistics/statistics.module.scss';
 import classesMenuBtn from './baseComponents/MenuBtn/menuBtn.module.scss';
+import classesAnswers from '../components/Category/AnswerList/answers.module.scss';
+
+export const ANSWER_LIST_STYLES = classesAnswers.answerList;
+export const ANSWER_ITEM_STYLES = classesAnswers.answerItem;
 
 export const TABLE_STYLES = classesStatistics.table;
 export const TABLE_ROW_STYLES = classesStatistics.tableRow;

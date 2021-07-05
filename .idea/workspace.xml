@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: preloader &amp; lazy loading &amp; refactor code" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: statistics table" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,13 +166,7 @@
       <workItem from="1625387509528" duration="593000" />
       <workItem from="1625403489973" duration="9000" />
       <workItem from="1625411338914" duration="40000" />
-    </task>
-    <task id="LOCAL-00017" summary="refactor: remove eslint warnings">
-      <created>1623998293532</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1623998293532</updated>
+      <workItem from="1625417339356" duration="38000" />
     </task>
     <task id="LOCAL-00018" summary="feat: new deploy version">
       <created>1623998393871</created>
@@ -510,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625411373336</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="refactor: statistics table">
+      <created>1625417367587</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1625417367587</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +530,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: change name, remove any" />
     <MESSAGE value="refactor: change names, feat styles" />
     <MESSAGE value="feat: start game, play/repeat question, refactor playAudio" />
     <MESSAGE value="feat: compare answer and question, remove right answer from question list" />
@@ -554,7 +554,8 @@
     <MESSAGE value="feat: stars after give answer &amp; count wrong answers" />
     <MESSAGE value="fix: behavior menu" />
     <MESSAGE value="feat: preloader &amp; lazy loading &amp; refactor code" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: preloader &amp; lazy loading &amp; refactor code" />
+    <MESSAGE value="refactor: statistics table" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: statistics table" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

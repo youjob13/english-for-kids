@@ -26,6 +26,14 @@ export interface IEndGamePopupProps {
   answersList: boolean[];
 }
 
+export interface IAnswerProps {
+  image: string;
+}
+
+export interface IAnswerListProps {
+  answerList: boolean[];
+}
+
 export interface ICardFrontProps {
   playCardAudio: () => void;
   title: string;

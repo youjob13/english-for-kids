@@ -88,12 +88,7 @@ const CardGame = ({ card }: ICardCategoryWrapperProps): ReactElement => {
       >
         <div className={CARD_FRONT_STYLES}>
           <CardFront
-            title={
-              gameMode === GameMode.NO_GAME ||
-              gameMode === GameMode.READY_TO_GAME
-                ? name
-                : ''
-            }
+            title={gameMode === GameMode.NO_GAME ? name : ''}
             imageSRC={imageSRC}
             playCardAudio={onPlayCardAudioClick}
             showTranslation={onShowTranslationClick}

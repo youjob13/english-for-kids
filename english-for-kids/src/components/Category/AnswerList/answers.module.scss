@@ -1,0 +1,21 @@
+.answer {
+  &List {
+    position: absolute;
+    left: 3rem;
+    top: 8rem;
+  }
+
+  &Item {
+    animation: showStar 0.5s ease;
+  }
+}
+
+
+@keyframes showStar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
