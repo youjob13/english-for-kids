@@ -10,6 +10,13 @@
   }
 }
 
+@media (max-width: 992px) {
+  .answer {
+    &List {
+      left: 1rem;
+    }
+  }
+}
 
 @keyframes showStar {
   from {

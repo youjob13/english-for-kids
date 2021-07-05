@@ -68,3 +68,14 @@
     background-color: rgba(#4dacd2, 0.35);
   }
 }
+
+@media (max-width: 991px) {
+  .table {
+    width: 60rem;
+
+    &Wrapper {
+      overflow: scroll;
+      width: 100%;
+    }
+  }
+}

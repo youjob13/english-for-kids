@@ -60,5 +60,9 @@ export const ENG_GAME_POPUP_IMAGE_STYLES = classesEndGamePopup.image;
 
 export const NAV_MENU_STYLES = classesNavigation.navMenu;
 export const NAV_ITEM_STYLES = classesNavigation.navItem;
+export const NAV_ITEM_ICON_STYLES = classesNavigation.navItemIcon;
+export const NAV_ITEM_ICON_WRAPPER_STYLES =
+  classesNavigation.navItemIconWrapper;
 export const NAV_ITEM_ACTIVE_STYLES = classesNavigation.navItemActive;
+export const NAV_ITEM_ICON_ACTIVE_STYLES = classesNavigation.navItemIconActive;
 export const NAV_MENU_HIDDEN_STYLES = `${classesNavigation.navMenu} ${classesNavigation.navMenuHidden}`;

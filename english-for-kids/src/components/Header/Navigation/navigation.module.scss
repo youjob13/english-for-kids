@@ -1,6 +1,6 @@
 .nav {
   &Menu {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 10em;
     background-color: #7bb4c7;
@@ -14,7 +14,6 @@
     &Hidden {
       transform: translateX(-100%);
     }
-
   }
 
   &Item {
@@ -26,6 +25,13 @@
     display: block;
     position: relative;
     margin-bottom: 6px;
+
+    &Icon {
+      position: relative;
+      transition: .2s;
+      width: 2rem;
+      margin-left: 1em;
+    }
 
     &Active, &:hover {
       color: #208dbf;
@@ -44,6 +50,35 @@
         top: 0;
         bottom: 0;
         right: -1.75em;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    &Item {
+      font-size: 18px;
+
+      &Active {
+        &::before {
+          left: -3.4em;
+          right: -2.4em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .nav {
+    &Item {
+      font-size: 16px;
+
+      &Active {
+        &::before {
+          right: -2.7em;
+        }
       }
     }
   }

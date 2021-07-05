@@ -1,7 +1,6 @@
 .footer {
   background-color: #1c98ce;
   position: relative;
-  max-width: 1800px;
   padding: 0.5em 14em;
   display: flex;
   align-items: center;
@@ -40,9 +39,16 @@
 @media (max-width: 1440px) {
   .footer {
     height: 50px;
+    padding: 0.5em 6em;
 
     &Logo {
       width: 2rem;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    padding: 0.5em 4em;
   }
 }

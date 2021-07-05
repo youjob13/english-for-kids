@@ -21,7 +21,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .categoryField {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -29,6 +29,12 @@
 
 .star {
   width: 3rem;
+}
+
+@media (max-width: 768px) {
+  .star {
+    width: 2rem;
+  }
 }
 
 .translationBtn {
@@ -76,6 +82,7 @@
 
   &Guessed {
     pointer-events: none;
+    height: 10rem;
     filter: brightness(0.7);
   }
 }
@@ -133,6 +140,7 @@
   text-transform: uppercase;
   transition: .2s;
   transform: translate(-30%, -50%);
+  z-index: 101;
 
   &:hover {
     background-color: #1c98ce;
@@ -147,13 +155,33 @@
   animation: showMenu 0.7s ease;
 }
 
+@media (max-width: 992px) {
+  .repeatWord, .startGame {
+    height: 70px;
+    width: 70px;
+    font-size: 13px;
+    top: 93%;
+  }
+}
+
 @keyframes showMenu {
   0% {
     transform: translate(100%, -50%);
-
-
   }
+
   100% {
     transform: translate(-30%, -50%);
+  }
+}
+
+@media (max-width: 992px) {
+  @keyframes showMenu {
+    0% {
+      transform: translate(100%, -50%);
+    }
+
+    100% {
+      transform: translate(-30%, -50%);
+    }
   }
 }

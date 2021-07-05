@@ -1,7 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: stars showing during game &amp; card name hidden in play mode" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: new deploy version EFK (2)">
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/cabbie.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/cars.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/clockwork_orange.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/computer.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/dubstep.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/friends.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/hannibal.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/harry_potter.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/headphone.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/hip_hop.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/jazz.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/joker.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/phone.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/r&amp;b.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/rap.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/reggae.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/rock.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/seven.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/speakers.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/tablet.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/trash.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/headphone.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/pc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/phone.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/speakers.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/tablet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/cars.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/clockwork-orange.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/friends.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/hannibal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/harry-potter.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/joker.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/seven.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/taxi-driver.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/dubstep.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/hip-hop.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/jazz.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/r&amp;b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/rap.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/reggae.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/rock.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/trash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/cool.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/error.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/fail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/lose.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/lose_star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/star.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/success.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/win.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/2.9c307524.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/2.9c307524.chunk.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/2.9c307524.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/main.fe00225f.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/main.fe00225f.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/RSS_logo.ad178c0d.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/main-bg.a2219b80.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/main-icon.7e5b059e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/rotate-arrows.992f47da.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/speaker.8bf04072.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/statistics-icon.69ded138.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,20 +238,9 @@
       <workItem from="1625411338914" duration="40000" />
       <workItem from="1625417339356" duration="38000" />
       <workItem from="1625468089739" duration="59000" />
-    </task>
-    <task id="LOCAL-00019" summary="feat: remove winners from winners table">
-      <created>1624115248752</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1624115248752</updated>
-    </task>
-    <task id="LOCAL-00020" summary="feat: remove winners from winners table">
-      <created>1624115278825</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1624115278825</updated>
+      <workItem from="1625469139645" duration="62000" />
+      <workItem from="1625586668561" duration="349000" />
+      <workItem from="1625591597607" duration="160000" />
     </task>
     <task id="LOCAL-00021" summary="feat: remove winners from winners page">
       <created>1624115459049</created>
@@ -512,7 +571,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625468143153</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="refactor: resolve problem with error if reload section page &amp; redirect to main-page after end-game">
+      <created>1625469196650</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1625469196650</updated>
+    </task>
+    <task id="LOCAL-00069" summary="feat: new deploy version EFK (2)">
+      <created>1625591627483</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1625591627483</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,8 +604,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: start game, play/repeat question, refactor playAudio" />
-    <MESSAGE value="feat: compare answer and question, remove right answer from question list" />
     <MESSAGE value="refactor: add selectors &amp; install reselect" />
     <MESSAGE value="refactor: change a tag on div" />
     <MESSAGE value="refactor: remove any &amp; add getCurrentCardList selector" />
@@ -556,7 +627,9 @@
     <MESSAGE value="feat: preloader &amp; lazy loading &amp; refactor code" />
     <MESSAGE value="refactor: statistics table" />
     <MESSAGE value="refactor: stars showing during game &amp; card name hidden in play mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: stars showing during game &amp; card name hidden in play mode" />
+    <MESSAGE value="refactor: resolve problem with error if reload section page &amp; redirect to main-page after end-game" />
+    <MESSAGE value="feat: new deploy version EFK (2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: new deploy version EFK (2)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

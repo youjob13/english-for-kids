@@ -42,3 +42,11 @@
   background-color: orange;
   padding: 0 2rem;
 }
+
+@media (max-width: 768px) {
+  .card {
+    &Name {
+      font-size: 16px;
+    }
+  }
+}

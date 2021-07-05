@@ -6,27 +6,48 @@ body {
 
 .app-wrapper {
     height: 100vh;
-}
-
-.app-content {
-    max-width: 1800px;
-    padding: 1rem 14em;
+    max-width: 1920px;
     background-image: url("./assets/images/main-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.app-content {
     height: calc(100% - 224px);
+    padding: 1rem 14em;
 }
 
 @media (max-width: 1440px) {
     .app-content {
         height: calc(100% - 164px);
+        padding: 1rem 6em;
+    }
+
+    .app-wrapper {
+        max-width: 1440px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .app-wrapper {
+        height: auto;
+        max-width: 1200px;
+    }
+
+    .app-content {
+        padding: 1rem 4em;
     }
 }
 
 @media (max-width: 992px) {
     .app-wrapper {
-        height: auto;
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-wrapper {
     }
 }
 
