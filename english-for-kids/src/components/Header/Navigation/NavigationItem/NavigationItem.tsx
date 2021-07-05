@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import { INavigationItemProps } from '../../../shared/interfaces/props-models';
-import capitalizeWord from '../../../shared/helpersFunction/capitalizeWord';
+import { INavigationItemProps } from '../../../../shared/interfaces/props-models';
+import capitalizeWord from '../../../../shared/helpersFunction/capitalizeWord';
 import {
   NAV_ITEM_ACTIVE_STYLES,
   NAV_ITEM_STYLES,
-} from '../../../shared/stylesVariables';
+} from '../../../../shared/stylesVariables';
 
 const NavigationItem = ({ category }: INavigationItemProps): ReactElement => (
   <li>

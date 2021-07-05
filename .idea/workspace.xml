@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: statistics table" />
+    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="refactor: stars showing during game &amp; card name hidden in play mode" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,13 +167,7 @@
       <workItem from="1625403489973" duration="9000" />
       <workItem from="1625411338914" duration="40000" />
       <workItem from="1625417339356" duration="38000" />
-    </task>
-    <task id="LOCAL-00018" summary="feat: new deploy version">
-      <created>1623998393871</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1623998393871</updated>
+      <workItem from="1625468089739" duration="59000" />
     </task>
     <task id="LOCAL-00019" summary="feat: remove winners from winners table">
       <created>1624115248752</created>
@@ -511,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625417367587</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="refactor: stars showing during game &amp; card name hidden in play mode">
+      <created>1625468143137</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1625468143153</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +531,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: change names, feat styles" />
     <MESSAGE value="feat: start game, play/repeat question, refactor playAudio" />
     <MESSAGE value="feat: compare answer and question, remove right answer from question list" />
     <MESSAGE value="refactor: add selectors &amp; install reselect" />
@@ -555,7 +555,8 @@
     <MESSAGE value="fix: behavior menu" />
     <MESSAGE value="feat: preloader &amp; lazy loading &amp; refactor code" />
     <MESSAGE value="refactor: statistics table" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: statistics table" />
+    <MESSAGE value="refactor: stars showing during game &amp; card name hidden in play mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: stars showing during game &amp; card name hidden in play mode" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,4 +1,5 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   ENG_GAME_POPUP_IMAGE_STYLES,
   OVERLAY_STYLES,
@@ -10,10 +11,18 @@ import { IEndGamePopupProps } from '../../shared/interfaces/props-models';
 import playAudio from '../../shared/helpersFunction/playSound';
 
 const EndGamePopup = ({ answersList }: IEndGamePopupProps): ReactElement => {
+  const history = useHistory();
+
   const wrongAnswersCounts = answersList.reduce(
     (acc, answer) => (!answer ? acc + 1 : acc),
     0
   );
+
+  useEffect(() => {
+    return function redirect() {
+      history.push('/main');
+    };
+  });
 
   if (wrongAnswersCounts) {
     playAudio(`/assets/lose.mp3`);

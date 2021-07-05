@@ -1,7 +1,7 @@
 import React, { ReactElement, useContext, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { INavigationProps } from '../../../shared/interfaces/props-models';
-import NavigationItem from './NavigationItem';
+import NavigationItem from './NavigationItem/NavigationItem';
 import {
   NAV_ITEM_ACTIVE_STYLES,
   NAV_ITEM_STYLES,

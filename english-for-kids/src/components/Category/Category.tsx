@@ -58,7 +58,8 @@ const Category = (): ReactElement => {
     categoryPath
   );
 
-  const cards = Object.values(currentCategoryCards!)[0];
+  const cards =
+    (currentCategoryCards && Object.values(currentCategoryCards)[0]) || [];
 
   useEffect(() => {
     if (audioSRC) {
