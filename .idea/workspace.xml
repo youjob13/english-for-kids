@@ -1,90 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="feat: new deploy version EFK (2)">
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/cabbie.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/cars.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/clockwork_orange.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/computer.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/dubstep.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/friends.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/hannibal.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/harry_potter.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/headphone.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/hip_hop.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/jazz.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/joker.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/phone.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/r&amp;b.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/rap.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/reggae.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/rock.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/seven.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/speakers.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/tablet.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/audio/trash.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/headphone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/pc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/phone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/speakers.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/tablet.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/cars.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/clockwork-orange.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/friends.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/hannibal.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/harry-potter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/joker.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/seven.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/taxi-driver.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/dubstep.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/hip-hop.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/jazz.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/r&amp;b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/rap.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/reggae.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/rock.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/trash.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/cool.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/error.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/fail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/lose.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/lose_star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/star.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/success.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/assets/win.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/2.9c307524.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/2.9c307524.chunk.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/2.9c307524.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/main.fe00225f.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/main.fe00225f.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/RSS_logo.ad178c0d.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/main-bg.a2219b80.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/main-icon.7e5b059e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/rotate-arrows.992f47da.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/speaker.8bf04072.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/build/static/media/statistics-icon.69ded138.png" afterDir="false" />
+    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/RSS_logo.ad178c0d.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/main-bg.a2219b80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/main-icon.7e5b059e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/rotate-arrows.992f47da.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/speaker.8bf04072.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/statistics-icon.69ded138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Component" />
-        <option value="CSS File" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -94,7 +33,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1u1wj9hmcz9ia6A0A4xKTGd9Oeh" />
+  <component name="ProjectId" id="1ux6fcPY2N9APQzNFpFsYUrRFB4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -103,36 +42,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/english-for-kids" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\async-race\src\components\Garage\GarageContent" />
-      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\async-race\src\components\Winners\WinnersTable" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="lint" type="js.build_tools.npm" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/english-for-kids/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/english-for-kids/package.json" />
       <command value="run" />
@@ -146,446 +66,19 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="99a88853-8195-491c-b46f-af75782f5d93" name="Default Changelist" comment="" />
-      <created>1623846537083</created>
+      <changelist id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="" />
+      <created>1625594997502</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1623846537083</updated>
-      <workItem from="1623846539016" duration="18305000" />
-      <workItem from="1623868139169" duration="184000" />
-      <workItem from="1623875962092" duration="1646000" />
-      <workItem from="1623877627404" duration="1466000" />
-      <workItem from="1623903994000" duration="7714000" />
-      <workItem from="1623912322791" duration="13000" />
-      <workItem from="1623912337724" duration="647000" />
-      <workItem from="1623915089606" duration="6475000" />
-      <workItem from="1623938925270" duration="2224000" />
-      <workItem from="1623995828956" duration="2481000" />
-      <workItem from="1623998374252" duration="866000" />
-      <workItem from="1624104850387" duration="69000" />
-      <workItem from="1624104937654" duration="4633000" />
-      <workItem from="1624115435557" duration="65000" />
-      <workItem from="1624166966697" duration="222000" />
-      <workItem from="1624167193542" duration="13000" />
-      <workItem from="1624167226376" duration="2023000" />
-      <workItem from="1624169309250" duration="362000" />
-      <workItem from="1624169678793" duration="1265000" />
-      <workItem from="1624171002530" duration="247000" />
-      <workItem from="1624171283073" duration="419000" />
-      <workItem from="1624171728324" duration="60000" />
-      <workItem from="1624171796891" duration="1065000" />
-      <workItem from="1624176013051" duration="736000" />
-      <workItem from="1624194223148" duration="35000" />
-      <workItem from="1624198141101" duration="57000" />
-      <workItem from="1624198342501" duration="12000" />
-      <workItem from="1624207760890" duration="48000" />
-      <workItem from="1624279127054" duration="117000" />
-      <workItem from="1624282408685" duration="46000" />
-      <workItem from="1624293445711" duration="412000" />
-      <workItem from="1624297283126" duration="93000" />
-      <workItem from="1624297451297" duration="23000" />
-      <workItem from="1624340122938" duration="3000" />
-      <workItem from="1624341687542" duration="1537000" />
-      <workItem from="1624431082564" duration="72000" />
-      <workItem from="1624465591262" duration="67000" />
-      <workItem from="1624467749235" duration="157000" />
-      <workItem from="1624512419386" duration="28000" />
-      <workItem from="1624517265381" duration="72000" />
-      <workItem from="1624519857426" duration="54000" />
-      <workItem from="1624521704127" duration="34000" />
-      <workItem from="1624691354529" duration="51000" />
-      <workItem from="1624693387885" duration="51000" />
-      <workItem from="1624694237964" duration="26000" />
-      <workItem from="1624698705223" duration="52000" />
-      <workItem from="1624702544660" duration="50000" />
-      <workItem from="1624704087098" duration="54000" />
-      <workItem from="1624707119254" duration="47000" />
-      <workItem from="1624707689707" duration="25000" />
-      <workItem from="1624716704175" duration="360000" />
-      <workItem from="1624717159732" duration="610000" />
-      <workItem from="1624890703730" duration="47000" />
-      <workItem from="1624943374944" duration="32000" />
-      <workItem from="1624948614396" duration="51000" />
-      <workItem from="1624950633639" duration="15000" />
-      <workItem from="1624963400712" duration="68000" />
-      <workItem from="1624964358847" duration="21000" />
-      <workItem from="1624966837112" duration="20000" />
-      <workItem from="1624977342035" duration="47000" />
-      <workItem from="1625029595404" duration="8000" />
-      <workItem from="1625037827834" duration="124000" />
-      <workItem from="1625066245375" duration="45000" />
-      <workItem from="1625070285258" duration="22000" />
-      <workItem from="1625116866710" duration="6000" />
-      <workItem from="1625122721207" duration="42000" />
-      <workItem from="1625124066238" duration="19000" />
-      <workItem from="1625125629041" duration="44000" />
-      <workItem from="1625126965137" duration="19000" />
-      <workItem from="1625150263231" duration="54000" />
-      <workItem from="1625227200776" duration="21000" />
-      <workItem from="1625232634306" duration="62000" />
-      <workItem from="1625234027245" duration="24000" />
-      <workItem from="1625385320511" duration="101000" />
-      <workItem from="1625387509528" duration="593000" />
-      <workItem from="1625403489973" duration="9000" />
-      <workItem from="1625411338914" duration="40000" />
-      <workItem from="1625417339356" duration="38000" />
-      <workItem from="1625468089739" duration="59000" />
-      <workItem from="1625469139645" duration="62000" />
-      <workItem from="1625586668561" duration="349000" />
-      <workItem from="1625591597607" duration="160000" />
+      <updated>1625594997502</updated>
+      <workItem from="1625594999612" duration="262000" />
     </task>
-    <task id="LOCAL-00021" summary="feat: remove winners from winners page">
-      <created>1624115459049</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1624115459049</updated>
-    </task>
-    <task id="LOCAL-00022" summary="init: start task english-for-kids">
-      <created>1624176665464</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1624176665464</updated>
-    </task>
-    <task id="LOCAL-00023" summary="feat: router">
-      <created>1624194251891</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1624194251891</updated>
-    </task>
-    <task id="LOCAL-00024" summary="feat: header &amp; menu-nav layout">
-      <created>1624198350457</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1624198350457</updated>
-    </task>
-    <task id="LOCAL-00025" summary="feat: main page layout &amp; card item layout">
-      <created>1624207803415</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1624207803415</updated>
-    </task>
-    <task id="LOCAL-00026" summary="feat: main page layout &amp; card item layout">
-      <created>1624293472781</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1624293472781</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Initial commit">
-      <created>1624293604277</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1624293604277</updated>
-    </task>
-    <task id="LOCAL-00028" summary="refactor: code refactor">
-      <created>1624431147453</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1624431147453</updated>
-    </task>
-    <task id="LOCAL-00029" summary="feat: redux &amp; add follow links">
-      <created>1624465651750</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1624465651751</updated>
-    </task>
-    <task id="LOCAL-00030" summary="refactor: remove any type">
-      <created>1624512439982</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1624512439982</updated>
-    </task>
-    <task id="LOCAL-00031" summary="feat: update cards.json, add wrapper for cards">
-      <created>1624517331255</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1624517331255</updated>
-    </task>
-    <task id="LOCAL-00032" summary="feat: play audio transcription">
-      <created>1624519907280</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1624519907280</updated>
-    </task>
-    <task id="LOCAL-00033" summary="feat: assets (cards image &amp; audio)">
-      <created>1624521733189</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1624521733189</updated>
-    </task>
-    <task id="LOCAL-00034" summary="refactor: router (render cards)">
-      <created>1624691401306</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1624691401306</updated>
-    </task>
-    <task id="LOCAL-00035" summary="refactor: structure data from back file">
-      <created>1624693433495</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1624693433495</updated>
-    </task>
-    <task id="LOCAL-00036" summary="refactor: change name, remove any">
-      <created>1624694257800</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1624694257800</updated>
-    </task>
-    <task id="LOCAL-00037" summary="refactor: change names, feat styles">
-      <created>1624698753362</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1624698753362</updated>
-    </task>
-    <task id="LOCAL-00038" summary="feat: start game, play/repeat question, refactor playAudio">
-      <created>1624702589996</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1624702589996</updated>
-    </task>
-    <task id="LOCAL-00039" summary="feat: compare answer and question, remove right answer from question list">
-      <created>1624704136964</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1624704136964</updated>
-    </task>
-    <task id="LOCAL-00040" summary="refactor: add selectors &amp; install reselect">
-      <created>1624707161408</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1624707161408</updated>
-    </task>
-    <task id="LOCAL-00041" summary="refactor: change a tag on div">
-      <created>1624707708080</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1624707708080</updated>
-    </task>
-    <task id="LOCAL-00042" summary="refactor: remove any &amp; add getCurrentCardList selector">
-      <created>1624716745393</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1624716745393</updated>
-    </task>
-    <task id="LOCAL-00043" summary="refactor: remove any &amp; add getCurrentCardList selector">
-      <created>1624717176773</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1624717176773</updated>
-    </task>
-    <task id="LOCAL-00044" summary="fear: new version english-for-kids deploy (1)">
-      <created>1624717313084</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1624717313084</updated>
-    </task>
-    <task id="LOCAL-00045" summary="fix: set right SRC for cards assets">
-      <created>1624890744442</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1624890744442</updated>
-    </task>
-    <task id="LOCAL-00046" summary="feat: styles for menu and header btns">
-      <created>1624943403173</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1624943403173</updated>
-    </task>
-    <task id="LOCAL-00047" summary="feat: end game popup, disabled card after right answer">
-      <created>1624948659935</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1624948659935</updated>
-    </task>
-    <task id="LOCAL-00048" summary="feat: end game popup, disabled card after right answer">
-      <created>1624950644538</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1624950644538</updated>
-    </task>
-    <task id="LOCAL-00049" summary="feat: card flipping">
-      <created>1624963462430</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1624963462430</updated>
-    </task>
-    <task id="LOCAL-00050" summary="feat: statistic slice">
-      <created>1624964374172</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1624964374172</updated>
-    </task>
-    <task id="LOCAL-00051" summary="refactor: remove any type, move getAllCards to MainPage.tsx">
-      <created>1624966850580</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1624966850580</updated>
-    </task>
-    <task id="LOCAL-00052" summary="feat: track game statistics">
-      <created>1624977384864</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1624977384865</updated>
-    </task>
-    <task id="LOCAL-00053" summary="refactor: create styles constants, replace connect on hooks, create CardFront component">
-      <created>1625037903504</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1625037903505</updated>
-    </task>
-    <task id="LOCAL-00054" summary="feat: styles">
-      <created>1625066276723</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1625066276723</updated>
-    </task>
-    <task id="LOCAL-00055" summary="feat: new cards">
-      <created>1625070302950</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1625070302950</updated>
-    </task>
-    <task id="LOCAL-00056" summary="feat: statistics page">
-      <created>1625122746000</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1625122746001</updated>
-    </task>
-    <task id="LOCAL-00057" summary="feat: statistics page">
-      <created>1625124080365</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1625124080365</updated>
-    </task>
-    <task id="LOCAL-00058" summary="refactor: move out global constants">
-      <created>1625125668092</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1625125668092</updated>
-    </task>
-    <task id="LOCAL-00059" summary="feat: footer">
-      <created>1625126978622</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1625126978622</updated>
-    </task>
-    <task id="LOCAL-00060" summary="feat: get data from statistics">
-      <created>1625150310226</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1625150310226</updated>
-    </task>
-    <task id="LOCAL-00061" summary="feat: stars after give answer &amp; count wrong answers">
-      <created>1625232689802</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1625232689802</updated>
-    </task>
-    <task id="LOCAL-00062" summary="feat: stars after give answer &amp; count wrong answers">
-      <created>1625234044753</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1625234044753</updated>
-    </task>
-    <task id="LOCAL-00063" summary="fix: behavior menu">
-      <created>1625385381551</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1625385381551</updated>
-    </task>
-    <task id="LOCAL-00064" summary="fix: behavior menu">
-      <created>1625385417656</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1625385417656</updated>
-    </task>
-    <task id="LOCAL-00065" summary="feat: preloader &amp; lazy loading &amp; refactor code">
-      <created>1625411373335</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1625411373336</updated>
-    </task>
-    <task id="LOCAL-00066" summary="refactor: statistics table">
-      <created>1625417367587</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1625417367587</updated>
-    </task>
-    <task id="LOCAL-00067" summary="refactor: stars showing during game &amp; card name hidden in play mode">
-      <created>1625468143137</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1625468143153</updated>
-    </task>
-    <task id="LOCAL-00068" summary="refactor: resolve problem with error if reload section page &amp; redirect to main-page after end-game">
-      <created>1625469196650</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1625469196650</updated>
-    </task>
-    <task id="LOCAL-00069" summary="feat: new deploy version EFK (2)">
-      <created>1625591627483</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1625591627483</updated>
-    </task>
-    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,35 +94,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: add selectors &amp; install reselect" />
-    <MESSAGE value="refactor: change a tag on div" />
-    <MESSAGE value="refactor: remove any &amp; add getCurrentCardList selector" />
-    <MESSAGE value="fear: new version english-for-kids deploy (1)" />
-    <MESSAGE value="fix: set right SRC for cards assets" />
-    <MESSAGE value="feat: styles for menu and header btns" />
-    <MESSAGE value="feat: end game popup, disabled card after right answer" />
-    <MESSAGE value="feat: card flipping" />
-    <MESSAGE value="feat: statistic slice" />
-    <MESSAGE value="refactor: remove any type, move getAllCards to MainPage.tsx" />
-    <MESSAGE value="feat: track game statistics" />
-    <MESSAGE value="refactor: create styles constants, replace connect on hooks, create CardFront component" />
-    <MESSAGE value="feat: styles" />
-    <MESSAGE value="feat: new cards" />
-    <MESSAGE value="feat: statistics page" />
-    <MESSAGE value="refactor: move out global constants" />
-    <MESSAGE value="feat: footer" />
-    <MESSAGE value="feat: get data from statistics" />
-    <MESSAGE value="feat: stars after give answer &amp; count wrong answers" />
-    <MESSAGE value="fix: behavior menu" />
-    <MESSAGE value="feat: preloader &amp; lazy loading &amp; refactor code" />
-    <MESSAGE value="refactor: statistics table" />
-    <MESSAGE value="refactor: stars showing during game &amp; card name hidden in play mode" />
-    <MESSAGE value="refactor: resolve problem with error if reload section page &amp; redirect to main-page after end-game" />
-    <MESSAGE value="feat: new deploy version EFK (2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: new deploy version EFK (2)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -34,6 +34,7 @@
     "lint": "eslint src",
     "lint-fixup": "eslint --ext .ts,.tsx src --fix",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
