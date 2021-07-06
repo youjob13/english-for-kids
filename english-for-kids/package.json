@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/rolling-scopes-school/youjob13-JSFE2021Q1/tree/gh-pages",
+  "homepage": "https://github.com/rolling-scopes-school/youjob13-JSFE2021Q1/tree/gh-pages/english-for-kids",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
     "@testing-library/jest-dom": "^5.14.1",
