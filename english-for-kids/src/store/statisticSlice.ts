@@ -44,3 +44,21 @@ export const getStatistics =
       dispatch(setStatisticsData(statisticsData));
     }, 1000);
   };
+
+export const resetStatistics =
+  (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    const statisticsData = { ...localStorage };
+    Object.keys(statisticsData).forEach((key) => {
+      localStorage.removeItem(key);
+    });
+    // TODO: убрать костыль
+
+    dispatch(setStatisticsData([]));
+
+    // dispatch(toggleIsFetching(false));
+    // setTimeout(() => {
+    //   dispatch(toggleIsFetching(true));
+    //   dispatch(setStatisticsData([]));
+    // }, 1000);
+  };

@@ -8,13 +8,17 @@ import {
   STATISTICS_HEADER_STYLES,
   TABLE_WRAPPER_STYLES,
 } from '../../shared/stylesVariables';
-import { getStatistics } from '../../store/statisticSlice';
+import { getStatistics, resetStatistics } from '../../store/statisticSlice';
 
 const Statistics = (): ReactElement => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getStatistics());
   }, []);
+
+  const clearList = () => {
+    dispatch(resetStatistics());
+  };
 
   return (
     <>
@@ -24,7 +28,7 @@ const Statistics = (): ReactElement => {
           <button className={BUTTON_STYLES} type="button">
             Repeat difficult words
           </button>
-          <button className={BUTTON_STYLES} type="button">
+          <button onClick={clearList} className={BUTTON_STYLES} type="button">
             Clear list
           </button>
         </div>

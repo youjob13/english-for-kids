@@ -82,8 +82,15 @@
 
   &Guessed {
     pointer-events: none;
-    height: 10rem;
     filter: brightness(0.7);
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardWrapper {
+    &Guessed {
+      height: 10rem;
+    }
   }
 }
 
