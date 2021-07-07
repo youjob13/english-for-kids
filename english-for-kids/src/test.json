@@ -156,18 +156,54 @@
     ]
   },
   {
-    "cars": [
+    "food": [
       {
-        "imageSRC": "/assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/food/barbecue.jpg",
+        "name": "barbecue",
+        "translate": "шашлык",
+        "audioSRC": "/assets/audio/barbecue.mp3"
       },
       {
-        "imageSRC": "/assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Попугай",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/food/borscht.jpeg",
+        "name": "borscht",
+        "translate": "Борщ",
+        "audioSRC": "/assets/audio/borscht.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/food/cake.jpg",
+        "name": "cake",
+        "translate": "торт",
+        "audioSRC": "/assets/audio/cake.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/food/cookie.jpg",
+        "name": "cookie",
+        "translate": "печенье",
+        "audioSRC": "/assets/audio/cookie.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/food/lasagna.jpg",
+        "name": "lasagna",
+        "translate": "лазанья",
+        "audioSRC": "/assets/audio/lasagna.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/food/waffle.jpg",
+        "name": "waffle",
+        "translate": "вафля",
+        "audioSRC": "/assets/audio/waffle.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/food/watermelon.jpg",
+        "name": "watermelon",
+        "translate": "арбуз",
+        "audioSRC": "/assets/audio/watermelon.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/food/melon.jpg",
+        "name": "melon",
+        "translate": "дыня",
+        "audioSRC": "/assets/audio/melon.mp3"
       }
     ]
   },
@@ -202,22 +238,76 @@
         "name": "phone",
         "translate": "телефон",
         "audioSRC": "/assets/audio/phone.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/gadgets/conditioner.jpg",
+        "name": "conditioner",
+        "translate": "кондиционер",
+        "audioSRC": "/assets/audio/conditioner.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/gadgets/smartwatch.png",
+        "name": "smartwatch",
+        "translate": "умные часы",
+        "audioSRC": "/assets/audio/smartwatch.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/gadgets/tv.jpg",
+        "name": "tv",
+        "translate": "телевизор",
+        "audioSRC": "/assets/audio/tv.mp3"
       }
     ]
   },
   {
-    "celebrities": [
+    "space": [
       {
-        "imageSRC": "/assets/category/nature/lake.jpg",
-        "name": "Lake",
-        "translate": "Озеро",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/space/space.jpg",
+        "name": "space",
+        "translate": "космос",
+        "audioSRC": "/assets/audio/space.mp3"
       },
       {
-        "imageSRC": "/assets/category/animals/parrot.jpg",
-        "name": "Parrot",
-        "translate": "Попугай",
-        "audioSRC": "/assets/audio/angry.mp3"
+        "imageSRC": "/assets/category/space/black_hole.jpg",
+        "name": "black_hole",
+        "translate": "черная дыра",
+        "audioSRC": "/assets/audio/black_hole.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/space/earth.jpg",
+        "name": "earth",
+        "translate": "земля",
+        "audioSRC": "/assets/audio/earth.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/space/mars.jpg",
+        "name": "mars",
+        "translate": "марс",
+        "audioSRC": "/assets/audio/mars.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/space/milky_way.jpg",
+        "name": "milky_way",
+        "translate": "млечный путь",
+        "audioSRC": "/assets/audio/milky_way.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/space/starfall.jpg",
+        "name": "starfall",
+        "translate": "звездопад",
+        "audioSRC": "/assets/audio/starfall.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/space/stars.jpg",
+        "name": "stars",
+        "translate": "звезды",
+        "audioSRC": "/assets/audio/stars.mp3"
+      },
+      {
+        "imageSRC": "/assets/category/space/sun.jpg",
+        "name": "sun",
+        "translate": "солнце",
+        "audioSRC": "/assets/audio/sun.mp3"
       }
     ]
   },

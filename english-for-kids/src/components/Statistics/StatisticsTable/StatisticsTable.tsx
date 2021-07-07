@@ -41,12 +41,11 @@ const StatisticsTable = (): ReactElement => {
     .map((cardsDataItem) => {
       const category = Object.keys(cardsDataItem).toString();
       const cards: ICardItem[] = Object.values(cardsDataItem)[0];
-
+      console.log(statisticsData);
       return cards.map((card) => {
         const parsedData =
           statisticsData[capitalizeWord(card.name)] &&
           JSON.parse(statisticsData[capitalizeWord(card.name)]);
-
         return {
           wordName: card.name,
           translation: card.translate,
