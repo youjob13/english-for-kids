@@ -1,75 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: new deploy version EFK">
-      <change afterPath="$PROJECT_DIR$/english-for-kids/public/_redirects" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/cabbie.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/cars.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/clockwork_orange.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/computer.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/dubstep.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/friends.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/hannibal.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/harry_potter.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/headphone.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/hip_hop.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/jazz.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/joker.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/phone.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/r&amp;b.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/rap.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/reggae.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/rock.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/seven.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/speakers.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/tablet.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/audio/trash.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/headphone.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/pc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/phone.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/speakers.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/gadgets/tablet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/cars.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/clockwork-orange.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/friends.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/hannibal.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/harry-potter.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/joker.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/seven.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/movies/taxi-driver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/dubstep.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/hip-hop.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/jazz.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/r&amp;b.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/rap.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/reggae.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/rock.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/category/music/trash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/cool.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/error.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/fail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/lose.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/lose_star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/star.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/success.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/assets/win.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/css/main.7adea58a.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/3.f91409de.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/4.d6312e61.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/js/runtime-main.654d936d.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/RSS_logo.ad178c0d.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/main-bg.a2219b80.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/main-icon.7e5b059e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/rotate-arrows.992f47da.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/speaker.8bf04072.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/build/static/media/statistics-icon.69ded138.png" beforeDir="false" />
+    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="refactor: add basename to HashRouter">
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +69,7 @@
       <workItem from="1625594999612" duration="262000" />
       <workItem from="1625597118910" duration="3236000" />
       <workItem from="1625601219129" duration="655000" />
-      <workItem from="1625634169450" duration="278000" />
+      <workItem from="1625634169450" duration="1228000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>
@@ -145,7 +78,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625597400286</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="docs: update .gitignore">
+      <created>1625634669353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1625634669353</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor: add basename to HashRouter">
+      <created>1625635135418</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625635135418</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +112,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: new deploy version EFK" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: new deploy version EFK" />
+    <MESSAGE value="docs: update .gitignore" />
+    <MESSAGE value="refactor: add basename to HashRouter" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: add basename to HashRouter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

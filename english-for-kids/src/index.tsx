@@ -9,7 +9,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <HashRouter basename="/React">
       <Provider store={store}>
         <App />
       </Provider>
