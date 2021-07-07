@@ -12,6 +12,11 @@ export interface ICardsState {
 export interface IStatisticState {
   statisticsData: any;
   isFetching: boolean;
+  difficultWords: any;
+}
+
+export interface IDifficultWordsState {
+  currentDifficultWordList: any[];
 }
 
 export interface IGameState {
@@ -24,6 +29,9 @@ export interface IGameState {
 
 export type CardsReducerType = { cardsReducer: ICardsState };
 export type GameReducerType = { gameReducer: IGameState };
+export type DifficultWordsReducerType = {
+  difficultWordsReducer: IDifficultWordsState;
+};
 export type StatisticReducerType = { statisticReducer: IStatisticState };
 export type StateType<T> = CombinedState<T>;
 

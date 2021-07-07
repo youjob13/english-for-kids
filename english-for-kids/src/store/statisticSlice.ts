@@ -1,7 +1,9 @@
-import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
-  ICardsState,
   IStatisticState,
+  StateType,
+  StatisticReducerType,
+  ThunkActionType,
 } from '../shared/interfaces/store-models';
 
 const statisticSlice = createSlice({
@@ -9,8 +11,13 @@ const statisticSlice = createSlice({
   initialState: {
     statisticsData: [],
     isFetching: true,
+    difficultWords: [],
   } as IStatisticState,
   reducers: {
+    setDifficultWords: (state: IStatisticState, action) => ({
+      ...state,
+      difficultWords: [...action.payload],
+    }),
     toggleIsFetching: (state: IStatisticState, action) => ({
       ...state,
       isFetching: action.payload,
@@ -24,7 +31,8 @@ const statisticSlice = createSlice({
 
 export default statisticSlice.reducer;
 
-export const { toggleIsFetching, setStatisticsData } = statisticSlice.actions;
+export const { setDifficultWords, toggleIsFetching, setStatisticsData } =
+  statisticSlice.actions;
 
 export interface IWordStatistic {
   trainCounter?: number;
@@ -34,7 +42,7 @@ export interface IWordStatistic {
 }
 
 export const getStatistics =
-  (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
     const statisticsData = { ...localStorage };
 
@@ -46,7 +54,7 @@ export const getStatistics =
   };
 
 export const resetStatistics =
-  (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
     const statisticsData = { ...localStorage };
     Object.keys(statisticsData).forEach((key) => {
@@ -55,6 +63,35 @@ export const resetStatistics =
     // TODO: убрать костыль
 
     dispatch(setStatisticsData([]));
+
+    // dispatch(toggleIsFetching(false));
+    // setTimeout(() => {
+    //   dispatch(toggleIsFetching(true));
+    //   dispatch(setStatisticsData([]));
+    // }, 1000);
+  };
+
+const defineDifficultWords = (words: any): any => {
+  const falseAnswers = Object.entries(words)
+    .sort((elem: [string, any], nextElem: any) => {
+      return (
+        JSON.parse(nextElem[1]).falseAnswerCounter -
+        JSON.parse(elem[1]).falseAnswerCounter
+      );
+    })
+    .map((elem) => elem[0]);
+  falseAnswers.length = 8;
+  return falseAnswers;
+};
+
+export const getDifficultWordsStatistics =
+  (): ThunkActionType<StateType<StatisticReducerType>> =>
+  async (dispatch, getState): Promise<void> => {
+    const { statisticsData } = getState().statisticReducer;
+
+    const difficultWords = defineDifficultWords(statisticsData);
+
+    dispatch(setDifficultWords(difficultWords));
 
     // dispatch(toggleIsFetching(false));
     // setTimeout(() => {

@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import {
   CardsReducerType,
+  DifficultWordsReducerType,
   GameReducerType,
+  StatisticReducerType,
 } from '../../shared/interfaces/store-models';
 import { GameMode } from '../../shared/interfaces/props-models';
 import CardGame from './CardGame/CardGame';
@@ -20,6 +22,8 @@ import {
 } from '../../shared/stylesVariables';
 import { getWordStatistic } from '../../shared/api/api';
 import AnswerList from './AnswerList/AnswerList';
+import { getDifficultWordsStatistics } from '../../store/statisticSlice';
+import { getDifficultWords } from '../../store/difficultWordsSlice';
 
 const defineCurrentCategoryCards = (
   cardsData: ICardsData[],
@@ -50,7 +54,7 @@ const Category = (): ReactElement => {
   const { cards: cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
-
+  console.log(categoryPath);
   const audioSRC = currentQuestion && currentQuestion.audioSRC;
 
   const currentCategoryCards = defineCurrentCategoryCards(
@@ -70,15 +74,38 @@ const Category = (): ReactElement => {
     }
   }, [currentQuestion]);
 
+  const { difficultWords } = useSelector(
+    (state: StatisticReducerType) => state.statisticReducer
+  );
+
+  const { currentDifficultWordList } = useSelector(
+    (state: DifficultWordsReducerType) => state.difficultWordsReducer
+  );
+
   const onStartGameClick = (): void => {
-    dispatch(prepareGameProcess(cards));
+    dispatch(
+      prepareGameProcess(
+        categoryPath === 'difficult-words' ? currentDifficultWordList : cards
+      )
+    );
   };
+
+  useEffect(() => {
+    dispatch(getDifficultWordsStatistics());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getDifficultWords(difficultWords, cardsData));
+  }, [difficultWords]);
+
+  const gameCards =
+    categoryPath === 'difficult-words' ? currentDifficultWordList : cards; // TODO: костыль убрать
 
   return (
     <>
       <Title>Category: {capitalizeWord(categoryPath)}</Title>
       <ul className={CATEGORY_FIELD_STYLES}>
-        {cards.map((card, index) => (
+        {gameCards.map((card, index) => (
           <CardGame key={index.toString()} card={card} />
         ))}
       </ul>
