@@ -41,7 +41,7 @@ const StatisticsTable = (): ReactElement => {
     .map((cardsDataItem) => {
       const category = Object.keys(cardsDataItem).toString();
       const cards: ICardItem[] = Object.values(cardsDataItem)[0];
-      console.log(statisticsData);
+
       return cards.map((card) => {
         const parsedData =
           statisticsData[capitalizeWord(card.name)] &&
@@ -49,7 +49,6 @@ const StatisticsTable = (): ReactElement => {
         return {
           wordName: card.name,
           translation: card.translate,
-          asked: (parsedData && parsedData.askedCounter) || 0,
           train: (parsedData && parsedData.trainCounter) || 0, // TODO: to do rename
           hit: (parsedData && parsedData.trueAnswerCounter) || 0,
           wrong: (parsedData && parsedData.falseAnswerCounter) || 0,

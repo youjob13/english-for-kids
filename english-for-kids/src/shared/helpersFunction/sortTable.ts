@@ -86,11 +86,6 @@ const sortTable = (
         return 0;
       });
     }
-    case SortingTypes.ASKED: {
-      return unsortedList.sort((a, b) =>
-        sortingType.sortFromTop ? a.asked - b.asked : b.asked - a.asked
-      );
-    }
     case SortingTypes.TRAIN: {
       return unsortedList.sort((a, b) =>
         sortingType.sortFromTop ? a.train - b.train : b.train - a.train

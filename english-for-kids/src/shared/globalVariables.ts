@@ -14,10 +14,6 @@ const tableHeaders: ITableHeaderData[] = [
     name: 'translation',
   },
   {
-    type: SortingTypes.ASKED,
-    name: 'asked',
-  },
-  {
     type: SortingTypes.TRAIN,
     name: 'train',
   },

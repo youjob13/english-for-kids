@@ -20,30 +20,17 @@ import {
   REPEAT_WORD_STYLES,
   START_GAME_STYLES,
 } from '../../shared/stylesVariables';
-import { getWordStatistic } from '../../shared/api/api';
 import AnswerList from './AnswerList/AnswerList';
 import { getDifficultWordsStatistics } from '../../store/statisticSlice';
 import { getDifficultWords } from '../../store/difficultWordsSlice';
 
-const defineCurrentCategoryCards = (
+const defineCurrentCategory = (
   cardsData: ICardsData[],
   categoryPath: string
 ): ICardsData | undefined =>
   cardsData.find(
     (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
   );
-
-const addUpdatedAskedWordStatisticToDataBase = (wordName: string): void => {
-  const currentWordStatistic = getWordStatistic(wordName);
-
-  const currentAskedCounter =
-    (currentWordStatistic && currentWordStatistic.askedCounter) || 0;
-
-  localStorage[wordName] = JSON.stringify({
-    ...currentWordStatistic,
-    askedCounter: currentAskedCounter + 1,
-  });
-};
 
 const Category = (): ReactElement => {
   const dispatch = useDispatch();
@@ -54,30 +41,20 @@ const Category = (): ReactElement => {
   const { cards: cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
-  console.log(categoryPath);
+
   const audioSRC = currentQuestion && currentQuestion.audioSRC;
-
-  const currentCategoryCards = defineCurrentCategoryCards(
-    cardsData,
-    categoryPath
-  );
-
-  const cards =
-    (currentCategoryCards && Object.values(currentCategoryCards)[0]) || [];
+  const currentCategory = defineCurrentCategory(cardsData, categoryPath);
+  const cards = (currentCategory && Object.values(currentCategory)[0]) || [];
 
   useEffect(() => {
     if (audioSRC) {
       playAudio(audioSRC);
-    }
-    if (currentQuestion) {
-      addUpdatedAskedWordStatisticToDataBase(currentQuestion.name);
     }
   }, [currentQuestion]);
 
   const { difficultWords } = useSelector(
     (state: StatisticReducerType) => state.statisticReducer
   );
-
   const { currentDifficultWordList } = useSelector(
     (state: DifficultWordsReducerType) => state.difficultWordsReducer
   );
