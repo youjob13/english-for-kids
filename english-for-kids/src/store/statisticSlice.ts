@@ -75,6 +75,12 @@ export const resetStatistics =
 const defineDifficultWords = (words: any): any => {
   const falseAnswers = Object.entries(words)
     .sort((elem: [string, any], nextElem: any) => {
+      if (
+        !JSON.parse(elem[1]).falseAnswerCounter &&
+        !JSON.parse(elem[1]).trueAnswerCounter
+      ) {
+        return -1;
+      }
       const firstWord = calcPercentByCondition(
         JSON.parse(elem[1]).falseAnswerCounter || 0,
         JSON.parse(elem[1]).trueAnswerCounter || 0
@@ -86,6 +92,7 @@ const defineDifficultWords = (words: any): any => {
       return firstWord - secondWord;
     })
     .map((elem) => elem[0]);
+  console.log(falseAnswers);
   falseAnswers.length = 8;
 
   return falseAnswers;

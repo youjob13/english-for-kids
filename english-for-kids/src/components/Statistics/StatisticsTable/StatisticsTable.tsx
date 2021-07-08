@@ -7,7 +7,6 @@ import {
   StatisticReducerType,
 } from '../../../shared/interfaces/store-models';
 import { ICardItem } from '../../../shared/interfaces/cards-models';
-import capitalizeWord from '../../../shared/helpersFunction/capitalizeWord';
 import TableHeader from './TableHeader/TableHeader';
 import {
   TABLE_BODY_STYLES,
@@ -38,8 +37,7 @@ const StatisticsTable = (): ReactElement => {
 
       return cards.map((card) => {
         const parsedData =
-          statisticsData[capitalizeWord(card.name)] &&
-          JSON.parse(statisticsData[capitalizeWord(card.name)]);
+          statisticsData[card.name] && JSON.parse(statisticsData[card.name]);
         return {
           wordName: card.name,
           translation: card.translate,
@@ -49,8 +47,8 @@ const StatisticsTable = (): ReactElement => {
           correctAnswersPercent:
             (parsedData &&
               calcPercentByCondition(
-                parsedData.falseAnswerCounter,
-                parsedData.trueAnswerCounter
+                parsedData.falseAnswerCounter || 0,
+                parsedData.trueAnswerCounter || 0
               )) ||
             0,
           category,
