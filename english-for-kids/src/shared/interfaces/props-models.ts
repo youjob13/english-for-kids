@@ -64,4 +64,5 @@ export interface ISwitchProps {
   on: string;
   off: string;
   onCheckboxClick: () => void;
+  gameMode: GameMode;
 }

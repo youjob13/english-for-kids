@@ -54,12 +54,9 @@ const Category = (): ReactElement => {
 
   useEffect(() => {
     return () => {
-      if (gameMode === GameMode.IN_GAME) {
-        dispatch(stopGame(GameMode.NO_GAME));
-      }
+      dispatch(stopGame(GameMode.NO_GAME)); // TODO: realise correct exit game
     };
-  }, [categoryPath, gameMode]);
-  // TODO: realise correct exit game
+  }, [categoryPath]);
 
   const { difficultWords } = useSelector(
     (state: StatisticReducerType) => state.statisticReducer

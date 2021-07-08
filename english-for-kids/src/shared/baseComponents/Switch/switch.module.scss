@@ -64,16 +64,16 @@
   opacity: 0;
 }
 
-.checkbox .inputSwitch:checked + .checkboxSwitch {
+.checkbox .inputSwitchActive + .checkboxSwitch {
   background-color: #70c767;
 }
 
-.checkbox .inputSwitch:checked + .checkboxSwitch:before {
+.checkbox .inputSwitchActive + .checkboxSwitch:before {
   content: attr(data-label-off);
   left: 0;
 }
 
-.checkbox .inputSwitch:checked + .checkboxSwitch:after {
+.checkbox .inputSwitchActive + .checkboxSwitch:after {
   content: attr(data-label-on);
   color: #4fb743;
   background-color: #fff;
@@ -98,4 +98,8 @@
 /* Focus */
 .checkbox.focused .checkboxSwitch:after {
   box-shadow: inset 0px 0px 4px #ff5623;
+}
+
+input[type=checkbox] {
+  display: none;
 }
