@@ -24,6 +24,7 @@ export interface IGameState {
   currentQuestion: ICardItem | null;
   lastAnswer: ICardItem | null;
   gameMode: GameMode;
+  isActiveEndGamePopup: boolean;
   currentGameAnswers: boolean[];
 }
 

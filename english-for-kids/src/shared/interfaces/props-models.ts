@@ -5,7 +5,6 @@ export enum GameMode { // TODO: resolve problem
   NO_GAME = 'NO_GAME',
   READY_TO_GAME = 'READY_TO_GAME',
   IN_GAME = 'IN_GAME',
-  SHOW_RESULT = 'SHOW_RESULT',
 }
 
 export interface ICardMainPageWrapperProps {
@@ -21,7 +20,7 @@ export interface ICardProps {
 }
 
 export interface IEndGamePopupProps {
-  answersList: boolean[];
+  answerList: boolean[];
 }
 
 export interface IAnswerProps {

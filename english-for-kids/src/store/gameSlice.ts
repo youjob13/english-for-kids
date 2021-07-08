@@ -20,6 +20,7 @@ const gameSlice = createSlice({
     currentQuestion: null,
     lastAnswer: null,
     currentGameAnswers: [],
+    isActiveEndGamePopup: false,
   } as IGameState,
   reducers: {
     toggleGameMode: (state: IGameState) => ({
@@ -61,15 +62,17 @@ const gameSlice = createSlice({
     }),
     stopGame: (state: IGameState) => ({
       ...state,
-      gameMode: GameMode.SHOW_RESULT,
+      gameMode: GameMode.READY_TO_GAME,
+      currentGameAnswers: [],
+      lastAnswer: null,
+    }),
+    toggleEndGamePopupMode: (state: IGameState, action) => ({
+      ...state,
+      isActiveEndGamePopup: action.payload,
     }),
     setNoGameMode: (state: IGameState) => ({
       ...state,
       gameMode: GameMode.READY_TO_GAME,
-    }),
-    resetGameStatistics: (state: IGameState) => ({
-      ...state,
-      currentGameAnswers: [],
     }),
   },
 });
@@ -77,14 +80,13 @@ const gameSlice = createSlice({
 export default gameSlice.reducer;
 
 export const {
+  toggleEndGamePopupMode,
   stopGame,
   setFalseAnswer,
   setRightAnswer,
   setAudioQuestion,
   startGame,
   toggleGameMode,
-  setNoGameMode,
-  resetGameStatistics,
 } = gameSlice.actions;
 
 export const prepareGameProcess =
@@ -135,10 +137,11 @@ export const setGivenAnswer =
 
       const newQuestion = getState().gameReducer.currentQuestion;
       if (!newQuestion) {
-        dispatch(stopGame());
+        dispatch(toggleEndGamePopupMode(true));
+
         setTimeout(() => {
-          dispatch(setNoGameMode());
-          dispatch(resetGameStatistics());
+          dispatch(toggleEndGamePopupMode(false));
+          dispatch(stopGame());
         }, 3000);
       }
 

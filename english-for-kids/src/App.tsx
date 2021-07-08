@@ -3,7 +3,6 @@ import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCards } from './store/cardsSlice';
-import { GameMode } from './shared/interfaces/props-models';
 import {
   CardsReducerType,
   GameReducerType,
@@ -22,13 +21,13 @@ const App = (): ReactElement => {
   const { isFetching } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
-  const { gameMode, currentGameAnswers } = useSelector(
+  const { isActiveEndGamePopup, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
 
   useEffect(() => {
     dispatch(getAllCards());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app-wrapper">
@@ -52,8 +51,8 @@ const App = (): ReactElement => {
             <Route path="*" render={() => <div>404</div>} />
           </Switch>
         )}
-        {gameMode === GameMode.SHOW_RESULT && (
-          <EndGamePopup answersList={currentGameAnswers} /> // TODO: move out
+        {isActiveEndGamePopup && (
+          <EndGamePopup answerList={currentGameAnswers} /> // TODO: move out
         )}
       </main>
       <Footer />

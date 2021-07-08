@@ -7,7 +7,7 @@ import {
 } from '../shared/interfaces/store-models';
 import { ICardsData } from '../shared/interfaces/cards-models';
 
-const gameSlice = createSlice({
+const difficultWordsSlice = createSlice({
   name: 'difficultWordsSlice',
   initialState: {
     currentDifficultWordList: [],
@@ -20,9 +20,9 @@ const gameSlice = createSlice({
   },
 });
 
-export default gameSlice.reducer;
+export default difficultWordsSlice.reducer;
 
-export const { setDifficultWords } = gameSlice.actions;
+export const { setDifficultWords } = difficultWordsSlice.actions;
 
 export const getDifficultWords =
   (

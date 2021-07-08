@@ -17,7 +17,7 @@ import {
 } from '../../../shared/stylesVariables';
 import tableHeaders from '../../../shared/globalVariables';
 import sortTable from '../../../shared/helpersFunction/sortTable';
-import calcPercentByCondition from '../../../shared/helpersFunction/calcCorrectAnswersPercent';
+import calcPercentByCondition from '../../../shared/helpersFunction/calcPercentByCondition';
 
 const StatisticsTable = (): ReactElement => {
   const { cards: cardsData } = useSelector(

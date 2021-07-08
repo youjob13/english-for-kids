@@ -10,10 +10,10 @@ import {
 import { IEndGamePopupProps } from '../../shared/interfaces/props-models';
 import playAudio from '../../shared/helpersFunction/playSound';
 
-const EndGamePopup = ({ answersList }: IEndGamePopupProps): ReactElement => {
+const EndGamePopup = ({ answerList }: IEndGamePopupProps): ReactElement => {
   const history = useHistory();
 
-  const wrongAnswerCounts = answersList.reduce(
+  const wrongAnswerCounts = answerList.reduce(
     (acc, answer) => (!answer ? acc + 1 : acc),
     0
   );

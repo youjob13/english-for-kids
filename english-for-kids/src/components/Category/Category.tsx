@@ -11,7 +11,7 @@ import { GameMode } from '../../shared/interfaces/props-models';
 import CardGame from './CardGame/CardGame';
 import { ICardsData } from '../../shared/interfaces/cards-models';
 import { RouteParams } from '../../shared/interfaces/api-models';
-import { prepareGameProcess } from '../../store/gameSlice';
+import { prepareGameProcess, stopGame } from '../../store/gameSlice';
 import playAudio from '../../shared/helpersFunction/playSound';
 import capitalizeWord from '../../shared/helpersFunction/capitalizeWord';
 import Title from '../../shared/baseComponents/Title/Title';
@@ -51,6 +51,12 @@ const Category = (): ReactElement => {
       playAudio(audioSRC);
     }
   }, [currentQuestion]);
+
+  useEffect(() => {
+    return function stop() {
+      dispatch(stopGame());
+    };
+  }, [categoryPath]);
 
   const { difficultWords } = useSelector(
     (state: StatisticReducerType) => state.statisticReducer
