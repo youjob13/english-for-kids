@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="refactor: repeat difficult words">
+    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="fix: remove 'asked' table column">
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/calcCorrectAnswersPercent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Category/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Category/Category.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/EndGamePopup/EndGamePopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/EndGamePopup/EndGamePopup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/StatisticsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/StatisticsTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/TableCell/TableCell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/TableCell/TableCell.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/statistics.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/statistics.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/globalVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/globalVariables.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/sortTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/sortTable.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/api-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/api-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/gameSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/gameSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +87,7 @@
       <workItem from="1625601219129" duration="655000" />
       <workItem from="1625634169450" duration="1958000" />
       <workItem from="1625636690833" duration="10839000" />
-      <workItem from="1625720430615" duration="1905000" />
+      <workItem from="1625720430615" duration="4888000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625646995756</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix: remove 'asked' table column">
+      <created>1625722406496</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625722406496</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +186,8 @@
     <MESSAGE value="feat: reset statistics" />
     <MESSAGE value="feat: repeat difficult words" />
     <MESSAGE value="refactor: repeat difficult words" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: repeat difficult words" />
+    <MESSAGE value="fix: remove 'asked' table column" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: remove 'asked' table column" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

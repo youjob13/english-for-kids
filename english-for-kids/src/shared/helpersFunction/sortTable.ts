@@ -101,11 +101,11 @@ const sortTable = (
         sortingType.sortFromTop ? a.wrong - b.wrong : b.wrong - a.wrong
       );
     }
-    case SortingTypes.WRONG_PERCENT: {
+    case SortingTypes.CORRECT_ANSWERS_PERCENT: {
       return unsortedList.sort((a, b) =>
         sortingType.sortFromTop
-          ? a.wrongPercent - b.wrongPercent
-          : b.wrongPercent - a.wrongPercent
+          ? a.correctAnswersPercent - b.correctAnswersPercent
+          : b.correctAnswersPercent - a.correctAnswersPercent
       );
     }
     default: {

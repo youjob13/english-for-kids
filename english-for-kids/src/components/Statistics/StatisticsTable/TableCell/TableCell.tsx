@@ -7,8 +7,15 @@ const TABLE_CELL_STYLES = classes.tableCell;
 const TABLE_ROW_STYLES = classes.tableRow;
 
 const TableCell = ({ index, word }: ITableCellProps): ReactElement => {
-  const { category, wordName, translation, train, hit, wrong, wrongPercent } =
-    word;
+  const {
+    category,
+    wordName,
+    translation,
+    train,
+    hit,
+    wrong,
+    correctAnswersPercent,
+  } = word;
 
   return (
     <tr className={TABLE_ROW_STYLES}>
@@ -19,7 +26,7 @@ const TableCell = ({ index, word }: ITableCellProps): ReactElement => {
       <td className={TABLE_CELL_STYLES}>{train || 0}</td>
       <td className={TABLE_CELL_STYLES}>{hit || 0}</td>
       <td className={TABLE_CELL_STYLES}>{wrong || 0}</td>
-      <td className={TABLE_CELL_STYLES}>{wrongPercent || 0}%</td>
+      <td className={TABLE_CELL_STYLES}>{correctAnswersPercent || 0}%</td>
     </tr>
   );
 };

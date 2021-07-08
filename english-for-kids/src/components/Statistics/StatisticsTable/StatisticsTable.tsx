@@ -17,13 +17,7 @@ import {
 } from '../../../shared/stylesVariables';
 import tableHeaders from '../../../shared/globalVariables';
 import sortTable from '../../../shared/helpersFunction/sortTable';
-
-const calcWrongPercent = (
-  askedAnswers: number,
-  trueAnswers: number
-): number => {
-  return Math.floor((askedAnswers * 100) / trueAnswers);
-};
+import calcPercentByCondition from '../../../shared/helpersFunction/calcCorrectAnswersPercent';
 
 const StatisticsTable = (): ReactElement => {
   const { cards: cardsData } = useSelector(
@@ -49,12 +43,12 @@ const StatisticsTable = (): ReactElement => {
         return {
           wordName: card.name,
           translation: card.translate,
-          train: (parsedData && parsedData.trainCounter) || 0, // TODO: to do rename
+          train: (parsedData && parsedData.trainCounter) || 0,
           hit: (parsedData && parsedData.trueAnswerCounter) || 0,
           wrong: (parsedData && parsedData.falseAnswerCounter) || 0,
-          wrongPercent:
+          correctAnswersPercent:
             (parsedData &&
-              calcWrongPercent(
+              calcPercentByCondition(
                 parsedData.falseAnswerCounter,
                 parsedData.trueAnswerCounter
               )) ||

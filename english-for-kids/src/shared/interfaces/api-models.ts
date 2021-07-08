@@ -20,7 +20,7 @@ export interface IWordStatisticData {
   train: number;
   hit: number;
   wrong: number;
-  wrongPercent: number;
+  correctAnswersPercent: number;
 }
 
 export enum SortingTypes {
@@ -30,5 +30,5 @@ export enum SortingTypes {
   TRAIN = 'TRAIN',
   HIT = 'HIT',
   WRONG = 'WRONG',
-  WRONG_PERCENT = 'WRONG_PERCENT',
+  CORRECT_ANSWERS_PERCENT = 'CORRECT_ANSWERS_PERCENT',
 }

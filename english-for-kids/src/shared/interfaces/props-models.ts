@@ -1,8 +1,6 @@
 import { ICardItem } from './cards-models';
 import { IWordStatisticData } from './api-models';
 
-// export type GameModeType = 'no-game' | 'in-game' | 'show-result';
-
 export enum GameMode { // TODO: resolve problem
   NO_GAME = 'NO_GAME',
   READY_TO_GAME = 'READY_TO_GAME',

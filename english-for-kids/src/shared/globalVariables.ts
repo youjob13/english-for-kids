@@ -26,8 +26,8 @@ const tableHeaders: ITableHeaderData[] = [
     name: 'wrong',
   },
   {
-    type: SortingTypes.WRONG_PERCENT,
-    name: 'wrong percent',
+    type: SortingTypes.CORRECT_ANSWERS_PERCENT,
+    name: 'correct answers %',
   },
 ];
 export default tableHeaders;

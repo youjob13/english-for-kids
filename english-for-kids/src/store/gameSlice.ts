@@ -94,32 +94,30 @@ export const prepareGameProcess =
     dispatch(setAudioQuestion());
   };
 
-const addUpdatedTrueAnswerWordStatisticToDataBase = (
-  wordName: string
+const updateWordStatistics = (
+  wordName: string,
+  answerResult: boolean
 ): void => {
   const currentWordStatistic = getWordStatistic(wordName);
+  let currentAnswerCounter;
 
-  const currentTrueAnswerCounter =
-    (currentWordStatistic && currentWordStatistic.trueAnswerCounter) || 0;
+  if (answerResult) {
+    currentAnswerCounter =
+      currentWordStatistic && currentWordStatistic.trueAnswerCounter;
 
-  localStorage[wordName] = JSON.stringify({
-    ...currentWordStatistic,
-    trueAnswerCounter: currentTrueAnswerCounter + 1,
-  });
-};
+    localStorage[wordName] = JSON.stringify({
+      ...currentWordStatistic,
+      trueAnswerCounter: (currentAnswerCounter || 0) + 1,
+    });
+  } else {
+    currentAnswerCounter =
+      currentWordStatistic && currentWordStatistic.falseAnswerCounter;
 
-const addUpdatedFalseAnswerWordStatisticToDataBase = (
-  wordName: string
-): void => {
-  const currentWordStatistic = getWordStatistic(wordName);
-
-  const currentTrueAnswerCounter =
-    (currentWordStatistic && currentWordStatistic.falseAnswerCounter) || 0;
-
-  localStorage[wordName] = JSON.stringify({
-    ...currentWordStatistic,
-    falseAnswerCounter: currentTrueAnswerCounter + 1,
-  });
+    localStorage[wordName] = JSON.stringify({
+      ...currentWordStatistic,
+      falseAnswerCounter: (currentAnswerCounter || 0) + 1,
+    });
+  }
 };
 
 export const setGivenAnswer =
@@ -130,9 +128,9 @@ export const setGivenAnswer =
 
     if (answerResult) {
       dispatch(setRightAnswer(answer));
+      updateWordStatistics(question!.name, true);
 
-      playAudio('/assets/success.mp3');
-      addUpdatedTrueAnswerWordStatisticToDataBase(answer.name);
+      playAudio('/assets/success.mp3'); // TODO: think about it
       dispatch(setAudioQuestion());
 
       const newQuestion = getState().gameReducer.currentQuestion;
@@ -146,7 +144,9 @@ export const setGivenAnswer =
 
       return;
     }
+
     dispatch(setFalseAnswer());
+    updateWordStatistics(question!.name, false);
+
     playAudio('/assets/error.mp3');
-    addUpdatedFalseAnswerWordStatisticToDataBase(answer.name);
   };
