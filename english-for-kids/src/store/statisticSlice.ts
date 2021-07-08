@@ -87,7 +87,7 @@ const defineDifficultWords = (words: any): any => {
     })
     .map((elem) => elem[0]);
   falseAnswers.length = 8;
-  console.log(falseAnswers);
+
   return falseAnswers;
 };
 

@@ -32,6 +32,7 @@ const gameSlice = createSlice({
       currentQuestion: null,
       lastAnswer: null,
       currentGameCardList: [],
+      currentGameAnswers: [], // TODO: reset reducer
     }),
     startGame: (state: IGameState, action) => {
       const cards: ICardItem[] = action.payload;
@@ -60,10 +61,12 @@ const gameSlice = createSlice({
       ...state,
       currentGameAnswers: [...state.currentGameAnswers, false],
     }),
-    stopGame: (state: IGameState) => ({
+    stopGame: (state: IGameState, action) => ({
       ...state,
-      gameMode: GameMode.READY_TO_GAME,
-      currentGameAnswers: [],
+      gameMode: action.payload,
+      currentGameAnswers: [], // TODO: reset reducer
+      currentGameCardList: [],
+      currentQuestion: null,
       lastAnswer: null,
     }),
     toggleEndGamePopupMode: (state: IGameState, action) => ({
@@ -141,7 +144,7 @@ export const setGivenAnswer =
 
         setTimeout(() => {
           dispatch(toggleEndGamePopupMode(false));
-          dispatch(stopGame());
+          dispatch(stopGame(GameMode.READY_TO_GAME));
         }, 3000);
       }
 
