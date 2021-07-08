@@ -1,8 +1,8 @@
 import React, { Props, ReactElement } from 'react';
-import classes from './title.module.scss';
+import { TITLE_STYLES } from '../../stylesVariables';
 
 const Title = ({ children }: Props<string>): ReactElement => (
-  <h2 className={classes.title}>{children}</h2>
+  <h2 className={TITLE_STYLES}>{children}</h2>
 );
 
 export default Title;

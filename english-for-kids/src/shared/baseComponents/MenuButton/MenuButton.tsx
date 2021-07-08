@@ -5,17 +5,18 @@ import {
   MENU_BTN_STYLES,
 } from '../../stylesVariables';
 import MenuContext from '../../context';
+import { InputType, MENU_BUTTON_ID } from '../../globalVariables';
 
-const MenuBtn = (): ReactElement => {
+const MenuButton = (): ReactElement => {
   const { isOpenMenu, toggleMenu } = useContext(MenuContext);
 
   return (
-    <label className={LABEL_STYLES} htmlFor="menuId">
+    <label className={LABEL_STYLES} htmlFor={MENU_BUTTON_ID}>
       <input
         className={isOpenMenu ? MENU_BTN_ACTIVE_STYLES : MENU_BTN_STYLES}
         onChange={toggleMenu}
-        type="checkbox"
-        id="menuId"
+        type={InputType.CHECKBOX}
+        id={MENU_BUTTON_ID}
       />
       <span />
       <span />
@@ -24,4 +25,4 @@ const MenuBtn = (): ReactElement => {
   );
 };
 
-export default MenuBtn;
+export default MenuButton;

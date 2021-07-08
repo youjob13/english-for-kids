@@ -5,7 +5,7 @@ import {
   StatisticReducerType,
   ThunkActionType,
 } from '../shared/interfaces/store-models';
-import calcPercentByCondition from '../shared/helpersFunction/calcPercentByCondition';
+import calcPercentByCondition from '../shared/helperFunctions/calcPercentByCondition';
 
 const statisticSlice = createSlice({
   name: 'statisticSlice',
@@ -85,12 +85,23 @@ const defineDifficultWords = (words: any): any => {
         JSON.parse(elem[1]).falseAnswerCounter || 0,
         JSON.parse(elem[1]).trueAnswerCounter || 0
       );
+
       const secondWord = calcPercentByCondition(
         JSON.parse(nextElem[1]).falseAnswerCounter || 0,
         JSON.parse(nextElem[1]).trueAnswerCounter || 0
       );
+      if (firstWord === 100 || secondWord === 100) {
+        return -1;
+      }
       return firstWord - secondWord;
     })
+    .filter(
+      (elem: any) =>
+        calcPercentByCondition(
+          JSON.parse(elem[1]).falseAnswerCounter || 0,
+          JSON.parse(elem[1]).trueAnswerCounter || 0
+        ) !== 100
+    )
     .map((elem) => elem[0]);
   console.log(falseAnswers);
   falseAnswers.length = 8;

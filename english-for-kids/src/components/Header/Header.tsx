@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classes from './header.module.scss';
 import Navigation from './Navigation/Navigation';
 import { toggleGameMode } from '../../store/gameSlice';
 import {
@@ -8,22 +7,30 @@ import {
   GameReducerType,
 } from '../../shared/interfaces/store-models';
 import Switch from '../../shared/baseComponents/Switch/Switch';
-import MenuBtn from '../../shared/baseComponents/MenuBtn/MenuBtn';
+import MenuButton from '../../shared/baseComponents/MenuButton/MenuButton';
 import MenuContext from '../../shared/context';
+import {
+  INITIAL_IS_OPEN_MENU_VALUE,
+  SWITCH_OFF,
+  SWITCH_ON,
+} from '../../shared/globalVariables';
+import { HEADER } from '../../shared/stylesVariables';
 
 const Header = (): ReactElement => {
-  const [isOpenMenu, toggleMenu] = useState(false);
+  const [isOpenMenu, toggleMenu] = useState(INITIAL_IS_OPEN_MENU_VALUE);
   const dispatch = useDispatch();
-  const { cards } = useSelector(
+  const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
   const { gameMode } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
 
-  const cardsCategories = cards.map((card) => Object.keys(card).toString());
+  const categoryNames = cardsData.map((cardData) =>
+    Object.keys(cardData).toString()
+  );
 
-  const onSwitchClick = () => {
+  const switchGameMode = () => {
     dispatch(toggleGameMode());
   };
 
@@ -33,14 +40,14 @@ const Header = (): ReactElement => {
 
   return (
     <MenuContext.Provider value={{ isOpenMenu, toggleMenu: toggleMenuMode }}>
-      <header className={classes.header}>
-        <Navigation categories={cardsCategories} />
-        <MenuBtn />
+      <header className={HEADER}>
+        <Navigation categories={categoryNames} />
+        <MenuButton />
         <Switch
-          on="Play"
-          off="Train"
+          on={SWITCH_ON}
+          off={SWITCH_OFF}
           gameMode={gameMode}
-          onCheckboxClick={onSwitchClick}
+          onCheckboxClick={switchGameMode}
         />
       </header>
     </MenuContext.Provider>

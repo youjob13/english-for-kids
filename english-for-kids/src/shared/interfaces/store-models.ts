@@ -1,10 +1,10 @@
 import { AnyAction, CombinedState, ThunkAction } from '@reduxjs/toolkit';
 import { ThunkDispatch } from 'redux-thunk';
 import { ICardItem, ICardsData } from './cards-models';
-import { GameMode } from './props-models';
+import { GameMode } from '../globalVariables';
 
 export interface ICardsState {
-  cards: ICardsData[];
+  cardsData: ICardsData[];
   isFetching: boolean;
   playingList: string[];
 }

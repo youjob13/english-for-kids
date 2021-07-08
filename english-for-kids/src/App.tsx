@@ -1,4 +1,4 @@
-import React, { Suspense, ReactElement, useEffect, lazy } from 'react';
+import React, { ReactElement, useEffect, lazy } from 'react';
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,9 @@ import Category from './components/Category/Category';
 import EndGamePopup from './components/EndGamePopup/EndGamePopup';
 import Footer from './components/Footer/Footer';
 import Preloader from './shared/baseComponents/Preloader/Preloader';
+import { APP_CONTENT, APP_WRAPPER } from './shared/stylesVariables';
+import { Path } from './shared/globalVariables';
+import withLazyLoading from './shared/hoc/withLazyLoading';
 
 const Statistics = lazy(() => import('./components/Statistics/Statistics'));
 
@@ -30,29 +33,25 @@ const App = (): ReactElement => {
   }, [dispatch]);
 
   return (
-    <div className="app-wrapper">
+    <div className={APP_WRAPPER}>
       <Header />
-      <main className="app-content">
+      <main className={APP_CONTENT}>
         {!isFetching ? (
           <Preloader />
         ) : (
           <Switch>
-            <Route path="/main" component={MainPage} />
-            <Route path="/section/:category" component={Category} />
+            <Route path={Path.MAIN} component={MainPage} />
+            <Route path={Path.CATEGORY} component={Category} />
             <Route
-              path="/statistics"
-              render={() => (
-                <Suspense fallback={<Preloader />}>
-                  <Statistics />
-                </Suspense>
-              )}
+              path={Path.STATISTICS}
+              render={withLazyLoading(Statistics)}
             />
-            <Redirect exact from="/" to="/main" />
-            <Route path="*" render={() => <div>404</div>} />
+            <Redirect exact from={Path.ROOT} to={Path.MAIN} />
+            <Route path={Path.OTHER} render={() => <div>404</div>} />
           </Switch>
         )}
         {isActiveEndGamePopup && (
-          <EndGamePopup answerList={currentGameAnswers} /> // TODO: move out
+          <EndGamePopup answerList={currentGameAnswers} />
         )}
       </main>
       <Footer />

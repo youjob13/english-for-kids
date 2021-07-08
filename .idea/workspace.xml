@@ -2,12 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="fix: statistics behavior">
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/MainPage/CardWrapperOnMainPage/CardWrapperOnMainPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/capitalizeWord.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/checkIsGuessedCard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/defineCurrentCategory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/updateStatistics.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/shared/hoc/withLazyLoading.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Category/CardGame/CardFront/CardFront.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Category/CardGame/CardFront/CardFront.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Category/CardGame/CardGame.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Category/CardGame/CardWrapperInGame.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Category/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Category/Category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/EndGamePopup/EndGamePopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/EndGamePopup/EndGamePopup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Header/Navigation/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/Navigation/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Header/Navigation/NavigationItem/NavigationItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/Navigation/NavigationItem/NavigationItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/MainPage/CardMainPage/CardMainPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/StatisticsTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/StatisticsTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/TableCell/TableCell.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/TableCell/TableCell.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/TableHeader/TableHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Statistics/StatisticsTable/TableHeader/TableHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuBtn/MenuBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuButton/MenuButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuBtn/menuBtn.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuButton/menuButton.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Preloader/Preloader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Preloader/Preloader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Switch/Switch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Switch/Switch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Switch/switch.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Switch/switch.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Title/Title.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/Title/Title.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/globalVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/globalVariables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/arraySort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/arraySort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/calcPercentByCondition.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/calcPercentByCondition.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/capitalizeWord.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/compareTwoObjects.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/compareTwoObjects.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/playSound.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/playSound.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helpersFunction/sortTable.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/sortTable.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/hooks/useOnClickOutsideOrNavItem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/hooks/useOnClickOutsideOrNavItem.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/store-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/store-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/cardsSelectors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/gameSelectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/gameSelectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/gameSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/gameSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/statisticSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/statisticSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +66,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1ux6fcPY2N9APQzNFpFsYUrRFB4" />
   <component name="ProjectViewState">
@@ -83,7 +128,9 @@
       <workItem from="1625601219129" duration="655000" />
       <workItem from="1625634169450" duration="1958000" />
       <workItem from="1625636690833" duration="10839000" />
-      <workItem from="1625720430615" duration="14551000" />
+      <workItem from="1625720430615" duration="22881000" />
+      <workItem from="1625821988485" duration="76000" />
+      <workItem from="1625843424602" duration="646000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>
@@ -183,7 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625734327972</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix: exit during game">
+      <created>1625740798723</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1625740798723</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: statistics behavior">
+      <created>1625741384869</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1625741384869</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,10 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import Card from '../../../Card/Card';
-import {
-  GameMode,
-  ICardFrontProps,
-} from '../../../../shared/interfaces/props-models';
+import { ICardFrontProps } from '../../../../shared/interfaces/props-models';
 import { GameReducerType } from '../../../../shared/interfaces/store-models';
 import speakerImg from '../../../../assets/images/speaker.png';
 import rotateArrowsImg from '../../../../assets/images/rotate-arrows.png';
@@ -13,6 +10,7 @@ import {
   PLAY_SOUND_BTN_STYLES,
   TRANSLATION_BTN_STYLES,
 } from '../../../../shared/stylesVariables';
+import { GameMode } from '../../../../shared/globalVariables';
 
 const CardFront = ({
   title,

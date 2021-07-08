@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import classes from '../../statistics.module.scss';
-import capitalizeWord from '../../../../shared/helpersFunction/capitalizeWord';
+import capitalizeWord from '../../../../shared/helperFunctions/capitalizeWord';
 import { ITableCellProps } from '../../../../shared/interfaces/props-models';
 
 const TABLE_CELL_STYLES = classes.tableCell;

@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import classes from './switch.module.scss';
-import { GameMode, ISwitchProps } from '../../interfaces/props-models';
+import { ISwitchProps } from '../../interfaces/props-models';
+import { GameMode } from '../../globalVariables';
 
 const INPUT_SWITCH_STYLES = classes.inputSwitch;
 const INPUT_SWITCH_ACTIVE_STYLES = classes.inputSwitchActive;
@@ -8,8 +9,8 @@ const CHECKBOX_STYLES = classes.checkbox;
 const CHECKBOX_SWITCH_STYLES = classes.checkboxSwitch;
 
 const Switch = ({
-  on = 'on',
-  off = 'off',
+  on,
+  off,
   onCheckboxClick,
   gameMode,
 }: ISwitchProps): ReactElement => {

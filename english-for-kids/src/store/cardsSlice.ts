@@ -5,7 +5,7 @@ import test from '../test.json';
 const cardsSlice = createSlice({
   name: 'cardsSlice',
   initialState: {
-    cards: [],
+    cardsData: [],
     playingList: [],
     isFetching: true,
   } as ICardsState,
@@ -26,7 +26,7 @@ const cardsSlice = createSlice({
     },
     setAllCards: (state: ICardsState, action) => ({
       ...state,
-      cards: [...action.payload],
+      cardsData: [...action.payload],
     }),
   },
 });
@@ -43,12 +43,12 @@ export const {
 export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const cards = test;
+    const cardsData = test;
 
     dispatch(toggleIsFetching(false));
 
     setTimeout(() => {
       dispatch(toggleIsFetching(true));
-      dispatch(setAllCards(cards));
+      dispatch(setAllCards(cardsData));
     }, 1000);
   };

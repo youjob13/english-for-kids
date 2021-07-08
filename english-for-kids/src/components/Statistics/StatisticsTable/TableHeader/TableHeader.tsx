@@ -4,7 +4,7 @@ import {
   TABLE_TITLE_STYLES,
 } from '../../../../shared/stylesVariables';
 import { ITableHeader } from '../../../../shared/interfaces/api-models';
-import capitalizeWord from '../../../../shared/helpersFunction/capitalizeWord';
+import capitalizeWord from '../../../../shared/helperFunctions/capitalizeWord';
 
 const TableHeader = ({
   content,

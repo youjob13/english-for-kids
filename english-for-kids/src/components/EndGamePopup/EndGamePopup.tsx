@@ -1,14 +1,14 @@
 import React, { ReactElement, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
+  END_GAME_POPUP_TITLE_STYLES,
   ENG_GAME_POPUP_IMAGE_STYLES,
   OVERLAY_STYLES,
   TEXT_CONTENT_STYLES,
-  TITLE_STYLES,
   WRONGS_STYLES,
 } from '../../shared/stylesVariables';
 import { IEndGamePopupProps } from '../../shared/interfaces/props-models';
-import playAudio from '../../shared/helpersFunction/playSound';
+import playAudio from '../../shared/helperFunctions/playSound';
 
 const EndGamePopup = ({ answerList }: IEndGamePopupProps): ReactElement => {
   const history = useHistory();
@@ -33,7 +33,7 @@ const EndGamePopup = ({ answerList }: IEndGamePopupProps): ReactElement => {
   return (
     <div className={OVERLAY_STYLES}>
       <div className={TEXT_CONTENT_STYLES}>
-        <h3 className={TITLE_STYLES}>RESULT</h3>
+        <h3 className={END_GAME_POPUP_TITLE_STYLES}>RESULT</h3>
         <p className={WRONGS_STYLES}>
           {wrongAnswerCounts}
           wrong

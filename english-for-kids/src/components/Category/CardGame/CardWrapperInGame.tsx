@@ -1,12 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../Card/Card';
-import {
-  GameMode,
-  ICardCategoryWrapperProps,
-} from '../../../shared/interfaces/props-models';
+import { ICardCategoryWrapperProps } from '../../../shared/interfaces/props-models';
 import { GameReducerType } from '../../../shared/interfaces/store-models';
-import { ICardItem } from '../../../shared/interfaces/cards-models';
 import { setGivenAnswer } from '../../../store/gameSlice';
 import CardFront from './CardFront/CardFront';
 import {
@@ -17,38 +13,20 @@ import {
   CARD_WRAPPER_GUESSED_STYLES,
   CARD_WRAPPER_STYLES,
 } from '../../../shared/stylesVariables';
-import { getWordStatistic } from '../../../shared/api/api';
-import playAudio from '../../../shared/helpersFunction/playSound';
+import playAudio from '../../../shared/helperFunctions/playSound';
+import { GameMode } from '../../../shared/globalVariables';
+import { updateTrainWordStatistics } from '../../../shared/helperFunctions/updateStatistics';
+import checkIsGuessedCard from '../../../shared/helperFunctions/checkIsGuessedCard';
 
-const checkIsGuessedCard = (
-  currentGameCardList: ICardItem[],
-  card: ICardItem
-): boolean =>
-  currentGameCardList.some(
-    (cardFromGameList) =>
-      JSON.stringify(cardFromGameList) === JSON.stringify(card)
-  );
-
-const addUpdatedTrainWordStatisticToDataBase = (wordName: string): void => {
-  const currentWordStatistic = getWordStatistic(wordName);
-
-  const currentTrainCounter =
-    (currentWordStatistic && currentWordStatistic.trainCounter) || 0;
-
-  localStorage[wordName] = JSON.stringify({
-    ...currentWordStatistic,
-    trainCounter: currentTrainCounter + 1,
-  });
-};
-
-const CardGame = ({ card }: ICardCategoryWrapperProps): ReactElement => {
+const CardWrapperInGame = ({
+  card,
+}: ICardCategoryWrapperProps): ReactElement => {
   const dispatch = useDispatch();
   const { gameMode, currentGameCardList } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
   const [isShowTranslation, setIsShowTranslation] = useState(false);
   const { name, translate, imageSRC, audioSRC } = card;
-
   const isGuessedCard = checkIsGuessedCard(currentGameCardList, card);
 
   const onShowTranslationClick = (): void => {
@@ -56,10 +34,10 @@ const CardGame = ({ card }: ICardCategoryWrapperProps): ReactElement => {
     setIsShowTranslation(!isShowTranslation);
   };
 
-  const onPlayCardAudioClick = (): void => {
+  const onCardPlayAudioClick = (): void => {
     if (gameMode === GameMode.READY_TO_GAME) return;
     playAudio(audioSRC);
-    addUpdatedTrainWordStatisticToDataBase(card.name);
+    updateTrainWordStatistics(card.name);
   };
 
   const onCardClick = (): void => {
@@ -90,7 +68,7 @@ const CardGame = ({ card }: ICardCategoryWrapperProps): ReactElement => {
           <CardFront
             title={gameMode === GameMode.NO_GAME ? name : ''}
             imageSRC={imageSRC}
-            playCardAudio={onPlayCardAudioClick}
+            playCardAudio={onCardPlayAudioClick}
             showTranslation={onShowTranslationClick}
           />
         </div>
@@ -111,4 +89,4 @@ const CardGame = ({ card }: ICardCategoryWrapperProps): ReactElement => {
   );
 };
 
-export default CardGame;
+export default CardWrapperInGame;

@@ -1,11 +1,6 @@
 import { ICardItem } from './cards-models';
 import { IWordStatisticData } from './api-models';
-
-export enum GameMode { // TODO: resolve problem
-  NO_GAME = 'NO_GAME',
-  READY_TO_GAME = 'READY_TO_GAME',
-  IN_GAME = 'IN_GAME',
-}
+import { GameMode } from '../globalVariables';
 
 export interface ICardMainPageWrapperProps {
   cards: ICardItem[];
@@ -53,11 +48,6 @@ export interface INavigationItemProps {
 
 export interface ICardCategoryWrapperProps {
   card: ICardItem;
-}
-
-export interface IMenuBtnProps {
-  isOpenMenu: boolean;
-  onMenuBtnClick: () => void;
 }
 
 export interface ISwitchProps {

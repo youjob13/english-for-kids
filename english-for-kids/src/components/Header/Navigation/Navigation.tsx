@@ -13,22 +13,26 @@ import useOnClickOutsideOrNavItem from '../../../shared/hooks/useOnClickOutsideO
 import MenuContext from '../../../shared/context';
 import MAIN_ICON from '../../../assets/images/main-icon.png';
 import STATISTICS_ICON from '../../../assets/images/statistics-icon.png';
+import {
+  EMPTY_LINE,
+  INITIAL_REF_NAV_VALUE,
+  Path,
+} from '../../../shared/globalVariables';
 
 const Navigation = ({ categories }: INavigationProps): ReactElement => {
   const { isOpenMenu, toggleMenu } = useContext(MenuContext);
-  const node = useRef<HTMLElement>(null);
+  const refNav = useRef<HTMLElement>(INITIAL_REF_NAV_VALUE);
 
-  useOnClickOutsideOrNavItem(node, () => {
+  useOnClickOutsideOrNavItem(refNav, () => {
     if (isOpenMenu) toggleMenu();
   });
 
+  const NAV_STYLES = isOpenMenu ? NAV_MENU_STYLES : NAV_MENU_HIDDEN_STYLES;
+
   return (
-    <nav
-      ref={node}
-      className={isOpenMenu ? NAV_MENU_STYLES : NAV_MENU_HIDDEN_STYLES}
-    >
+    <nav ref={refNav} className={NAV_STYLES}>
       <ul
-        role="menu"
+        role="menu" // TODO: read about
         onClick={({ target }) =>
           (target as HTMLElement).closest('a') && toggleMenu()
         }
@@ -37,16 +41,21 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
       >
         <li>
           <NavLink
-            to="/main"
+            to={Path.MAIN}
             className={NAV_ITEM_STYLES}
             activeClassName={NAV_ITEM_ACTIVE_STYLES}
           >
-            Main <img className={NAV_ITEM_ICON_STYLES} src={MAIN_ICON} alt="" />
+            Main
+            <img
+              className={NAV_ITEM_ICON_STYLES}
+              src={MAIN_ICON}
+              alt={EMPTY_LINE}
+            />
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/statistics"
+            to={Path.STATISTICS}
             className={NAV_ITEM_STYLES}
             activeClassName={NAV_ITEM_ACTIVE_STYLES}
           >
@@ -54,7 +63,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
             <img
               className={NAV_ITEM_ICON_STYLES}
               src={STATISTICS_ICON}
-              alt=""
+              alt={EMPTY_LINE}
             />
           </NavLink>
         </li>

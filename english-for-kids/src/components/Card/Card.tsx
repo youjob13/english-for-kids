@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import img from '../../../public/assets/category/animals/cat.jpg';
 import { ICardProps } from '../../shared/interfaces/props-models';
-import capitalizeWord from '../../shared/helpersFunction/capitalizeWord';
+import capitalizeWord from '../../shared/helperFunctions/capitalizeWord';
 import {
   CARD_IMAGE_STYLES,
   CARD_NAME_STYLES,

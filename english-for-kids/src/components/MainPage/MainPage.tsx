@@ -1,16 +1,16 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import CardMainPage from './CardMainPage/CardMainPage';
 import {
   CardsReducerType,
   GameReducerType,
 } from '../../shared/interfaces/store-models';
-import { ICardItem } from '../../shared/interfaces/cards-models';
 import Title from '../../shared/baseComponents/Title/Title';
 import { CONTENT_STYLES } from '../../shared/stylesVariables';
+import { FIRST_ELEMENT } from '../../shared/globalVariables';
+import CardWrapperOnMainPage from './CardWrapperOnMainPage/CardWrapperOnMainPage';
 
 const MainPage = (): ReactElement => {
-  const { cards: cardsData } = useSelector(
+  const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
   const { gameMode } = useSelector(
@@ -21,12 +21,12 @@ const MainPage = (): ReactElement => {
     <>
       <Title>Train & Play</Title>
       <ul className={CONTENT_STYLES}>
-        {cardsData.map((cardsDataItem, index) => {
-          const category = Object.keys(cardsDataItem).toString();
-          const cards: ICardItem[] = Object.values(cardsDataItem)[0];
+        {cardsData.map((cardData, index) => {
+          const category = Object.keys(cardData).toString();
+          const cards = Object.values(cardData)[FIRST_ELEMENT];
 
           return (
-            <CardMainPage
+            <CardWrapperOnMainPage
               key={index.toString()}
               category={category}
               cards={cards}

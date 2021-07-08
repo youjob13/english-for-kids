@@ -1,12 +1,13 @@
 import { RefObject, useEffect } from 'react';
+import { EventName } from '../globalVariables';
 
 const useOnClickOutsideOrNavItem = (
   ref: RefObject<HTMLElement>,
   handler: (e: Event) => void
 ): void => {
   useEffect(() => {
-    const listener = (e: Event) => {
-      const target = e.target as HTMLElement;
+    const listener = (event: Event) => {
+      const target = event.target as HTMLElement;
       if (
         !ref.current ||
         ref.current.contains(target) ||
@@ -15,11 +16,11 @@ const useOnClickOutsideOrNavItem = (
       ) {
         return;
       }
-      handler(e);
+      handler(event);
     };
-    document.addEventListener('mousedown', listener);
+    document.addEventListener(EventName.MOUSEDOWN, listener);
     return () => {
-      document.removeEventListener('mousedown', listener);
+      document.removeEventListener(EventName.MOUSEDOWN, listener);
     };
   }, [ref, handler]);
 };

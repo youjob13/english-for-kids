@@ -15,11 +15,11 @@ import {
   TABLE_TITLE_STYLES,
 } from '../../../shared/stylesVariables';
 import tableHeaders from '../../../shared/globalVariables';
-import sortTable from '../../../shared/helpersFunction/sortTable';
-import calcPercentByCondition from '../../../shared/helpersFunction/calcPercentByCondition';
+import sortTable from '../../../shared/helperFunctions/sortTable';
+import calcPercentByCondition from '../../../shared/helperFunctions/calcPercentByCondition';
 
 const StatisticsTable = (): ReactElement => {
-  const { cards: cardsData } = useSelector(
+  const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
   const { statisticsData } = useSelector(

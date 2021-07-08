@@ -7,13 +7,11 @@ import {
   GameReducerType,
   StatisticReducerType,
 } from '../../shared/interfaces/store-models';
-import { GameMode } from '../../shared/interfaces/props-models';
-import CardGame from './CardGame/CardGame';
-import { ICardsData } from '../../shared/interfaces/cards-models';
+import CardWrapperInGame from './CardGame/CardWrapperInGame';
 import { RouteParams } from '../../shared/interfaces/api-models';
 import { prepareGameProcess, stopGame } from '../../store/gameSlice';
-import playAudio from '../../shared/helpersFunction/playSound';
-import capitalizeWord from '../../shared/helpersFunction/capitalizeWord';
+import playAudio from '../../shared/helperFunctions/playSound';
+import capitalizeWord from '../../shared/helperFunctions/capitalizeWord';
 import Title from '../../shared/baseComponents/Title/Title';
 import {
   CATEGORY_FIELD_STYLES,
@@ -23,14 +21,8 @@ import {
 import AnswerList from './AnswerList/AnswerList';
 import { getDifficultWordsStatistics } from '../../store/statisticSlice';
 import { getDifficultWords } from '../../store/difficultWordsSlice';
-
-const defineCurrentCategory = (
-  cardsData: ICardsData[],
-  categoryPath: string
-): ICardsData | undefined =>
-  cardsData.find(
-    (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
-  );
+import { FIRST_ELEMENT, GameMode } from '../../shared/globalVariables';
+import defineCurrentCategory from '../../shared/helperFunctions/defineCurrentCategory';
 
 const Category = (): ReactElement => {
   const dispatch = useDispatch();
@@ -38,28 +30,28 @@ const Category = (): ReactElement => {
   const { gameMode, currentQuestion, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
-  const { cards: cardsData } = useSelector(
+  const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
 
-  const audioSRC = currentQuestion && currentQuestion.audioSRC;
   const currentCategory = defineCurrentCategory(cardsData, categoryPath);
-  const cards = (currentCategory && Object.values(currentCategory)[0]) || [];
+  const audioSRC = currentQuestion && currentQuestion.audioSRC;
+  const cards =
+    (currentCategory && Object.values(currentCategory)[FIRST_ELEMENT]) || [];
 
   useEffect(() => {
     if (audioSRC) {
       playAudio(audioSRC);
     }
-  }, [currentQuestion]);
-
+  }, [dispatch]);
   useEffect(() => {
     return () => {
       dispatch(stopGame(GameMode.NO_GAME)); // TODO: realise correct exit game
     };
-  }, [categoryPath]);
+  }, [categoryPath, dispatch]);
 
   const { difficultWords } = useSelector(
-    (state: StatisticReducerType) => state.statisticReducer
+    (state: StatisticReducerType) => state.statisticReducer // TODO: resolve
   );
   const { currentDifficultWordList } = useSelector(
     (state: DifficultWordsReducerType) => state.difficultWordsReducer
@@ -72,14 +64,18 @@ const Category = (): ReactElement => {
       )
     );
   };
+  const onSoundPlayButtonClick = (): void => {
+    if (audioSRC) {
+      playAudio(audioSRC);
+    }
+  };
 
   useEffect(() => {
     dispatch(getDifficultWordsStatistics());
-  }, []);
-
+  }, [dispatch]);
   useEffect(() => {
     dispatch(getDifficultWords(difficultWords, cardsData));
-  }, [difficultWords]);
+  }, [difficultWords, cardsData, dispatch]);
 
   const gameCards =
     categoryPath === 'difficult-words' ? currentDifficultWordList : cards; // TODO: костыль убрать
@@ -89,7 +85,7 @@ const Category = (): ReactElement => {
       <Title>Category: {capitalizeWord(categoryPath)}</Title>
       <ul className={CATEGORY_FIELD_STYLES}>
         {gameCards.map((card, index) => (
-          <CardGame key={index.toString()} card={card} />
+          <CardWrapperInGame key={index.toString()} card={card} />
         ))}
       </ul>
       {gameMode === GameMode.READY_TO_GAME && (
@@ -105,7 +101,7 @@ const Category = (): ReactElement => {
         <button
           className={REPEAT_WORD_STYLES}
           type="button"
-          onClick={() => audioSRC && playAudio(audioSRC)}
+          onClick={onSoundPlayButtonClick}
         >
           Repeat
         </button>

@@ -6,11 +6,11 @@ import {
   ThunkActionType,
 } from '../shared/interfaces/store-models';
 import { ICardItem } from '../shared/interfaces/cards-models';
-import sortCurrentGameQuestionList from '../shared/helpersFunction/arraySort';
-import compareAnswerAndQuestion from '../shared/helpersFunction/compareTwoObjects';
-import { GameMode } from '../shared/interfaces/props-models';
-import { getWordStatistic } from '../shared/api/api';
-import playAudio from '../shared/helpersFunction/playSound';
+import sortCurrentGameQuestionList from '../shared/helperFunctions/arraySort';
+import compareAnswerAndQuestion from '../shared/helperFunctions/compareTwoObjects';
+import playAudio from '../shared/helperFunctions/playSound';
+import { GameMode } from '../shared/globalVariables';
+import { updateWordStatistics } from '../shared/helperFunctions/updateStatistics';
 
 const gameSlice = createSlice({
   name: 'gameSlice',
@@ -98,32 +98,6 @@ export const prepareGameProcess =
     dispatch(startGame(sortCurrentGameQuestionList(cards)));
     dispatch(setAudioQuestion());
   };
-
-const updateWordStatistics = (
-  wordName: string,
-  answerResult: boolean
-): void => {
-  const currentWordStatistic = getWordStatistic(wordName);
-  let currentAnswerCounter;
-
-  if (answerResult) {
-    currentAnswerCounter =
-      currentWordStatistic && currentWordStatistic.trueAnswerCounter;
-
-    localStorage[wordName] = JSON.stringify({
-      ...currentWordStatistic,
-      trueAnswerCounter: (currentAnswerCounter || 0) + 1,
-    });
-  } else {
-    currentAnswerCounter =
-      currentWordStatistic && currentWordStatistic.falseAnswerCounter;
-
-    localStorage[wordName] = JSON.stringify({
-      ...currentWordStatistic,
-      falseAnswerCounter: (currentAnswerCounter || 0) + 1,
-    });
-  }
-};
 
 export const setGivenAnswer =
   (answer: ICardItem): ThunkActionType<StateType<GameReducerType>> =>

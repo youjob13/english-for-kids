@@ -5,8 +5,19 @@ import classesEndGamePopup from '../components/EndGamePopup/endGamePopup.module.
 import classesNavigation from '../components/Header/Navigation/navigation.module.scss';
 import classesFooter from '../components/Footer/footer.module.scss';
 import classesStatistics from '../components/Statistics/statistics.module.scss';
-import classesMenuBtn from './baseComponents/MenuBtn/menuBtn.module.scss';
+import classesMenuBtn from './baseComponents/MenuButton/menuButton.module.scss';
 import classesAnswers from '../components/Category/AnswerList/answers.module.scss';
+import classesHeader from '../components/Header/header.module.scss';
+import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
+import classesTitle from './baseComponents/Title/title.module.scss';
+
+export const APP_WRAPPER = 'app-wrapper';
+export const APP_CONTENT = 'app-content';
+
+export const HEADER = classesHeader.header;
+
+export const TITLE_STYLES = classesTitle.title;
+export const PRELOADER_STYLES = classesPreloader.preloader;
 
 export const ANSWER_LIST_STYLES = classesAnswers.answerList;
 export const ANSWER_ITEM_STYLES = classesAnswers.answerItem;
@@ -54,7 +65,7 @@ export const CARD_NAME_STYLES = classesCard.cardName;
 
 export const OVERLAY_STYLES = classesEndGamePopup.overlay;
 export const TEXT_CONTENT_STYLES = classesEndGamePopup.content;
-export const TITLE_STYLES = classesEndGamePopup.title;
+export const END_GAME_POPUP_TITLE_STYLES = classesEndGamePopup.title;
 export const WRONGS_STYLES = classesEndGamePopup.wrongs;
 export const ENG_GAME_POPUP_IMAGE_STYLES = classesEndGamePopup.image;
 

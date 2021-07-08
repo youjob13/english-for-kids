@@ -1,21 +1,18 @@
 import React, { ReactElement } from 'react';
+import { PRELOADER_STYLES } from '../../stylesVariables';
 
-import classes from './preloader.module.scss';
-
-const Preloader = (): ReactElement => {
-  return (
-    <div className={classes.preloader}>
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
-  );
-};
+const Preloader = (): ReactElement => (
+  <div className={PRELOADER_STYLES}>
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+);
 
 export default Preloader;
