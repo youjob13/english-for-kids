@@ -1,4 +1,5 @@
-import React, { ReactElement, useContext } from 'react';
+import React, { FormEvent, ReactElement, useContext, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Popup from '../Popup';
 import {
   LOGIN_POPUP_BUTTON_CANCEL,
@@ -10,9 +11,38 @@ import {
   LOGIN_POPUP_TITLE,
 } from '../../../shared/stylesVariables';
 import { LoginContext } from '../../../shared/context';
+import { AuthFormValue } from '../../../shared/interfaces/api-models';
+import { getAuthorize } from '../../../store/authSlice';
+import { authAPI } from '../../../shared/api/api';
+
+const authFormValue: Record<AuthFormValue, string> = {
+  username: '',
+  password: '',
+};
 
 const LoginPopup = (): ReactElement => {
+  const dispatch = useDispatch();
   const { toggleLoginPopup } = useContext(LoginContext);
+  const [authFormData, setAuthFormValue] = useState(authFormValue);
+
+  const sendData = async () => {
+    dispatch(getAuthorize(authFormData));
+  };
+
+  const testRequest = () => {
+    const cards = authAPI.getCards();
+    console.log(cards);
+  };
+
+  const updateAuthForm = (event: FormEvent) => {
+    const target = event.target as HTMLInputElement;
+    const newAuthFormValue: Record<any, string> = {
+      ...authFormData,
+    };
+
+    newAuthFormValue[target.name] = target.value;
+    setAuthFormValue(newAuthFormValue);
+  };
 
   return (
     <Popup>
@@ -25,17 +55,33 @@ const LoginPopup = (): ReactElement => {
       />
       <form className={LOGIN_POPUP_FORM}>
         <legend className={LOGIN_POPUP_TITLE}>Login</legend>
-        <input className={LOGIN_POPUP_INPUT} type="text" placeholder="Login" />
         <input
+          onInput={updateAuthForm}
+          className={LOGIN_POPUP_INPUT}
+          type="text"
+          name="username"
+          placeholder="Login"
+        />
+        <input
+          onInput={updateAuthForm}
           className={LOGIN_POPUP_INPUT}
           type="password"
+          name="password"
           placeholder="Password"
         />
         <div className={LOGIN_POPUP_BUTTONS_WRAPPER}>
-          <button className={LOGIN_POPUP_BUTTON_CANCEL} type="button">
+          <button
+            onClick={testRequest}
+            className={LOGIN_POPUP_BUTTON_CANCEL}
+            type="button"
+          >
             Cancel
           </button>
-          <button className={LOGIN_POPUP_BUTTON_OK} type="button">
+          <button
+            onClick={sendData}
+            className={LOGIN_POPUP_BUTTON_OK}
+            type="button"
+          >
             Login
           </button>
         </div>

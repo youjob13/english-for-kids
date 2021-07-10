@@ -3,6 +3,10 @@ import { ThunkDispatch } from 'redux-thunk';
 import { ICardItem, ICardsData } from './cards-models';
 import { GameMode } from '../globalVariables';
 
+export interface IAuthState {
+  isAuthorize: boolean;
+}
+
 export interface ICardsState {
   cardsData: ICardsData[];
   isFetching: boolean;

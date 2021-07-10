@@ -1,3 +1,7 @@
+export type AuthFormValue = 'username' | 'password';
+
+export type LoginData = Record<AuthFormValue, string>;
+
 export interface RouteParams {
   category: string;
 }
