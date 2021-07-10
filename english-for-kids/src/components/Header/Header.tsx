@@ -15,6 +15,7 @@ import {
   SWITCH_ON,
 } from '../../shared/globalVariables';
 import { HEADER } from '../../shared/stylesVariables';
+import LoginButton from './LoginButton/LoginButton';
 
 const Header = (): ReactElement => {
   const [isOpenMenu, toggleMenu] = useState(INITIAL_IS_OPEN_MENU_VALUE);
@@ -49,6 +50,7 @@ const Header = (): ReactElement => {
           gameMode={gameMode}
           onCheckboxClick={switchGameMode}
         />
+        <LoginButton />
       </header>
     </MenuContext.Provider>
   );

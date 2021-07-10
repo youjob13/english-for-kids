@@ -10,6 +10,9 @@ import classesAnswers from '../components/Category/AnswerList/answers.module.scs
 import classesHeader from '../components/Header/header.module.scss';
 import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
 import classesTitle from './baseComponents/Title/title.module.scss';
+import classesLoginButton from '../components/Header/LoginButton/loginButton.module.scss';
+
+export const LOGIN_BUTTON = classesLoginButton.button;
 
 export const APP_WRAPPER = 'app-wrapper';
 export const APP_CONTENT = 'app-content';
