@@ -42,6 +42,11 @@ export interface INavigationProps {
   categories: string[];
 }
 
+export interface IHeaderProps {
+  isOpenLoginPopup: boolean;
+  setIsOpenLoginPopup: (setIsOpenLoginPopup: boolean) => void;
+}
+
 export interface INavigationItemProps {
   category: string;
 }

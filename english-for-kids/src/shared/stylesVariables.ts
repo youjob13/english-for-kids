@@ -1,7 +1,7 @@
 import classesMainPage from '../components/MainPage/mainPage.module.scss';
 import classesCategory from '../components/Category/category.module.scss';
 import classesCard from '../components/Card/card.module.scss';
-import classesEndGamePopup from '../components/EndGamePopup/endGamePopup.module.scss';
+import classesEndGamePopup from '../components/Popup/EndGamePopup/endGamePopup.module.scss';
 import classesNavigation from '../components/Header/Navigation/navigation.module.scss';
 import classesFooter from '../components/Footer/footer.module.scss';
 import classesStatistics from '../components/Statistics/statistics.module.scss';
@@ -11,8 +11,18 @@ import classesHeader from '../components/Header/header.module.scss';
 import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
 import classesTitle from './baseComponents/Title/title.module.scss';
 import classesLoginButton from '../components/Header/LoginButton/loginButton.module.scss';
+import classesLoginPopup from '../components/Popup/LoginPopup/loginPopup.module.scss';
 
 export const LOGIN_BUTTON = classesLoginButton.button;
+
+export const LOGIN_POPUP_CLOSE = classesLoginPopup.close;
+export const LOGIN_POPUP_FORM = classesLoginPopup.form;
+export const LOGIN_POPUP_TITLE = classesLoginPopup.title;
+export const LOGIN_POPUP_INPUT = classesLoginPopup.input;
+export const LOGIN_POPUP_BUTTONS_WRAPPER = classesLoginPopup.buttonsWrapper;
+export const LOGIN_POPUP_BUTTON = classesLoginPopup.button;
+export const LOGIN_POPUP_BUTTON_CANCEL = `${LOGIN_POPUP_BUTTON} ${classesLoginPopup.buttonCancel}`;
+export const LOGIN_POPUP_BUTTON_OK = `${LOGIN_POPUP_BUTTON} ${classesLoginPopup.buttonOk}`;
 
 export const APP_WRAPPER = 'app-wrapper';
 export const APP_CONTENT = 'app-content';

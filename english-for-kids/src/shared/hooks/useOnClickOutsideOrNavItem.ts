@@ -3,7 +3,7 @@ import { EventName } from '../globalVariables';
 
 const useOnClickOutsideOrNavItem = (
   ref: RefObject<HTMLElement>,
-  handler: (e: Event) => void
+  handler: (event: Event) => void
 ): void => {
   useEffect(() => {
     const listener = (event: Event) => {

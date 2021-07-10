@@ -1,9 +1,13 @@
 import React, { ReactElement } from 'react';
 import { LOGIN_BUTTON } from '../../../shared/stylesVariables';
 
-const LoginButton = (): ReactElement => {
+export interface ILoginButton {
+  onLoginButtonClick: () => void;
+}
+
+const LoginButton = ({ onLoginButtonClick }: ILoginButton): ReactElement => {
   return (
-    <button className={LOGIN_BUTTON} type="button">
+    <button onClick={onLoginButtonClick} className={LOGIN_BUTTON} type="button">
       Login
     </button>
   );

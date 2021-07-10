@@ -7,4 +7,11 @@ const MenuContext = createContext({
   },
 });
 
+export const LoginContext = createContext({
+  isOpenLoginPopup: true,
+  toggleLoginPopup: () => {
+    console.log('menu mode is switched');
+  },
+});
+
 export default MenuContext;

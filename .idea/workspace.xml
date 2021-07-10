@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="fix: statistics behavior">
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/LoginButton/LoginButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/LoginButton/loginButton.module.scss" afterDir="false" />
+    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: login button">
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/LoginPopup/LoginPopup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/LoginPopup/loginPopup.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/Popup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Category/Category.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Category/Category.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/EndGamePopup/EndGamePopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/EndGamePopup/EndGamePopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/EndGamePopup/endGamePopup.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/EndGamePopup/endGamePopup.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Header/LoginButton/LoginButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Header/LoginButton/LoginButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/context.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/context.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/hooks/useOnClickOutsideOrNavItem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/hooks/useOnClickOutsideOrNavItem.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
         <option value="SCSS File" />
       </list>
     </option>
@@ -60,6 +69,11 @@
     <property name="ts.external.directory.path" value="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids\src\components\Popup" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/english-for-kids/package.json" />
@@ -95,7 +109,7 @@
       <workItem from="1625720430615" duration="22881000" />
       <workItem from="1625821988485" duration="76000" />
       <workItem from="1625843424602" duration="646000" />
-      <workItem from="1625907247373" duration="637000" />
+      <workItem from="1625907247373" duration="6506000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>
@@ -216,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625907313375</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: login button">
+      <created>1625907943550</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1625907943550</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +268,8 @@
     <MESSAGE value="fix: difficult words behavior" />
     <MESSAGE value="fix: exit during game" />
     <MESSAGE value="fix: statistics behavior" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: statistics behavior" />
+    <MESSAGE value="feat: login button" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: login button" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

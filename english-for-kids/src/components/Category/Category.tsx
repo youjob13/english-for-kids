@@ -43,7 +43,8 @@ const Category = (): ReactElement => {
     if (audioSRC) {
       playAudio(audioSRC);
     }
-  }, [dispatch]);
+  }, [currentQuestion, dispatch]);
+
   useEffect(() => {
     return () => {
       dispatch(stopGame(GameMode.NO_GAME)); // TODO: realise correct exit game

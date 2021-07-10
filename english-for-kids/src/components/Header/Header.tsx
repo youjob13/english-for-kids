@@ -16,8 +16,12 @@ import {
 } from '../../shared/globalVariables';
 import { HEADER } from '../../shared/stylesVariables';
 import LoginButton from './LoginButton/LoginButton';
+import { IHeaderProps } from '../../shared/interfaces/props-models';
 
-const Header = (): ReactElement => {
+const Header = ({
+  isOpenLoginPopup,
+  setIsOpenLoginPopup,
+}: IHeaderProps): ReactElement => {
   const [isOpenMenu, toggleMenu] = useState(INITIAL_IS_OPEN_MENU_VALUE);
   const dispatch = useDispatch();
   const { cardsData } = useSelector(
@@ -39,6 +43,10 @@ const Header = (): ReactElement => {
     toggleMenu(!isOpenMenu);
   };
 
+  const onLoginPopupClick = () => {
+    setIsOpenLoginPopup(!isOpenLoginPopup);
+  };
+
   return (
     <MenuContext.Provider value={{ isOpenMenu, toggleMenu: toggleMenuMode }}>
       <header className={HEADER}>
@@ -50,7 +58,7 @@ const Header = (): ReactElement => {
           gameMode={gameMode}
           onCheckboxClick={switchGameMode}
         />
-        <LoginButton />
+        <LoginButton onLoginButtonClick={onLoginPopupClick} />
       </header>
     </MenuContext.Provider>
   );

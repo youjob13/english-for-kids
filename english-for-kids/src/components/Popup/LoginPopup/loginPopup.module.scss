@@ -1,0 +1,96 @@
+.form {
+
+}
+
+.title {
+  font-size: 23px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+.input {
+  display: block;
+  border: 2px solid gray;
+  font-size: 19px;
+  margin-bottom: 0.6em;
+  padding: 0.5em;
+  font-weight: 500;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: #73c773;
+  padding: 1em;
+  margin-top: 2em;
+  border-radius: 4px;
+}
+
+.button {
+  border-radius: 4px;
+  padding: 0.4em;
+  color: #fff;
+  font-weight: 500;
+  font-size: 19px;
+  cursor: pointer;
+  transition: .2s;
+
+  &Cancel {
+    background-color: #ec2a2a;
+  }
+
+  &Ok {
+    background-color: #1c98ce;
+  }
+
+  &Cancel:hover {
+    background-color: #bb2c2c;
+  }
+
+  &Ok:hover {
+    background-color: #13668b;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 5em;
+  height: 5em;
+
+  &::after, &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 99;
+    background-color: #1c98ce;
+    width: 1.7em;
+    height: 0.5em;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  &::after {
+    transform: rotateZ(45deg) translate(-15%, -50%);
+  }
+
+  &::before {
+    transform: rotateZ(-45deg) translate(15%, -50%);
+  }
+
+
+  &:hover::after {
+    transform: rotateZ(45deg) translate(-15%, -50%) scale(1.2);
+  }
+
+  &:hover::before {
+    transform: rotateZ(-45deg) translate(15%, -50%) scale(1.2);
+  }
+}
