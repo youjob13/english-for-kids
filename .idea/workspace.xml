@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: authorization">
-      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authRouter.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/shared/helperFunctions/generateAccessToken.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/shared/interfaces/api-models.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/sessions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/AdminPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/CardsField/CardsField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/Header/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/Header/header.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/.eslintrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/nodemon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/authorize/authControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authControl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/authorize/authRouter.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/middleware/authMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/middleware/authMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authControl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Popup/LoginPopup/LoginPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/LoginPopup/LoginPopup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/store-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/store-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/authSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/authSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +121,7 @@
       <workItem from="1626006159488" duration="1084000" />
       <workItem from="1626008228551" duration="1115000" />
       <workItem from="1626064481982" duration="1060000" />
-      <workItem from="1626166646583" duration="6836000" />
+      <workItem from="1626166646583" duration="11174000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>
@@ -273,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626065333779</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat: authorization">
+      <created>1626183191934</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1626183191934</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,9 +310,9 @@
     <MESSAGE value="fix: statistics behavior" />
     <MESSAGE value="feat: login button" />
     <MESSAGE value="feat: login-popup form" />
-    <MESSAGE value="feat: authorization" />
     <MESSAGE value="feat: english-for-kids-server" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: english-for-kids-server" />
+    <MESSAGE value="feat: authorization" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: authorization" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

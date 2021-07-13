@@ -1,5 +1,11 @@
-import React, { FormEvent, ReactElement, useContext, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, {
+  FormEvent,
+  ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Popup from '../Popup';
 import {
   LOGIN_POPUP_BUTTON_CANCEL,
@@ -14,6 +20,7 @@ import { LoginContext } from '../../../shared/context';
 import { AuthFormValue } from '../../../shared/interfaces/api-models';
 import { getAuthorize } from '../../../store/authSlice';
 import { authAPI } from '../../../shared/api/api';
+import { AuthReducerType } from '../../../shared/interfaces/store-models';
 
 const authFormValue: Record<AuthFormValue, string> = {
   username: '',
@@ -23,6 +30,7 @@ const authFormValue: Record<AuthFormValue, string> = {
 const LoginPopup = (): ReactElement => {
   const dispatch = useDispatch();
   const { toggleLoginPopup } = useContext(LoginContext);
+  const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
   const [authFormData, setAuthFormValue] = useState(authFormValue);
 
   const sendData = async () => {
@@ -33,6 +41,12 @@ const LoginPopup = (): ReactElement => {
     const cards = authAPI.getCards();
     console.log(cards);
   };
+
+  useEffect(() => {
+    if (isAuth) {
+      toggleLoginPopup();
+    }
+  }, [isAuth]);
 
   const updateAuthForm = (event: FormEvent) => {
     const target = event.target as HTMLInputElement;

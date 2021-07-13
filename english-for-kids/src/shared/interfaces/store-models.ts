@@ -4,7 +4,7 @@ import { ICardItem, ICardsData } from './cards-models';
 import { GameMode } from '../globalVariables';
 
 export interface IAuthState {
-  isAuthorize: boolean;
+  isAuth: boolean;
 }
 
 export interface ICardsState {
@@ -33,6 +33,7 @@ export interface IGameState {
 }
 
 export type CardsReducerType = { cardsReducer: ICardsState };
+export type AuthReducerType = { authReducer: IAuthState };
 export type GameReducerType = { gameReducer: IGameState };
 export type DifficultWordsReducerType = {
   difficultWordsReducer: IDifficultWordsState;

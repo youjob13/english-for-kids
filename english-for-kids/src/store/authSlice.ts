@@ -6,26 +6,33 @@ import { LoginData } from '../shared/interfaces/api-models';
 const authSlice = createSlice({
   name: 'authSlice',
   initialState: {
-    isAuthorize: false,
+    isAuth: false,
   } as IAuthState,
-  reducers: {},
+  reducers: {
+    toggleAuthMode: (state: IAuthState) => ({
+      ...state,
+      isAuth: !state.isAuth,
+    }),
+  },
 });
 
 export default authSlice.reducer;
 
-// export const {} = authSlice.actions;
+export const { toggleAuthMode } = authSlice.actions;
 
 export const getAuthorize =
   (
     authFormData: LoginData
   ): ThunkAction<void, IAuthState, unknown, AnyAction> =>
-  async (): Promise<void> => {
-    const authorizeResponse = await authAPI.login(authFormData);
+  async (dispatch): Promise<void> => {
+    const authResponse = await authAPI.login(authFormData);
 
-    if (!authorizeResponse.token) {
-      console.log(authorizeResponse.message);
+    if (!authResponse.token) {
+      console.log(authResponse.message); // TODO: handle error
+      return;
     }
-    localStorage.token = authorizeResponse.token;
 
-    console.log(authorizeResponse.token);
+    localStorage.token = authResponse.token;
+    console.log(authResponse.token);
+    dispatch(toggleAuthMode());
   };

@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCards } from './store/cardsSlice';
 import {
+  AuthReducerType,
   CardsReducerType,
   GameReducerType,
 } from './shared/interfaces/store-models';
@@ -18,6 +19,7 @@ import { Path } from './shared/globalVariables';
 import withLazyLoading from './shared/hoc/withLazyLoading';
 import LoginPopup from './components/Popup/LoginPopup/LoginPopup';
 import { LoginContext } from './shared/context';
+import AdminPage from './components/AdminPage/AdminPage';
 
 const Statistics = lazy(() => import('./components/Statistics/Statistics'));
 
@@ -27,6 +29,7 @@ const App = (): ReactElement => {
   const { isFetching } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
+  const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
   const { isActiveEndGamePopup, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
@@ -41,6 +44,36 @@ const App = (): ReactElement => {
 
   return (
     <div className={APP_WRAPPER}>
+      {isAuth ? (
+        <AdminPage />
+      ) : (
+        <>
+          <Header
+            isOpenLoginPopup={isOpenLoginPopup}
+            setIsOpenLoginPopup={toggleLoginPopupMode}
+          />
+          <main className={APP_CONTENT}>
+            {!isFetching ? (
+              <Preloader />
+            ) : (
+              <Switch>
+                <Route path={Path.MAIN} component={MainPage} />
+                <Route path={Path.CATEGORY} component={Category} />
+                <Route
+                  path={Path.STATISTICS}
+                  render={withLazyLoading(Statistics)}
+                />
+                <Redirect exact from={Path.ROOT} to={Path.MAIN} />
+                <Route path={Path.OTHER} render={() => <div>404</div>} />
+              </Switch>
+            )}
+            {isActiveEndGamePopup && (
+              <EndGamePopup answerList={currentGameAnswers} />
+            )}
+          </main>
+          <Footer />
+        </>
+      )}
       {isOpenLoginPopup && (
         <LoginContext.Provider
           value={{ isOpenLoginPopup, toggleLoginPopup: toggleLoginPopupMode }}
@@ -48,30 +81,6 @@ const App = (): ReactElement => {
           <LoginPopup />
         </LoginContext.Provider>
       )}
-      <Header
-        isOpenLoginPopup={isOpenLoginPopup}
-        setIsOpenLoginPopup={toggleLoginPopupMode}
-      />
-      <main className={APP_CONTENT}>
-        {!isFetching ? (
-          <Preloader />
-        ) : (
-          <Switch>
-            <Route path={Path.MAIN} component={MainPage} />
-            <Route path={Path.CATEGORY} component={Category} />
-            <Route
-              path={Path.STATISTICS}
-              render={withLazyLoading(Statistics)}
-            />
-            <Redirect exact from={Path.ROOT} to={Path.MAIN} />
-            <Route path={Path.OTHER} render={() => <div>404</div>} />
-          </Switch>
-        )}
-        {isActiveEndGamePopup && (
-          <EndGamePopup answerList={currentGameAnswers} />
-        )}
-      </main>
-      <Footer />
     </div>
   );
 };
