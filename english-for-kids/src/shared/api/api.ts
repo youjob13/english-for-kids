@@ -19,7 +19,7 @@ export const getWordStatistic = (wordName: string): IWordStatistic => {
 export const authAPI = {
   async getCards(): Promise<any> {
     try {
-      const response = await fetch('http://localhost:3900/auth/users', {
+      const response = await fetch('http://localhost:5000/auth/users', {
         method: 'GET',
         headers: {
           authorization: localStorage.token,
@@ -36,7 +36,7 @@ export const authAPI = {
   },
   async login(authFormData: LoginData): Promise<any> {
     try {
-      const response = await fetch('http://localhost:3900/auth/login', {
+      const response = await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',

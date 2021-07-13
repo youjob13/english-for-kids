@@ -1,20 +1,23 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import router from './authorize/authRouter';
-import config from './config';
+import session from 'express-session';
+import log4js from 'log4js';
+import router from './auth/authRouter';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const session = require('express-session');
+const { secret } = require('./config');
 
-const PORT = 3900;
+const logger = log4js.getLogger();
+logger.level = 'debug';
+
+const PORT = 5000;
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(session({
-  secret: config.secret,
+  secret,
   resave: true,
   saveUninitialized: true,
 }));
@@ -26,9 +29,9 @@ const start = async () => {
       {
         useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true,
       });
-    app.listen(PORT, () => console.log(`Server started on ${PORT}`));
+    app.listen(PORT, () => logger.info(`Server started on ${PORT}`));
   } catch (error) {
-    console.log(error);
+    logger.debug(error);
   }
 };
 

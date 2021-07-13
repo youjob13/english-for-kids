@@ -28,7 +28,11 @@
     "import/prefer-default-export": "off",
     "no-param-reassign": ["error", {
       "props": false
-    }]
+    }],
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/object-curly-spacing": "off",
+    "@typescript-eslint/space-infix-ops": "off"
   },
   "ignorePatterns": ["*config.js"]
 }

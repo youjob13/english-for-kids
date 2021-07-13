@@ -1,20 +1,13 @@
+import log4js from 'log4js';
+import { Request, Response } from 'express';
 import User from '../models/User';
-import config from '../config';
-import Role from '../models/Role';
+import sessions from '../storage/sessions';
+import generateAccessToken from '../shared/helperFunctions/generateAccessToken';
 
-export const sessions: any[] = [];
+const logger = log4js.getLogger();
+logger.level = 'debug';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const jwt = require('jsonwebtoken');
-
-const generateAccessToken = (id: number, roles: typeof Role) => {
-  const payload = {
-    id, roles,
-  };
-  return jwt.sign(payload, config.secret, {expiresIn: '24h'});
-};
-
-const login = async (req: any, res: any) => {
+export const login = async (req: Request, res: Response) => {
   try {
     const {username, password} = req.body;
 
@@ -28,18 +21,16 @@ const login = async (req: any, res: any) => {
       return res.status(400).json({message: `User ${username} not found`});
     }
 
-    // eslint-disable-next-line no-underscore-dangle
     const token = generateAccessToken(user._id, user.roles);
     sessions.push(token);
+
     return res.json({token});
   } catch (error) {
-    console.log(error);
-    return res.status(400).json({message: 'Authorization error'});
+    return res.status(400).json({statusText: error, message: 'Authorization error'});
   }
 };
-export default login;
 
-export const getUsers = async (req: any, res: any) => {
+export const getUsers = async (req: Request, res: Response) => {
   try {
     return res.json(sessions);
   } catch (error) {

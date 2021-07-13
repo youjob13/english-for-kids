@@ -1,11 +1,12 @@
-import config from '../config';
-import {sessions} from '../authorize/authControl';
+import jwt from 'jsonwebtoken';
+import { NextFunction, Response } from 'express';
+import sessions from '../storage/sessions';
+import { RequestType } from '../shared/interfaces/api-models';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const jwt = require('jsonwebtoken');
+const { secret } = require('../config');
 
 // eslint-disable-next-line consistent-return
-module.exports = function (req: any, res: any, next: any) {
+function authMiddleware(req: RequestType, res: Response, next: NextFunction) {
   if (req.method === 'OPTIONS') {
     next();
   }
@@ -13,16 +14,23 @@ module.exports = function (req: any, res: any, next: any) {
   try {
     const token = req.headers.authorization;
     if (!token) {
-      return res.status(403).json({message: 'User not authorize'});
+      return res.status(403).json({message: 'User not auth'});
     }
+
     const auth = sessions.find((session) => session === token);
     if (!auth) {
-      return res.status(403).json({message: 'User not authorize'});
+      return res.status(403).json({message: 'User not auth'});
     }
-    const decodedData = jwt.verify(token, config.secret);
+
+    const decodedData = jwt.verify(token, secret);
     req.user = decodedData;
+
     next();
   } catch (error) {
-    return res.status(403).json({message: error});
+    return res.status(403).json({statusText: error, message: 'Error'});
   }
+}
+
+module.exports = {
+  authMiddleware,
 };
