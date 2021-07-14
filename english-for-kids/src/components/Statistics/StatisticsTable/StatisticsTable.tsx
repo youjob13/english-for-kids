@@ -6,7 +6,6 @@ import {
   CardsReducerType,
   StatisticReducerType,
 } from '../../../shared/interfaces/store-models';
-import { ICardItem } from '../../../shared/interfaces/cards-models';
 import TableHeader from './TableHeader/TableHeader';
 import {
   TABLE_BODY_STYLES,
@@ -31,10 +30,7 @@ const StatisticsTable = (): ReactElement => {
   });
 
   const statisticsParams: IWordStatisticData[] = cardsData
-    .map((cardsDataItem) => {
-      const category = Object.keys(cardsDataItem).toString();
-      const cards: ICardItem[] = Object.values(cardsDataItem)[0];
-
+    .map(({ category, cards }) => {
       return cards.map((card) => {
         const parsedData =
           statisticsData[card.name] && JSON.parse(statisticsData[card.name]);

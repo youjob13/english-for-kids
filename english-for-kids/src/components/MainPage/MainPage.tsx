@@ -6,7 +6,6 @@ import {
 } from '../../shared/interfaces/store-models';
 import Title from '../../shared/baseComponents/Title/Title';
 import { CONTENT_STYLES } from '../../shared/stylesVariables';
-import { FIRST_ELEMENT } from '../../shared/globalVariables';
 import CardWrapperOnMainPage from './CardWrapperOnMainPage/CardWrapperOnMainPage';
 
 const MainPage = (): ReactElement => {
@@ -21,19 +20,14 @@ const MainPage = (): ReactElement => {
     <>
       <Title>Train & Play</Title>
       <ul className={CONTENT_STYLES}>
-        {cardsData.map((cardData, index) => {
-          const category = Object.keys(cardData).toString();
-          const cards = Object.values(cardData)[FIRST_ELEMENT];
-
-          return (
-            <CardWrapperOnMainPage
-              key={index.toString()}
-              category={category}
-              cards={cards}
-              gameMode={gameMode}
-            />
-          );
-        })}
+        {cardsData.map(({ category, cards }, index) => (
+          <CardWrapperOnMainPage
+            key={index.toString()}
+            category={category}
+            cards={cards}
+            gameMode={gameMode}
+          />
+        ))}
       </ul>
     </>
   );

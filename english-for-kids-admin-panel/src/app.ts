@@ -6,6 +6,7 @@ import log4js from 'log4js';
 import path from 'path';
 import authRouter from './auth/authRouter';
 import cardsRouter from './cards/cardsRouter';
+import categoryRouter from './category/categoryRouter';
 
 const { secret } = require('./config');
 
@@ -29,6 +30,7 @@ app.use('/', express.static(publicPath));
 
 app.use('/auth', authRouter);
 app.use('/cards', cardsRouter);
+app.use('/category', categoryRouter);
 
 const start = async () => {
   try {

@@ -21,7 +21,7 @@ import {
 import AnswerList from './AnswerList/AnswerList';
 import { getDifficultWordsStatistics } from '../../store/statisticSlice';
 import { getDifficultWords } from '../../store/difficultWordsSlice';
-import { FIRST_ELEMENT, GameMode } from '../../shared/globalVariables';
+import { GameMode } from '../../shared/globalVariables';
 import defineCurrentCategory from '../../shared/helperFunctions/defineCurrentCategory';
 
 const Category = (): ReactElement => {
@@ -36,8 +36,7 @@ const Category = (): ReactElement => {
 
   const currentCategory = defineCurrentCategory(cardsData, categoryPath);
   const audioSRC = currentQuestion && currentQuestion.audioSRC;
-  const cards =
-    (currentCategory && Object.values(currentCategory)[FIRST_ELEMENT]) || [];
+  const cards = (currentCategory && currentCategory.cards) || [];
 
   useEffect(() => {
     if (audioSRC) {

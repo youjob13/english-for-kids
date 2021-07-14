@@ -28,9 +28,7 @@ const Header = (): ReactElement => {
     (state: GameReducerType) => state.gameReducer
   );
 
-  const categoryNames = cardsData.map((cardData) =>
-    Object.keys(cardData).toString()
-  );
+  const categoryNames = cardsData.map((cardData) => cardData.category);
 
   const switchGameMode = () => {
     dispatch(toggleGameMode());

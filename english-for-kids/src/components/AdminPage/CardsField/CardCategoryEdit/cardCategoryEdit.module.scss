@@ -1,0 +1,65 @@
+.card {
+  position: relative;
+  border: 0.3em solid gray;
+  border-radius: 0.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &Remove {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 9;
+
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1.2em;
+      height: 0.3em;
+      background-color: #0d1a16;
+      cursor: pointer;
+    }
+
+    &::after {
+      transform: rotateZ(-45deg) translate(-10%, -100%);
+    }
+
+    &::before {
+      transform: rotateZ(45deg) translate(-25%, 20%);
+    }
+  }
+
+  &Title {
+    font-size: 1.65em;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+  }
+
+  &ButtonsWrapper {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    margin-top: 1em;
+  }
+
+  &Button {
+    border: 0.3em solid #00bf82;
+    border-radius: 0.2em;
+    padding: 0.3em 0.36em;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 700;
+    color: #00bf82;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: #a1d5bb;
+    }
+  }
+}
+

@@ -6,9 +6,32 @@ export const cardsAPI = {
   baseURL: '../../cards.json',
 
   async getCards(): Promise<ICardsData[]> {
-    const response = await fetch('http://localhost:5000/cards');
-    const cards: ICardsData[] = await response.json();
-    return cards;
+    try {
+      const response = await fetch('http://localhost:5000/cards');
+      const cards: ICardsData[] = await response.json();
+      return cards;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+  async updateCategoryName(data: {
+    prevCategoryName: string;
+    newCategoryName: string;
+  }): Promise<any> {
+    try {
+      const response = await fetch('http://localhost:5000/category', {
+        method: 'PUT',
+        headers: {
+          authorization: localStorage.token,
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({ ...data }),
+      });
+      const cards: ICardsData[] = await response.json();
+      return cards;
+    } catch (error) {
+      throw new Error(error);
+    }
   },
 };
 
@@ -18,6 +41,7 @@ export const authAPI = {
       const response = await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
         headers: {
+          authorization: localStorage.token,
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify(authFormData),

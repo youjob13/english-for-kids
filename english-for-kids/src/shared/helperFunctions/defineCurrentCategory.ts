@@ -4,8 +4,6 @@ const defineCurrentCategory = (
   cardsData: ICardsData[],
   categoryPath: string
 ): ICardsData | undefined =>
-  cardsData.find(
-    (cardsDataItem) => Object.keys(cardsDataItem).toString() === categoryPath
-  );
+  cardsData.find((cardsDataItem) => cardsDataItem.category === categoryPath);
 
 export default defineCurrentCategory;

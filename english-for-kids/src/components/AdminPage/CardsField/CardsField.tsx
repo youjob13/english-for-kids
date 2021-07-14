@@ -5,13 +5,19 @@ import {
   AuthReducerType,
   CardsReducerType,
 } from '../../../shared/interfaces/store-models';
-import { FIRST_ELEMENT, Path } from '../../../shared/globalVariables';
+import { Path } from '../../../shared/globalVariables';
 import { LoginContext } from '../../../shared/context';
+import CardCategoryEdit from './CardCategoryEdit/CardCategoryEdit';
+import classes from './cardsField.module.scss';
+import NewCard from '../NewCard/NewCard';
 
 const CardsField = (): ReactElement => {
   const history = useHistory();
   const { toggleLoginPopup } = useContext(LoginContext);
   const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
+  const { cardsData } = useSelector(
+    (state: CardsReducerType) => state.cardsReducer
+  );
 
   useEffect(() => {
     if (!isAuth) {
@@ -20,18 +26,16 @@ const CardsField = (): ReactElement => {
     }
   }, []);
 
-  const { cardsData } = useSelector(
-    (state: CardsReducerType) => state.cardsReducer
-  );
-
   return (
-    <div>
-      wsa
-      {cardsData.map((cardData) => {
-        const category = Object.keys(cardData).toString();
-        const cards = Object.values(cardData)[FIRST_ELEMENT];
-        return `${category} ${cards}`;
-      })}
+    <div className={classes.cardsField}>
+      {cardsData &&
+        cardsData.map(({ category, cards }) => (
+          <CardCategoryEdit
+            category={category}
+            cardsCount={(cards && cards.length) || 0} // TODO: убрать костыль
+          />
+        ))}
+      <NewCard text="Create new Category" />
     </div>
   );
 };

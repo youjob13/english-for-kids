@@ -49,6 +49,16 @@ export const getAllCards =
 
     setTimeout(() => {
       dispatch(toggleIsFetching(true));
-      dispatch(setAllCards(cardsData));
+      dispatch(setAllCards(cardsData)); // TODO: remove
     }, 1000);
+  };
+
+export const updateCategory =
+  (data: {
+    prevCategoryName: string;
+    newCategoryName: string;
+  }): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    const cardsData = await cardsAPI.updateCategoryName(data);
+    dispatch(setAllCards(cardsData));
   };

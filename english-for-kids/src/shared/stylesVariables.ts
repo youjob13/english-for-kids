@@ -12,6 +12,11 @@ import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
 import classesTitle from './baseComponents/Title/title.module.scss';
 import classesLoginButton from '../components/Header/LoginButton/loginButton.module.scss';
 import classesLoginPopup from '../components/Popup/LoginPopup/loginPopup.module.scss';
+import classesNewCard from '../components/AdminPage/NewCard/newCard.module.scss';
+
+export const NEW_CARD = classesNewCard.newCard;
+export const NEW_CARD_TITLE = classesNewCard.newCardTitle;
+export const NEW_CARD_BUTTON = classesNewCard.newCardButton;
 
 export const LOGIN_BUTTON = classesLoginButton.button;
 
