@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useContext, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Navigation from './Navigation/Navigation';
 import { toggleGameMode } from '../../store/gameSlice';
@@ -8,7 +8,7 @@ import {
 } from '../../shared/interfaces/store-models';
 import Switch from '../../shared/baseComponents/Switch/Switch';
 import MenuButton from '../../shared/baseComponents/MenuButton/MenuButton';
-import MenuContext from '../../shared/context';
+import MenuContext, { LoginContext } from '../../shared/context';
 import {
   INITIAL_IS_OPEN_MENU_VALUE,
   SWITCH_OFF,
@@ -16,13 +16,10 @@ import {
 } from '../../shared/globalVariables';
 import { HEADER } from '../../shared/stylesVariables';
 import LoginButton from './LoginButton/LoginButton';
-import { IHeaderProps } from '../../shared/interfaces/props-models';
 
-const Header = ({
-  isOpenLoginPopup,
-  setIsOpenLoginPopup,
-}: IHeaderProps): ReactElement => {
+const Header = (): ReactElement => {
   const [isOpenMenu, toggleMenu] = useState(INITIAL_IS_OPEN_MENU_VALUE);
+  const { toggleLoginPopup } = useContext(LoginContext);
   const dispatch = useDispatch();
   const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
@@ -43,10 +40,6 @@ const Header = ({
     toggleMenu(!isOpenMenu);
   };
 
-  const onLoginPopupClick = () => {
-    setIsOpenLoginPopup(!isOpenLoginPopup);
-  };
-
   return (
     <MenuContext.Provider value={{ isOpenMenu, toggleMenu: toggleMenuMode }}>
       <header className={HEADER}>
@@ -58,7 +51,7 @@ const Header = ({
           gameMode={gameMode}
           onCheckboxClick={switchGameMode}
         />
-        <LoginButton onLoginButtonClick={onLoginPopupClick} />
+        <LoginButton onLoginButtonClick={toggleLoginPopup} />
       </header>
     </MenuContext.Provider>
   );

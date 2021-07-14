@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Popup from '../Popup';
 import {
   LOGIN_POPUP_BUTTON_CANCEL,
@@ -19,8 +20,8 @@ import {
 import { LoginContext } from '../../../shared/context';
 import { AuthFormValue } from '../../../shared/interfaces/api-models';
 import { getAuthorize } from '../../../store/authSlice';
-import { authAPI } from '../../../shared/api/api';
 import { AuthReducerType } from '../../../shared/interfaces/store-models';
+import { Path } from '../../../shared/globalVariables';
 
 const authFormValue: Record<AuthFormValue, string> = {
   username: '',
@@ -32,19 +33,20 @@ const LoginPopup = (): ReactElement => {
   const { toggleLoginPopup } = useContext(LoginContext);
   const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
   const [authFormData, setAuthFormValue] = useState(authFormValue);
+  const history = useHistory();
 
   const sendData = async () => {
     dispatch(getAuthorize(authFormData));
   };
 
-  const testRequest = () => {
-    const cards = authAPI.getCards();
-    console.log(cards);
+  const closePopup = () => {
+    toggleLoginPopup();
   };
 
   useEffect(() => {
     if (isAuth) {
-      toggleLoginPopup();
+      history.push(Path.ADMIN_PAGE);
+      closePopup();
     }
   }, [isAuth]);
 
@@ -85,7 +87,7 @@ const LoginPopup = (): ReactElement => {
         />
         <div className={LOGIN_POPUP_BUTTONS_WRAPPER}>
           <button
-            onClick={testRequest}
+            onClick={closePopup}
             className={LOGIN_POPUP_BUTTON_CANCEL}
             type="button"
           >

@@ -48,6 +48,7 @@ export enum Path {
   CATEGORY = '/section/:category',
   STATISTICS = '/statistics',
   ROOT = '/',
+  ADMIN_PAGE = '/admin-panel/categories',
   OTHER = '*',
 }
 export enum ElemRole {

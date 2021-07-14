@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, lazy, useState } from 'react';
 import './App.css';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCards } from './store/cardsSlice';
 import {
@@ -19,7 +19,9 @@ import { Path } from './shared/globalVariables';
 import withLazyLoading from './shared/hoc/withLazyLoading';
 import LoginPopup from './components/Popup/LoginPopup/LoginPopup';
 import { LoginContext } from './shared/context';
-import AdminPage from './components/AdminPage/AdminPage';
+import CardsField from './components/AdminPage/CardsField/CardsField';
+import AdminHeader from './components/AdminPage/Header/Header';
+import { authAPI } from './shared/api/api';
 
 const Statistics = lazy(() => import('./components/Statistics/Statistics'));
 
@@ -33,6 +35,15 @@ const App = (): ReactElement => {
   const { isActiveEndGamePopup, currentGameAnswers } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!isAuth) {
+      history.push(Path.MAIN); // TODO: move out
+      authAPI.logout();
+      localStorage.removeItem('token');
+    }
+  }, [isAuth]);
 
   const toggleLoginPopupMode = () => {
     toggleLoginPopup(!isOpenLoginPopup);
@@ -43,21 +54,22 @@ const App = (): ReactElement => {
   }, [dispatch]);
 
   return (
-    <div className={APP_WRAPPER}>
-      {isAuth ? (
-        <AdminPage />
-      ) : (
+    <LoginContext.Provider
+      value={{
+        isOpenLoginPopup,
+        toggleLoginPopup: toggleLoginPopupMode,
+      }}
+    >
+      <div className={APP_WRAPPER}>
         <>
-          <Header
-            isOpenLoginPopup={isOpenLoginPopup}
-            setIsOpenLoginPopup={toggleLoginPopupMode}
-          />
+          {isAuth ? <AdminHeader /> : <Header />}
           <main className={APP_CONTENT}>
             {!isFetching ? (
               <Preloader />
             ) : (
               <Switch>
                 <Route path={Path.MAIN} component={MainPage} />
+                <Route path={Path.ADMIN_PAGE} component={CardsField} />
                 <Route path={Path.CATEGORY} component={Category} />
                 <Route
                   path={Path.STATISTICS}
@@ -73,15 +85,9 @@ const App = (): ReactElement => {
           </main>
           <Footer />
         </>
-      )}
-      {isOpenLoginPopup && (
-        <LoginContext.Provider
-          value={{ isOpenLoginPopup, toggleLoginPopup: toggleLoginPopupMode }}
-        >
-          <LoginPopup />
-        </LoginContext.Provider>
-      )}
-    </div>
+        {isOpenLoginPopup && <LoginPopup />}
+      </div>
+    </LoginContext.Provider>
   );
 };
 

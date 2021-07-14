@@ -1,6 +1,6 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
-import cardsAPI from '../shared/api/api';
+import { cardsAPI } from '../shared/api/api';
 
 const cardsSlice = createSlice({
   name: 'cardsSlice',
