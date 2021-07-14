@@ -1,6 +1,7 @@
 const state = {
   categories: [
     {
+      id: 0,
       category: 'nature',
       cards: [
         {
@@ -54,6 +55,7 @@ const state = {
       ],
     },
     {
+      id: 1,
       category: 'animals',
       cards: [
         {
@@ -107,6 +109,7 @@ const state = {
       ],
     },
     {
+      id: 2,
       category: 'sport',
       cards: [
         {
@@ -160,6 +163,7 @@ const state = {
       ],
     },
     {
+      id: 3,
       category: 'food',
       cards: [
         {
@@ -213,6 +217,7 @@ const state = {
       ],
     },
     {
+      id: 4,
       category: 'gadgets',
       cards: [
         {
@@ -266,6 +271,7 @@ const state = {
       ],
     },
     {
+      id: 5,
       category: 'space',
       cards: [
         {
@@ -319,6 +325,7 @@ const state = {
       ],
     },
     {
+      id: 6,
       category: 'genres of music',
       cards: [
         {
@@ -372,6 +379,7 @@ const state = {
       ],
     },
     {
+      id: 7,
       category: 'movies',
       cards: [
         {

@@ -62,3 +62,10 @@ export const updateCategory =
     const cardsData = await cardsAPI.updateCategoryName(data);
     dispatch(setAllCards(cardsData));
   };
+
+export const removeCategory =
+  (id: number): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    await cardsAPI.removeCategory(id);
+    dispatch(getAllCards());
+  };

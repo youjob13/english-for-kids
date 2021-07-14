@@ -1,4 +1,5 @@
 export interface ICardsData {
+  id: number;
   category: string;
   cards: ICardItem[];
 }

@@ -1,9 +1,13 @@
 import { Request, Response } from 'express';
+import log4js from 'log4js';
 import state from '../storage/cards';
 
-const updateCategory = async (req: Request, res: Response) => {
+const logger = log4js.getLogger();
+logger.level = 'debug';
+
+export const updateCategory = async (req: Request, res: Response) => {
   try {
-    const {prevCategoryName, newCategoryName} = req.body;
+    const { prevCategoryName, newCategoryName } = req.body;
 
     if (!prevCategoryName || !newCategoryName) {
       return res.status(400).json('Category is not exist');
@@ -26,4 +30,26 @@ const updateCategory = async (req: Request, res: Response) => {
   }
 };
 
-export default updateCategory;
+export const removeCategory = async (req: Request, res: Response) => {
+  try {
+    const { category } = req.headers;
+    logger.debug(category);
+    if (!category) {
+      return res.status(400).json('Category is not exist');
+    }
+
+    const foundedCategoryIndex = state.categories.findIndex(
+      (cardData) => cardData.id.toString() === category,
+    );
+
+    if (!foundedCategoryIndex && foundedCategoryIndex > 0) {
+      return res.status(404).json('Category is not founded');
+    }
+
+    state.categories.splice(foundedCategoryIndex, 1);
+
+    return res.json('Category deleted');
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};

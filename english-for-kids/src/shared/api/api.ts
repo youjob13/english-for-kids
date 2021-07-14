@@ -33,6 +33,21 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
+  async removeCategory(id: number): Promise<void> {
+    try {
+      console.log(id);
+      await fetch('http://localhost:5000/category', {
+        method: 'DELETE',
+        headers: {
+          authorization: localStorage.token,
+          Category: id.toString(),
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };
 
 export const authAPI = {

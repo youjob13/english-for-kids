@@ -2,7 +2,7 @@ import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import classes from './cardCategoryEdit.module.scss';
 import capitalizeWord from '../../../../shared/helperFunctions/capitalizeWord';
-import { updateCategory } from '../../../../store/cardsSlice';
+import { removeCategory, updateCategory } from '../../../../store/cardsSlice';
 
 const REMOVE_CATEGORY = classes.cardRemove;
 const CATEGORY = classes.card;
@@ -10,7 +10,7 @@ const CATEGORY_TITLE = classes.cardTitle;
 const CATEGORY_BUTTON = classes.cardButton;
 const CATEGORY_BUTTONS_WRAPPER = classes.cardButtonsWrapper;
 
-const CardCategoryEdit = ({ cardsCount, category }: any): ReactElement => {
+const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
   const dispatch = useDispatch();
   const [isCategoryNameUpdate, toggleUpdateCategoryNameMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category);
@@ -33,9 +33,19 @@ const CardCategoryEdit = ({ cardsCount, category }: any): ReactElement => {
     turnOnUpdatedCategoryNameMode();
   };
 
+  const removeSelectedCategory = () => {
+    dispatch(removeCategory(id));
+  };
+
   return (
     <div className={CATEGORY}>
-      <div className={REMOVE_CATEGORY} />
+      <div
+        role="button"
+        tabIndex={0}
+        onKeyPress={() => console.log('Category deleted')}
+        onClick={removeSelectedCategory}
+        className={REMOVE_CATEGORY}
+      />
       {isCategoryNameUpdate ? (
         <input onInput={updateCategoryName} type="text" value={categoryName} />
       ) : (

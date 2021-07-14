@@ -29,8 +29,10 @@ const CardsField = (): ReactElement => {
   return (
     <div className={classes.cardsField}>
       {cardsData &&
-        cardsData.map(({ category, cards }) => (
+        cardsData.map(({ category, cards, id }) => (
           <CardCategoryEdit
+            key={id}
+            id={id}
             category={category}
             cardsCount={(cards && cards.length) || 0} // TODO: убрать костыль
           />
