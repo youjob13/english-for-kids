@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: authorization">
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/AdminPage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/CardsField/CardsField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/Header/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/Header/header.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authControl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/auth/authRouter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Popup/LoginPopup/LoginPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Popup/LoginPopup/LoginPopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Card/Card.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/store-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/store-models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/authSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/authSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/test.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +57,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
-    <property name="ts.external.directory.path" value="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids-admin-panel\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids-admin-panel\public" />
+      <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids-admin-panel" />
       <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids-admin-panel\src" />
       <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids-admin-panel\src\shared" />
       <recent name="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids\src\components\Popup" />
@@ -121,7 +116,10 @@
       <workItem from="1626006159488" duration="1084000" />
       <workItem from="1626008228551" duration="1115000" />
       <workItem from="1626064481982" duration="1060000" />
-      <workItem from="1626166646583" duration="11174000" />
+      <workItem from="1626166646583" duration="11272000" />
+      <workItem from="1626195788013" duration="808000" />
+      <workItem from="1626240893095" duration="713000" />
+      <workItem from="1626242369855" duration="4317000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>

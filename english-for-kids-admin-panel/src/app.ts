@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import session from 'express-session';
 import log4js from 'log4js';
-import router from './auth/authRouter';
+import path from 'path';
+import authRouter from './auth/authRouter';
+import cardsRouter from './cards/cardsRouter';
 
 const { secret } = require('./config');
 
@@ -11,6 +13,7 @@ const logger = log4js.getLogger();
 logger.level = 'debug';
 
 const PORT = 5000;
+const publicPath = path.resolve(__dirname, '../public');
 
 const app = express();
 
@@ -21,7 +24,11 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
 }));
-app.use('/auth', router);
+
+app.use('/', express.static(publicPath));
+
+app.use('/auth', authRouter);
+app.use('/cards', cardsRouter);
 
 const start = async () => {
   try {

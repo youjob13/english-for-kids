@@ -3,10 +3,10 @@ import {getUsers, login, logout} from './authControl';
 
 const { authMiddleware } = require('../middleware/authMiddleware');
 
-const router = Router();
+const authRouter = Router();
 
-router.post('/login', login);
-router.delete('/logout', logout);
-router.get('/users', authMiddleware, getUsers);
+authRouter.post('/login', login);
+authRouter.delete('/logout', logout);
+authRouter.get('/users', authMiddleware, getUsers);
 
-export default router;
+export default authRouter;

@@ -6,7 +6,7 @@ const cardsAPI = {
   baseURL: '../../cards.json',
 
   async getCards(): Promise<ICardsData[]> {
-    const response = await fetch(this.baseURL);
+    const response = await fetch('http://localhost:5000/cards');
     const cards: ICardsData[] = await response.json();
     return cards;
   },

@@ -1,6 +1,6 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
-import test from '../test.json';
+import cardsAPI from '../shared/api/api';
 
 const cardsSlice = createSlice({
   name: 'cardsSlice',
@@ -43,7 +43,7 @@ export const {
 export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const cardsData = test;
+    const cardsData = await cardsAPI.getCards();
 
     dispatch(toggleIsFetching(false));
 
