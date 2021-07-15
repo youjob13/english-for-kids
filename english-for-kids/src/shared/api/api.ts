@@ -30,6 +30,25 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
+  async updateCard(
+    cardId: string,
+    categoryId: string,
+    data: any
+  ): Promise<any> {
+    try {
+      await fetch('http://localhost:5000/cards', {
+        method: 'PUT',
+        headers: {
+          Authorization: localStorage.token,
+          Category: categoryId,
+          Card: cardId,
+        },
+        body: data,
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
   async updateCategoryName(data: {
     prevCategoryName: string;
     newCategoryName: string;

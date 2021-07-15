@@ -53,6 +53,17 @@ export const getAllCards =
     }, 1000);
   };
 
+export const updateCard =
+  (
+    id: string,
+    categoryId: string,
+    data: any
+  ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    await cardsAPI.updateCard(id, categoryId, data);
+    dispatch(getAllCards()); // TODO: пересчитывать чтобы не обновлять все карточки
+  };
+
 export const removeCard =
   (
     id: string,

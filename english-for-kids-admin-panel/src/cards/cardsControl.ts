@@ -13,6 +13,43 @@ export const getCards = async (req: Request, res: Response) => {
   }
 };
 
+export const updateCard = async (req: Request, res: Response) => {
+  try {
+    const {card: cardId, category: categoryId} = req.headers;
+    const {wordName, wordTranslation} = req.body;
+
+    state.categories = state.categories.map(
+      (cardsData) => {
+        if (cardsData.id.toString() === categoryId) {
+          return {
+            ...cardsData,
+            cards: cardsData.cards.map((card) => {
+              if (card.id === cardId) {
+                // const newImage = req.files[1];
+
+                return {
+                  ...card,
+                  name: wordName || card.name,
+                  translate: wordTranslation || card.translate,
+                  imageSRC: card.imageSRC,
+                  audioSRC: card.audioSRC,
+                };
+              }
+
+              return card;
+            }),
+          };
+        }
+        return cardsData;
+      },
+    );
+
+    return res.json(`${wordName} ${wordTranslation}`);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const removeCard = async (req: Request, res: Response) => {
   try {
     const { category: categoryId, card: cardId } = req.headers;

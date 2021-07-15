@@ -21,7 +21,11 @@ const Card = ({ categoryId, card }: ICardEditProps): ReactElement => {
           {...card}
         />
       ) : (
-        <CardBack toggleEditMode={toggleEditMode} {...card} />
+        <CardBack
+          categoryId={categoryId}
+          toggleEditMode={toggleEditMode}
+          {...card}
+        />
       )}
     </div>
   );

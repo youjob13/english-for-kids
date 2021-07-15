@@ -19,7 +19,10 @@ export interface ICardAdminFront {
 }
 
 export interface ICardWithEditProps {
+  categoryId: number;
+  id: string;
   name: string;
+  audioSRC: string;
   translate: string;
   toggleEditMode: (isEditMode: boolean) => void;
 }
