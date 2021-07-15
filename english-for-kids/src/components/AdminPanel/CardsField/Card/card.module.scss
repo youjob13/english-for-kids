@@ -1,0 +1,63 @@
+.cardAdmin {
+  border: 2px solid gray;
+  border-radius: 0.4em;
+  padding: 0.4em;
+
+  &Image {
+    width: 10em;
+    height: 8em;
+
+    img {
+      transition: .2s;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &Content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &Buttons {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &Button {
+    padding: 1em;
+    border-radius: 0.4em;
+    border: 2px solid #00bf82;
+    color: #00bf82;;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: .2s;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+    margin-top: 0.4em;
+
+    &:hover {
+      background-color: #00bf82;
+      color: #fff;
+    }
+  }
+
+  &Label {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.removeButton {
+  border: 2px solid #c22f2f;
+  color: #c22f2f;;
+
+  &:hover {
+    background-color: #c22f2f;
+  }
+}

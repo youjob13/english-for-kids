@@ -33,6 +33,14 @@ export const getAuthorize =
     }
 
     localStorage.token = authResponse.token;
-    console.log(authResponse.token);
     dispatch(toggleAuthMode());
+  };
+
+export const checkAuthorize =
+  (): ThunkAction<void, IAuthState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    console.log(localStorage.token);
+    if (localStorage.token) {
+      dispatch(toggleAuthMode());
+    }
   };

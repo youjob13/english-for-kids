@@ -19,9 +19,10 @@ import { Path } from './shared/globalVariables';
 import withLazyLoading from './shared/hoc/withLazyLoading';
 import LoginPopup from './components/Popup/LoginPopup/LoginPopup';
 import { LoginContext } from './shared/context';
-import CardsField from './components/AdminPage/CardsField/CardsField';
-import AdminHeader from './components/AdminPage/Header/Header';
+import CardsField from './components/AdminPanel/CardsField/CardsField';
+import AdminHeader from './components/AdminPanel/Header/Header';
 import { authAPI } from './shared/api/api';
+import { checkAuthorize } from './store/authSlice';
 
 const Statistics = lazy(() => import('./components/Statistics/Statistics'));
 
@@ -38,7 +39,12 @@ const App = (): ReactElement => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!isAuth) {
+    dispatch(getAllCards());
+    dispatch(checkAuthorize());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!localStorage.token) {
       history.push(Path.MAIN); // TODO: move out
       authAPI.logout();
       localStorage.removeItem('token');
@@ -48,10 +54,6 @@ const App = (): ReactElement => {
   const toggleLoginPopupMode = () => {
     toggleLoginPopup(!isOpenLoginPopup);
   };
-
-  useEffect(() => {
-    dispatch(getAllCards());
-  }, [dispatch]);
 
   return (
     <LoginContext.Provider
@@ -90,5 +92,4 @@ const App = (): ReactElement => {
     </LoginContext.Provider>
   );
 };
-
 export default App;

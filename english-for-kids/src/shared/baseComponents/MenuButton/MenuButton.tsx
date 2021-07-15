@@ -2,6 +2,7 @@ import React, { ReactElement, useContext } from 'react';
 import {
   LABEL_STYLES,
   MENU_BTN_ACTIVE_STYLES,
+  MENU_BTN_SPAN,
   MENU_BTN_STYLES,
 } from '../../stylesVariables';
 import MenuContext from '../../context';
@@ -18,9 +19,9 @@ const MenuButton = (): ReactElement => {
         type={InputType.CHECKBOX}
         id={MENU_BUTTON_ID}
       />
-      <span />
-      <span />
-      <span />
+      <span className={MENU_BTN_SPAN} />
+      <span className={MENU_BTN_SPAN} />
+      <span className={MENU_BTN_SPAN} />
     </label>
   );
 };

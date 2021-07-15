@@ -12,7 +12,7 @@ import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
 import classesTitle from './baseComponents/Title/title.module.scss';
 import classesLoginButton from '../components/Header/LoginButton/loginButton.module.scss';
 import classesLoginPopup from '../components/Popup/LoginPopup/loginPopup.module.scss';
-import classesNewCard from '../components/AdminPage/NewCard/newCard.module.scss';
+import classesNewCard from '../components/AdminPanel/NewCard/newCard.module.scss';
 
 export const NEW_CARD = classesNewCard.newCard;
 export const NEW_CARD_TITLE = classesNewCard.newCardTitle;
@@ -48,6 +48,7 @@ export const TABLE_BODY_STYLES = classesStatistics.tableBody;
 
 export const LABEL_STYLES = classesMenuBtn.label;
 export const MENU_BTN_STYLES = classesMenuBtn.inputMenuBtn;
+export const MENU_BTN_SPAN = classesMenuBtn.inputMenuBtnSpan;
 export const MENU_BTN_ACTIVE_STYLES = classesMenuBtn.inputMenuBtnActive;
 
 export const STATISTICS_HEADER_STYLES = classesStatistics.statisticsHeader;

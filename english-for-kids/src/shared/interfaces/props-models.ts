@@ -8,6 +8,20 @@ export interface ICardMainPageWrapperProps {
   gameMode: GameMode;
 }
 
+export interface ICardAdminFront {
+  name: string;
+  translate: string;
+  audioSRC: string;
+  imageSRC: string;
+  toggleEditMode: (isEditMode: boolean) => void;
+}
+
+export interface ICardWithEditProps {
+  name: string;
+  translate: string;
+  toggleEditMode: (isEditMode: boolean) => void;
+}
+
 export interface ICardProps {
   title: string;
   imageSRC: string;

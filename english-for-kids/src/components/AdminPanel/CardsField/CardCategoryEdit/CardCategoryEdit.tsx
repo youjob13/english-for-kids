@@ -1,5 +1,6 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link, useRouteMatch } from 'react-router-dom';
 import classes from './cardCategoryEdit.module.scss';
 import capitalizeWord from '../../../../shared/helperFunctions/capitalizeWord';
 import { removeCategory, updateCategory } from '../../../../store/cardsSlice';
@@ -14,6 +15,7 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
   const dispatch = useDispatch();
   const [isCategoryNameUpdate, toggleUpdateCategoryNameMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category);
+  const match = useRouteMatch();
 
   const updateCategoryName = (event: FormEvent): void => {
     const target = event.target as HTMLInputElement;
@@ -51,7 +53,7 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
       ) : (
         <h3 className={CATEGORY_TITLE}>{capitalizeWord(category)}</h3>
       )}
-      <p>Words: {cardsCount.length}</p>
+      <p>Words: {cardsCount}</p>
       <div className={CATEGORY_BUTTONS_WRAPPER}>
         {isCategoryNameUpdate ? (
           <>
@@ -79,9 +81,13 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
             >
               Update
             </button>
-            <button className={CATEGORY_BUTTON} type="button">
+            <Link
+              to={`${match.url}/${category}`}
+              className={CATEGORY_BUTTON}
+              type="button"
+            >
               Add word
-            </button>
+            </Link>
           </>
         )}
       </div>

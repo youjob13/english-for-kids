@@ -1,0 +1,20 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+
+  &Item {
+    &:last-child {
+      pointer-events: none;
+    }
+
+    &Link {
+      text-decoration: none;
+      color: #fff;
+
+      &Active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
