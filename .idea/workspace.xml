@@ -2,29 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: delete category">
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/Card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/CardBack.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/CardFront.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/card.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Cards/Cards.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Cards/cards.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/Header/Navigation/Navigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/Header/Navigation/navigation.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/CardsField/CardCategoryEdit/CardCategoryEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/CardCategoryEdit/CardCategoryEdit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/CardsField/CardCategoryEdit/cardCategoryEdit.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/CardCategoryEdit/cardCategoryEdit.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/CardsField/CardsField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/CardsField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/CardsField/cardsField.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/cardsField.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/Header/header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/Header/header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/NewCard/NewCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/NewCard/NewCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPage/NewCard/newCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/NewCard/newCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuButton/MenuButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuButton/MenuButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuButton/menuButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/baseComponents/MenuButton/menuButton.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/cards.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/cards.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/CardFront.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/CardFront.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Cards/Cards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Cards/Cards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/cards-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/cards-models.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/authSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/authSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +127,7 @@
       <workItem from="1626240893095" duration="713000" />
       <workItem from="1626242363897" duration="1033000" />
       <workItem from="1626252358178" duration="15109000" />
-      <workItem from="1626325048726" duration="10568000" />
+      <workItem from="1626325452061" duration="5311000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>

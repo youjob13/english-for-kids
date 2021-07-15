@@ -53,6 +53,16 @@ export const getAllCards =
     }, 1000);
   };
 
+export const removeCard =
+  (
+    id: string,
+    categoryId: string
+  ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    await cardsAPI.removeCard(id, categoryId);
+    dispatch(getAllCards());
+  };
+
 export const updateCategory =
   (data: {
     prevCategoryName: string;

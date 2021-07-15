@@ -9,7 +9,6 @@ import { ICardsData } from '../../../../shared/interfaces/cards-models';
 interface ICardsProps {
   cardsData: ICardsData[];
 }
-
 const Cards = ({ cardsData }: ICardsProps): ReactElement => {
   const { category: categoryName } = useParams<RouteParams>();
 
@@ -18,9 +17,9 @@ const Cards = ({ cardsData }: ICardsProps): ReactElement => {
       <h2>Category: {capitalizeWord(categoryName)}</h2>
       <div className={classes.cards}>
         {cardsData.map(
-          ({ cards, category }) =>
+          ({ cards, category, id }) =>
             category === categoryName &&
-            cards.map((card) => <Card card={card} />)
+            cards.map((card) => <Card categoryId={id} card={card} />)
         )}
       </div>
     </>

@@ -14,10 +14,27 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
+  async removeCard(cardId: string, categoryId: string): Promise<any> {
+    try {
+      console.log(cardId, categoryId);
+      await fetch('http://localhost:5000/cards', {
+        method: 'DELETE',
+        headers: {
+          authorization: localStorage.token,
+          card: cardId,
+          category: categoryId,
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
   async updateCategoryName(data: {
     prevCategoryName: string;
     newCategoryName: string;
   }): Promise<any> {
+    // TODO: category API
     try {
       const response = await fetch('http://localhost:5000/category', {
         method: 'PUT',
@@ -35,7 +52,6 @@ export const cardsAPI = {
   },
   async removeCategory(id: number): Promise<void> {
     try {
-      console.log(id);
       await fetch('http://localhost:5000/category', {
         method: 'DELETE',
         headers: {

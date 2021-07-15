@@ -5,6 +5,7 @@ export interface ICardsData {
 }
 
 export interface ICardItem {
+  id: string;
   name: string;
   imageSRC: string;
   translate: string;

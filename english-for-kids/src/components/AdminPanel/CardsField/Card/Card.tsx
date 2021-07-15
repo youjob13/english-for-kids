@@ -6,15 +6,20 @@ import CardBack from './CardBack';
 
 interface ICardEditProps {
   card: ICardItem;
+  categoryId: number;
 }
 
-const Card = ({ card }: ICardEditProps): ReactElement => {
+const Card = ({ categoryId, card }: ICardEditProps): ReactElement => {
   const [isEditMode, toggleEditMode] = useState(false);
 
   return (
     <div className={classes.cardAdmin}>
       {!isEditMode ? (
-        <CardFront toggleEditMode={toggleEditMode} {...card} />
+        <CardFront
+          categoryId={categoryId}
+          toggleEditMode={toggleEditMode}
+          {...card}
+        />
       ) : (
         <CardBack toggleEditMode={toggleEditMode} {...card} />
       )}

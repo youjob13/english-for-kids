@@ -9,6 +9,8 @@ export interface ICardMainPageWrapperProps {
 }
 
 export interface ICardAdminFront {
+  categoryId: number;
+  id: string;
   name: string;
   translate: string;
   audioSRC: string;

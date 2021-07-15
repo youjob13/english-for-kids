@@ -1,16 +1,25 @@
 import React, { ReactElement } from 'react';
+import { useDispatch } from 'react-redux';
 import classes from './card.module.scss';
 import { ICardAdminFront } from '../../../../shared/interfaces/props-models';
+import { removeCard } from '../../../../store/cardsSlice';
 
 const CardFront = ({
+  categoryId,
+  id,
   name,
   translate,
   audioSRC,
   imageSRC,
   toggleEditMode,
 }: ICardAdminFront): ReactElement => {
+  const dispatch = useDispatch();
   const flipCardToBack = () => {
     toggleEditMode(true);
+  };
+
+  const onRemoveCardClick = () => {
+    dispatch(removeCard(id, categoryId.toString()));
   };
 
   return (
@@ -32,6 +41,7 @@ const CardFront = ({
       </span>
       <div className={classes.cardAdminButtons}>
         <button
+          onClick={onRemoveCardClick}
           className={`${classes.cardAdminButton} ${classes.removeButton}`}
           type="button"
         >
