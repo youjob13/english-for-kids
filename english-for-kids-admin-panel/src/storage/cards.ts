@@ -546,7 +546,6 @@ const state = {
         },
         {
           id: uniqid(),
-
           imageSRC: 'http://localhost:5000/assets/category/movies/taxi-driver.jpg',
           name: 'Cabbie',
           translate: 'Таксист',

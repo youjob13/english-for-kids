@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: delete category">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/uploads/149839b07bdc3067263230b9c8a6b5b6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/uploads/156904897daea17dd9eac728b5a5541b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/uploads/3c906e35849e615aa1a05cea874b11f5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/uploads/4d9e25bbd5bee50a18a40464758bb025" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/uploads/5e540c00f2e5828be2b4663da522c8e9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/00a1ca5fc281d7cb49df7c407bb6b753" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/130684e672d6e829196b26a8b65c659d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/2f3259ca714d2573a2fa42e4da38678d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/3f94364dd85f4ad62ae8d3321e2dd493" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/5fe67b923821ce75fd76bf8b024d771e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/a67a809a2ad6147794962dfcc8a65254" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/c1934234a6d01dfe1b473b4732fa3bba" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/e0ac472d1b603df75b7e794ed3fefd9e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/e26113618ef25f6378481465ecebb465" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/e98d4eeb7fc246b5f36c5e94f6c7d6cf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/cards.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/cards.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +128,12 @@
       <workItem from="1626240893095" duration="713000" />
       <workItem from="1626242363897" duration="1033000" />
       <workItem from="1626252358178" duration="15109000" />
-      <workItem from="1626325452061" duration="13987000" />
+      <workItem from="1626325452061" duration="14314000" />
+      <workItem from="1626360805956" duration="184000" />
+      <workItem from="1626409090458" duration="398000" />
+      <workItem from="1626409552651" duration="14000" />
+      <workItem from="1626426591097" duration="870000" />
+      <workItem from="1626451573681" duration="3527000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>

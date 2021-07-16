@@ -18,6 +18,10 @@ export const updateCard = async (req: Request, res: Response) => {
     const {card: cardId, category: categoryId} = req.headers;
     const {wordName, wordTranslation} = req.body;
 
+    if (!req.files) {
+      return res.status(400).json('Error while uploading file');
+    }
+
     state.categories = state.categories.map(
       (cardsData) => {
         if (cardsData.id.toString() === categoryId) {
@@ -25,14 +29,33 @@ export const updateCard = async (req: Request, res: Response) => {
             ...cardsData,
             cards: cardsData.cards.map((card) => {
               if (card.id === cardId) {
-                // const newImage = req.files[1];
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                const fileOne = req.files[0];
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                const fileTwo = req.files[1];
 
+                const image = fileOne.fieldname === 'image'
+                  ? `http://localhost:5000/${fileOne.filename}`
+                  : `http://localhost:5000/${fileTwo.filename}`;
+                let sound;
+
+                if (fileTwo) { // TODO: убрать костыль
+                  sound = fileOne.fieldname === 'sound'
+                    ? `http://localhost:5000/${fileOne.filename}`
+                    : `http://localhost:5000/${fileTwo.filename}`;
+                }
+
+                logger.debug('image', image);
+                logger.debug('sound1', card.audioSRC);
+                logger.debug('sound2', sound);
                 return {
                   ...card,
                   name: wordName || card.name,
                   translate: wordTranslation || card.translate,
-                  imageSRC: card.imageSRC,
-                  audioSRC: card.audioSRC,
+                  imageSRC: image || card.imageSRC,
+                  audioSRC: sound || card.audioSRC,
                 };
               }
 
