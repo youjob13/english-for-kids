@@ -1,11 +1,7 @@
-import log4js from 'log4js';
 import { Request, Response } from 'express';
 import User from '../models/User';
 import generateAccessToken from '../shared/helperFunctions/generateAccessToken';
 import sessions from '../storage/sessions';
-
-const logger = log4js.getLogger();
-logger.level = 'debug';
 
 export const logout = async (req: Request, res: Response) => {
   try {
@@ -35,10 +31,14 @@ export const login = async (req: Request, res: Response) => {
       return res.status(400).json({message: 'Enter both username and password'});
     }
 
-    const user = await User.findOne({username}); // TODO: проверить пароль
+    const user = await User.findOne({username});
 
     if (!user) {
       return res.status(400).json({message: `User ${username} not found`});
+    }
+
+    if (user.password !== password) {
+      return res.status(400).json({message: 'Password incorrect'});
     }
 
     const token = generateAccessToken(user._id, user.roles);
@@ -47,13 +47,5 @@ export const login = async (req: Request, res: Response) => {
     return res.json({token});
   } catch (error) {
     return res.status(400).json({statusText: error, message: 'Authorization error'});
-  }
-};
-
-export const getUsers = async (req: Request, res: Response) => {
-  try {
-    return res.json(sessions);
-  } catch (error) {
-    return res.status(403).json(error);
   }
 };

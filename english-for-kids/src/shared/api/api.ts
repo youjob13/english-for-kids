@@ -1,6 +1,6 @@
-import { ICardsData } from '../interfaces/cards-models';
+import { ICardItem, ICardsData } from '../interfaces/cards-models';
 import { IWordStatistic } from '../../store/statisticSlice';
-import { LoginData } from '../interfaces/api-models';
+import { ILoginResponse, LoginData } from '../interfaces/api-models';
 
 export const cardsAPI = {
   async getCards(): Promise<ICardsData[]> {
@@ -12,9 +12,8 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
-  async removeCard(cardId: string, categoryId: string): Promise<any> {
+  async removeCard(cardId: string, categoryId: string): Promise<void> {
     try {
-      console.log(cardId, categoryId);
       await fetch('http://localhost:5000/cards', {
         method: 'DELETE',
         headers: {
@@ -28,9 +27,9 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
-  async createCard(data: any, categoryId: string): Promise<any> {
+  async createCard(data: FormData, categoryId: string): Promise<ICardItem> {
     try {
-      await fetch('http://localhost:5000/cards', {
+      const response = await fetch('http://localhost:5000/cards', {
         method: 'POST',
         headers: {
           Authorization: localStorage.token,
@@ -38,6 +37,8 @@ export const cardsAPI = {
         },
         body: data,
       });
+      const card: ICardItem = await response.json();
+      return card;
     } catch (error) {
       throw new Error(error);
     }
@@ -45,10 +46,10 @@ export const cardsAPI = {
   async updateCard(
     cardId: string,
     categoryId: string,
-    data: any
-  ): Promise<any> {
+    data: FormData
+  ): Promise<ICardItem> {
     try {
-      await fetch('http://localhost:5000/cards', {
+      const response = await fetch('http://localhost:5000/cards', {
         method: 'PUT',
         headers: {
           Authorization: localStorage.token,
@@ -57,6 +58,8 @@ export const cardsAPI = {
         },
         body: data,
       });
+      const updatedCard: ICardItem = await response.json();
+      return updatedCard;
     } catch (error) {
       throw new Error(error);
     }
@@ -64,7 +67,7 @@ export const cardsAPI = {
 };
 
 export const categoryAPI = {
-  async createCategory(categoryName: string): Promise<any> {
+  async createCategory(categoryName: string): Promise<ICardsData> {
     try {
       const response = await fetch('http://localhost:5000/category', {
         method: 'POST',
@@ -79,13 +82,13 @@ export const categoryAPI = {
       throw new Error(error);
     }
   },
-  async removeCategory(id: number): Promise<void> {
+  async removeCategory(id: string): Promise<void> {
     try {
       await fetch('http://localhost:5000/category', {
         method: 'DELETE',
         headers: {
           authorization: localStorage.token,
-          Category: id.toString(),
+          Category: id,
           'Content-Type': 'application/json;charset=utf-8',
         },
       });
@@ -93,21 +96,24 @@ export const categoryAPI = {
       throw new Error(error);
     }
   },
-  async updateCategoryName(data: {
-    prevCategoryName: string;
-    newCategoryName: string;
-  }): Promise<any> {
+  async updateCategoryName(
+    categoryId: string,
+    data: {
+      prevCategoryName: string;
+      newCategoryName: string;
+    }
+  ): Promise<ICardsData> {
     try {
       const response = await fetch('http://localhost:5000/category', {
         method: 'PUT',
         headers: {
-          authorization: localStorage.token,
+          Authorization: localStorage.token,
+          Category: categoryId,
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({ ...data }),
       });
-      const cards: ICardsData[] = await response.json();
-      return cards;
+      return await response.json();
     } catch (error) {
       throw new Error(error);
     }
@@ -115,12 +121,11 @@ export const categoryAPI = {
 };
 
 export const authAPI = {
-  async login(authFormData: LoginData): Promise<any> {
+  async login(authFormData: LoginData): Promise<ILoginResponse> {
     try {
       const response = await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
         headers: {
-          authorization: localStorage.token,
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify(authFormData),
@@ -132,14 +137,13 @@ export const authAPI = {
   },
   async logout(): Promise<void> {
     try {
-      const response = await fetch('http://localhost:5000/auth/logout', {
+      await fetch('http://localhost:5000/auth/logout', {
         method: 'DELETE',
         headers: {
           authorization: localStorage.token,
           'Content-Type': 'application/json;charset=utf-8',
         },
       });
-      console.log(response);
     } catch (error) {
       throw new Error(error);
     }

@@ -28,6 +28,89 @@ const cardsSlice = createSlice({
       ...state,
       cardsData: [...action.payload],
     }),
+    setNewCard: (state: ICardsState, action) => {
+      const { categoryId, newCard } = action.payload;
+
+      return {
+        ...state,
+        cardsData: state.cardsData.map((cardData) => {
+          if (cardData.id === categoryId) {
+            return {
+              ...cardData,
+              cards: [...cardData.cards, newCard],
+            };
+          }
+          return cardData;
+        }),
+      };
+    },
+    setUpdatedCard: (state: ICardsState, action) => {
+      const { cardId, categoryId, updatedCard } = action.payload;
+
+      return {
+        ...state,
+        cardsData: state.cardsData.map((cardData) => {
+          if (cardData.id === categoryId) {
+            return {
+              ...cardData,
+              cards: cardData.cards.map((card) => {
+                if (card.id === cardId) {
+                  return {
+                    ...updatedCard,
+                  };
+                }
+                return card;
+              }),
+            };
+          }
+          return cardData;
+        }),
+      };
+    },
+    setCardsWithoutDeletedCard: (state: ICardsState, action) => {
+      const { categoryId, cardId } = action.payload;
+
+      return {
+        ...state,
+        cardsData: state.cardsData.map((cardData) => {
+          if (cardData.id === categoryId) {
+            return {
+              ...cardData,
+              cards: cardData.cards.filter((card) => card.id !== cardId),
+            };
+          }
+          return cardData;
+        }),
+      };
+    },
+    setNewCategory: (state: ICardsState, action) => {
+      const { createdCategory } = action.payload;
+
+      return {
+        ...state,
+        cardsData: [...state.cardsData, createdCategory],
+      };
+    },
+    setUpdatedCategory: (state: ICardsState, action) => {
+      const { categoryId, updatedCategory } = action.payload;
+
+      return {
+        ...state,
+        cardsData: state.cardsData.map((cardData) =>
+          cardData.id === categoryId ? updatedCategory : cardData
+        ),
+      };
+    },
+    setCategoryWithoutDeletedCategory: (state: ICardsState, action) => {
+      const { categoryId } = action.payload;
+
+      return {
+        ...state,
+        cardsData: state.cardsData.filter(
+          (cardData) => cardData.id !== categoryId
+        ),
+      };
+    },
   },
 });
 
@@ -38,40 +121,46 @@ export const {
   removeWordFromPLayingList,
   updatePlayingList,
   setAllCards,
+  setNewCard,
+  setUpdatedCard,
+  setCardsWithoutDeletedCard,
+  setNewCategory,
+  setUpdatedCategory,
+  setCategoryWithoutDeletedCategory,
 } = cardsSlice.actions;
 
 export const getAllCards =
   (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const cardsData = await cardsAPI.getCards();
-
     dispatch(toggleIsFetching(false));
 
-    setTimeout(() => {
-      dispatch(toggleIsFetching(true));
-      dispatch(setAllCards(cardsData)); // TODO: remove
-    }, 1000);
+    const cardsData = await cardsAPI.getCards();
+
+    dispatch(toggleIsFetching(true));
+    dispatch(setAllCards(cardsData));
   };
 
+// TODO: realise preloader
 export const createCard =
   (
-    data: any,
+    data: FormData,
     categoryId: string
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    await cardsAPI.createCard(data, categoryId);
-    dispatch(getAllCards()); // TODO: пересчитывать чтобы не обновлять все карточки
+    const newCard = await cardsAPI.createCard(data, categoryId);
+    dispatch(setNewCard({ categoryId, newCard }));
   };
 
 export const updateCard =
   (
     id: string,
     categoryId: string,
-    data: any
+    data: FormData
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    await cardsAPI.updateCard(id, categoryId, data);
-    dispatch(getAllCards()); // TODO: пересчитывать чтобы не обновлять все карточки
+    console.log({ id, categoryId, data });
+    const updatedCard = await cardsAPI.updateCard(id, categoryId, data);
+    dispatch(setUpdatedCard({ cardId: id, categoryId, updatedCard }));
   };
 
 export const removeCard =
@@ -81,29 +170,35 @@ export const removeCard =
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
     await cardsAPI.removeCard(id, categoryId);
-    dispatch(getAllCards());
+    dispatch(setCardsWithoutDeletedCard({ categoryId, cardId: id }));
   };
 
 export const createCategory =
   (categoryName: string): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const category = await categoryAPI.createCategory(categoryName);
-    dispatch(setAllCards(category));
+    const createdCategory = await categoryAPI.createCategory(categoryName);
+    dispatch(setNewCategory({ createdCategory }));
   };
 
 export const updateCategory =
-  (data: {
-    prevCategoryName: string;
-    newCategoryName: string;
-  }): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  (
+    categoryId: string,
+    data: {
+      prevCategoryName: string;
+      newCategoryName: string;
+    }
+  ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const cardsData = await categoryAPI.updateCategoryName(data);
-    dispatch(setAllCards(cardsData));
+    const updatedCategory = await categoryAPI.updateCategoryName(
+      categoryId,
+      data
+    );
+    dispatch(setUpdatedCategory({ categoryId, updatedCategory }));
   };
 
 export const removeCategory =
-  (id: number): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  (categoryId: string): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    await categoryAPI.removeCategory(id);
-    dispatch(getAllCards());
+    await categoryAPI.removeCategory(categoryId);
+    dispatch(setCategoryWithoutDeletedCategory({ categoryId }));
   };

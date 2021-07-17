@@ -18,6 +18,7 @@ const CardBack = ({
   const flipCardToFront = () => {
     toggleEditMode(false);
   };
+
   const typeNewWordName = (event: FormEvent) => {
     const target = event.target as HTMLInputElement;
     if (target.name === 'wordName') {
@@ -28,6 +29,7 @@ const CardBack = ({
   };
 
   const onUpdateCardClick = async (formData: any) => {
+    toggleEditMode(false);
     dispatch(updateCard(id, categoryId.toString(), formData));
   };
 

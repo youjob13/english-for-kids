@@ -22,7 +22,7 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
     setCategoryName(target.value);
   };
 
-  const turnOnUpdatedCategoryNameMode = (): void => {
+  const switchUpdatedCategoryNameMode = (): void => {
     toggleUpdateCategoryNameMode(!isCategoryNameUpdate);
   };
 
@@ -31,8 +31,8 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
       prevCategoryName: category,
       newCategoryName: categoryName,
     };
-    dispatch(updateCategory(data));
-    turnOnUpdatedCategoryNameMode();
+    dispatch(updateCategory(id, data));
+    switchUpdatedCategoryNameMode();
   };
 
   const removeSelectedCategory = () => {
@@ -58,7 +58,7 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
         {isCategoryNameUpdate ? (
           <>
             <button
-              onClick={turnOnUpdatedCategoryNameMode}
+              onClick={switchUpdatedCategoryNameMode}
               className={CATEGORY_BUTTON}
               type="button"
             >
@@ -75,7 +75,7 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
         ) : (
           <>
             <button
-              onClick={turnOnUpdatedCategoryNameMode}
+              onClick={switchUpdatedCategoryNameMode}
               className={CATEGORY_BUTTON}
               type="button"
             >

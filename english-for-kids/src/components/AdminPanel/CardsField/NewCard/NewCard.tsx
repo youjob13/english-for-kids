@@ -23,7 +23,7 @@ const NewCard = ({ categoryId }: any): ReactElement => {
     }
   };
 
-  const onCreateCardClick = async (formData: any) => {
+  const onCreateCardClick = async (formData: FormData) => {
     dispatch(createCard(formData, categoryId.toString()));
   };
 

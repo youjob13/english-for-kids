@@ -1,7 +1,7 @@
 import {Router} from 'express';
 import { updateCategory, removeCategory, createCategory } from './categoryControl';
 
-const { authMiddleware } = require('../middleware/authMiddleware');
+const { authMiddleware } = require('../middleware/auth');
 
 const categoryRouter = Router();
 

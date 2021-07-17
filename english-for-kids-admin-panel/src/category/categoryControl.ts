@@ -1,29 +1,25 @@
 import { Request, Response } from 'express';
-import log4js from 'log4js';
 import state from '../storage/cards';
 
 const uniqid = require('uniqid');
 
-const logger = log4js.getLogger();
-logger.level = 'debug';
-
 export const createCategory = async (req: Request, res: Response) => {
   try {
-    logger.debug(req.body);
-
     const { categoryName } = req.body;
 
     if (!categoryName) {
-      return res.status(400).json('Category is not exist');
+      return res.status(400).json('Not enough data: (category name)');
     }
 
-    state.categories.push({
+    const newCategory = {
       id: uniqid(),
       cards: [],
       category: categoryName,
-    });
+    };
 
-    return res.json(state.categories);
+    state.categories.push(newCategory);
+
+    return res.json(newCategory);
   } catch (error) {
     return res.status(400).json(error);
   }
@@ -31,24 +27,28 @@ export const createCategory = async (req: Request, res: Response) => {
 
 export const updateCategory = async (req: Request, res: Response) => {
   try {
+    const {category: categoryId} = req.headers;
     const { prevCategoryName, newCategoryName } = req.body;
 
-    if (!prevCategoryName || !newCategoryName) {
-      return res.status(400).json('Category is not exist');
+    if (!prevCategoryName || !newCategoryName || !categoryId) {
+      return res.status(400).json('Not enough data: (previous category name | new category name | category id)');
     }
 
+    let updatedCategory;
+
     state.categories = state.categories.map((cardData) => {
-      if (cardData.category === prevCategoryName) {
-        return {
+      if (cardData.id === categoryId) {
+        updatedCategory = {
           ...cardData,
           category: newCategoryName,
         };
+        return updatedCategory;
       }
 
       return cardData;
     });
 
-    return res.json(state.categories);
+    return res.json(updatedCategory);
   } catch (error) {
     return res.status(400).json(error);
   }
@@ -56,21 +56,21 @@ export const updateCategory = async (req: Request, res: Response) => {
 
 export const removeCategory = async (req: Request, res: Response) => {
   try {
-    const { category } = req.headers;
-    logger.debug(category);
-    if (!category) {
-      return res.status(400).json('Category is not exist');
+    const { category: categoryId } = req.headers;
+
+    if (!categoryId) {
+      return res.status(400).json('Not enough data: (category id)');
     }
 
-    const foundedCategoryIndex = state.categories.findIndex(
-      (cardData) => cardData.id.toString() === category,
+    const foundCategoryIndex = state.categories.findIndex(
+      (cardData) => cardData.id === categoryId,
     );
 
-    if (!foundedCategoryIndex && foundedCategoryIndex > 0) {
+    if (!foundCategoryIndex && foundCategoryIndex > 0) {
       return res.status(404).json('Category is not founded');
     }
 
-    state.categories.splice(foundedCategoryIndex, 1);
+    state.categories.splice(foundCategoryIndex, 1);
 
     return res.json('Category deleted');
   } catch (error) {

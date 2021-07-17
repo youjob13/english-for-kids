@@ -2,6 +2,11 @@ export type AuthFormValue = 'username' | 'password';
 
 export type LoginData = Record<AuthFormValue, string>;
 
+export interface ILoginResponse {
+  token?: string;
+  message?: string;
+}
+
 export interface RouteParams {
   category: string;
 }

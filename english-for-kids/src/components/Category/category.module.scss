@@ -79,6 +79,8 @@
 .cardWrapper {
   position: relative;
   height: 100%;
+  height: 250px; // TODO: верстка
+
 
   &Guessed {
     pointer-events: none;

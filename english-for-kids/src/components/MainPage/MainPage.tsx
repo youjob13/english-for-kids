@@ -20,14 +20,18 @@ const MainPage = (): ReactElement => {
     <>
       <Title>Train & Play</Title>
       <ul className={CONTENT_STYLES}>
-        {cardsData.map(({ category, cards }, index) => (
-          <CardWrapperOnMainPage
-            key={index.toString()}
-            category={category}
-            cards={cards}
-            gameMode={gameMode}
-          />
-        ))}
+        {cardsData.map(({ category, cards }, index) =>
+          !cards.length ? (
+            <div>Category is empty</div>
+          ) : (
+            <CardWrapperOnMainPage
+              key={index.toString()}
+              category={category}
+              cards={cards}
+              gameMode={gameMode}
+            />
+          )
+        )}
       </ul>
     </>
   );

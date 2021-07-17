@@ -84,9 +84,13 @@ const Category = (): ReactElement => {
     <>
       <Title>Category: {capitalizeWord(categoryPath)}</Title>
       <ul className={CATEGORY_FIELD_STYLES}>
-        {gameCards.map((card, index) => (
-          <CardWrapperInGame key={index.toString()} card={card} />
-        ))}
+        {!gameCards.length ? (
+          <div>Category is empty</div>
+        ) : (
+          gameCards.map((card, index) => (
+            <CardWrapperInGame key={index.toString()} card={card} />
+          ))
+        )}
       </ul>
       {gameMode === GameMode.READY_TO_GAME && (
         <button
