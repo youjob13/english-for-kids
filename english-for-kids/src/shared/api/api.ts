@@ -3,8 +3,6 @@ import { IWordStatistic } from '../../store/statisticSlice';
 import { LoginData } from '../interfaces/api-models';
 
 export const cardsAPI = {
-  baseURL: '../../cards.json',
-
   async getCards(): Promise<ICardsData[]> {
     try {
       const response = await fetch('http://localhost:5000/cards');
@@ -30,6 +28,20 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
+  async createCard(data: any, categoryId: string): Promise<any> {
+    try {
+      await fetch('http://localhost:5000/cards', {
+        method: 'POST',
+        headers: {
+          Authorization: localStorage.token,
+          Category: categoryId,
+        },
+        body: data,
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
   async updateCard(
     cardId: string,
     categoryId: string,
@@ -49,22 +61,20 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
-  async updateCategoryName(data: {
-    prevCategoryName: string;
-    newCategoryName: string;
-  }): Promise<any> {
-    // TODO: category API
+};
+
+export const categoryAPI = {
+  async createCategory(categoryName: string): Promise<any> {
     try {
       const response = await fetch('http://localhost:5000/category', {
-        method: 'PUT',
+        method: 'POST',
         headers: {
           authorization: localStorage.token,
           'Content-Type': 'application/json;charset=utf-8',
         },
-        body: JSON.stringify({ ...data }),
+        body: JSON.stringify({ categoryName }),
       });
-      const cards: ICardsData[] = await response.json();
-      return cards;
+      return await response.json();
     } catch (error) {
       throw new Error(error);
     }
@@ -79,6 +89,25 @@ export const cardsAPI = {
           'Content-Type': 'application/json;charset=utf-8',
         },
       });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+  async updateCategoryName(data: {
+    prevCategoryName: string;
+    newCategoryName: string;
+  }): Promise<any> {
+    try {
+      const response = await fetch('http://localhost:5000/category', {
+        method: 'PUT',
+        headers: {
+          authorization: localStorage.token,
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({ ...data }),
+      });
+      const cards: ICardsData[] = await response.json();
+      return cards;
     } catch (error) {
       throw new Error(error);
     }

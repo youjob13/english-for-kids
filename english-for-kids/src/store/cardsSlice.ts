@@ -1,6 +1,6 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
-import { cardsAPI } from '../shared/api/api';
+import { cardsAPI, categoryAPI } from '../shared/api/api';
 
 const cardsSlice = createSlice({
   name: 'cardsSlice',
@@ -53,6 +53,16 @@ export const getAllCards =
     }, 1000);
   };
 
+export const createCard =
+  (
+    data: any,
+    categoryId: string
+  ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    await cardsAPI.createCard(data, categoryId);
+    dispatch(getAllCards()); // TODO: пересчитывать чтобы не обновлять все карточки
+  };
+
 export const updateCard =
   (
     id: string,
@@ -74,19 +84,26 @@ export const removeCard =
     dispatch(getAllCards());
   };
 
+export const createCategory =
+  (categoryName: string): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  async (dispatch): Promise<void> => {
+    const category = await categoryAPI.createCategory(categoryName);
+    dispatch(setAllCards(category));
+  };
+
 export const updateCategory =
   (data: {
     prevCategoryName: string;
     newCategoryName: string;
   }): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const cardsData = await cardsAPI.updateCategoryName(data);
+    const cardsData = await categoryAPI.updateCategoryName(data);
     dispatch(setAllCards(cardsData));
   };
 
 export const removeCategory =
   (id: number): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    await cardsAPI.removeCategory(id);
+    await categoryAPI.removeCategory(id);
     dispatch(getAllCards());
   };

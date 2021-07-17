@@ -9,8 +9,8 @@ import { Path } from '../../../shared/globalVariables';
 import { LoginContext } from '../../../shared/context';
 import CardCategoryEdit from './CardCategoryEdit/CardCategoryEdit';
 import classes from './cardsField.module.scss';
-import NewCard from '../NewCard/NewCard';
 import Cards from './Cards/Cards';
+import NewCategory from './NewCategory/NewCategory';
 
 const CardsField = (): ReactElement => {
   const history = useHistory();
@@ -42,7 +42,7 @@ const CardsField = (): ReactElement => {
               cardsCount={cards.length}
             />
           ))}
-          <NewCard text="Create new Category" />
+          <NewCategory />
         </div>
       </Route>
     </Switch>

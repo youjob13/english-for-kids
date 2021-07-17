@@ -5,7 +5,7 @@ body {
 }
 
 .app-wrapper {
-    height: 100vh;
+    /*height: 100vh;*/
     max-width: 1920px;
     background-image: url("./assets/images/main-bg.jpg");
     background-size: cover;
@@ -14,13 +14,13 @@ body {
 }
 
 .app-content {
-    height: calc(100% - 224px);
+    /*height: calc(100% - 224px);*/
     padding: 1rem 14em;
 }
 
 @media (max-width: 1440px) {
     .app-content {
-        height: calc(100% - 164px);
+        /*height: calc(100% - 164px);*/
         padding: 1rem 6em;
     }
 

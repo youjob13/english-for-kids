@@ -3,7 +3,7 @@ const uniqid = require('uniqid');
 const state = {
   categories: [
     {
-      id: 0,
+      id: uniqid(),
       category: 'nature',
       cards: [
         {
@@ -65,7 +65,7 @@ const state = {
       ],
     },
     {
-      id: 1,
+      id: uniqid(),
       category: 'animals',
       cards: [
         {
@@ -135,7 +135,7 @@ const state = {
       ],
     },
     {
-      id: 2,
+      id: uniqid(),
       category: 'sport',
       cards: [
         {
@@ -205,7 +205,7 @@ const state = {
       ],
     },
     {
-      id: 3,
+      id: uniqid(),
       category: 'food',
       cards: [
         {
@@ -275,7 +275,7 @@ const state = {
       ],
     },
     {
-      id: 4,
+      id: uniqid(),
       category: 'gadgets',
       cards: [
         {
@@ -345,7 +345,7 @@ const state = {
       ],
     },
     {
-      id: 5,
+      id: uniqid(),
       category: 'space',
       cards: [
         {
@@ -415,7 +415,7 @@ const state = {
       ],
     },
     {
-      id: 6,
+      id: uniqid(),
       category: 'genres of music',
       cards: [
         {
@@ -485,7 +485,7 @@ const state = {
       ],
     },
     {
-      id: 7,
+      id: uniqid(),
       category: 'movies',
       cards: [
         {

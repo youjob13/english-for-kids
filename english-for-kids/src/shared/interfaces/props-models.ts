@@ -1,6 +1,24 @@
+import { FormEvent } from 'react';
 import { ICardItem } from './cards-models';
 import { IWordStatisticData } from './api-models';
 import { GameMode } from '../globalVariables';
+
+export interface INewCategoryForm {
+  flipCard: () => void;
+}
+
+export interface ICardForm {
+  submitForm: (formData: any) => void;
+  updateInputValue: (event: FormEvent) => void;
+  closeForm: () => void;
+  wordName: string;
+  translationName: string;
+}
+
+export interface IAddItem {
+  addItem: () => void;
+  text: string;
+}
 
 export interface ICardMainPageWrapperProps {
   cards: ICardItem[];

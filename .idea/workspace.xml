@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: delete category">
+    <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="feat: create category">
+      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/public/1626508132182.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/public/1626508147448.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/public/1626508147551.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/public/1626516670097.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/public/1626516670168.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardForm/CardForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/NewCard/NewCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/NewCategory/NewCategory.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/NewCategory/NewCategoryForm/NewCategoryForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/00a1ca5fc281d7cb49df7c407bb6b753" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/130684e672d6e829196b26a8b65c659d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/2f3259ca714d2573a2fa42e4da38678d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/3f94364dd85f4ad62ae8d3321e2dd493" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/5fe67b923821ce75fd76bf8b024d771e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/a67a809a2ad6147794962dfcc8a65254" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/c1934234a6d01dfe1b473b4732fa3bba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/e0ac472d1b603df75b7e794ed3fefd9e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/e26113618ef25f6378481465ecebb465" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/public/e98d4eeb7fc246b5f36c5e94f6c7d6cf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsRouter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/category/categoryControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/category/categoryControl.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/category/categoryRouter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/category/categoryRouter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/cards.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/storage/cards.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/CardBack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Card/CardBack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Cards/Cards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/Cards/Cards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/CardsField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/CardsField/CardsField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/NewCard/NewCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/AddItem/AddItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/NewCard/newCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/AddItem/newCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/Card/card.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/Card/card.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/interfaces/props-models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/stylesVariables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +37,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="SCSS File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -132,8 +144,10 @@
       <workItem from="1626360805956" duration="184000" />
       <workItem from="1626409090458" duration="398000" />
       <workItem from="1626409552651" duration="14000" />
-      <workItem from="1626426591097" duration="870000" />
-      <workItem from="1626451573681" duration="3527000" />
+      <workItem from="1626426591097" duration="3060000" />
+      <workItem from="1626506321754" duration="5235000" />
+      <workItem from="1626514666655" duration="172000" />
+      <workItem from="1626514886158" duration="2284000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>
@@ -363,7 +377,8 @@
     <MESSAGE value="feat: implement interceptor movement" />
     <MESSAGE value="feat: update category name, change cards storage structure" />
     <MESSAGE value="feat: delete category" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: delete category" />
+    <MESSAGE value="feat: create category" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: create category" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

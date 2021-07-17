@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import multer from 'multer';
-import { getCards, removeCard, updateCard } from './cardsControl';
+import {
+  createCard, getCards, removeCard, updateCard,
+} from './cardsControl';
 
 const {authMiddleware} = require('../middleware/authMiddleware');
 
@@ -38,6 +40,7 @@ const cardsRouter = Router();
 
 cardsRouter.get('/', getCards);
 cardsRouter.delete('/', authMiddleware, removeCard);
-cardsRouter.put('/', upload.any(), updateCard);
+cardsRouter.put('/', authMiddleware, upload.any(), updateCard);
+cardsRouter.post('/', authMiddleware, upload.any(), createCard);
 
 export default cardsRouter;
