@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import classes from './card.module.scss';
 import { ICardAdminFront } from '../../../../shared/interfaces/props-models';
 import { removeCard } from '../../../../store/cardsSlice';
+import playSound from '../../../../shared/helperFunctions/playSound';
+import hideTextPart from '../../../../shared/helperFunctions/hideTextPart';
+import speakerImage from '../../../../assets/images/speaker.png';
 
 const CardFront = ({
   categoryId,
@@ -13,6 +16,8 @@ const CardFront = ({
   imageSRC,
   toggleEditMode,
 }: ICardAdminFront): ReactElement => {
+  const audio = audioSRC.match(/\w+.mp3$/) || 'Text lost';
+
   const dispatch = useDispatch();
   const flipCardToBack = () => {
     toggleEditMode(true);
@@ -20,6 +25,10 @@ const CardFront = ({
 
   const onRemoveCardClick = () => {
     dispatch(removeCard(id, categoryId.toString()));
+  };
+
+  const onSoundPlayButtonClick = () => {
+    playSound(audioSRC);
   };
 
   return (
@@ -31,7 +40,19 @@ const CardFront = ({
         <h5>Translation:</h5> <p>{translate}</p>
       </span>
       <span className={classes.cardAdminContent}>
-        <h5>Sound file:</h5> <p>{audioSRC.match(/\w+.mp3$/)}</p>
+        <h5>Sound file:</h5>
+        <button
+          className={classes.cardAdminSoundButton}
+          onClick={onSoundPlayButtonClick}
+          type="button"
+        >
+          <img
+            className={classes.cardAdminSoundButtonImage}
+            src={speakerImage}
+            alt="speaker"
+          />
+        </button>
+        <p>{hideTextPart(audio.toString(), 6)}mp3</p>
       </span>
       <span className={classes.cardAdminContent}>
         <h5>Image:</h5>

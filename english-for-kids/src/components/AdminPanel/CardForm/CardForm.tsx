@@ -43,8 +43,9 @@ const CardForm = ({
           />
         </label>
         <strong>Sound:</strong>
-        <input name="sound" type="file" />
-        <strong>Image:</strong> <input name="image" type="file" />
+        <input name="sound" type="file" accept="audio/*" />
+        <strong>Image:</strong>
+        <input name="image" type="file" accept="image/*" />
         <div className={classes.cardAdminButtons}>
           <button
             onClick={closeForm}

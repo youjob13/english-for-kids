@@ -3,6 +3,28 @@
   border-radius: 0.4em;
   padding: 0.4em;
 
+  &SoundButton {
+    position: relative;
+    width: 1.7em;
+    height: 1.7em;
+    background-color: #000;
+    cursor: pointer;
+    padding: 0.15em;
+    transition: .2s;
+
+    &:hover {
+      background-color: #272828;
+    }
+
+    &:active {
+      background-color: #152121;
+    }
+
+    &Image {
+      width: 100%;
+    }
+  }
+
   &Image {
     width: 10em;
     height: 8em;
