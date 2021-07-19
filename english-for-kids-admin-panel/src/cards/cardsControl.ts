@@ -41,7 +41,7 @@ export const updateCard = async (req: Request, res: Response) => {
 
       if (image) {
         const cloudinaryImage = await cloudinary.uploader.upload(image);
-        cloudinaryImageURL = cloudinaryImage.url;
+        cloudinaryImageURL = cloudinaryImage.secure_url;
       }
 
       let sound = '';
@@ -55,7 +55,7 @@ export const updateCard = async (req: Request, res: Response) => {
         const cloudinaryAudio = await cloudinary.uploader.upload(sound, {
           resource_type: 'video',
         });
-        cloudinaryAudioURL = cloudinaryAudio.url;
+        cloudinaryAudioURL = cloudinaryAudio.secure_url;
       }
     }
 
@@ -128,8 +128,8 @@ export const createCard = async (req: Request, res: Response) => {
     const newCard = new Card({
       name: wordName,
       translate: wordTranslation,
-      imageSRC: cloudinaryImage.url,
-      audioSRC: cloudinaryAudio.url,
+      imageSRC: cloudinaryImage.secure_url,
+      audioSRC: cloudinaryAudio.secure_url,
     });
 
     newCard.save();

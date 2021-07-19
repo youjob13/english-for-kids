@@ -5,7 +5,7 @@ import { ILoginResponse, LoginData } from '../interfaces/api-models';
 export const cardsAPI = {
   async getCards(): Promise<ICardsData[]> {
     try {
-      const response = await fetch('http://localhost:5000/cards');
+      const response = await fetch('https://efk-serrver.herokuapp.com/cards');
       const cards: ICardsData[] = await response.json();
       return cards;
     } catch (error) {
@@ -14,7 +14,7 @@ export const cardsAPI = {
   },
   async removeCard(cardId: string, categoryId: string): Promise<void> {
     try {
-      await fetch('http://localhost:5000/cards', {
+      await fetch('https://efk-serrver.herokuapp.com/cards', {
         method: 'DELETE',
         headers: {
           authorization: localStorage.token,
@@ -29,7 +29,7 @@ export const cardsAPI = {
   },
   async createCard(data: FormData, categoryId: string): Promise<ICardItem> {
     try {
-      const response = await fetch('http://localhost:5000/cards', {
+      const response = await fetch('https://efk-serrver.herokuapp.com/cards', {
         method: 'POST',
         headers: {
           Authorization: localStorage.token,
@@ -51,7 +51,7 @@ export const cardsAPI = {
   ): Promise<ICardItem> {
     try {
       console.log(categoryId);
-      const response = await fetch('http://localhost:5000/cards', {
+      const response = await fetch('https://efk-serrver.herokuapp.com/cards', {
         method: 'PUT',
         headers: {
           Authorization: localStorage.token,
@@ -70,14 +70,17 @@ export const cardsAPI = {
 export const categoryAPI = {
   async createCategory(categoryName: string): Promise<ICardsData> {
     try {
-      const response = await fetch('http://localhost:5000/category', {
-        method: 'POST',
-        headers: {
-          authorization: localStorage.token,
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify({ categoryName }),
-      });
+      const response = await fetch(
+        'https://efk-serrver.herokuapp.com/category',
+        {
+          method: 'POST',
+          headers: {
+            authorization: localStorage.token,
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify({ categoryName }),
+        }
+      );
       return await response.json();
     } catch (error) {
       throw new Error(error);
@@ -85,7 +88,7 @@ export const categoryAPI = {
   },
   async removeCategory(id: string): Promise<void> {
     try {
-      await fetch('http://localhost:5000/category', {
+      await fetch('https://efk-serrver.herokuapp.com/category', {
         method: 'DELETE',
         headers: {
           authorization: localStorage.token,
@@ -103,15 +106,18 @@ export const categoryAPI = {
   ): Promise<ICardsData> {
     try {
       console.log(newCategoryName);
-      const response = await fetch('http://localhost:5000/category', {
-        method: 'PUT',
-        headers: {
-          Authorization: localStorage.token,
-          Category: categoryId,
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify({ newCategoryName }),
-      });
+      const response = await fetch(
+        'https://efk-serrver.herokuapp.com/category',
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: localStorage.token,
+            Category: categoryId,
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify({ newCategoryName }),
+        }
+      );
       return await response.json();
     } catch (error) {
       throw new Error(error);
@@ -122,13 +128,16 @@ export const categoryAPI = {
 export const authAPI = {
   async login(authFormData: LoginData): Promise<ILoginResponse> {
     try {
-      const response = await fetch('http://localhost:5000/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-        body: JSON.stringify(authFormData),
-      });
+      const response = await fetch(
+        'https://efk-serrver.herokuapp.com/auth/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+          },
+          body: JSON.stringify(authFormData),
+        }
+      );
       return await response.json();
     } catch (error) {
       throw new Error(error);
@@ -136,7 +145,7 @@ export const authAPI = {
   },
   async logout(): Promise<void> {
     try {
-      await fetch('http://localhost:5000/auth/logout', {
+      await fetch('https://efk-serrver.herokuapp.com/auth/logout', {
         method: 'DELETE',
         headers: {
           authorization: localStorage.token,

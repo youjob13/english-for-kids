@@ -13,7 +13,7 @@ const { secret } = require('./config');
 const logger = log4js.getLogger();
 logger.level = 'debug';
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const publicPath = path.resolve(__dirname, '../public');
 
 const app = express();
@@ -27,7 +27,6 @@ app.use(session({
 }));
 
 app.use('/', express.static(publicPath));
-
 app.use('/auth', authRouter);
 app.use('/cards', cardsRouter);
 app.use('/category', categoryRouter);
