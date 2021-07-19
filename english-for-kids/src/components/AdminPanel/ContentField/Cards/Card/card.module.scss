@@ -1,7 +1,9 @@
 .cardAdmin {
+  position: relative;
   border: 2px solid gray;
   border-radius: 0.4em;
   padding: 0.4em;
+  background-color: #f0f0f0;
 
   &SoundButton {
     position: relative;

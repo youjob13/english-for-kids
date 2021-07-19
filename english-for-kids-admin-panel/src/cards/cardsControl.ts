@@ -12,7 +12,7 @@ export const getCards = async (req: Request, res: Response) => {
     const categories = await Category.find().populate('cards');
 
     if (!categories) {
-      return res.status(404).json('Categories is not exist');
+      return res.status(404).json('ContentField is not exist');
     }
 
     return res.json(categories);

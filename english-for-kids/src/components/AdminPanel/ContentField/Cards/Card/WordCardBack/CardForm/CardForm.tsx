@@ -1,6 +1,6 @@
 import React, { FormEvent, ReactElement, useRef } from 'react';
-import classes from '../CardsField/Card/card.module.scss';
-import { ICardForm } from '../../../shared/interfaces/props-models';
+import classes from '../../card.module.scss';
+import { ICardForm } from '../../../../../../../shared/interfaces/props-models';
 
 const CardForm = ({
   submitForm,
@@ -20,7 +20,7 @@ const CardForm = ({
   };
 
   return (
-    <div className={classes.cardAdminBack}>
+    <div className={classes.cardAdmin}>
       <form ref={formRef} onSubmit={submitForms}>
         <label className={classes.cardAdminLabel} htmlFor="wordName">
           Word

@@ -7,6 +7,7 @@ import {
 import Title from '../../shared/baseComponents/Title/Title';
 import { CONTENT_STYLES } from '../../shared/stylesVariables';
 import CardWrapperOnMainPage from './CardWrapperOnMainPage/CardWrapperOnMainPage';
+import EmptyCategory from './EmptyCategory/EmptyCategory';
 
 const MainPage = (): ReactElement => {
   const { cardsData } = useSelector(
@@ -22,7 +23,7 @@ const MainPage = (): ReactElement => {
       <ul className={CONTENT_STYLES}>
         {cardsData.map(({ category, cards }, index) =>
           !cards.length ? (
-            <div>Category is empty</div>
+            <EmptyCategory />
           ) : (
             <CardWrapperOnMainPage
               key={index.toString()}

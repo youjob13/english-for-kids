@@ -1,8 +1,8 @@
 import React, { ReactElement, useState } from 'react';
 import classes from './card.module.scss';
-import { ICardItem } from '../../../../shared/interfaces/cards-models';
-import CardFront from './CardFront';
-import CardBack from './CardBack';
+import { ICardItem } from '../../../../../shared/interfaces/cards-models';
+import WordCardFront from './WordCardFront/WordCardFront';
+import WordCardBack from './WordCardBack/WordCardBack';
 
 interface ICardEditProps {
   card: ICardItem;
@@ -14,13 +14,13 @@ const Card = ({ categoryId, card }: ICardEditProps): ReactElement => {
   return (
     <div className={classes.cardAdmin}>
       {!isEditMode ? (
-        <CardFront
+        <WordCardFront
           categoryId={categoryId}
           toggleEditMode={toggleEditMode}
           {...card}
         />
       ) : (
-        <CardBack
+        <WordCardBack
           categoryId={categoryId}
           toggleEditMode={toggleEditMode}
           {...card}

@@ -1,12 +1,15 @@
 import { Request, Response } from 'express';
+import log4js from 'log4js';
 import User from '../models/User';
 import generateAccessToken from '../shared/helperFunctions/generateAccessToken';
 import sessions from '../storage/sessions';
 
+const logger = log4js.getLogger();
+
 export const logout = async (req: Request, res: Response) => {
   try {
     const { authorization } = req.headers;
-
+    logger.debug(authorization);
     if (!authorization) {
       return res.status(400).json({message: 'Token lost'});
     }

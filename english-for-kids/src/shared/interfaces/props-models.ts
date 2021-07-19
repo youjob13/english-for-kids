@@ -1,5 +1,5 @@
 import { FormEvent } from 'react';
-import { ICardItem } from './cards-models';
+import { ICardItem, ICardsData } from './cards-models';
 import { IWordStatisticData } from './api-models';
 import { GameMode } from '../globalVariables';
 
@@ -34,6 +34,10 @@ export interface ICardAdminFront {
   audioSRC: string;
   imageSRC: string;
   toggleEditMode: (isEditMode: boolean) => void;
+}
+
+export interface ICardsProps {
+  cardsData: ICardsData[];
 }
 
 export interface ICardWithEditProps {

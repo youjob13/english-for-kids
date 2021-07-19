@@ -1,9 +1,10 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import AddItem from '../../AddItem/AddItem';
-import CardForm from '../../CardForm/CardForm';
-import { createCard } from '../../../../store/cardsSlice';
-import checkFormFilling from '../../../../shared/helperFunctions/checkFormFilling';
+import AddItem from '../../../../AddItem/AddItem';
+import CardForm from '../WordCardBack/CardForm/CardForm';
+import { createCard } from '../../../../../../store/cardsSlice';
+import checkFormFilling from '../../../../../../shared/helperFunctions/checkFormFilling';
+import classes from '../../cards.module.scss';
 
 const NewCard = ({ categoryId }: any): ReactElement => {
   const dispatch = useDispatch();
@@ -44,7 +45,13 @@ const NewCard = ({ categoryId }: any): ReactElement => {
 
   return (
     <>
-      {isFormCompleted && <div>заполните форму полностью</div>}
+      {isFormCompleted && (
+        <div
+          className={`${classes.cardFormMessage} ${classes.cardFormMessageError}`}
+        >
+          Заполните форму полностью
+        </div>
+      )}
       {isCreatingNewCard ? (
         <CardForm
           submitForm={onCreateCardClick}

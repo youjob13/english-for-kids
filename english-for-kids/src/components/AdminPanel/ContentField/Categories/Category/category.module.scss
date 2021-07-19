@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #f0f0f0;
 
   &Remove {
     position: absolute;
@@ -43,7 +44,7 @@
     display: flex;
     gap: 2em;
     align-items: center;
-    margin-top: 1em;
+    margin: 1em auto 0;
   }
 
   &Button {
@@ -56,10 +57,18 @@
     font-weight: 700;
     color: #00bf82;
     text-transform: uppercase;
+    font-size: 1em;
+    text-decoration: none;
 
     &:hover {
       background-color: #a1d5bb;
     }
+  }
+
+  &Input {
+    font-size: 1em;
+    font-weight: 600;
+    color: gray;
   }
 }
 

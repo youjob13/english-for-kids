@@ -1,17 +1,21 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
-import classes from './cardCategoryEdit.module.scss';
-import capitalizeWord from '../../../../shared/helperFunctions/capitalizeWord';
-import { removeCategory, updateCategory } from '../../../../store/cardsSlice';
+import classes from './category.module.scss';
+import capitalizeWord from '../../../../../shared/helperFunctions/capitalizeWord';
+import {
+  removeCategory,
+  updateCategory,
+} from '../../../../../store/cardsSlice';
 
 const REMOVE_CATEGORY = classes.cardRemove;
-const CATEGORY = classes.card;
+export const CATEGORY = classes.card;
 const CATEGORY_TITLE = classes.cardTitle;
-const CATEGORY_BUTTON = classes.cardButton;
-const CATEGORY_BUTTONS_WRAPPER = classes.cardButtonsWrapper;
+export const CATEGORY_BUTTON = classes.cardButton;
+export const CATEGORY_BUTTONS_WRAPPER = classes.cardButtonsWrapper;
+export const CATEGORY_INPUT = classes.cardInput;
 
-const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
+const Category = ({ id, cardsCount, category }: any): ReactElement => {
   const dispatch = useDispatch();
   const [isCategoryNameUpdate, toggleUpdateCategoryNameMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category);
@@ -27,8 +31,8 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
   };
 
   const createNewCategoryName = () => {
-    dispatch(updateCategory(id, categoryName));
     switchUpdatedCategoryNameMode();
+    dispatch(updateCategory(id, categoryName));
   };
 
   const removeSelectedCategory = () => {
@@ -37,10 +41,8 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
 
   return (
     <div className={CATEGORY}>
-      <div
-        role="button"
-        tabIndex={0}
-        onKeyPress={() => console.log('Category deleted')}
+      <button
+        type="button"
         onClick={removeSelectedCategory}
         className={REMOVE_CATEGORY}
       />
@@ -91,4 +93,4 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
   );
 };
 
-export default CardCategoryEdit;
+export default Category;

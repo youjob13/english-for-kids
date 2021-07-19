@@ -1,10 +1,10 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { ICardWithEditProps } from '../../../../shared/interfaces/props-models';
-import { updateCard } from '../../../../store/cardsSlice';
-import CardForm from '../../CardForm/CardForm';
+import { ICardWithEditProps } from '../../../../../../shared/interfaces/props-models';
+import { updateCard } from '../../../../../../store/cardsSlice';
+import CardForm from './CardForm/CardForm';
 
-const CardBack = ({
+const WordCardBack = ({
   categoryId,
   name,
   translate,
@@ -44,4 +44,4 @@ const CardBack = ({
   );
 };
 
-export default CardBack;
+export default WordCardBack;

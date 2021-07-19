@@ -7,12 +7,10 @@ import {
 } from '../../../shared/interfaces/store-models';
 import { Path } from '../../../shared/globalVariables';
 import { LoginContext } from '../../../shared/context';
-import CardCategoryEdit from './CardCategoryEdit/CardCategoryEdit';
-import classes from './cardsField.module.scss';
 import Cards from './Cards/Cards';
-import NewCategory from './NewCategory/NewCategory';
+import Categories from './Categories/Categories';
 
-const CardsField = (): ReactElement => {
+const ContentField = (): ReactElement => {
   const history = useHistory();
   const { toggleLoginPopup } = useContext(LoginContext);
   const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
@@ -33,20 +31,10 @@ const CardsField = (): ReactElement => {
         <Cards cardsData={cardsData} />
       </Route>
       <Route path="/admin-panel/categories/">
-        <div className={classes.cardsField}>
-          {cardsData.map(({ category, cards, _id }) => (
-            <CardCategoryEdit
-              key={_id}
-              id={_id}
-              category={category}
-              cardsCount={cards ? cards.length : 0}
-            />
-          ))}
-          <NewCategory />
-        </div>
+        <Categories cardsData={cardsData} />
       </Route>
     </Switch>
   );
 };
 
-export default CardsField;
+export default ContentField;

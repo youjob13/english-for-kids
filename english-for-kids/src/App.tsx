@@ -19,9 +19,8 @@ import { Path } from './shared/globalVariables';
 import withLazyLoading from './shared/hoc/withLazyLoading';
 import LoginPopup from './components/Popup/LoginPopup/LoginPopup';
 import { LoginContext } from './shared/context';
-import CardsField from './components/AdminPanel/CardsField/CardsField';
+import ContentField from './components/AdminPanel/ContentField/ContentField';
 import AdminHeader from './components/AdminPanel/Header/Header';
-import { authAPI } from './shared/api/api';
 import { checkAuthorize } from './store/authSlice';
 
 const Statistics = lazy(() => import('./components/Statistics/Statistics'));
@@ -46,8 +45,6 @@ const App = (): ReactElement => {
   useEffect(() => {
     if (!localStorage.token) {
       history.push(Path.MAIN); // TODO: move out
-      authAPI.logout();
-      localStorage.removeItem('token');
     }
   }, [isAuth]);
 
@@ -71,7 +68,7 @@ const App = (): ReactElement => {
             ) : (
               <Switch>
                 <Route path={Path.MAIN} component={MainPage} />
-                <Route path={Path.ADMIN_PAGE} component={CardsField} />
+                <Route path={Path.ADMIN_PAGE} component={ContentField} />
                 <Route path={Path.CATEGORY} component={Category} />
                 <Route
                   path={Path.STATISTICS}

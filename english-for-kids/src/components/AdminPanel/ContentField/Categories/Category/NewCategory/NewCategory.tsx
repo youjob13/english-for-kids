@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from 'react';
-import AddItem from '../../AddItem/AddItem';
+import AddItem from '../../../../AddItem/AddItem';
 import NewCategoryForm from './NewCategoryForm/NewCategoryForm';
 
 const NewCategory = (): ReactElement => {

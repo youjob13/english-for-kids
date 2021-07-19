@@ -79,6 +79,7 @@ export const STAR_STYLES = classesCategory.star;
 
 export const TRAIN_STYLES = `${classesCard.card} ${classesCard.isStartedGame}`;
 export const PLAY_STYLES = `${classesCard.card} ${classesCard}`;
+export const CARD_STYLES = classesCard.card;
 export const CARD_IMAGE_STYLES = classesCard.cardImage;
 export const CARD_NAME_STYLES = classesCard.cardName;
 

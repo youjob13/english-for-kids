@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
-import classes from './card.module.scss';
-import { ICardAdminFront } from '../../../../shared/interfaces/props-models';
-import { removeCard } from '../../../../store/cardsSlice';
-import playSound from '../../../../shared/helperFunctions/playSound';
-import hideTextPart from '../../../../shared/helperFunctions/hideTextPart';
-import speakerImage from '../../../../assets/images/speaker.png';
+import classes from '../card.module.scss';
+import { ICardAdminFront } from '../../../../../../shared/interfaces/props-models';
+import { removeCard } from '../../../../../../store/cardsSlice';
+import playSound from '../../../../../../shared/helperFunctions/playSound';
+import hideTextPart from '../../../../../../shared/helperFunctions/hideTextPart';
+import speakerImage from '../../../../../../assets/images/speaker.png';
 
-const CardFront = ({
+const WordCardFront = ({
   categoryId,
   _id,
   name,
@@ -80,4 +80,4 @@ const CardFront = ({
   );
 };
 
-export default CardFront;
+export default WordCardFront;
