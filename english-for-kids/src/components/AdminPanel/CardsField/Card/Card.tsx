@@ -8,7 +8,6 @@ interface ICardEditProps {
   card: ICardItem;
   categoryId: number;
 }
-
 const Card = ({ categoryId, card }: ICardEditProps): ReactElement => {
   const [isEditMode, toggleEditMode] = useState(false);
 

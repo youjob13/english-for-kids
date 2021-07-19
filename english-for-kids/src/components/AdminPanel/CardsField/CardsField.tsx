@@ -34,12 +34,12 @@ const CardsField = (): ReactElement => {
       </Route>
       <Route path="/admin-panel/categories/">
         <div className={classes.cardsField}>
-          {cardsData.map(({ category, cards, id }) => (
+          {cardsData.map(({ category, cards, _id }) => (
             <CardCategoryEdit
-              key={id}
-              id={id}
+              key={_id}
+              id={_id}
               category={category}
-              cardsCount={cards.length}
+              cardsCount={cards ? cards.length : 0}
             />
           ))}
           <NewCategory />

@@ -1,14 +1,21 @@
 import { Request, Response } from 'express';
-import state from '../storage/cards';
+import log4js from 'log4js';
+import Category from '../models/Category';
+import Card from '../models/Card';
 
-const uniqid = require('uniqid');
+const cloudinary = require('../../utils/cloudinary');
+
+const logger = log4js.getLogger();
 
 export const getCards = async (req: Request, res: Response) => {
   try {
-    if (!state.categories) {
-      return res.status(404).json('Cards is not founded');
+    const categories = await Category.find().populate('cards');
+
+    if (!categories) {
+      return res.status(404).json('Categories is not exist');
     }
-    return res.json(state.categories);
+
+    return res.json(categories);
   } catch (error) {
     return res.status(400).json(error);
   }
@@ -16,55 +23,57 @@ export const getCards = async (req: Request, res: Response) => {
 
 export const updateCard = async (req: Request, res: Response) => {
   try {
-    const { card: cardId, category: categoryId } = req.headers;
+    const { card: cardId } = req.headers;
     const { wordName, wordTranslation } = req.body;
 
-    let image = '';
-    let sound = '';
+    let cloudinaryImageURL = '';
+    let cloudinaryAudioURL = '';
 
     if (req.files && req.files.length && Array.isArray(req.files)) {
       const [fileOne, fileTwo] = req.files;
 
-      image = fileOne.fieldname === 'image'
-        ? `http://localhost:5000/${fileOne.filename}`
-        : `http://localhost:5000/${fileTwo.filename}`;
+      let image = '';
+      if (fileOne.fieldname === 'image') {
+        image = fileOne.path;
+      } else {
+        image = fileTwo ? fileTwo.path : '';
+      }
 
-      if (fileTwo) {
-        sound = fileOne.fieldname === 'sound'
-          ? `http://localhost:5000/${fileOne.filename}`
-          : `http://localhost:5000/${fileTwo.filename}`;
+      if (image) {
+        const cloudinaryImage = await cloudinary.uploader.upload(image);
+        cloudinaryImageURL = cloudinaryImage.url;
+      }
+
+      let sound = '';
+      if (fileOne.fieldname === 'sound') {
+        sound = fileOne.path;
+      } else {
+        sound = fileTwo ? fileTwo.path : '';
+      }
+
+      if (sound) {
+        const cloudinaryAudio = await cloudinary.uploader.upload(sound, {
+          resource_type: 'video',
+        });
+        cloudinaryAudioURL = cloudinaryAudio.url;
       }
     }
 
-    let updatedCard;
+    const card = await Card.findById(cardId);
+    logger.debug(cloudinaryImageURL);
 
-    state.categories = state.categories.map(
-      (cardsData) => {
-        if (cardsData.id === categoryId) {
-          return {
-            ...cardsData,
-            cards: cardsData.cards.map((card) => {
-              if (card.id === cardId) {
-                updatedCard = {
-                  ...card,
-                  name: wordName || card.name,
-                  translate: wordTranslation || card.translate,
-                  imageSRC: image || card.imageSRC,
-                  audioSRC: sound || card.audioSRC,
-                };
-                return updatedCard;
-              }
-
-              return card;
-            }),
-          };
-        }
-        return cardsData;
+    const updatedCard = await Card.findByIdAndUpdate({_id: cardId},
+      {
+        name: wordName || card.name,
+        translate: wordTranslation || card.translate,
+        imageSRC: cloudinaryImageURL || card.imageSRC,
+        audioSRC: cloudinaryAudioURL || card.audioSRC,
       },
-    );
+      {new: true});
 
     return res.json(updatedCard);
   } catch (error) {
+    logger.debug(error);
     return res.status(400).json(error);
   }
 };
@@ -73,21 +82,11 @@ export const removeCard = async (req: Request, res: Response) => {
   try {
     const { category: categoryId, card: cardId } = req.headers;
 
-    if (!categoryId || !cardId) {
+    if (!cardId || !categoryId) {
       return res.status(400).json('Not enough data');
     }
 
-    state.categories = state.categories.map(
-      (cardsData) => {
-        if (cardsData.id === categoryId) {
-          return {
-            ...cardsData,
-            cards: cardsData.cards.filter((card) => card.id !== cardId),
-          };
-        }
-        return cardsData;
-      },
-    );
+    await Card.findByIdAndDelete(cardId);
 
     return res.json('Card deleted');
   } catch (error) {
@@ -111,32 +110,33 @@ export const createCard = async (req: Request, res: Response) => {
       const [fileOne, fileTwo] = req.files;
 
       image = fileOne.fieldname === 'image'
-        ? `http://localhost:5000/${fileOne.filename}`
-        : `http://localhost:5000/${fileTwo.filename}`;
+        ? fileOne.path
+        : fileTwo.path;
 
-      if (fileTwo) { // TODO: убрать костыль
+      if (fileTwo) {
         sound = fileOne.fieldname === 'sound'
-          ? `http://localhost:5000/${fileOne.filename}`
-          : `http://localhost:5000/${fileTwo.filename}`;
+          ? fileOne.path
+          : fileTwo.path;
       }
     }
 
-    const newCard = {
+    const cloudinaryImage = await cloudinary.uploader.upload(image);
+    const cloudinaryAudio = await cloudinary.uploader.upload(sound, {
+      resource_type: 'video',
+    });
+
+    const newCard = new Card({
       name: wordName,
       translate: wordTranslation,
-      imageSRC: image,
-      audioSRC: sound,
-      id: uniqid(),
-    };
+      imageSRC: cloudinaryImage.url,
+      audioSRC: cloudinaryAudio.url,
+    });
 
-    state.categories = state.categories.map(
-      (cardsData) => {
-        if (cardsData.id === categoryId) {
-          cardsData.cards.push(newCard);
-        }
-        return cardsData;
-      },
-    );
+    newCard.save();
+
+    const category = await Category.findById(categoryId);
+    category.cards.push(newCard);
+    category.save();
 
     return res.json(newCard);
   } catch (error) {

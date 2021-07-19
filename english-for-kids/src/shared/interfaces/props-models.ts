@@ -28,7 +28,7 @@ export interface ICardMainPageWrapperProps {
 
 export interface ICardAdminFront {
   categoryId: number;
-  id: string;
+  _id: string;
   name: string;
   translate: string;
   audioSRC: string;
@@ -38,7 +38,7 @@ export interface ICardAdminFront {
 
 export interface ICardWithEditProps {
   categoryId: number;
-  id: string;
+  _id: string;
   name: string;
   audioSRC: string;
   translate: string;

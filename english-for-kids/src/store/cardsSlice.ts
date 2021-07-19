@@ -34,7 +34,7 @@ const cardsSlice = createSlice({
       return {
         ...state,
         cardsData: state.cardsData.map((cardData) => {
-          if (cardData.id === categoryId) {
+          if (cardData._id === categoryId) {
             return {
               ...cardData,
               cards: [...cardData.cards, newCard],
@@ -50,11 +50,11 @@ const cardsSlice = createSlice({
       return {
         ...state,
         cardsData: state.cardsData.map((cardData) => {
-          if (cardData.id === categoryId) {
+          if (cardData._id === categoryId) {
             return {
               ...cardData,
               cards: cardData.cards.map((card) => {
-                if (card.id === cardId) {
+                if (card._id === cardId) {
                   return {
                     ...updatedCard,
                   };
@@ -73,10 +73,10 @@ const cardsSlice = createSlice({
       return {
         ...state,
         cardsData: state.cardsData.map((cardData) => {
-          if (cardData.id === categoryId) {
+          if (cardData._id === categoryId) {
             return {
               ...cardData,
-              cards: cardData.cards.filter((card) => card.id !== cardId),
+              cards: cardData.cards.filter((card) => card._id !== cardId),
             };
           }
           return cardData;
@@ -97,7 +97,7 @@ const cardsSlice = createSlice({
       return {
         ...state,
         cardsData: state.cardsData.map((cardData) =>
-          cardData.id === categoryId ? updatedCategory : cardData
+          cardData._id === categoryId ? updatedCategory : cardData
         ),
       };
     },
@@ -107,7 +107,7 @@ const cardsSlice = createSlice({
       return {
         ...state,
         cardsData: state.cardsData.filter(
-          (cardData) => cardData.id !== categoryId
+          (cardData) => cardData._id !== categoryId
         ),
       };
     },
@@ -183,15 +183,12 @@ export const createCategory =
 export const updateCategory =
   (
     categoryId: string,
-    data: {
-      prevCategoryName: string;
-      newCategoryName: string;
-    }
+    newCategoryName: string
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
     const updatedCategory = await categoryAPI.updateCategoryName(
       categoryId,
-      data
+      newCategoryName
     );
     dispatch(setUpdatedCategory({ categoryId, updatedCategory }));
   };

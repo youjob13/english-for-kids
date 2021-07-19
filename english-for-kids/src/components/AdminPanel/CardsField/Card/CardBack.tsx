@@ -9,7 +9,7 @@ const CardBack = ({
   name,
   translate,
   toggleEditMode,
-  id,
+  _id,
 }: ICardWithEditProps): ReactElement => {
   const dispatch = useDispatch();
   const [updatedWordName, updateWordName] = useState(name);
@@ -30,7 +30,7 @@ const CardBack = ({
 
   const onUpdateCardClick = async (formData: any) => {
     toggleEditMode(false);
-    dispatch(updateCard(id, categoryId.toString(), formData));
+    dispatch(updateCard(_id, categoryId.toString(), formData));
   };
 
   return (

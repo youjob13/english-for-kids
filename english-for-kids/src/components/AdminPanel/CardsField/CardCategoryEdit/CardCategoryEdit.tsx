@@ -27,11 +27,7 @@ const CardCategoryEdit = ({ id, cardsCount, category }: any): ReactElement => {
   };
 
   const createNewCategoryName = () => {
-    const data = {
-      prevCategoryName: category,
-      newCategoryName: categoryName,
-    };
-    dispatch(updateCategory(id, data));
+    dispatch(updateCategory(id, categoryName));
     switchUpdatedCategoryNameMode();
   };
 

@@ -1,11 +1,11 @@
 export interface ICardsData {
-  id: number;
+  _id: number;
   category: string;
   cards: ICardItem[];
 }
 
 export interface ICardItem {
-  id: string;
+  _id: string;
   name: string;
   imageSRC: string;
   translate: string;

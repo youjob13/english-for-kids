@@ -9,14 +9,14 @@ import speakerImage from '../../../../assets/images/speaker.png';
 
 const CardFront = ({
   categoryId,
-  id,
+  _id,
   name,
   translate,
   audioSRC,
   imageSRC,
   toggleEditMode,
 }: ICardAdminFront): ReactElement => {
-  const audio = audioSRC.match(/\w+.mp3$/) || 'Text lost';
+  const audio = (audioSRC && audioSRC.match(/\w+.mp3$/)) || 'Text lost';
 
   const dispatch = useDispatch();
   const flipCardToBack = () => {
@@ -24,7 +24,7 @@ const CardFront = ({
   };
 
   const onRemoveCardClick = () => {
-    dispatch(removeCard(id, categoryId.toString()));
+    dispatch(removeCard(_id, categoryId.toString()));
   };
 
   const onSoundPlayButtonClick = () => {
