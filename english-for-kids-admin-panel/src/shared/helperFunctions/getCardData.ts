@@ -1,4 +1,8 @@
+import log4js from 'log4js';
+
 const cloudinary = require('../../utils/cloudinary');
+
+const logger = log4js.getLogger();
 
 const getCardData = async (files: any): Promise<[string, string]> => {
   if (files.length && Array.isArray(files)) {
@@ -15,6 +19,8 @@ const getCardData = async (files: any): Promise<[string, string]> => {
     const cloudinaryAudio = sound ? await cloudinary.uploader.upload(sound.path, {
       resource_type: 'video',
     }) : '';
+
+    logger.debug(cloudinaryAudio ? cloudinaryAudio.secure_url : '');
 
     return [cloudinaryImage ? cloudinaryImage.secure_url : '', cloudinaryAudio ? cloudinaryAudio.secure_url : ''];
   }

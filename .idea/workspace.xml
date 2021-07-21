@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59a36275-e65c-43c8-b93c-86f58d390bb8" name="Default Changelist" comment="refactor: change url to secure_url cloudinary">
-      <change afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/shared/helperFunctions/getCardData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/cards/cardsControl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/category/categoryControl.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/category/categoryControl.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/utils/cloudinary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/utils/cloudinary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/ContentField/Cards/Cards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/components/AdminPanel/ContentField/Cards/Cards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids-admin-panel/src/shared/helperFunctions/getCardData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids-admin-panel/src/shared/helperFunctions/getCardData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/api/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/store/cardsSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/playSound.ts" beforeDir="false" afterPath="$PROJECT_DIR$/english-for-kids/src/shared/helperFunctions/playSound.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +56,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
-    <property name="ts.external.directory.path" value="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\Данил\WebstormProjects\youjob13-JSFE2021Q1\english-for-kids-admin-panel\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -145,7 +141,10 @@
       <workItem from="1626788258567" duration="393000" />
       <workItem from="1626788662573" duration="3084000" />
       <workItem from="1626845348215" duration="4001000" />
-      <workItem from="1626856948068" duration="4726000" />
+      <workItem from="1626856921117" duration="3668000" />
+      <workItem from="1626862107576" duration="680000" />
+      <workItem from="1626864570957" duration="339000" />
+      <workItem from="1626864936274" duration="139000" />
     </task>
     <task id="LOCAL-00001" summary="feat: new deploy version EFK">
       <created>1625597400286</created>

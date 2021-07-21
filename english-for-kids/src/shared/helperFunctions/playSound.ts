@@ -1,6 +1,8 @@
 const playAudio = (currentQuestion: string): void => {
   if (!currentQuestion.trim()) return;
-  const audio = new Audio(process.env.PUBLIC_URL + currentQuestion);
+  console.log(process.env.PUBLIC_URL);
+  console.log(currentQuestion);
+  const audio = new Audio(currentQuestion);
   audio.play();
 };
 
