@@ -13,19 +13,19 @@ const Cards = ({ cardsData }: ICardsProps): ReactElement => {
   return (
     <>
       <h2>Category: {capitalizeWord(categoryName)}</h2>
-      <div className={classes.cards}>
+      <>
         {cardsData.map(
           ({ cards, category, _id }) =>
             category === categoryName && (
-              <>
+              <div key={_id} className={classes.cards}>
                 {cards.map((card) => (
-                  <Card categoryId={_id} card={card} />
+                  <Card key={_id} categoryId={_id} card={card} />
                 ))}
                 <NewCard categoryId={_id} />
-              </>
+              </div>
             )
         )}
-      </div>
+      </>
     </>
   );
 };

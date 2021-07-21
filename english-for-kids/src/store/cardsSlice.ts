@@ -97,7 +97,9 @@ const cardsSlice = createSlice({
       return {
         ...state,
         cardsData: state.cardsData.map((cardData) =>
-          cardData._id === categoryId ? updatedCategory : cardData
+          cardData._id === categoryId
+            ? { ...cardData, category: updatedCategory.category }
+            : cardData
         ),
       };
     },
@@ -158,8 +160,7 @@ export const updateCard =
     data: FormData
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    console.log({ id, categoryId, data });
-    const updatedCard = await cardsAPI.updateCard(id, categoryId, data);
+    const updatedCard = await cardsAPI.updateCard(id, data);
     dispatch(setUpdatedCard({ cardId: id, categoryId, updatedCard }));
   };
 
@@ -169,7 +170,7 @@ export const removeCard =
     categoryId: string
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    await cardsAPI.removeCard(id, categoryId);
+    await cardsAPI.removeCard(id);
     dispatch(setCardsWithoutDeletedCard({ categoryId, cardId: id }));
   };
 

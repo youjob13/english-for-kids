@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
-import log4js from 'log4js';
 import Category from '../models/Category';
-
-const logger = log4js.getLogger();
+import Card from '../models/Card';
 
 export const createCategory = async (req: Request, res: Response) => {
   try {
@@ -27,7 +25,7 @@ export const createCategory = async (req: Request, res: Response) => {
 
 export const updateCategory = async (req: Request, res: Response) => {
   try {
-    const {category: categoryId} = req.headers;
+    const { id: categoryId } = req.query;
     const { newCategoryName } = req.body;
 
     if (!newCategoryName || !categoryId) {
@@ -35,10 +33,13 @@ export const updateCategory = async (req: Request, res: Response) => {
     }
 
     const updatedCategory = await Category.findByIdAndUpdate(
-      {_id: categoryId},
-      {category: newCategoryName},
-      {new: true},
-    );
+      { _id: categoryId },
+      {
+        category: newCategoryName,
+      }, {
+        new: true,
+      },
+    ).populate('cards');
 
     return res.json(updatedCategory);
   } catch (error) {
@@ -48,13 +49,18 @@ export const updateCategory = async (req: Request, res: Response) => {
 
 export const removeCategory = async (req: Request, res: Response) => {
   try {
-    const { category: categoryId } = req.headers;
+    const { id: categoryId } = req.query;
 
     if (!categoryId) {
       return res.status(400).json('Not enough data: (category id)');
     }
 
-    await Category.findByIdAndDelete(categoryId); // TODO: удалять карточки текущей категории из db
+    const category = await Category.findById(categoryId);
+    const deleteCardsRequests = category.cards.map((cardId: string) => Card.findByIdAndDelete(cardId));
+
+    await Promise.all(deleteCardsRequests);
+
+    await Category.findByIdAndDelete(categoryId);
 
     return res.json('Category deleted');
   } catch (error) {

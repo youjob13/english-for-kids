@@ -1,11 +1,7 @@
 import { Request, Response } from 'express';
-import log4js from 'log4js';
 import Category from '../models/Category';
 import Card from '../models/Card';
-
-const cloudinary = require('../../utils/cloudinary');
-
-const logger = log4js.getLogger();
+import getCardData from '../shared/helperFunctions/getCardData';
 
 export const getCards = async (req: Request, res: Response) => {
   try {
@@ -23,67 +19,34 @@ export const getCards = async (req: Request, res: Response) => {
 
 export const updateCard = async (req: Request, res: Response) => {
   try {
-    const { card: cardId } = req.headers;
+    const { id: cardId } = req.query;
     const { wordName, wordTranslation } = req.body;
 
-    let cloudinaryImageURL = '';
-    let cloudinaryAudioURL = '';
-
-    if (req.files && req.files.length && Array.isArray(req.files)) {
-      const [fileOne, fileTwo] = req.files;
-
-      let image = '';
-      if (fileOne.fieldname === 'image') {
-        image = fileOne.path;
-      } else {
-        image = fileTwo ? fileTwo.path : '';
-      }
-
-      if (image) {
-        const cloudinaryImage = await cloudinary.uploader.upload(image);
-        cloudinaryImageURL = cloudinaryImage.secure_url;
-      }
-
-      let sound = '';
-      if (fileOne.fieldname === 'sound') {
-        sound = fileOne.path;
-      } else {
-        sound = fileTwo ? fileTwo.path : '';
-      }
-
-      if (sound) {
-        const cloudinaryAudio = await cloudinary.uploader.upload(sound, {
-          resource_type: 'video',
-        });
-        cloudinaryAudioURL = cloudinaryAudio.secure_url;
-      }
-    }
+    const [imageSRC, soundSRC] = await getCardData(req.files); // TODO: rename
 
     const card = await Card.findById(cardId);
-    logger.debug(cloudinaryImageURL);
 
-    const updatedCard = await Card.findByIdAndUpdate({_id: cardId},
+    const updatedCard = await Card.findByIdAndUpdate({ _id: cardId },
       {
         name: wordName || card.name,
         translate: wordTranslation || card.translate,
-        imageSRC: cloudinaryImageURL || card.imageSRC,
-        audioSRC: cloudinaryAudioURL || card.audioSRC,
+        imageSRC: imageSRC || card.imageSRC,
+        audioSRC: soundSRC || card.audioSRC,
       },
-      {new: true});
+      { new: true });
 
     return res.json(updatedCard);
   } catch (error) {
-    logger.debug(error);
     return res.status(400).json(error);
   }
 };
 
 export const removeCard = async (req: Request, res: Response) => {
   try {
-    const { category: categoryId, card: cardId } = req.headers;
+    const { id: cardId } = req.query;
 
-    if (!cardId || !categoryId) {
-      return res.status(400).json('Not enough data');
+    if (!cardId) {
+      return res.status(400).json('Not enough data: (card id)');
     }
 
     await Card.findByIdAndDelete(cardId);
@@ -97,46 +60,27 @@ export const removeCard = async (req: Request, res: Response) => {
 export const createCard = async (req: Request, res: Response) => {
   try {
     const { wordName, wordTranslation } = req.body;
-    const { category: categoryId } = req.headers;
+    const { id: categoryId } = req.query;
 
     if (!categoryId) {
       return res.status(400).json('Not enough data: (category id)');
     }
 
-    let image = '';
-    let sound = '';
-
-    if (req.files && req.files.length && Array.isArray(req.files)) {
-      const [fileOne, fileTwo] = req.files;
-
-      image = fileOne.fieldname === 'image'
-        ? fileOne.path
-        : fileTwo.path;
-
-      if (fileTwo) {
-        sound = fileOne.fieldname === 'sound'
-          ? fileOne.path
-          : fileTwo.path;
-      }
-    }
-
-    const cloudinaryImage = await cloudinary.uploader.upload(image);
-    const cloudinaryAudio = await cloudinary.uploader.upload(sound, {
-      resource_type: 'video',
-    });
+    const [imageSRC, soundSRC] = await getCardData(req.files);
 
     const newCard = new Card({
       name: wordName,
       translate: wordTranslation,
-      imageSRC: cloudinaryImage.secure_url,
-      audioSRC: cloudinaryAudio.secure_url,
+      imageSRC,
+      audioSRC: soundSRC,
     });
-
     newCard.save();
 
-    const category = await Category.findById(categoryId);
-    category.cards.push(newCard);
-    category.save();
+    await Category.findByIdAndUpdate({_id: categoryId}, {
+      $push: {
+        cards: newCard,
+      },
+    }, {new: true});
 
     return res.json(newCard);
   } catch (error) {
