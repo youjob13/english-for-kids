@@ -71,6 +71,8 @@ const LoginPopup = (): ReactElement => {
       />
       <form className={LOGIN_POPUP_FORM}>
         <legend className={LOGIN_POPUP_TITLE}>Login</legend>
+        <p>Логин - admin</p>
+        <p>Пароль - admin</p>
         <input
           onInput={updateAuthForm}
           className={LOGIN_POPUP_INPUT}
