@@ -11,6 +11,8 @@ export interface ICardsState {
   cardsData: ICardsData[];
   isFetching: boolean;
   playingList: string[];
+  currentPageCount: number;
+  totalPageCount: number;
 }
 
 export interface IStatisticState {

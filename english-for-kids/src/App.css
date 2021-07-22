@@ -5,22 +5,21 @@ body {
 }
 
 .app-wrapper {
-    height: 100vh;
     max-width: 1920px;
     background-image: url("./assets/images/main-bg.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 .app-content {
-    min-height: calc(100% - 224px);
+    min-height: calc(100vh - 224px);
     padding: 1rem 14em;
 }
 
 @media (max-width: 1440px) {
     .app-content {
-        min-height: calc(100% - 164px);
+        min-height: calc(100vh - 164px);
         padding: 1rem 6em;
     }
 

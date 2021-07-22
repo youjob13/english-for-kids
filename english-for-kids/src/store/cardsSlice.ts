@@ -8,6 +8,8 @@ const cardsSlice = createSlice({
     cardsData: [],
     playingList: [],
     isFetching: true,
+    currentPageCount: 1,
+    totalPageCount: 1,
   } as ICardsState,
   reducers: {
     updatePlayingList: (state: ICardsState, action) => ({
@@ -24,10 +26,14 @@ const cardsSlice = createSlice({
         playingList: [],
       };
     },
-    setAllCards: (state: ICardsState, action) => ({
-      ...state,
-      cardsData: [...action.payload],
-    }),
+    setAllCards: (state: ICardsState, action) => {
+      const { cards, totalPageCount } = action.payload;
+      return {
+        ...state,
+        cardsData: [...state.cardsData, ...cards],
+        totalPageCount,
+      };
+    },
     setNewCard: (state: ICardsState, action) => {
       const { categoryId, newCard } = action.payload;
 
@@ -113,6 +119,10 @@ const cardsSlice = createSlice({
         ),
       };
     },
+    nullifyCards: (state: ICardsState) => ({
+      ...state,
+      cardsData: [],
+    }),
   },
 });
 
@@ -129,17 +139,20 @@ export const {
   setNewCategory,
   setUpdatedCategory,
   setCategoryWithoutDeletedCategory,
+  nullifyCards,
 } = cardsSlice.actions;
 
 export const getAllCards =
-  (): ThunkAction<void, ICardsState, unknown, AnyAction> =>
+  (
+    _limit?: number,
+    _page?: number
+  ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    dispatch(toggleIsFetching(false));
+    // dispatch(toggleIsFetching(false));
 
-    const cardsData = await cardsAPI.getCards();
-
-    dispatch(toggleIsFetching(true));
-    dispatch(setAllCards(cardsData));
+    const { cards, totalPageCount } = await cardsAPI.getCards(_limit, _page);
+    // dispatch(toggleIsFetching(true));
+    dispatch(setAllCards({ cards, totalPageCount }));
   };
 
 // TODO: realise preloader

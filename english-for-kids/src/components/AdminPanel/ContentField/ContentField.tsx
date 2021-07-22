@@ -1,29 +1,14 @@
-import React, { ReactElement, useContext, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
-import { Route, Switch, useHistory } from 'react-router-dom';
-import {
-  AuthReducerType,
-  CardsReducerType,
-} from '../../../shared/interfaces/store-models';
-import { Path } from '../../../shared/globalVariables';
-import { LoginContext } from '../../../shared/context';
+import { Route, Switch } from 'react-router-dom';
+import { CardsReducerType } from '../../../shared/interfaces/store-models';
 import Cards from './Cards/Cards';
 import Categories from './Categories/Categories';
 
 const ContentField = (): ReactElement => {
-  const history = useHistory();
-  const { toggleLoginPopup } = useContext(LoginContext);
-  const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
   const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
-
-  useEffect(() => {
-    if (!isAuth) {
-      history.push(Path.MAIN);
-      toggleLoginPopup();
-    }
-  }, []);
 
   return (
     <Switch>

@@ -1,19 +1,33 @@
 import { Request, Response } from 'express';
+import log4js from 'log4js';
 import Category from '../models/Category';
 import Card from '../models/Card';
 import getCardData from '../shared/helperFunctions/getCardData';
 
+const logger = log4js.getLogger();
+
 export const getCards = async (req: Request, res: Response) => {
   try {
-    const categories = await Category.find().populate('cards');
+    const { limit } = req.query;
 
-    if (!categories) {
-      return res.status(404).json('ContentField is not exist');
+    const [categories, categoryCount] = await Promise.all([
+      Category.find().populate('cards').limit(limit).skip(req.skip)
+        .lean()
+        .exec(),
+      Category.countDocuments(),
+    ]);
+
+    if (!categoryCount) {
+      return res.status(404).json('There is no existing category');
     }
 
-    return res.json(categories);
+    return res.json({
+      object: 'list',
+      totalPageCount: categoryCount,
+      data: categories,
+    });
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(400).json({message: error});
   }
 };
 

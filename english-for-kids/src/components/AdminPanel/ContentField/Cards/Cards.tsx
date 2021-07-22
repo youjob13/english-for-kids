@@ -15,11 +15,11 @@ const Cards = ({ cardsData }: ICardsProps): ReactElement => {
       <h2>Category: {capitalizeWord(categoryName)}</h2>
       <>
         {cardsData.map(
-          ({ cards, category, _id }) =>
+          ({ cards, category, _id }, indexCategory) =>
             category === categoryName && (
-              <div key={_id} className={classes.cards}>
+              <div key={indexCategory.toString()} className={classes.cards}>
                 {cards.map((card) => (
-                  <Card key={_id} categoryId={_id} card={card} />
+                  <Card key={card._id} categoryId={_id} card={card} />
                 ))}
                 <NewCard categoryId={_id} />
               </div>

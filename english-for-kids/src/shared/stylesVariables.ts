@@ -1,18 +1,21 @@
-import classesMainPage from '../components/MainPage/mainPage.module.scss';
-import classesCategory from '../components/Category/category.module.scss';
-import classesCard from '../components/Card/card.module.scss';
-import classesEndGamePopup from '../components/Popup/EndGamePopup/endGamePopup.module.scss';
-import classesNavigation from '../components/Header/Navigation/navigation.module.scss';
-import classesFooter from '../components/Footer/footer.module.scss';
-import classesStatistics from '../components/Statistics/statistics.module.scss';
+import classesMainPage from '../components/Game/MainPage/mainPage.module.scss';
+import classesCategory from '../components/Game/Category/category.module.scss';
+import classesCard from '../components/Game/Card/card.module.scss';
+import classesEndGamePopup from '../components/Game/Popup/EndGamePopup/endGamePopup.module.scss';
+import classesNavigation from '../components/Game/Header/Navigation/navigation.module.scss';
+import classesFooter from '../components/Game/Footer/footer.module.scss';
+import classesStatistics from '../components/Game/Statistics/statistics.module.scss';
 import classesMenuBtn from './baseComponents/MenuButton/menuButton.module.scss';
-import classesAnswers from '../components/Category/AnswerList/answers.module.scss';
-import classesHeader from '../components/Header/header.module.scss';
+import classesAnswers from '../components/Game/Category/AnswerList/answers.module.scss';
+import classesHeader from '../components/Game/Header/header.module.scss';
 import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
 import classesTitle from './baseComponents/Title/title.module.scss';
-import classesLoginButton from '../components/Header/LoginButton/loginButton.module.scss';
-import classesLoginPopup from '../components/Popup/LoginPopup/loginPopup.module.scss';
+import classesLoginButton from '../components/Game/Header/LoginButton/loginButton.module.scss';
+import classesLoginPopup from '../components/Game/Popup/LoginPopup/loginPopup.module.scss';
 import classesNewCard from '../components/AdminPanel/AddItem/newCard.module.scss';
+import classesLogout from '../components/AdminPanel/Header/header.module.scss';
+
+export const LOGOUT = classesLogout.logout;
 
 export const NEW_CARD = classesNewCard.newCard;
 export const NEW_CARD_TITLE = classesNewCard.newCardTitle;

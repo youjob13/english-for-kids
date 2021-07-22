@@ -20,8 +20,6 @@ const getCardData = async (files: any): Promise<[string, string]> => {
       resource_type: 'video',
     }) : '';
 
-    logger.debug(cloudinaryAudio ? cloudinaryAudio.secure_url : '');
-
     return [cloudinaryImage ? cloudinaryImage.secure_url : '', cloudinaryAudio ? cloudinaryAudio.secure_url : ''];
   }
 

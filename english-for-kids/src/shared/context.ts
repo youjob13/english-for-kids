@@ -8,9 +8,9 @@ const MenuContext = createContext({
 });
 
 export const LoginContext = createContext({
-  isOpenLoginPopup: true,
+  isOpenLoginPopup: false,
   toggleLoginPopup: () => {
-    console.log('menu mode is switched');
+    console.log('login popup mode is switched');
   },
 });
 
