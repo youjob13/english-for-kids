@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import classes from '../card.module.scss';
 import { ICardAdminFront } from '../../../../../../shared/interfaces/props-models';
 import { removeCard } from '../../../../../../store/cardsSlice';
 import playSound from '../../../../../../shared/helperFunctions/playSound';
 import hideTextPart from '../../../../../../shared/helperFunctions/hideTextPart';
 import speakerImage from '../../../../../../assets/images/speaker.png';
+import { logoutUser } from '../../../../../../store/authSlice';
 
 const WordCardFront = ({
   categoryId,
@@ -16,6 +18,7 @@ const WordCardFront = ({
   imageSRC,
   toggleEditMode,
 }: ICardAdminFront): ReactElement => {
+  const history = useHistory();
   const audio = (audioSRC && audioSRC.match(/\w+.mp3$/)) || 'Text lost';
 
   const dispatch = useDispatch();
@@ -24,7 +27,12 @@ const WordCardFront = ({
   };
 
   const onRemoveCardClick = () => {
-    dispatch(removeCard(_id, categoryId.toString()));
+    if (localStorage.token) {
+      dispatch(removeCard(_id, categoryId.toString()));
+    } else {
+      history.push('main');
+      dispatch(logoutUser());
+    }
   };
 
   const onSoundPlayButtonClick = () => {

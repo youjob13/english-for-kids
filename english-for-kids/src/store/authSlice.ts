@@ -49,5 +49,6 @@ export const logoutUser =
   (): ThunkAction<void, IAuthState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
     localStorage.removeItem('token');
+    await authAPI.logout();
     dispatch(toggleAuthMode());
   };

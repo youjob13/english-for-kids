@@ -13,6 +13,7 @@ export interface ICardsState {
   playingList: string[];
   currentPageCount: number;
   totalPageCount: number;
+  isForbiddenError: boolean;
 }
 
 export interface IStatisticState {

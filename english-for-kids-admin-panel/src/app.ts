@@ -4,6 +4,8 @@ import cors from 'cors';
 import session from 'express-session';
 import log4js from 'log4js';
 import path from 'path';
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger/swagger.json';
 import authRouter from './auth/authRouter';
 import cardsRouter from './cards/cardsRouter';
 import categoryRouter from './category/categoryRouter';
@@ -30,6 +32,8 @@ app.use('/', express.static(publicPath));
 app.use('/auth', authRouter);
 app.use('/cards', cardsRouter);
 app.use('/category', categoryRouter);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const start = async () => {
   try {

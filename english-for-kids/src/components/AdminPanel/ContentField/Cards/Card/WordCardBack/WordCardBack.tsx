@@ -1,8 +1,10 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { ICardWithEditProps } from '../../../../../../shared/interfaces/props-models';
 import { updateCard } from '../../../../../../store/cardsSlice';
 import CardForm from './CardForm/CardForm';
+import { logoutUser } from '../../../../../../store/authSlice';
 
 const WordCardBack = ({
   categoryId,
@@ -12,6 +14,7 @@ const WordCardBack = ({
   _id,
 }: ICardWithEditProps): ReactElement => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [updatedWordName, updateWordName] = useState(name);
   const [updatedWordTranslation, updateWordTranslation] = useState(translate);
 
@@ -29,8 +32,13 @@ const WordCardBack = ({
   };
 
   const onUpdateCardClick = async (formData: any) => {
-    toggleEditMode(false);
-    dispatch(updateCard(_id, categoryId.toString(), formData));
+    if (localStorage.token) {
+      toggleEditMode(false);
+      dispatch(updateCard(_id, categoryId.toString(), formData));
+    } else {
+      history.push('main');
+      dispatch(logoutUser());
+    }
   };
 
   return (

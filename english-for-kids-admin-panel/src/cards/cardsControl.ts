@@ -17,10 +17,6 @@ export const getCards = async (req: Request, res: Response) => {
       Category.countDocuments(),
     ]);
 
-    if (!categoryCount) {
-      return res.status(404).json('There is no existing category');
-    }
-
     return res.json({
       object: 'list',
       totalPageCount: categoryCount,
@@ -77,7 +73,7 @@ export const createCard = async (req: Request, res: Response) => {
     const { id: categoryId } = req.query;
 
     if (!categoryId) {
-      return res.status(400).json('Not enough data: (category id)');
+      return res.status(400).json({message: 'Not enough data: (category id)'});
     }
 
     const [imageSRC, soundSRC] = await getCardData(req.files);

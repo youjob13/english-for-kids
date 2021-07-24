@@ -7,7 +7,7 @@ export const createCategory = async (req: Request, res: Response) => {
     const { categoryName } = req.body;
 
     if (!categoryName) {
-      return res.status(400).json('Not enough data: (category name)');
+      return res.status(400).json({message: 'Not enough data: (category name)'});
     }
 
     const newCategory = new Category({

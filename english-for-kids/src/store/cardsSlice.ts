@@ -10,6 +10,7 @@ const cardsSlice = createSlice({
     isFetching: true,
     currentPageCount: 1,
     totalPageCount: 1,
+    isForbiddenError: false,
   } as ICardsState,
   reducers: {
     updatePlayingList: (state: ICardsState, action) => ({

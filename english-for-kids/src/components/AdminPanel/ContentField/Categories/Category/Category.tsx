@@ -1,12 +1,13 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import classes from './category.module.scss';
 import capitalizeWord from '../../../../../shared/helperFunctions/capitalizeWord';
 import {
   removeCategory,
   updateCategory,
 } from '../../../../../store/cardsSlice';
+import { logoutUser } from '../../../../../store/authSlice';
 
 const REMOVE_CATEGORY = classes.cardRemove;
 export const CATEGORY = classes.card;
@@ -16,6 +17,7 @@ export const CATEGORY_BUTTONS_WRAPPER = classes.cardButtonsWrapper;
 export const CATEGORY_INPUT = classes.cardInput;
 
 const Category = ({ id, cardsCount, category }: any): ReactElement => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [isCategoryNameUpdate, toggleUpdateCategoryNameMode] = useState(false);
   const [categoryName, setCategoryName] = useState(category);
@@ -31,12 +33,22 @@ const Category = ({ id, cardsCount, category }: any): ReactElement => {
   };
 
   const createNewCategoryName = () => {
-    switchUpdatedCategoryNameMode();
-    dispatch(updateCategory(id, categoryName));
+    if (localStorage.token) {
+      switchUpdatedCategoryNameMode();
+      dispatch(updateCategory(id, categoryName));
+    } else {
+      history.push('main');
+      dispatch(logoutUser());
+    }
   };
 
   const removeSelectedCategory = () => {
-    dispatch(removeCategory(id));
+    if (localStorage.token) {
+      dispatch(removeCategory(id));
+    } else {
+      history.push('main');
+      dispatch(logoutUser());
+    }
   };
 
   return (
