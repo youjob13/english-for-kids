@@ -113,19 +113,10 @@ export const getStatistics =
 export const resetStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
-    const statisticsData = { ...localStorage };
-    Object.keys(statisticsData).forEach((key) => {
-      localStorage.removeItem(key);
-    });
-    // TODO: убрать костыль
-
-    dispatch(setStatisticsData([]));
-
+    // dispatch(toggleIsFetching(true));
+    await statisticsAPI.resetWordsStatistics();
     // dispatch(toggleIsFetching(false));
-    // setTimeout(() => {
-    //   dispatch(toggleIsFetching(true));
-    //   dispatch(setStatisticsData([]));
-    // }, 1000);
+    dispatch(setWordsStatistics([]));
   };
 
 const defineDifficultWords = (words: any): any => {

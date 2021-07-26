@@ -7,8 +7,6 @@ const logger = getLogger();
 export const getStatistics = async (req: Request, res: Response) => {
   try {
     const wordsStatistics = await WordStatistics.find();
-    logger.debug('wordsStatistics', wordsStatistics);
-
     return res.json(wordsStatistics);
   } catch (error) {
     return res.status(400).json(error);
@@ -36,5 +34,22 @@ export const updateStatistics = async (req: Request, res: Response) => {
     return res.json(a);
   } catch (error) {
     return res.status(400).json(error);
+  }
+};
+
+export const resetStatistics = async (req: Request, res: Response) => {
+  try {
+    const wordsStatistics = await WordStatistics.find(); // TODO: ask
+    const resetWordsStatisticsRequests = wordsStatistics.map((wordStatistics: any) => wordStatistics.update({
+      train: 0,
+      hit: 0,
+      wrong: 0,
+    }));
+
+    await Promise.all(resetWordsStatisticsRequests);
+
+    return res.json('Statistics reset');
+  } catch (error) {
+    return res.status(400).json({message: error});
   }
 };

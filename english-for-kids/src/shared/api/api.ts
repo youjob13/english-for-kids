@@ -187,6 +187,18 @@ export const statisticsAPI = {
       throw new Error(error);
     }
   },
+  async resetWordsStatistics(): Promise<void> {
+    try {
+      await fetch('http://localhost:5000/statistics', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };
 
 export const getWordStatistic = (wordName: string): IWordStatistic => {
