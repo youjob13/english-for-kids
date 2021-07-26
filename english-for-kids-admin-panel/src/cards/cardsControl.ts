@@ -57,12 +57,13 @@ export const removeCard = async (req: Request, res: Response) => {
     const { id: cardId } = req.query;
 
     if (!cardId) {
-      return res.status(400).json('Not enough data: (card id)');
+      return res.status(400).json('Not enough data: (word id)');
     }
 
     await Card.findByIdAndDelete(cardId);
+    await WordStatistics.findByIdAndDelete(cardId);
 
-    return res.json('Card deleted');
+    return res.json('Word deleted');
   } catch (error) {
     return res.status(400).json(error);
   }
