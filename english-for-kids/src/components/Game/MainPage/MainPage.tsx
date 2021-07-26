@@ -21,7 +21,7 @@ const MainPage = (): ReactElement => {
 
   useEffect(() => {
     dispatch(nullifyCards());
-  }, []);
+  }, []); // TODO: реализовать через сервер
 
   const lastCategoryElem = usePaginate();
 

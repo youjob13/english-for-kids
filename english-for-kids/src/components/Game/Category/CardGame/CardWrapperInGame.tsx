@@ -14,19 +14,21 @@ import {
   CARD_WRAPPER_STYLES,
 } from '../../../../shared/stylesVariables';
 import playAudio from '../../../../shared/helperFunctions/playSound';
-import { GameMode } from '../../../../shared/globalVariables';
-import { updateTrainWordStatistics } from '../../../../shared/helperFunctions/updateStatistics';
+import { GameMode, StatisticsParam } from '../../../../shared/globalVariables';
 import checkIsGuessedCard from '../../../../shared/helperFunctions/checkIsGuessedCard';
+import compareAnswerAndQuestion from '../../../../shared/helperFunctions/compareTwoObjects';
+import { updateStatistics } from '../../../../store/statisticSlice';
 
 const CardWrapperInGame = ({
   card,
+  currentQuestion,
 }: ICardCategoryWrapperProps): ReactElement => {
   const dispatch = useDispatch();
   const { gameMode, currentGameCardList } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
   const [isShowTranslation, setIsShowTranslation] = useState(false);
-  const { name, translate, imageSRC, audioSRC } = card;
+  const { _id, name, translate, imageSRC, audioSRC } = card;
   const isGuessedCard = checkIsGuessedCard(currentGameCardList, card);
 
   const onShowTranslationClick = (): void => {
@@ -36,12 +38,19 @@ const CardWrapperInGame = ({
 
   const onCardPlayAudioClick = (): void => {
     if (gameMode === GameMode.READY_TO_GAME) return;
+    console.log(12);
     playAudio(audioSRC);
-    updateTrainWordStatistics(card.name);
+    dispatch(updateStatistics(_id, StatisticsParam.TRAIN));
+    // updateTrainWordStatistics(card.name);
   };
 
   const onCardClick = (): void => {
-    dispatch(setGivenAnswer(card));
+    const answerResult = compareAnswerAndQuestion(card, currentQuestion);
+    dispatch(setGivenAnswer(card, answerResult));
+    const statisticsParam = answerResult
+      ? StatisticsParam.HIT
+      : StatisticsParam.WRONG;
+    dispatch(updateStatistics(card._id, statisticsParam));
   };
 
   return (

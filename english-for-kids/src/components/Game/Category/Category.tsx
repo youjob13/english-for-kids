@@ -88,7 +88,11 @@ const Category = (): ReactElement => {
           <div>Category is empty</div>
         ) : (
           gameCards.map((card, index) => (
-            <CardWrapperInGame key={index.toString()} card={card} />
+            <CardWrapperInGame
+              key={index.toString()}
+              card={card}
+              currentQuestion={currentQuestion}
+            />
           ))
         )}
       </ul>

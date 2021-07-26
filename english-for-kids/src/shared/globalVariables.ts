@@ -1,5 +1,11 @@
 import { ITableHeaderData, SortingTypes } from './interfaces/api-models';
 
+export enum StatisticsParam {
+  TRAIN = 'train',
+  WRONG = 'wrong',
+  HIT = 'hit',
+}
+
 const tableHeaders: ITableHeaderData[] = [
   {
     type: SortingTypes.CATEGORY,

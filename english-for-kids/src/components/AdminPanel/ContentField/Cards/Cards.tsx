@@ -18,8 +18,8 @@ const Cards = ({ cardsData }: ICardsProps): ReactElement => {
           ({ cards, category, _id }, indexCategory) =>
             category === categoryName && (
               <div key={indexCategory.toString()} className={classes.cards}>
-                {cards.map((card) => (
-                  <Card key={card._id} categoryId={_id} card={card} />
+                {cards.map((card, index) => (
+                  <Card key={index.toString()} categoryId={_id} card={card} />
                 ))}
                 <NewCard categoryId={_id} />
               </div>

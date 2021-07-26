@@ -7,10 +7,8 @@ import {
 } from '../shared/interfaces/store-models';
 import { ICardItem } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helperFunctions/arraySort';
-import compareAnswerAndQuestion from '../shared/helperFunctions/compareTwoObjects';
 import playAudio from '../shared/helperFunctions/playSound';
 import { GameMode } from '../shared/globalVariables';
-import { updateWordStatistics } from '../shared/helperFunctions/updateStatistics';
 
 const gameSlice = createSlice({
   name: 'gameSlice',
@@ -100,14 +98,15 @@ export const prepareGameProcess =
   };
 
 export const setGivenAnswer =
-  (answer: ICardItem): ThunkActionType<StateType<GameReducerType>> =>
+  (
+    answer: ICardItem,
+    answerResult: boolean
+  ): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch, getState): Promise<void> => {
-    const question = getState().gameReducer.currentQuestion;
-    const answerResult = compareAnswerAndQuestion(answer, question);
+    // const question = getState().gameReducer.currentQuestion;
 
     if (answerResult) {
       dispatch(setRightAnswer(answer));
-      updateWordStatistics(question!.name, true);
 
       playAudio('/assets/success.mp3'); // TODO: think about it
       dispatch(setAudioQuestion());
@@ -126,7 +125,7 @@ export const setGivenAnswer =
     }
 
     dispatch(setFalseAnswer());
-    updateWordStatistics(question!.name, false);
+    // updateWordStatistics(question!.name, false);
 
     playAudio('/assets/error.mp3');
   };

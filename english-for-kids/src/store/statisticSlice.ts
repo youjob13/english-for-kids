@@ -6,15 +6,32 @@ import {
   ThunkActionType,
 } from '../shared/interfaces/store-models';
 import calcPercentByCondition from '../shared/helperFunctions/calcPercentByCondition';
+import { statisticsAPI } from '../shared/api/api';
+import { StatisticsParam } from '../shared/globalVariables';
 
 const statisticSlice = createSlice({
   name: 'statisticSlice',
   initialState: {
+    wordsStatistics: [],
     statisticsData: [],
     isFetching: true,
     difficultWords: [],
   } as IStatisticState,
   reducers: {
+    setUpdatedWord: (state: IStatisticState, action) => {
+      const { wordId, wordStatistics } = action.payload;
+
+      return {
+        ...state,
+        wordsStatistics: state.wordsStatistics.map((word) =>
+          word._id === wordId ? { ...wordStatistics } : word
+        ),
+      };
+    },
+    setWordsStatistics: (state: IStatisticState, action) => ({
+      ...state,
+      wordsStatistics: action.payload,
+    }),
     setDifficultWords: (state: IStatisticState, action) => ({
       ...state,
       difficultWords: [...action.payload],
@@ -32,26 +49,65 @@ const statisticSlice = createSlice({
 
 export default statisticSlice.reducer;
 
-export const { setDifficultWords, toggleIsFetching, setStatisticsData } =
-  statisticSlice.actions;
+export const {
+  setDifficultWords,
+  toggleIsFetching,
+  setStatisticsData,
+  setUpdatedWord,
+  setWordsStatistics,
+} = statisticSlice.actions;
 
-export interface IWordStatistic {
-  trainCounter?: number;
-  askedCounter?: number;
-  trueAnswerCounter?: number;
-  falseAnswerCounter?: number;
-}
+export const updateStatistics =
+  (
+    wordId: string,
+    statisticsParam: StatisticsParam
+  ): ThunkActionType<StateType<StatisticReducerType>> =>
+  async (dispatch): Promise<void> => {
+    let wordStatistics = {
+      // TODO: костыль
+      hit: false,
+      wrong: false,
+      train: false,
+    };
+
+    if (!wordStatistics) {
+      return;
+    }
+
+    if (statisticsParam === StatisticsParam.TRAIN) {
+      // TODO: спросить про паттерн стратегия
+      wordStatistics = {
+        ...wordStatistics,
+        train: true,
+      };
+    } else if (statisticsParam === StatisticsParam.HIT) {
+      wordStatistics = {
+        ...wordStatistics,
+        hit: true,
+      };
+    } else if (statisticsParam === StatisticsParam.WRONG) {
+      wordStatistics = {
+        ...wordStatistics,
+        wrong: true,
+      };
+    }
+
+    const updatedWord = await statisticsAPI.updateStatistics(
+      wordId,
+      wordStatistics
+    );
+
+    dispatch(setUpdatedWord(updatedWord));
+  };
 
 export const getStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
-    const statisticsData = { ...localStorage };
+    // const statisticsData = { ...localStorage };
+    // dispatch(setStatisticsData(statisticsData));
 
-    dispatch(toggleIsFetching(false));
-    setTimeout(() => {
-      dispatch(toggleIsFetching(true));
-      dispatch(setStatisticsData(statisticsData));
-    }, 1000);
+    const wordsStatistics = await statisticsAPI.getWordsStatistics();
+    dispatch(setWordsStatistics(wordsStatistics));
   };
 
 export const resetStatistics =

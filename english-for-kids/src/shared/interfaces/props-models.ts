@@ -94,6 +94,7 @@ export interface INavigationItemProps {
 
 export interface ICardCategoryWrapperProps {
   card: ICardItem;
+  currentQuestion: ICardItem | null;
 }
 
 export interface ISwitchProps {

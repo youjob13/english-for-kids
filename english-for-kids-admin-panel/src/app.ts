@@ -9,6 +9,7 @@ import * as swaggerDocument from './swagger/swagger.json';
 import authRouter from './auth/authRouter';
 import cardsRouter from './cards/cardsRouter';
 import categoryRouter from './category/categoryRouter';
+import statisticsRouter from './statistics/statisticsRouter';
 
 const { secret } = require('./config');
 
@@ -32,6 +33,7 @@ app.use('/', express.static(publicPath));
 app.use('/auth', authRouter);
 app.use('/cards', cardsRouter);
 app.use('/category', categoryRouter);
+app.use('/statistics', statisticsRouter);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

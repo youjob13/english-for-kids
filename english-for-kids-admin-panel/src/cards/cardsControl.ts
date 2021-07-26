@@ -3,6 +3,7 @@ import log4js from 'log4js';
 import Category from '../models/Category';
 import Card from '../models/Card';
 import getCardData from '../shared/helperFunctions/getCardData';
+import WordStatistics from '../models/WordStatistics';
 
 const logger = log4js.getLogger();
 
@@ -78,13 +79,21 @@ export const createCard = async (req: Request, res: Response) => {
 
     const [imageSRC, soundSRC] = await getCardData(req.files);
 
-    const newCard = new Card({
+    const newCard = await new Card({
       name: wordName,
       translate: wordTranslation,
       imageSRC,
       audioSRC: soundSRC,
     });
     newCard.save();
+
+    const newWordStatistics = await new WordStatistics({
+      _id: newCard._id,
+      train: 0,
+      hit: 0,
+      wrong: 0,
+    });
+    newWordStatistics.save();
 
     await Category.findByIdAndUpdate({_id: categoryId}, {
       $push: {

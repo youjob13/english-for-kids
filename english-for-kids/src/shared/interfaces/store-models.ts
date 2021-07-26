@@ -2,6 +2,7 @@ import { AnyAction, CombinedState, ThunkAction } from '@reduxjs/toolkit';
 import { ThunkDispatch } from 'redux-thunk';
 import { ICardItem, ICardsData } from './cards-models';
 import { GameMode } from '../globalVariables';
+import { IWordStatistic } from './api-models';
 
 export interface IAuthState {
   isAuth: boolean;
@@ -17,6 +18,7 @@ export interface ICardsState {
 }
 
 export interface IStatisticState {
+  wordsStatistics: IWordStatistic[];
   statisticsData: any;
   isFetching: boolean;
   difficultWords: any;

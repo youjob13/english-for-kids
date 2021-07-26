@@ -1,7 +1,5 @@
 import React, { ReactElement, useState } from 'react';
 import { useSelector } from 'react-redux';
-import TableCell from './TableCell/TableCell';
-import { IWordStatisticData } from '../../../../shared/interfaces/api-models';
 import {
   CardsReducerType,
   StatisticReducerType,
@@ -14,14 +12,15 @@ import {
   TABLE_TITLE_STYLES,
 } from '../../../../shared/stylesVariables';
 import tableHeaders from '../../../../shared/globalVariables';
-import sortTable from '../../../../shared/helperFunctions/sortTable';
 import calcPercentByCondition from '../../../../shared/helperFunctions/calcPercentByCondition';
+import TableCell from './TableCell/TableCell';
+import sortTable from '../../../../shared/helperFunctions/sortTable';
 
 const StatisticsTable = (): ReactElement => {
   const { cardsData } = useSelector(
     (state: CardsReducerType) => state.cardsReducer
   );
-  const { statisticsData } = useSelector(
+  const { wordsStatistics } = useSelector(
     (state: StatisticReducerType) => state.statisticReducer
   );
   const [sortingType, setSortingType] = useState({
@@ -29,29 +28,25 @@ const StatisticsTable = (): ReactElement => {
     sortFromTop: false,
   });
 
-  const statisticsParams: IWordStatisticData[] = cardsData
+  const statisticsParams = cardsData
     .map(({ category, cards }) => {
-      return cards.map((card) => {
-        const parsedData =
-          statisticsData[card.name] && JSON.parse(statisticsData[card.name]);
-        return {
-          wordName: card.name,
-          translation: card.translate,
-          train: (parsedData && parsedData.trainCounter) || 0,
-          hit: (parsedData && parsedData.trueAnswerCounter) || 0,
-          wrong: (parsedData && parsedData.falseAnswerCounter) || 0,
-          correctAnswersPercent:
-            (parsedData &&
-              calcPercentByCondition(
-                parsedData.falseAnswerCounter || 0,
-                parsedData.trueAnswerCounter || 0
-              )) ||
-            0,
-          category,
-        };
-      });
+      return cards.map(({ name, translate }) => ({
+        wordName: name,
+        translation: translate,
+        category,
+      }));
     })
-    .flat();
+    .flat()
+    .map((statistics, index) => ({
+      ...statistics,
+      hit: wordsStatistics[index].hit || 0,
+      train: wordsStatistics[index].train || 0,
+      wrong: wordsStatistics[index].wrong || 0,
+      correctAnswersPercent: calcPercentByCondition(
+        wordsStatistics[index].hit || 0,
+        wordsStatistics[index].wrong || 0
+      ),
+    }));
 
   const selectSorting = (sortingTypeName: string) => {
     setSortingType({

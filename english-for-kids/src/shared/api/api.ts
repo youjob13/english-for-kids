@@ -1,6 +1,9 @@
 import { ICardItem, ICardsData } from '../interfaces/cards-models';
-import { IWordStatistic } from '../../store/statisticSlice';
-import { ILoginResponse, LoginData } from '../interfaces/api-models';
+import {
+  ILoginResponse,
+  IWordStatistic,
+  LoginData,
+} from '../interfaces/api-models';
 
 export const cardsAPI = {
   async getCards(
@@ -145,6 +148,41 @@ export const authAPI = {
           'Content-Type': 'application/json;charset=utf-8',
         },
       });
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+};
+
+export const statisticsAPI = {
+  async updateStatistics(
+    wordId: string,
+    wordStatistics: any
+  ): Promise<IWordStatistic> {
+    try {
+      const response = await fetch('http://localhost:5000/statistics', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({ wordId, wordStatistics }),
+      });
+      return await response.json();
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+  async getWordsStatistics(): Promise<IWordStatistic[]> {
+    try {
+      const response = await fetch('http://localhost:5000/statistics', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+      });
+
+      const wordsStatistics = await response.json();
+      return wordsStatistics;
     } catch (error) {
       throw new Error(error);
     }

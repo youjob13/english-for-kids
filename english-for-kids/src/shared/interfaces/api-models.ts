@@ -7,6 +7,13 @@ export interface ILoginResponse {
   message?: string;
 }
 
+export interface IWordStatistic {
+  _id: string;
+  train?: number;
+  hit?: number;
+  wrong?: number;
+}
+
 export interface RouteParams {
   category: string;
 }

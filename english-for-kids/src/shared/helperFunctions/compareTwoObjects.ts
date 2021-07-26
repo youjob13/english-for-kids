@@ -4,7 +4,7 @@ const compareAnswerAndQuestion = (
   answer: ICardItem,
   question: ICardItem | null
 ): boolean => {
-  return JSON.stringify(answer) === JSON.stringify(question);
+  return answer._id === question?._id;
 };
 
 export default compareAnswerAndQuestion;
