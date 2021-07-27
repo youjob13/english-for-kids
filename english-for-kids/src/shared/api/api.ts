@@ -1,4 +1,4 @@
-import { ICardItem, ICardsData } from '../interfaces/cards-models';
+import { IWord, ICardsData } from '../interfaces/cards-models';
 import {
   ILoginResponse,
   IWordStatistic,
@@ -6,23 +6,23 @@ import {
 } from '../interfaces/api-models';
 
 export const cardsAPI = {
-  async getCards(
+  async getWords(
     limit?: number,
     page?: number
-  ): Promise<{ cards: ICardsData[]; totalPageCount: number }> {
+  ): Promise<{ words: ICardsData[]; totalPageCount: number }> {
     try {
       const response = await fetch(
         `http://localhost:5000/cards?limit=${limit}&page=${page}`
       );
       const result = await response.json();
-      const cards: ICardsData[] = result.data;
+      const words: ICardsData[] = result.data;
       const { totalPageCount } = result;
-      return { cards, totalPageCount };
+      return { words, totalPageCount };
     } catch (error) {
       throw new Error(error);
     }
   },
-  async removeCard(cardId: string): Promise<void> {
+  async removeWord(cardId: string): Promise<void> {
     try {
       await fetch(`http://localhost:5000/cards?id=${cardId}`, {
         method: 'DELETE',
@@ -35,7 +35,7 @@ export const cardsAPI = {
       throw new Error(error);
     }
   },
-  async createCard(data: FormData, categoryId: string): Promise<ICardItem> {
+  async createWord(data: FormData, categoryId: string): Promise<IWord> {
     try {
       const response = await fetch(
         `http://localhost:5000/cards?id=${categoryId}`,
@@ -47,13 +47,13 @@ export const cardsAPI = {
           body: data,
         }
       );
-      const card: ICardItem = await response.json();
+      const card: IWord = await response.json();
       return card;
     } catch (error) {
       throw new Error(error);
     }
   },
-  async updateCard(cardId: string, data: FormData): Promise<ICardItem> {
+  async updateWord(cardId: string, data: FormData): Promise<IWord> {
     try {
       const response = await fetch(`http://localhost:5000/cards?id=${cardId}`, {
         method: 'PUT',
@@ -62,7 +62,7 @@ export const cardsAPI = {
         },
         body: data,
       });
-      const updatedCard: ICardItem = await response.json();
+      const updatedCard: IWord = await response.json();
       return updatedCard;
     } catch (error) {
       throw new Error(error);

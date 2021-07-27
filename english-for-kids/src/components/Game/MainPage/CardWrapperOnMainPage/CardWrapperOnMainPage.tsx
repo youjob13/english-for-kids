@@ -11,18 +11,18 @@ import EmptyCategory from '../EmptyCategory/EmptyCategory';
 
 const CardWrapperOnMainPage = ({
   category,
-  cards,
+  words,
   gameMode,
 }: ICardMainPageWrapperProps): ReactElement => (
   <li>
-    {!cards.length ? (
+    {!words.length ? (
       <EmptyCategory />
     ) : (
       <Link to={`/${SECTION}/${category}`}>
         <Card
           title={category}
           isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
-          imageSRC={cards[FIRST_ELEMENT].imageSRC}
+          imageSRC={words[FIRST_ELEMENT].imageSRC}
         />
       </Link>
     )}

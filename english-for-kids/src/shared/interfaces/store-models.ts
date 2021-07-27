@@ -1,6 +1,6 @@
 import { AnyAction, CombinedState, ThunkAction } from '@reduxjs/toolkit';
 import { ThunkDispatch } from 'redux-thunk';
-import { ICardItem, ICardsData } from './cards-models';
+import { IWord, ICardsData } from './cards-models';
 import { GameMode } from '../globalVariables';
 import { IWordStatistic } from './api-models';
 
@@ -29,9 +29,9 @@ export interface IDifficultWordsState {
 }
 
 export interface IGameState {
-  currentGameCardList: ICardItem[];
-  currentQuestion: ICardItem | null;
-  lastAnswer: ICardItem | null;
+  currentGameCardList: IWord[];
+  currentQuestion: IWord | null;
+  lastAnswer: IWord | null;
   gameMode: GameMode;
   isActiveEndGamePopup: boolean;
   currentGameAnswers: boolean[];

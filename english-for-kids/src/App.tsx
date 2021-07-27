@@ -1,26 +1,33 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import './App.css';
 import { Switch } from 'react-router-dom';
-import { GuardedRoute, GuardProvider } from 'react-router-guards';
 import { useDispatch } from 'react-redux';
-import { APP_WRAPPER } from './shared/stylesVariables';
-import LoginPopup from './components/Game/Popup/LoginPopup/LoginPopup';
-import { LoginContext } from './shared/context';
+import { GuardedRoute, GuardProvider } from 'react-router-guards';
 import AdminPanel from './components/AdminPanel/AdminPanel';
 import Game from './components/Game/Game';
-import requireLogin from './shared/helperFunctions/requireLogin';
 import { checkAuthorize } from './store/authSlice';
+import LoginPopup from './components/Popup/LoginPopup/LoginPopup';
+import { APP_WRAPPER } from './shared/stylesVariables';
+import { LoginContext } from './shared/context';
+import requireLogin from './shared/helperFunctions/requireLogin';
+import {
+  booleanStateValueDefault,
+  guardMeta,
+  Path,
+} from './shared/globalVariables';
 
 const App = (): ReactElement => {
   const dispatch = useDispatch();
-  const [isOpenLoginPopup, toggleLoginPopup] = useState(false);
+  const [isOpenLoginPopup, setLoginPopupMode] = useState(
+    booleanStateValueDefault
+  );
 
   useEffect(() => {
-    dispatch(checkAuthorize());
+    dispatch(checkAuthorize()); // TODO: сделать логинизацию & проверку чище
   }, [dispatch]);
 
   const toggleLoginPopupMode = () => {
-    toggleLoginPopup(!isOpenLoginPopup);
+    setLoginPopupMode(!isOpenLoginPopup);
   };
 
   return (
@@ -34,12 +41,12 @@ const App = (): ReactElement => {
         <div className={APP_WRAPPER}>
           <Switch>
             <GuardedRoute
-              path="/admin-panel"
-              component={AdminPanel}
               guards={[requireLogin]}
-              meta={{ auth: true }}
+              meta={guardMeta}
+              path={Path.ADMIN_PANEL_ROOT}
+              component={AdminPanel}
             />
-            <GuardedRoute path="/" component={Game} />
+            <GuardedRoute path={Path.ROOT} component={Game} />
           </Switch>
           {isOpenLoginPopup && <LoginPopup />}
         </div>

@@ -1,43 +1,47 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import classes from './category.module.scss';
-import capitalizeWord from '../../../../../shared/helperFunctions/capitalizeWord';
 import {
   removeCategory,
   updateCategory,
 } from '../../../../../store/cardsSlice';
 import { logoutUser } from '../../../../../store/authSlice';
+import {
+  booleanStateValueDefault,
+  ElemRole,
+  Path,
+} from '../../../../../shared/globalVariables';
+import { IAdminCategoryProps } from '../../../../../shared/interfaces/props-models';
+import CategoryEditMode from './CategoryEditMode/CategoryEditMode';
+import CategoryFrontSide from './CategoryFrontSide/CategoryFrontSide';
 
-const REMOVE_CATEGORY = classes.cardRemove;
-export const CATEGORY = classes.card;
-const CATEGORY_TITLE = classes.cardTitle;
-export const CATEGORY_BUTTON = classes.cardButton;
-export const CATEGORY_BUTTONS_WRAPPER = classes.cardButtonsWrapper;
-export const CATEGORY_INPUT = classes.cardInput;
-
-const Category = ({ id, cardsCount, category }: any): ReactElement => {
+const Category = ({
+  id,
+  cardsCount,
+  category,
+}: IAdminCategoryProps): ReactElement => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [isCategoryNameUpdate, toggleUpdateCategoryNameMode] = useState(false);
+  const [isCategoryNameUpdate, toggleUpdateCategoryNameMode] = useState(
+    booleanStateValueDefault
+  );
   const [categoryName, setCategoryName] = useState(category);
-  const match = useRouteMatch();
-
   const updateCategoryName = (event: FormEvent): void => {
     const target = event.target as HTMLInputElement;
     setCategoryName(target.value);
   };
 
-  const switchUpdatedCategoryNameMode = (): void => {
+  const toggleEditCategoryMode = (): void => {
     toggleUpdateCategoryNameMode(!isCategoryNameUpdate);
   };
 
-  const createNewCategoryName = () => {
+  const createNewCategory = () => {
     if (localStorage.token) {
-      switchUpdatedCategoryNameMode();
+      toggleEditCategoryMode();
       dispatch(updateCategory(id, categoryName));
     } else {
-      history.push('main');
+      history.push(Path.MAIN);
       dispatch(logoutUser());
     }
   };
@@ -46,61 +50,35 @@ const Category = ({ id, cardsCount, category }: any): ReactElement => {
     if (localStorage.token) {
       dispatch(removeCategory(id));
     } else {
-      history.push('main');
+      history.push(Path.MAIN);
       dispatch(logoutUser());
     }
   };
 
   return (
-    <div className={CATEGORY}>
+    <div className={classes.card}>
       <button
-        type="button"
+        type={ElemRole.BUTTON}
         onClick={removeSelectedCategory}
-        className={REMOVE_CATEGORY}
+        className={classes.cardRemove}
       />
-      {isCategoryNameUpdate ? (
-        <input onInput={updateCategoryName} type="text" value={categoryName} />
+      {!isCategoryNameUpdate ? (
+        <CategoryFrontSide
+          categoryName={categoryName}
+          toggleEditCategoryMode={toggleEditCategoryMode}
+        >
+          <p>Words: {cardsCount}</p>
+        </CategoryFrontSide>
       ) : (
-        <h3 className={CATEGORY_TITLE}>{capitalizeWord(category)}</h3>
+        <CategoryEditMode
+          updateCategoryName={updateCategoryName}
+          categoryName={categoryName}
+          createNewCategory={createNewCategory}
+          toggleEditCategoryMode={toggleEditCategoryMode}
+        >
+          <p>Words: {cardsCount}</p>
+        </CategoryEditMode>
       )}
-      <p>Words: {cardsCount}</p>
-      <div className={CATEGORY_BUTTONS_WRAPPER}>
-        {isCategoryNameUpdate ? (
-          <>
-            <button
-              onClick={switchUpdatedCategoryNameMode}
-              className={CATEGORY_BUTTON}
-              type="button"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={createNewCategoryName}
-              className={CATEGORY_BUTTON}
-              type="button"
-            >
-              Create
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              onClick={switchUpdatedCategoryNameMode}
-              className={CATEGORY_BUTTON}
-              type="button"
-            >
-              Update
-            </button>
-            <Link
-              to={`${match.url}/${category}`}
-              className={CATEGORY_BUTTON}
-              type="button"
-            >
-              Add word
-            </Link>
-          </>
-        )}
-      </div>
     </div>
   );
 };

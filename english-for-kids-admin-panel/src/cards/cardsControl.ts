@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import log4js from 'log4js';
 import Category from '../models/Category';
-import Card from '../models/Card';
+import Word from '../models/Word';
 import getCardData from '../shared/helperFunctions/getCardData';
 import WordStatistics from '../models/WordStatistics';
 
@@ -12,7 +12,7 @@ export const getCards = async (req: Request, res: Response) => {
     const { limit } = req.query;
 
     const [categories, categoryCount] = await Promise.all([
-      Category.find().populate('cards').limit(limit).skip(req.skip)
+      Category.find().populate('words').limit(limit).skip(req.skip)
         .lean()
         .exec(),
       Category.countDocuments(),
@@ -35,9 +35,9 @@ export const updateCard = async (req: Request, res: Response) => {
 
     const [imageSRC, soundSRC] = await getCardData(req.files); // TODO: rename
 
-    const card = await Card.findById(cardId);
+    const card = await Word.findById(cardId);
 
-    const updatedCard = await Card.findByIdAndUpdate({ _id: cardId },
+    const updatedCard = await Word.findByIdAndUpdate({ _id: cardId },
       {
         name: wordName || card.name,
         translate: wordTranslation || card.translate,
@@ -60,7 +60,7 @@ export const removeCard = async (req: Request, res: Response) => {
       return res.status(400).json('Not enough data: (word id)');
     }
 
-    await Card.findByIdAndDelete(cardId);
+    await Word.findByIdAndDelete(cardId);
     await WordStatistics.findByIdAndDelete(cardId);
 
     return res.json('Word deleted');
@@ -80,7 +80,14 @@ export const createCard = async (req: Request, res: Response) => {
 
     const [imageSRC, soundSRC] = await getCardData(req.files);
 
-    const newCard = await new Card({
+    logger.debug({
+      name: wordName,
+      translate: wordTranslation,
+      imageSRC,
+      audioSRC: soundSRC,
+    });
+
+    const newCard = await new Word({
       name: wordName,
       translate: wordTranslation,
       imageSRC,
@@ -98,7 +105,7 @@ export const createCard = async (req: Request, res: Response) => {
 
     await Category.findByIdAndUpdate({_id: categoryId}, {
       $push: {
-        cards: newCard,
+        words: newCard,
       },
     }, {new: true});
 

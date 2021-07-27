@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Path } from '../../globalVariables';
+import { ElemRole, Path } from '../../globalVariables';
 import { logoutUser } from '../../../store/authSlice';
 import { LOGOUT } from '../../stylesVariables';
 
@@ -15,7 +15,11 @@ const Logout = (): ReactElement => {
   };
 
   return (
-    <button className={LOGOUT} onClick={exitFromAdminPanel} type="button">
+    <button
+      className={LOGOUT}
+      onClick={exitFromAdminPanel}
+      type={ElemRole.BUTTON}
+    >
       Logout
     </button>
   );

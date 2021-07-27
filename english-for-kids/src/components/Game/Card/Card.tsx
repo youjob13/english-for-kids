@@ -6,7 +6,7 @@ import {
   PLAY_STYLES,
   TRAIN_STYLES,
 } from '../../../shared/stylesVariables';
-import capitalizeWord from '../../../shared/helperFunctions/capitalizeWord';
+import { EMPTY_LINE } from '../../../shared/globalVariables';
 
 const Card = ({
   title,
@@ -14,8 +14,8 @@ const Card = ({
   isReadyToStartedGame,
 }: ICardProps): ReactElement => (
   <div className={isReadyToStartedGame ? PLAY_STYLES : TRAIN_STYLES}>
-    <img className={CARD_IMAGE_STYLES} src={imageSRC} alt="" />
-    {title && <p className={CARD_NAME_STYLES}>{capitalizeWord(title)}</p>}
+    <img className={CARD_IMAGE_STYLES} src={imageSRC} alt={EMPTY_LINE} />
+    <p className={CARD_NAME_STYLES}>{title}</p>
   </div>
 );
 

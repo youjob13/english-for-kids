@@ -40,10 +40,6 @@ const statisticSlice = createSlice({
       ...state,
       isFetching: action.payload,
     }),
-    setStatisticsData: (state: IStatisticState, action) => ({
-      ...state,
-      statisticsData: action.payload,
-    }),
   },
 });
 
@@ -52,7 +48,6 @@ export default statisticSlice.reducer;
 export const {
   setDifficultWords,
   toggleIsFetching,
-  setStatisticsData,
   setUpdatedWord,
   setWordsStatistics,
 } = statisticSlice.actions;
@@ -103,9 +98,6 @@ export const updateStatistics =
 export const getStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
-    // const statisticsData = { ...localStorage };
-    // dispatch(setStatisticsData(statisticsData));
-
     const wordsStatistics = await statisticsAPI.getWordsStatistics();
     dispatch(setWordsStatistics(wordsStatistics));
   };
@@ -164,10 +156,4 @@ export const getDifficultWordsStatistics =
     const difficultWords = defineDifficultWords(statisticsData);
 
     dispatch(setDifficultWords(difficultWords));
-
-    // dispatch(toggleIsFetching(false));
-    // setTimeout(() => {
-    //   dispatch(toggleIsFetching(true));
-    //   dispatch(setStatisticsData([]));
-    // }, 1000);
   };

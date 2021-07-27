@@ -48,3 +48,10 @@ export enum SortingTypes {
   WRONG = 'WRONG',
   CORRECT_ANSWERS_PERCENT = 'CORRECT_ANSWERS_PERCENT',
 }
+
+export interface IWordData {
+  name: string;
+  translate: string;
+}
+
+export type IFormState = (prevState: IWordData) => IWordData;

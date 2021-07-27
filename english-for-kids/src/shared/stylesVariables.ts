@@ -1,7 +1,7 @@
 import classesMainPage from '../components/Game/MainPage/mainPage.module.scss';
 import classesCategory from '../components/Game/Category/category.module.scss';
 import classesCard from '../components/Game/Card/card.module.scss';
-import classesEndGamePopup from '../components/Game/Popup/EndGamePopup/endGamePopup.module.scss';
+import classesEndGamePopup from '../components/Popup/EndGamePopup/endGamePopup.module.scss';
 import classesNavigation from '../components/Game/Header/Navigation/navigation.module.scss';
 import classesFooter from '../components/Game/Footer/footer.module.scss';
 import classesStatistics from '../components/Game/Statistics/statistics.module.scss';
@@ -11,11 +11,21 @@ import classesHeader from '../components/Game/Header/header.module.scss';
 import classesPreloader from './baseComponents/Preloader/preloader.module.scss';
 import classesTitle from './baseComponents/Title/title.module.scss';
 import classesLoginButton from '../components/Game/Header/LoginButton/loginButton.module.scss';
-import classesLoginPopup from '../components/Game/Popup/LoginPopup/loginPopup.module.scss';
-import classesNewCard from '../components/AdminPanel/AddItem/newCard.module.scss';
-import classesLogout from '../components/AdminPanel/Header/header.module.scss';
+import classesLoginPopup from '../components/Popup/LoginPopup/loginPopup.module.scss';
+import classesNewCard from '../components/AdminPanel/AddCard/newCard.module.scss';
+import classesAdminHeader from '../components/AdminPanel/Header/header.module.scss';
+import classesAdminNavigation from '../components/AdminPanel/Header/Navigation/navigation.module.scss';
+import classes from '../components/AdminPanel/ContentField/Words/Word/card.module.scss';
 
-export const LOGOUT = classesLogout.logout;
+export const NAV_LIST = classesAdminNavigation.nav;
+export const NAV_ITEM = classesAdminNavigation.navItem;
+export const NAV_ITEM_LINK = classesAdminNavigation.navItemLink;
+export const NAV_ITEM_LINK_ACTIVE = classesAdminNavigation.navItemLinkActive;
+
+export const WORD_ADMIN = classes.cardAdmin;
+
+export const ADMIN_HEADER = classesAdminHeader.header;
+export const LOGOUT = classesAdminHeader.logout;
 
 export const NEW_CARD = classesNewCard.newCard;
 export const NEW_CARD_TITLE = classesNewCard.newCardTitle;

@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import AddItem from '../../../../AddItem/AddItem';
+import AddCard from '../../../../AddCard/AddCard';
 import NewCategoryForm from './NewCategoryForm/NewCategoryForm';
 import { logoutUser } from '../../../../../../store/authSlice';
 
@@ -24,7 +24,7 @@ const NewCategory = (): ReactElement => {
       {isCreatingNewCategory ? (
         <NewCategoryForm flipCard={flipCard} />
       ) : (
-        <AddItem addItem={flipCard} text="Create new Category" />
+        <AddCard addItem={flipCard} text="Create new Category" />
       )}
     </>
   );

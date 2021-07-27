@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
 import { INavigationItemProps } from '../../../../../shared/interfaces/props-models';
-import capitalizeWord from '../../../../../shared/helperFunctions/capitalizeWord';
 import {
   NAV_ITEM_ACTIVE_STYLES,
   NAV_ITEM_STYLES,
@@ -15,7 +14,7 @@ const NavigationItem = ({ category }: INavigationItemProps): ReactElement => (
       className={NAV_ITEM_STYLES}
       activeClassName={NAV_ITEM_ACTIVE_STYLES}
     >
-      {capitalizeWord(category)}
+      {category}
     </NavLink>
   </li>
 );

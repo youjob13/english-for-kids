@@ -7,35 +7,33 @@ import { ICardsProps } from '../../../../shared/interfaces/props-models';
 import usePaginate from '../../../../shared/hooks/usePaginate';
 import { nullifyCards } from '../../../../store/cardsSlice';
 
-const CONTENT_FIELD = classes.contentField;
-
 const Categories = ({ cardsData }: ICardsProps): ReactElement => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(nullifyCards());
-  }, []);
+  }, [dispatch]);
 
   const lastCategoryElem = usePaginate();
 
   return (
-    <div className={CONTENT_FIELD}>
-      {cardsData.map(({ category, cards, _id }, index, categories) =>
+    <div className={classes.contentField}>
+      {cardsData.map(({ category, words, _id }, index, categories) =>
         categories.length === index + 1 ? (
           <div key={index.toString()} ref={lastCategoryElem}>
             <Category
-              key={(index + 1000).toString()}
+              key={_id}
               id={_id}
               category={category}
-              cardsCount={cards ? cards.length : 0}
+              cardsCount={words ? words.length : 0}
             />
           </div>
         ) : (
           <Category
-            key={index.toString()}
+            key={_id}
             id={_id}
             category={category}
-            cardsCount={cards ? cards.length : 0}
+            cardsCount={words ? words.length : 0}
           />
         )
       )}

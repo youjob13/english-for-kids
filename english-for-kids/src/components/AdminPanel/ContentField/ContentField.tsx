@@ -1,21 +1,20 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import { CardsReducerType } from '../../../shared/interfaces/store-models';
-import Cards from './Cards/Cards';
+import Words from './Words/Words';
 import Categories from './Categories/Categories';
+import { getWordsState } from '../../../shared/selectors';
+import { Path } from '../../../shared/globalVariables';
 
 const ContentField = (): ReactElement => {
-  const { cardsData } = useSelector(
-    (state: CardsReducerType) => state.cardsReducer
-  );
+  const { cardsData } = useSelector(getWordsState);
 
   return (
     <Switch>
-      <Route path="/admin-panel/categories/:category">
-        <Cards cardsData={cardsData} />
+      <Route path={Path.ADMIN_PANEL_WORD}>
+        <Words cardsData={cardsData} />
       </Route>
-      <Route path="/admin-panel/categories/">
+      <Route path={Path.ADMIN_PANEL_CATEGORIES}>
         <Categories cardsData={cardsData} />
       </Route>
     </Switch>

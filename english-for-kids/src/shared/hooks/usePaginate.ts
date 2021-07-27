@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCards } from '../../store/cardsSlice';
+import { getWords } from '../../store/cardsSlice';
 import { CardsReducerType } from '../interfaces/store-models';
 
 const usePaginate = (limit = 10) => {
@@ -17,8 +17,8 @@ const usePaginate = (limit = 10) => {
   };
 
   useEffect(() => {
-    dispatch(getAllCards(limit, pageCount));
-    console.log(hasMore());
+    dispatch(getWords(limit, pageCount));
+
     setHasMorePage(hasMore());
   }, [pageCount]);
 

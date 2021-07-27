@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import Category from '../models/Category';
-import Card from '../models/Card';
+import Word from '../models/Word';
 
 export const createCategory = async (req: Request, res: Response) => {
   try {
@@ -12,7 +12,7 @@ export const createCategory = async (req: Request, res: Response) => {
 
     const newCategory = new Category({
       category: categoryName,
-      cards: [],
+      words: [],
     });
 
     newCategory.save();
@@ -39,7 +39,7 @@ export const updateCategory = async (req: Request, res: Response) => {
       }, {
         new: true,
       },
-    ).populate('cards');
+    ).populate('words');
 
     return res.json(updatedCategory);
   } catch (error) {
@@ -56,7 +56,7 @@ export const removeCategory = async (req: Request, res: Response) => {
     }
 
     const category = await Category.findById(categoryId);
-    const deleteCardsRequests = category.cards.map((cardId: string) => Card.findByIdAndDelete(cardId));
+    const deleteCardsRequests = category.cards.map((cardId: string) => Word.findByIdAndDelete(cardId));
 
     await Promise.all(deleteCardsRequests);
 

@@ -1,6 +1,6 @@
-import { ICardItem } from '../interfaces/cards-models';
+import { IWord } from '../interfaces/cards-models';
 
-const sortCurrentGameQuestionList = ([...cards]: ICardItem[]): ICardItem[] => {
+const sortCurrentGameQuestionList = ([...cards]: IWord[]): IWord[] => {
   return cards.sort(() => Math.random() - 0.5);
 };
 

@@ -1,10 +1,10 @@
 export interface ICardsData {
-  _id: number;
+  _id: string;
   category: string;
-  cards: ICardItem[];
+  words: IWord[];
 }
 
-export interface ICardItem {
+export interface IWord {
   _id: string;
   name: string;
   imageSRC: string;

@@ -1,18 +1,40 @@
 import { FormEvent } from 'react';
-import { ICardItem, ICardsData } from './cards-models';
+import { IWord, ICardsData } from './cards-models';
 import { IWordStatisticData } from './api-models';
-import { GameMode } from '../globalVariables';
+import { GameMode, Path } from '../globalVariables';
 
 export interface INewCategoryForm {
   flipCard: () => void;
 }
 
+export interface ICategoriesProps {
+  gameCards: IWord[];
+  currentQuestion: IWord | null;
+}
+
+export interface IAdminCategoryProps {
+  id: string;
+  cardsCount: number;
+  category: string;
+}
+
+export interface ICategoryEditModeProps {
+  updateCategoryName: (event: FormEvent) => void;
+  toggleEditCategoryMode: () => void;
+  createNewCategory: () => void;
+  categoryName: string;
+}
+
+export interface ICategoryFrontSideProps {
+  toggleEditCategoryMode: () => void;
+  categoryName: string;
+}
+
 export interface ICardForm {
-  submitForm: (formData: any) => void;
+  submitForm: (formData: FormData) => void;
   updateInputValue: (event: FormEvent) => void;
   closeForm: () => void;
-  wordName: string;
-  translationName: string;
+  wordData: { name: string; translate: string };
 }
 
 export interface IAddItem {
@@ -20,14 +42,23 @@ export interface IAddItem {
   text: string;
 }
 
+export interface INewWordProps {
+  categoryId: string;
+}
+
+export interface ICardEditProps {
+  word: IWord;
+  categoryId: string;
+}
+
 export interface ICardMainPageWrapperProps {
-  cards: ICardItem[];
+  words: IWord[];
   category: string;
   gameMode: GameMode;
 }
 
 export interface ICardAdminFront {
-  categoryId: number;
+  categoryId: string;
   _id: string;
   name: string;
   translate: string;
@@ -41,7 +72,7 @@ export interface ICardsProps {
 }
 
 export interface ICardWithEditProps {
-  categoryId: number;
+  categoryId: string;
   _id: string;
   name: string;
   audioSRC: string;
@@ -72,6 +103,7 @@ export interface ICardFrontProps {
   title: string;
   imageSRC: string;
   showTranslation: () => void;
+  gameMode: GameMode;
 }
 
 export interface ITableCellProps {
@@ -92,9 +124,20 @@ export interface INavigationItemProps {
   category: string;
 }
 
+export interface ICategoryControlsProps {
+  gameMode: GameMode;
+  onStartGameClick: () => void;
+  onSoundPlayButtonClick: () => void;
+}
+
 export interface ICardCategoryWrapperProps {
-  card: ICardItem;
-  currentQuestion: ICardItem | null;
+  word: IWord;
+  currentQuestion: IWord | null;
+}
+
+export interface IAdminNavigationItemProps {
+  name: string;
+  path: Path;
 }
 
 export interface ISwitchProps {

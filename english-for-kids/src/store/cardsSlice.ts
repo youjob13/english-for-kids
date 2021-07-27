@@ -28,10 +28,10 @@ const cardsSlice = createSlice({
       };
     },
     setAllCards: (state: ICardsState, action) => {
-      const { cards, totalPageCount } = action.payload;
+      const { words, totalPageCount } = action.payload;
       return {
         ...state,
-        cardsData: [...state.cardsData, ...cards],
+        cardsData: [...state.cardsData, ...words],
         totalPageCount,
       };
     },
@@ -44,7 +44,7 @@ const cardsSlice = createSlice({
           if (cardData._id === categoryId) {
             return {
               ...cardData,
-              cards: [...cardData.cards, newCard],
+              words: [...cardData.words, newCard],
             };
           }
           return cardData;
@@ -60,13 +60,13 @@ const cardsSlice = createSlice({
           if (cardData._id === categoryId) {
             return {
               ...cardData,
-              cards: cardData.cards.map((card) => {
-                if (card._id === cardId) {
+              words: cardData.words.map((word) => {
+                if (word._id === cardId) {
                   return {
                     ...updatedCard,
                   };
                 }
-                return card;
+                return word;
               }),
             };
           }
@@ -83,7 +83,7 @@ const cardsSlice = createSlice({
           if (cardData._id === categoryId) {
             return {
               ...cardData,
-              cards: cardData.cards.filter((card) => card._id !== cardId),
+              words: cardData.words.filter((word) => word._id !== cardId),
             };
           }
           return cardData;
@@ -143,7 +143,7 @@ export const {
   nullifyCards,
 } = cardsSlice.actions;
 
-export const getAllCards =
+export const getWords =
   (
     _limit?: number,
     _page?: number
@@ -151,40 +151,40 @@ export const getAllCards =
   async (dispatch): Promise<void> => {
     // dispatch(toggleIsFetching(false));
 
-    const { cards, totalPageCount } = await cardsAPI.getCards(_limit, _page);
+    const { words, totalPageCount } = await cardsAPI.getWords(_limit, _page);
     // dispatch(toggleIsFetching(true));
-    dispatch(setAllCards({ cards, totalPageCount }));
+    dispatch(setAllCards({ words, totalPageCount }));
   };
 
 // TODO: realise preloader
-export const createCard =
+export const createWord =
   (
     data: FormData,
     categoryId: string
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const newCard = await cardsAPI.createCard(data, categoryId);
+    const newCard = await cardsAPI.createWord(data, categoryId);
     dispatch(setNewCard({ categoryId, newCard }));
   };
 
-export const updateCard =
+export const updateWord =
   (
     id: string,
     categoryId: string,
     data: FormData
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    const updatedCard = await cardsAPI.updateCard(id, data);
+    const updatedCard = await cardsAPI.updateWord(id, data);
     dispatch(setUpdatedCard({ cardId: id, categoryId, updatedCard }));
   };
 
-export const removeCard =
+export const removeWord =
   (
     id: string,
     categoryId: string
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    await cardsAPI.removeCard(id);
+    await cardsAPI.removeWord(id);
     dispatch(setCardsWithoutDeletedCard({ categoryId, cardId: id }));
   };
 

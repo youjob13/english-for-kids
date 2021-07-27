@@ -1,9 +1,9 @@
 import { Schema, model } from 'mongoose';
-import Card from './Card';
+import Word from './Word';
 
 const Category = new Schema({
   category: {type: String, required: true},
-  cards: [{type: Schema.Types.ObjectId, ref: 'Card'}],
+  words: [{type: Schema.Types.ObjectId, ref: 'Word'}],
 });
 
 export default model('Category', Category);

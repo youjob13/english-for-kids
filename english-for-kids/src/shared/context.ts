@@ -1,14 +1,15 @@
 import { createContext } from 'react';
+import { booleanStateValueDefault } from './globalVariables';
 
 const MenuContext = createContext({
-  isOpenMenu: true,
+  isOpenMenu: booleanStateValueDefault,
   toggleMenu: () => {
     console.log('menu mode is switched');
   },
 });
 
 export const LoginContext = createContext({
-  isOpenLoginPopup: false,
+  isOpenLoginPopup: booleanStateValueDefault,
   toggleLoginPopup: () => {
     console.log('login popup mode is switched');
   },

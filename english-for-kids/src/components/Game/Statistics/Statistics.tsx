@@ -13,9 +13,10 @@ import { getStatistics, resetStatistics } from '../../../store/statisticSlice';
 
 const Statistics = (): ReactElement => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getStatistics());
-  }, []);
+  }, [dispatch]);
 
   const clearList = () => {
     dispatch(resetStatistics());

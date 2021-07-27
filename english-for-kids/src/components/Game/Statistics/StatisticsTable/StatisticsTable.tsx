@@ -29,8 +29,8 @@ const StatisticsTable = (): ReactElement => {
   });
 
   const statisticsParams = cardsData
-    .map(({ category, cards }) => {
-      return cards.map(({ name, translate }) => ({
+    .map(({ category, words }) => {
+      return words.map(({ name, translate }) => ({
         wordName: name,
         translation: translate,
         category,

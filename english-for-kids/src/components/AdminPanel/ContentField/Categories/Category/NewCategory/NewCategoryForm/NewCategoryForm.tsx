@@ -2,16 +2,12 @@ import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { INewCategoryForm } from '../../../../../../../shared/interfaces/props-models';
 import { createCategory } from '../../../../../../../store/cardsSlice';
-import {
-  CATEGORY,
-  CATEGORY_BUTTON,
-  CATEGORY_BUTTONS_WRAPPER,
-  CATEGORY_INPUT,
-} from '../../Category';
+import classes from '../../category.module.scss';
+import { EMPTY_LINE } from '../../../../../../../shared/globalVariables';
 
 const NewCategoryForm = ({ flipCard }: INewCategoryForm): ReactElement => {
   const dispatch = useDispatch();
-  const [categoryName, setCategoryName] = useState('');
+  const [categoryName, setCategoryName] = useState(EMPTY_LINE);
 
   const changeCategoryName = (event: FormEvent) => {
     const target = event.target as HTMLInputElement;
@@ -24,18 +20,18 @@ const NewCategoryForm = ({ flipCard }: INewCategoryForm): ReactElement => {
   };
 
   return (
-    <form className={CATEGORY} onSubmit={onCreateNewCategoryClick}>
+    <form className={classes.card} onSubmit={onCreateNewCategoryClick}>
       <input
-        className={CATEGORY_INPUT}
+        className={classes.cardInput}
         onInput={changeCategoryName}
         type="text"
         value={categoryName}
       />
-      <div className={CATEGORY_BUTTONS_WRAPPER}>
-        <button className={CATEGORY_BUTTON} onClick={flipCard} type="button">
+      <div className={classes.cardButtonsWrapper}>
+        <button className={classes.cardButton} onClick={flipCard} type="button">
           Cancel
         </button>
-        <button className={CATEGORY_BUTTON} type="submit">
+        <button className={classes.cardButton} type="submit">
           Create
         </button>
       </div>

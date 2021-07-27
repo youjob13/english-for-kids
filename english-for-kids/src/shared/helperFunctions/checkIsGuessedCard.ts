@@ -1,12 +1,11 @@
-import { ICardItem } from '../interfaces/cards-models';
+import { IWord } from '../interfaces/cards-models';
 
 const checkIsGuessedCard = (
-  currentGameCardList: ICardItem[],
-  card: ICardItem
+  currentGameCardList: IWord[],
+  card: IWord
 ): boolean =>
   currentGameCardList.some(
-    (cardFromGameList) =>
-      JSON.stringify(cardFromGameList) === JSON.stringify(card)
+    (cardFromGameList) => cardFromGameList._id === card._id
   );
 
 export default checkIsGuessedCard;

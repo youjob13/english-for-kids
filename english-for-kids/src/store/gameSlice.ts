@@ -5,7 +5,7 @@ import {
   IGameState,
   ThunkActionType,
 } from '../shared/interfaces/store-models';
-import { ICardItem } from '../shared/interfaces/cards-models';
+import { IWord } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helperFunctions/arraySort';
 import playAudio from '../shared/helperFunctions/playSound';
 import { GameMode } from '../shared/globalVariables';
@@ -33,7 +33,7 @@ const gameSlice = createSlice({
       currentGameAnswers: [], // TODO: reset reducer
     }),
     startGame: (state: IGameState, action) => {
-      const cards: ICardItem[] = action.payload;
+      const cards: IWord[] = action.payload;
       return {
         ...state,
         gameMode: GameMode.IN_GAME,
@@ -45,7 +45,7 @@ const gameSlice = createSlice({
       currentQuestion: state.currentGameCardList[0],
     }),
     setRightAnswer: (state: IGameState, action) => {
-      const answer: ICardItem = action.payload;
+      const answer: IWord = action.payload;
       return {
         ...state,
         lastAnswer: answer,
@@ -91,7 +91,7 @@ export const {
 } = gameSlice.actions;
 
 export const prepareGameProcess =
-  (cards: ICardItem[]): ThunkActionType<StateType<GameReducerType>> =>
+  (cards: IWord[]): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch): Promise<void> => {
     dispatch(startGame(sortCurrentGameQuestionList(cards)));
     dispatch(setAudioQuestion());
@@ -99,7 +99,7 @@ export const prepareGameProcess =
 
 export const setGivenAnswer =
   (
-    answer: ICardItem,
+    answer: IWord,
     answerResult: boolean
   ): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch, getState): Promise<void> => {
