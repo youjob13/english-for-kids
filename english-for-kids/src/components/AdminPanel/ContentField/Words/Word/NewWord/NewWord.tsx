@@ -39,7 +39,7 @@ const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
 
   const onCreateCardClick = async (formData: FormData) => {
     if (!localStorage.token) {
-      history.push(Path.MAIN);
+      history.push(Path.ROOT);
       dispatch(logoutUser());
       return;
     }

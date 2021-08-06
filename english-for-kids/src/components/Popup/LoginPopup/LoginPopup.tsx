@@ -20,8 +20,8 @@ import {
 import { LoginContext } from '../../../shared/context';
 import { AuthFormValue } from '../../../shared/interfaces/api-models';
 import { getAuthorize } from '../../../store/authSlice';
-import { AuthReducerType } from '../../../shared/interfaces/store-models';
 import { Path } from '../../../shared/globalVariables';
+import { AuthReducerType } from '../../../shared/interfaces/store-models';
 
 const authFormValue: Record<AuthFormValue, string> = {
   username: '',
@@ -44,7 +44,7 @@ const LoginPopup = (): ReactElement => {
   };
 
   useEffect(() => {
-    if (isAuth) {
+    if (localStorage.token) {
       history.push(Path.ADMIN_PANEL_CATEGORIES);
       closePopup();
     }

@@ -3,9 +3,6 @@ import { ITableHeaderData, SortingTypes } from './interfaces/api-models';
 export const baseName = '/React';
 export const rootElementID = 'root';
 export const booleanStateValueDefault = false;
-
-export const guardMeta = { auth: true };
-
 export enum StatisticsParam {
   TRAIN = 'train',
   WRONG = 'wrong',
@@ -51,12 +48,14 @@ export enum GameMode {
   READY_TO_GAME = 'READY_TO_GAME',
   IN_GAME = 'IN_GAME',
 }
+
 export enum EventName {
   MOUSEDOWN = 'mousedown',
   CLICK = 'click',
 }
+
 export enum Path {
-  MAIN = '/main',
+  GAME = '/',
   CATEGORY = '/section/:category',
   STATISTICS = '/statistics',
   ROOT = '/',
@@ -65,23 +64,27 @@ export enum Path {
   ADMIN_PANEL_ROOT = '/admin-panel',
   OTHER = '*',
 }
+
 export enum ElemRole {
   MENU = 'menu',
   BUTTON = 'button',
   SUBMIT = 'submit',
   ROW = 'row',
 }
+
 export enum InputType {
   CHECKBOX = 'checkbox',
   TEXT = 'text',
   FILE = 'file',
 }
+
 export enum InputName {
   WORD_NAME = 'wordName',
   WORD_TRANSLATION = 'wordTranslation',
   SOUND = 'sound',
   IMAGE = 'image',
 }
+
 export enum InputAccept {
   AUDIO = 'audio/*',
   IMAGE = 'image/*',

@@ -4,14 +4,6 @@ import Card from '../../../Card/Card';
 import { ICardCategoryWrapperProps } from '../../../../../shared/interfaces/props-models';
 import { setGivenAnswer } from '../../../../../store/gameSlice';
 import CardFront from './CardFront/CardFront';
-import {
-  CARD_BACK_STYLES,
-  CARD_CONTAINER_ROTATED_STYLES,
-  CARD_CONTAINER_STYLES,
-  CARD_FRONT_STYLES,
-  CARD_WRAPPER_GUESSED_STYLES,
-  CARD_WRAPPER_STYLES,
-} from '../../../../../shared/stylesVariables';
 import playAudio from '../../../../../shared/helperFunctions/playSound';
 import {
   booleanStateValueDefault,
@@ -23,6 +15,7 @@ import checkIsGuessedCard from '../../../../../shared/helperFunctions/checkIsGue
 import compareAnswerAndQuestion from '../../../../../shared/helperFunctions/compareAnswerAndQuestion';
 import { updateStatistics } from '../../../../../store/statisticSlice';
 import { getGameState } from '../../../../../shared/selectors';
+import classes from '../../category.module.scss';
 
 const CardWrapperInGame = ({
   word,
@@ -56,24 +49,23 @@ const CardWrapperInGame = ({
     dispatch(updateStatistics(word._id, statisticsParam));
   };
 
+  const cardWrapperStyle =
+    gameMode === GameMode.IN_GAME && !isGuessedCard
+      ? classes.cardWrapperGuessed
+      : classes.cardWrapper;
+
+  const cardStyle = !isShowTranslation
+    ? classes.cardContainer
+    : classes.cardContainerRotated;
+
   return (
     <li
       onClick={() => gameMode === GameMode.IN_GAME && onCardClick()}
       onMouseLeave={() => setIsShowTranslation(false)}
-      className={
-        gameMode === GameMode.IN_GAME && !isGuessedCard
-          ? CARD_WRAPPER_GUESSED_STYLES
-          : CARD_WRAPPER_STYLES
-      }
+      className={cardWrapperStyle}
     >
-      <div
-        className={
-          !isShowTranslation
-            ? CARD_CONTAINER_STYLES
-            : CARD_CONTAINER_ROTATED_STYLES
-        }
-      >
-        <div className={CARD_FRONT_STYLES}>
+      <div className={cardStyle}>
+        <div className={classes.cardFront}>
           <CardFront
             title={gameMode === GameMode.NO_GAME ? name : EMPTY_LINE}
             imageSRC={imageSRC}
@@ -82,7 +74,7 @@ const CardWrapperInGame = ({
             showTranslation={onShowTranslationClick}
           />
         </div>
-        <div className={CARD_BACK_STYLES}>
+        <div className={classes.cardBack}>
           <Card
             title={
               gameMode === GameMode.NO_GAME ||

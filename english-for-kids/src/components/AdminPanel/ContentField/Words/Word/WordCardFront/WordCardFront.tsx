@@ -47,7 +47,7 @@ const WordCardFront = ({
     if (localStorage.token) {
       dispatch(removeWord(_id, categoryId));
     } else {
-      history.push(Path.MAIN);
+      history.push(Path.ROOT);
       dispatch(logoutUser());
     }
   };

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navigation from './Navigation/Navigation';
 import { toggleGameMode } from '../../../store/gameSlice';
 import {
-  AuthReducerType,
   CardsReducerType,
   GameReducerType,
 } from '../../../shared/interfaces/store-models';
@@ -29,7 +28,6 @@ const Header = (): ReactElement => {
   const { gameMode } = useSelector(
     (state: GameReducerType) => state.gameReducer
   );
-  const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
 
   const categoryNames = cardsData.map((cardData) => cardData.category);
 
@@ -52,7 +50,7 @@ const Header = (): ReactElement => {
           gameMode={gameMode}
           onCheckboxClick={switchGameMode}
         />
-        {isAuth ? (
+        {localStorage.token ? (
           <Logout />
         ) : (
           <LoginButton onLoginButtonClick={toggleLoginPopup} />

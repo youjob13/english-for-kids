@@ -25,7 +25,13 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier', 'jsx-a11y'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'prettier',
+    'jsx-a11y',
+    'react-hooks',
+  ],
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
@@ -75,5 +81,7 @@ module.exports = {
     'react/button-has-type': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };

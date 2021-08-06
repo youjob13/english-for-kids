@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
-import { CATEGORY_FIELD_STYLES } from '../../../../shared/stylesVariables';
 import CardWrapperInGame from './CardGame/CardWrapperInGame';
 import { ICategoriesProps } from '../../../../shared/interfaces/props-models';
+import classes from '../category.module.scss';
 
 const Categories = ({
   gameCards,
   currentQuestion,
 }: ICategoriesProps): ReactElement => (
-  <ul className={CATEGORY_FIELD_STYLES}>
+  <ul className={classes.categoryField}>
     {!gameCards.length ? (
       <div>Category is empty</div>
     ) : (

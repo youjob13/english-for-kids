@@ -41,7 +41,8 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
       >
         <li>
           <NavLink
-            to={Path.MAIN}
+            exact
+            to={Path.ROOT}
             className={NAV_ITEM_STYLES}
             activeClassName={NAV_ITEM_ACTIVE_STYLES}
           >

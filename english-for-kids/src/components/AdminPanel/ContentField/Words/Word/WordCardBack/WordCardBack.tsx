@@ -32,7 +32,7 @@ const WordCardBack = ({
       toggleEditMode(false);
       dispatch(updateWord(_id, categoryId, formData));
     } else {
-      history.push(Path.MAIN);
+      history.push(Path.ROOT);
       dispatch(logoutUser());
     }
   };

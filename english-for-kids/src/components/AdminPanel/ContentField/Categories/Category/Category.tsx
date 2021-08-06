@@ -41,7 +41,7 @@ const Category = ({
       toggleEditCategoryMode();
       dispatch(updateCategory(id, categoryName));
     } else {
-      history.push(Path.MAIN);
+      history.push(Path.ROOT);
       dispatch(logoutUser());
     }
   };
@@ -50,7 +50,7 @@ const Category = ({
     if (localStorage.token) {
       dispatch(removeCategory(id));
     } else {
-      history.push(Path.MAIN);
+      history.push(Path.ROOT);
       dispatch(logoutUser());
     }
   };

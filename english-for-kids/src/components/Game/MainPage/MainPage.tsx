@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import Title from '../../../shared/baseComponents/Title/Title';
-import { CONTENT_STYLES } from '../../../shared/stylesVariables';
 import CardWrapperOnMainPage from './CardWrapperOnMainPage/CardWrapperOnMainPage';
 import { getWordsState, getGameState } from '../../../shared/selectors';
+import classes from './mainPage.module.scss';
 
 const MainPage = (): ReactElement => {
   const { cardsData } = useSelector(getWordsState);
@@ -14,7 +14,7 @@ const MainPage = (): ReactElement => {
   return (
     <>
       <Title>Train & Play</Title>
-      <ul className={CONTENT_STYLES}>
+      <ul className={classes.content}>
         {cardsData.map(({ category, words, _id }) => (
           <CardWrapperOnMainPage
             key={_id}

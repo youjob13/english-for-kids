@@ -19,22 +19,19 @@ const Game = (): ReactElement => {
   const { isActiveEndGamePopup, currentGameAnswers } =
     useSelector(getGameState);
 
-  console.log(231);
-
   useEffect(() => {
     dispatch(nullifyCards());
     dispatch(getWords());
   }, [dispatch]);
-
   return (
     <>
       <Header />
       <main className={APP_CONTENT}>
         <Switch>
-          <Route path={Path.MAIN} component={MainPage} />
           <Route path={Path.CATEGORY} component={Category} />
           <Route path={Path.STATISTICS} render={withLazyLoading(Statistics)} />
-          <Redirect exact from={Path.ROOT} to={Path.MAIN} />
+          <Route exact path={Path.ROOT} component={MainPage} />
+          {!localStorage.token && <Redirect from="/admin-panel" to="/" />}
           <Route path={Path.OTHER} render={() => <div>404</div>} />
         </Switch>
         {isActiveEndGamePopup && (
@@ -46,4 +43,4 @@ const Game = (): ReactElement => {
   );
 };
 
-export default Game;
+export default React.memo(Game);

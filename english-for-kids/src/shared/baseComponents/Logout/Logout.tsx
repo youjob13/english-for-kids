@@ -11,7 +11,7 @@ const Logout = (): ReactElement => {
 
   const exitFromAdminPanel = () => {
     dispatch(logoutUser());
-    history.push(Path.MAIN);
+    history.push(Path.ROOT);
   };
 
   return (
