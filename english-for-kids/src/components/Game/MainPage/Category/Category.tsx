@@ -9,7 +9,7 @@ import {
 } from '../../../../shared/globalVariables';
 import EmptyCategory from '../EmptyCategory/EmptyCategory';
 
-const CardWrapperOnMainPage = ({
+const Category = ({
   category,
   words,
   gameMode,
@@ -29,4 +29,4 @@ const CardWrapperOnMainPage = ({
   </li>
 );
 
-export default CardWrapperOnMainPage;
+export default Category;

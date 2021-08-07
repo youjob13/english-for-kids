@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RouteParams } from '../../../shared/interfaces/api-models';
@@ -8,27 +8,30 @@ import Title from '../../../shared/baseComponents/Title/Title';
 import AnswerList from './AnswerList/AnswerList';
 import { getDifficultWordsStatistics } from '../../../store/statisticSlice';
 import { getDifficultWords } from '../../../store/difficultWordsSlice';
-import { GameMode } from '../../../shared/globalVariables';
+import { GameMode, Path } from '../../../shared/globalVariables';
 import defineCurrentCategory from '../../../shared/helperFunctions/defineCurrentCategory';
 import {
   getDifficultWordsState,
   getGameState,
   getStatisticsState,
   getWordsState,
-} from '../../../shared/selectors';
-import Categories from './Categories/Categories';
+} from '../../../store/selectors';
+import Words from './Words/Words';
 import CategoryControls from './CategoryControls/CategoryControls';
 
-const Category = (): ReactElement => {
+const CategoryPage = (): ReactElement => {
   const dispatch = useDispatch();
   const { category: categoryPath } = useParams<RouteParams>();
-  const { difficultWords } = useSelector(getStatisticsState); // TODO: resolve
+  const { difficultWords } = useSelector(getStatisticsState);
   const { currentDifficultWordList } = useSelector(getDifficultWordsState);
   const { gameMode, currentQuestion, currentGameAnswers } =
     useSelector(getGameState);
   const { cardsData } = useSelector(getWordsState);
 
-  const currentCategory = defineCurrentCategory(cardsData, categoryPath);
+  const currentCategory = useMemo(
+    () => defineCurrentCategory(cardsData, categoryPath),
+    [cardsData, categoryPath]
+  );
   const audioSRC = currentQuestion && currentQuestion.audioSRC;
   const cards = (currentCategory && currentCategory.words) || [];
 
@@ -37,13 +40,11 @@ const Category = (): ReactElement => {
       playAudio(audioSRC);
     }
   }, [currentQuestion, dispatch]);
-
   useEffect(() => {
     return () => {
-      dispatch(stopGame(GameMode.NO_GAME)); // TODO: realise correct exit game
+      dispatch(stopGame(GameMode.NO_GAME));
     };
   }, [categoryPath, dispatch]);
-
   useEffect(() => {
     dispatch(getDifficultWordsStatistics());
   }, [dispatch]);
@@ -58,20 +59,19 @@ const Category = (): ReactElement => {
   };
 
   const onStartGameClick = (): void => {
-    dispatch(
-      prepareGameProcess(
-        categoryPath === 'difficult-words' ? currentDifficultWordList : cards
-      )
-    );
+    const currentCategoryPath =
+      categoryPath === Path.DIFFICULT_WORDS ? currentDifficultWordList : cards;
+
+    dispatch(prepareGameProcess(currentCategoryPath));
   };
 
   const gameCards =
-    categoryPath === 'difficult-words' ? currentDifficultWordList : cards; // TODO: костыль убрать
+    categoryPath === Path.DIFFICULT_WORDS ? currentDifficultWordList : cards;
 
   return (
     <>
       <Title>Category: {categoryPath}</Title>
-      <Categories gameCards={gameCards} currentQuestion={currentQuestion} />
+      <Words gameCards={gameCards} currentQuestion={currentQuestion} />
       <CategoryControls
         onStartGameClick={onStartGameClick}
         onSoundPlayButtonClick={onSoundPlayButtonClick}
@@ -82,4 +82,4 @@ const Category = (): ReactElement => {
   );
 };
 
-export default Category;
+export default CategoryPage;

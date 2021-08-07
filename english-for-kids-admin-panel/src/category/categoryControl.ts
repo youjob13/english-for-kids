@@ -62,7 +62,7 @@ export const removeCategory = async (req: Request, res: Response) => {
 
     await Category.findByIdAndDelete(categoryId);
 
-    return res.json('Category deleted');
+    return res.json('CategoryPage deleted');
   } catch (error) {
     return res.status(400).json(error);
   }

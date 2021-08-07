@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react';
 import Header from './Header/Header';
-import { APP_CONTENT } from '../../shared/stylesVariables';
 import ContentField from './ContentField/ContentField';
+import { APP_CONTENT_STYLES } from '../../shared/globalVariables';
 
 const AdminPanel = (): ReactElement => {
   return (
     <>
       <Header />
-      <main className={APP_CONTENT}>
+      <main className={APP_CONTENT_STYLES}>
         <ContentField />
       </main>
     </>

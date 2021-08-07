@@ -1,9 +1,9 @@
-import React, { ReactElement, useCallback, useState } from 'react';
+import React, { ReactElement, useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../../Card/Card';
 import { ICardCategoryWrapperProps } from '../../../../../shared/interfaces/props-models';
 import { setGivenAnswer } from '../../../../../store/gameSlice';
-import CardFront from './CardFront/CardFront';
+import CardFront from '../../../Card/CardFront/CardFront';
 import playAudio from '../../../../../shared/helperFunctions/playSound';
 import {
   booleanStateValueDefault,
@@ -14,10 +14,10 @@ import {
 import checkIsGuessedCard from '../../../../../shared/helperFunctions/checkIsGuessedCard';
 import compareAnswerAndQuestion from '../../../../../shared/helperFunctions/compareAnswerAndQuestion';
 import { updateStatistics } from '../../../../../store/statisticSlice';
-import { getGameState } from '../../../../../shared/selectors';
+import { getGameState } from '../../../../../store/selectors';
 import classes from '../../category.module.scss';
 
-const CardWrapperInGame = ({
+const Word = ({
   word,
   currentQuestion,
 }: ICardCategoryWrapperProps): ReactElement => {
@@ -27,7 +27,10 @@ const CardWrapperInGame = ({
     booleanStateValueDefault
   );
   const { _id, name, translate, imageSRC, audioSRC } = word;
-  const isGuessedCard = checkIsGuessedCard(currentGameCardList, word);
+  const isGuessedCard = useMemo(
+    () => checkIsGuessedCard(currentGameCardList, word),
+    [currentGameCardList, word]
+  );
 
   const onShowTranslationClick = useCallback(() => {
     if (gameMode === GameMode.READY_TO_GAME) return;
@@ -58,6 +61,11 @@ const CardWrapperInGame = ({
     ? classes.cardContainer
     : classes.cardContainerRotated;
 
+  const cardTitle =
+    gameMode === GameMode.NO_GAME || gameMode === GameMode.READY_TO_GAME
+      ? translate
+      : EMPTY_LINE;
+
   return (
     <li
       onClick={() => gameMode === GameMode.IN_GAME && onCardClick()}
@@ -76,12 +84,7 @@ const CardWrapperInGame = ({
         </div>
         <div className={classes.cardBack}>
           <Card
-            title={
-              gameMode === GameMode.NO_GAME ||
-              gameMode === GameMode.READY_TO_GAME
-                ? translate
-                : EMPTY_LINE
-            }
+            title={cardTitle}
             isReadyToStartedGame={gameMode === GameMode.READY_TO_GAME}
             imageSRC={imageSRC}
           />
@@ -91,4 +94,4 @@ const CardWrapperInGame = ({
   );
 };
 
-export default CardWrapperInGame;
+export default Word;

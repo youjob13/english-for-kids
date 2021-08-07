@@ -8,38 +8,31 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Popup from '../Popup';
-import {
-  LOGIN_POPUP_BUTTON_CANCEL,
-  LOGIN_POPUP_BUTTON_OK,
-  LOGIN_POPUP_BUTTONS_WRAPPER,
-  LOGIN_POPUP_CLOSE,
-  LOGIN_POPUP_FORM,
-  LOGIN_POPUP_INPUT,
-  LOGIN_POPUP_TITLE,
-} from '../../../shared/stylesVariables';
 import { LoginContext } from '../../../shared/context';
-import { AuthFormValue } from '../../../shared/interfaces/api-models';
 import { getAuthorize } from '../../../store/authSlice';
-import { Path } from '../../../shared/globalVariables';
+import {
+  ElemRole,
+  initialAuthFormValue,
+  InputName,
+  InputPlaceholder,
+  InputType,
+  Path,
+} from '../../../shared/globalVariables';
 import { AuthReducerType } from '../../../shared/interfaces/store-models';
-
-const authFormValue: Record<AuthFormValue, string> = {
-  username: '',
-  password: '',
-};
+import classes from './loginPopup.module.scss';
 
 const LoginPopup = (): ReactElement => {
   const dispatch = useDispatch();
   const { toggleLoginPopup } = useContext(LoginContext);
   const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
-  const [authFormData, setAuthFormValue] = useState(authFormValue);
+  const [authFormData, setAuthFormValue] = useState(initialAuthFormValue);
   const history = useHistory();
 
-  const sendData = async () => {
+  const sendData = (): void => {
     dispatch(getAuthorize(authFormData));
   };
 
-  const closePopup = () => {
+  const closePopup = (): void => {
     toggleLoginPopup();
   };
 
@@ -52,7 +45,7 @@ const LoginPopup = (): ReactElement => {
 
   const updateAuthForm = (event: FormEvent) => {
     const target = event.target as HTMLInputElement;
-    const newAuthFormValue: Record<any, string> = {
+    const newAuthFormValue: Record<string, string> = {
       ...authFormData,
     };
 
@@ -63,42 +56,40 @@ const LoginPopup = (): ReactElement => {
   return (
     <Popup>
       <div
-        role="button"
-        tabIndex={0}
-        onKeyPress={() => console.log('close popup')}
+        className={classes.close}
+        role={ElemRole.BUTTON}
         onClick={() => toggleLoginPopup()}
-        className={LOGIN_POPUP_CLOSE}
       />
-      <form className={LOGIN_POPUP_FORM}>
-        <legend className={LOGIN_POPUP_TITLE}>Login</legend>
+      <form className={classes.form}>
+        <legend className={classes.title}>Login</legend>
         <p>Логин - admin</p>
         <p>Пароль - admin</p>
         <input
           onInput={updateAuthForm}
-          className={LOGIN_POPUP_INPUT}
-          type="text"
-          name="username"
-          placeholder="Login"
+          className={classes.input}
+          type={InputType.TEXT}
+          name={InputName.USERNAME}
+          placeholder={InputPlaceholder.LOGIN}
         />
         <input
           onInput={updateAuthForm}
-          className={LOGIN_POPUP_INPUT}
-          type="password"
-          name="password"
-          placeholder="Password"
+          className={classes.input}
+          type={InputType.PASSWORD}
+          name={InputName.PASSWORD}
+          placeholder={InputPlaceholder.PASSWORD}
         />
-        <div className={LOGIN_POPUP_BUTTONS_WRAPPER}>
+        <div className={classes.buttonsWrapper}>
           <button
             onClick={closePopup}
-            className={LOGIN_POPUP_BUTTON_CANCEL}
-            type="button"
+            className={`${classes.button} ${classes.buttonCancel}`}
+            type={ElemRole.BUTTON}
           >
             Cancel
           </button>
           <button
             onClick={sendData}
-            className={LOGIN_POPUP_BUTTON_OK}
-            type="button"
+            className={`${classes.button} ${classes.buttonOk}`}
+            type={ElemRole.BUTTON}
           >
             Login
           </button>

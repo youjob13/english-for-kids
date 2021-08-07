@@ -1,80 +1,26 @@
 import React, { ReactElement, useState } from 'react';
-import { useSelector } from 'react-redux';
-import {
-  CardsReducerType,
-  StatisticReducerType,
-} from '../../../../shared/interfaces/store-models';
 import TableHeader from './TableHeader/TableHeader';
-import {
-  TABLE_BODY_STYLES,
-  TABLE_ROW_STYLES,
-  TABLE_STYLES,
-  TABLE_TITLE_STYLES,
-} from '../../../../shared/stylesVariables';
-import tableHeaders from '../../../../shared/globalVariables';
-import calcPercentByCondition from '../../../../shared/helperFunctions/calcPercentByCondition';
-import TableCell from './TableCell/TableCell';
-import sortTable from '../../../../shared/helperFunctions/sortTable';
+import { EMPTY_LINE } from '../../../../shared/globalVariables';
+import classes from '../statistics.module.scss';
+import TableBody from './TableBody/TableBody';
 
 const StatisticsTable = (): ReactElement => {
-  const { cardsData } = useSelector(
-    (state: CardsReducerType) => state.cardsReducer
-  );
-  const { wordsStatistics } = useSelector(
-    (state: StatisticReducerType) => state.statisticReducer
-  );
   const [sortingType, setSortingType] = useState({
-    sortBy: '',
+    sortBy: EMPTY_LINE,
     sortFromTop: false,
   });
 
-  const statisticsParams = cardsData
-    .map(({ category, words }) => {
-      return words.map(({ name, translate }) => ({
-        wordName: name,
-        translation: translate,
-        category,
-      }));
-    })
-    .flat()
-    .map((statistics, index) => ({
-      ...statistics,
-      hit: (wordsStatistics[index] && wordsStatistics[index].hit) || 0,
-      train: (wordsStatistics[index] && wordsStatistics[index].train) || 0,
-      wrong: (wordsStatistics[index] && wordsStatistics[index].wrong) || 0,
-      correctAnswersPercent: calcPercentByCondition(
-        (wordsStatistics[index] && wordsStatistics[index].hit) || 0,
-        (wordsStatistics[index] && wordsStatistics[index].wrong) || 0
-      ),
-    }));
-
-  const selectSorting = (sortingTypeName: string) => {
+  const selectSorting = (sortingTypeName: string): void => {
     setSortingType({
       sortBy: sortingTypeName,
-      sortFromTop: !sortingType.sortFromTop, // TODO: to do nice sort
+      sortFromTop: !sortingType.sortFromTop,
     });
   };
 
   return (
-    <table className={TABLE_STYLES}>
-      <thead>
-        <tr className={TABLE_ROW_STYLES}>
-          <th className={TABLE_TITLE_STYLES}>№</th>
-          {tableHeaders.map((tableHeaderContent) => (
-            <TableHeader
-              key={tableHeaderContent.type}
-              selectedSortingType={sortingType.sortBy} // TODO: to do smth
-              content={tableHeaderContent}
-              selectSorting={selectSorting}
-            />
-          ))}
-        </tr>
-      </thead>
-      <tbody className={TABLE_BODY_STYLES}>
-        {sortTable(statisticsParams, sortingType).map((elem, index) => (
-          <TableCell key={index.toString()} word={elem} index={index + 1} />
-        ))}
-      </tbody>
+    <table className={classes.table}>
+      <TableHeader selectSorting={selectSorting} sortingType={sortingType} />
+      <TableBody sortingType={sortingType} />
     </table>
   );
 };

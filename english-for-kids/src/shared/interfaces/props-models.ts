@@ -94,6 +94,19 @@ export interface IAnswerProps {
   image: string;
 }
 
+export interface IStatisticsControlsProps {
+  clearList: () => void;
+}
+
+export interface ITableBodyProps {
+  sortingType: { sortBy: string; sortFromTop: boolean };
+}
+
+export interface ITableHeaderProps {
+  selectSorting: (sortingTypeName: string) => void;
+  sortingType: { sortBy: string; sortFromTop: boolean };
+}
+
 export interface IAnswerListProps {
   answerList: boolean[];
 }
@@ -113,6 +126,16 @@ export interface ITableCellProps {
 
 export interface INavigationProps {
   categories: string[];
+}
+
+export interface ILoginButtonProps {
+  onLoginButtonClick: () => void;
+}
+
+export interface ICardFrontControlsProps {
+  showTranslation: () => void;
+  playCardAudio: () => void;
+  gameMode: GameMode;
 }
 
 export interface IHeaderProps {
@@ -141,8 +164,6 @@ export interface IAdminNavigationItemProps {
 }
 
 export interface ISwitchProps {
-  on: string;
-  off: string;
   onCheckboxClick: () => void;
   gameMode: GameMode;
 }

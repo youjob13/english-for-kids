@@ -1,25 +1,22 @@
 import React, { ReactElement } from 'react';
-import CardWrapperInGame from './CardGame/CardWrapperInGame';
+import Word from './Word/Word';
 import { ICategoriesProps } from '../../../../shared/interfaces/props-models';
 import classes from '../category.module.scss';
+import EmptyCategory from '../../MainPage/EmptyCategory/EmptyCategory';
 
-const Categories = ({
+const Words = ({
   gameCards,
   currentQuestion,
 }: ICategoriesProps): ReactElement => (
   <ul className={classes.categoryField}>
     {!gameCards.length ? (
-      <div>Category is empty</div>
+      <EmptyCategory />
     ) : (
-      gameCards.map((word, index) => (
-        <CardWrapperInGame
-          key={index.toString()}
-          word={word}
-          currentQuestion={currentQuestion}
-        />
+      gameCards.map((word) => (
+        <Word key={word._id} word={word} currentQuestion={currentQuestion} />
       ))
     )}
   </ul>
 );
 
-export default Categories;
+export default Words;

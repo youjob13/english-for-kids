@@ -6,4 +6,4 @@ const Category = new Schema({
   words: [{type: Schema.Types.ObjectId, ref: 'Word'}],
 });
 
-export default model('Category', Category);
+export default model('CategoryPage', Category);

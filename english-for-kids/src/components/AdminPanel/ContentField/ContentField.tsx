@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Words from './Words/Words';
 import Categories from './Categories/Categories';
-import { getWordsState } from '../../../shared/selectors';
+import { getWordsState } from '../../../store/selectors';
 import { Path } from '../../../shared/globalVariables';
 
 const ContentField = (): ReactElement => {

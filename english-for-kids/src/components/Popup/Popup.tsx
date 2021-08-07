@@ -1,13 +1,10 @@
 import React, { Props, ReactElement } from 'react';
-import {
-  OVERLAY_STYLES,
-  TEXT_CONTENT_STYLES,
-} from '../../shared/stylesVariables';
+import classes from './EndGamePopup/endGamePopup.module.scss';
 
 const Popup = ({ children }: Props<string>): ReactElement => {
   return (
-    <div className={OVERLAY_STYLES}>
-      <div className={TEXT_CONTENT_STYLES}>{children}</div>
+    <div className={classes.overlay}>
+      <div className={classes.content}>{children}</div>
     </div>
   );
 };

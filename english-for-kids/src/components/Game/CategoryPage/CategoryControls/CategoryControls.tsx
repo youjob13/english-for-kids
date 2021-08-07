@@ -1,10 +1,7 @@
 import React, { ReactElement } from 'react';
 import { ElemRole, GameMode } from '../../../../shared/globalVariables';
-import {
-  REPEAT_WORD_STYLES,
-  START_GAME_STYLES,
-} from '../../../../shared/stylesVariables';
 import { ICategoryControlsProps } from '../../../../shared/interfaces/props-models';
+import classes from '../category.module.scss';
 
 const CategoryControls = ({
   gameMode,
@@ -14,7 +11,7 @@ const CategoryControls = ({
   <>
     {gameMode === GameMode.READY_TO_GAME && (
       <button
-        className={START_GAME_STYLES}
+        className={classes.startGame}
         type={ElemRole.BUTTON}
         onClick={onStartGameClick}
       >
@@ -23,7 +20,7 @@ const CategoryControls = ({
     )}
     {gameMode === GameMode.IN_GAME && (
       <button
-        className={REPEAT_WORD_STYLES}
+        className={classes.repeatWord}
         type={ElemRole.BUTTON}
         onClick={onSoundPlayButtonClick}
       >

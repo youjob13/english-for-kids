@@ -1,15 +1,17 @@
 import React, { ReactElement } from 'react';
-import { LOGIN_BUTTON } from '../../../../shared/stylesVariables';
+import classes from './loginButton.module.scss';
+import { ElemRole } from '../../../../shared/globalVariables';
+import { ILoginButtonProps } from '../../../../shared/interfaces/props-models';
 
-export interface ILoginButton {
-  onLoginButtonClick: () => void;
-}
-
-const LoginButton = ({ onLoginButtonClick }: ILoginButton): ReactElement => {
-  return (
-    <button onClick={onLoginButtonClick} className={LOGIN_BUTTON} type="button">
-      Login
-    </button>
-  );
-};
+const LoginButton = ({
+  onLoginButtonClick,
+}: ILoginButtonProps): ReactElement => (
+  <button
+    onClick={onLoginButtonClick}
+    className={classes.button}
+    type={ElemRole.BUTTON}
+  >
+    Login
+  </button>
+);
 export default LoginButton;

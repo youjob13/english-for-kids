@@ -1,22 +1,20 @@
 import React, { ReactElement } from 'react';
 import Answer from './Answer/Answer';
 import { IAnswerListProps } from '../../../../shared/interfaces/props-models';
-import { ANSWER_LIST_STYLES } from '../../../../shared/stylesVariables';
+import {
+  FAIL_ANSWER_IMAGE,
+  RIGHT_ANSWER_IMAGE,
+} from '../../../../shared/globalVariables';
+import classes from './answers.module.scss';
 
 const AnswerList = ({ answerList }: IAnswerListProps): ReactElement => (
-  <ul className={ANSWER_LIST_STYLES}>
+  <ul className={classes.answerList}>
     {answerList.map((answer, index) => {
       if (answerList.length - 10 <= index) {
         return answer ? (
-          <Answer
-            key={index.toString()}
-            image={`${process.env.PUBLIC_URL}/assets/star.webp`}
-          />
+          <Answer key={index.toString()} image={RIGHT_ANSWER_IMAGE} />
         ) : (
-          <Answer
-            key={index.toString()}
-            image={`${process.env.PUBLIC_URL}/assets/lose_star.png`}
-          />
+          <Answer key={index.toString()} image={FAIL_ANSWER_IMAGE} />
         );
       }
       return null;

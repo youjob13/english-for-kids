@@ -4,6 +4,15 @@ import {
   IWordStatistic,
   LoginData,
 } from '../interfaces/api-models';
+import {
+  authUrl,
+  baseUrl,
+  cardsUrl,
+  categoryUrl,
+  ContentType,
+  HTTPMethods,
+  statisticsUrl,
+} from '../globalVariables';
 
 export const cardsAPI = {
   async getWords(
@@ -12,7 +21,7 @@ export const cardsAPI = {
   ): Promise<{ words: ICardsData[]; totalPageCount: number }> {
     try {
       const response = await fetch(
-        `http://localhost:5000/cards?limit=${limit}&page=${page}`
+        `${baseUrl}${cardsUrl}?limit=${limit}&page=${page}`
       );
       const result = await response.json();
       const words: ICardsData[] = result.data;
@@ -24,11 +33,11 @@ export const cardsAPI = {
   },
   async removeWord(cardId: string): Promise<void> {
     try {
-      await fetch(`http://localhost:5000/cards?id=${cardId}`, {
-        method: 'DELETE',
+      await fetch(`${baseUrl}${cardsUrl}?id=${cardId}`, {
+        method: HTTPMethods.DELETE,
         headers: {
           authorization: localStorage.token,
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
       });
     } catch (error) {
@@ -37,16 +46,13 @@ export const cardsAPI = {
   },
   async createWord(data: FormData, categoryId: string): Promise<IWord> {
     try {
-      const response = await fetch(
-        `http://localhost:5000/cards?id=${categoryId}`,
-        {
-          method: 'POST',
-          headers: {
-            Authorization: localStorage.token,
-          },
-          body: data,
-        }
-      );
+      const response = await fetch(`${baseUrl}${cardsUrl}?id=${categoryId}`, {
+        method: HTTPMethods.POST,
+        headers: {
+          Authorization: localStorage.token,
+        },
+        body: data,
+      });
       const card: IWord = await response.json();
       return card;
     } catch (error) {
@@ -55,8 +61,8 @@ export const cardsAPI = {
   },
   async updateWord(cardId: string, data: FormData): Promise<IWord> {
     try {
-      const response = await fetch(`http://localhost:5000/cards?id=${cardId}`, {
-        method: 'PUT',
+      const response = await fetch(`${baseUrl}${cardsUrl}?id=${cardId}`, {
+        method: HTTPMethods.PUT,
         headers: {
           Authorization: localStorage.token,
         },
@@ -73,11 +79,11 @@ export const cardsAPI = {
 export const categoryAPI = {
   async createCategory(categoryName: string): Promise<ICardsData> {
     try {
-      const response = await fetch('http://localhost:5000/category', {
-        method: 'POST',
+      const response = await fetch(`${baseUrl}${categoryUrl}`, {
+        method: HTTPMethods.POST,
         headers: {
           authorization: localStorage.token,
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
         body: JSON.stringify({ categoryName }),
       });
@@ -88,11 +94,11 @@ export const categoryAPI = {
   },
   async removeCategory(id: string): Promise<void> {
     try {
-      await fetch(`http://localhost:5000/category?id=${id}`, {
-        method: 'DELETE',
+      await fetch(`${baseUrl}${categoryUrl}?id=${id}`, {
+        method: HTTPMethods.DELETE,
         headers: {
           authorization: localStorage.token,
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
       });
     } catch (error) {
@@ -105,18 +111,17 @@ export const categoryAPI = {
   ): Promise<ICardsData> {
     try {
       const response = await fetch(
-        `http://localhost:5000/category?id=${categoryId}`,
+        `${baseUrl}${categoryUrl}?id=${categoryId}`,
         {
-          method: 'PUT',
+          method: HTTPMethods.PUT,
           headers: {
             Authorization: localStorage.token,
-            'Content-Type': 'application/json;charset=utf-8',
+            'Content-Type': ContentType.APP_JSON,
           },
           body: JSON.stringify({ newCategoryName }),
         }
       );
       const res = await response.json();
-      console.log(res);
       return res;
     } catch (error) {
       throw new Error(error);
@@ -127,10 +132,10 @@ export const categoryAPI = {
 export const authAPI = {
   async login(authFormData: LoginData): Promise<ILoginResponse> {
     try {
-      const response = await fetch('http://localhost:5000/auth/login', {
-        method: 'POST',
+      const response = await fetch(`${baseUrl}${authUrl}/login`, {
+        method: HTTPMethods.POST,
         headers: {
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
         body: JSON.stringify(authFormData),
       });
@@ -141,11 +146,11 @@ export const authAPI = {
   },
   async logout(): Promise<void> {
     try {
-      await fetch('http://localhost:5000/auth/logout', {
-        method: 'DELETE',
+      await fetch(`${baseUrl}${authUrl}/logout`, {
+        method: HTTPMethods.DELETE,
         headers: {
           Authorization: localStorage.token,
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
       });
     } catch (error) {
@@ -160,10 +165,10 @@ export const statisticsAPI = {
     wordStatistics: any
   ): Promise<IWordStatistic> {
     try {
-      const response = await fetch('http://localhost:5000/statistics', {
-        method: 'PUT',
+      const response = await fetch(`${baseUrl}${statisticsUrl}`, {
+        method: HTTPMethods.PUT,
         headers: {
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
         body: JSON.stringify({ wordId, wordStatistics }),
       });
@@ -174,10 +179,10 @@ export const statisticsAPI = {
   },
   async getWordsStatistics(): Promise<IWordStatistic[]> {
     try {
-      const response = await fetch('http://localhost:5000/statistics', {
-        method: 'GET',
+      const response = await fetch(`${baseUrl}${statisticsUrl}`, {
+        method: HTTPMethods.GET,
         headers: {
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
       });
 
@@ -189,18 +194,14 @@ export const statisticsAPI = {
   },
   async resetWordsStatistics(): Promise<void> {
     try {
-      await fetch('http://localhost:5000/statistics', {
-        method: 'DELETE',
+      await fetch(`${baseUrl}${statisticsUrl}`, {
+        method: HTTPMethods.DELETE,
         headers: {
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': ContentType.APP_JSON,
         },
       });
     } catch (error) {
       throw new Error(error);
     }
   },
-};
-
-export const getWordStatistic = (wordName: string): IWordStatistic => {
-  return JSON.parse(localStorage.getItem(wordName)!);
 };

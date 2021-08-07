@@ -1,21 +1,17 @@
 import React, { ReactElement } from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  NAV_ITEM,
-  NAV_ITEM_LINK,
-  NAV_ITEM_LINK_ACTIVE,
-} from '../../../../../shared/stylesVariables';
 import { IAdminNavigationItemProps } from '../../../../../shared/interfaces/props-models';
+import classes from '../navigation.module.scss';
 
 const NavigationItem = ({
   name,
   path,
 }: IAdminNavigationItemProps): ReactElement => (
-  <li className={NAV_ITEM}>
+  <li className={classes.navItem}>
     <NavLink
       to={path}
-      className={NAV_ITEM_LINK}
-      activeClassName={NAV_ITEM_LINK_ACTIVE}
+      className={classes.navItemLink}
+      activeClassName={classes.navItemLinkActive}
     >
       {name}
     </NavLink>

@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
-import { NAV_LIST } from '../../../../shared/stylesVariables';
 import NavigationItem from './NavigationItem/NavigationItem';
 import { navigationAdminPanel } from '../../../../shared/globalVariables';
+import classes from './navigation.module.scss';
 
 const Navigation = (): ReactElement => (
   <nav>
-    <ul className={NAV_LIST}>
+    <ul className={classes.nav}>
       {navigationAdminPanel.map((navigationLink) => (
         <NavigationItem {...navigationLink} />
       ))}

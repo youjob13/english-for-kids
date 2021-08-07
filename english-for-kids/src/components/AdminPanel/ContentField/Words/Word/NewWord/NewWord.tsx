@@ -16,7 +16,7 @@ import {
 } from '../../../../../../shared/globalVariables';
 import typeNewWordData from '../../../../../../shared/helperFunctions/updateFormValue';
 import FormError from '../../../../../Popup/FormError/FormError';
-import { WORD_ADMIN } from '../../../../../../shared/stylesVariables';
+import classes from '../card.module.scss';
 
 const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
   const history = useHistory();
@@ -64,7 +64,7 @@ const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
     <>
       {isFormNotFullyCompleted && <FormError />}
       {isCreatingWordMode ? (
-        <div className={WORD_ADMIN}>
+        <div className={classes.cardAdmin}>
           <CardForm
             submitForm={onCreateCardClick}
             updateInputValue={updateFormValue}

@@ -2,22 +2,17 @@ import React, { ReactElement, useContext, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { INavigationProps } from '../../../../shared/interfaces/props-models';
 import NavigationItem from './NavigationItem/NavigationItem';
-import {
-  NAV_MENU_HIDDEN_STYLES,
-  NAV_MENU_STYLES,
-  NAV_ITEM_STYLES,
-  NAV_ITEM_ACTIVE_STYLES,
-  NAV_ITEM_ICON_STYLES,
-} from '../../../../shared/stylesVariables';
 import useOnClickOutsideOrNavItem from '../../../../shared/hooks/useOnClickOutsideOrNavItem';
 import MenuContext from '../../../../shared/context';
 import MAIN_ICON from '../../../../assets/images/main-icon.png';
 import STATISTICS_ICON from '../../../../assets/images/statistics-icon.png';
 import {
+  ElemRole,
   EMPTY_LINE,
   INITIAL_REF_NAV_VALUE,
   Path,
 } from '../../../../shared/globalVariables';
+import classes from './navigation.module.scss';
 
 const Navigation = ({ categories }: INavigationProps): ReactElement => {
   const { isOpenMenu, toggleMenu } = useContext(MenuContext);
@@ -27,28 +22,28 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
     if (isOpenMenu) toggleMenu();
   });
 
-  const NAV_STYLES = isOpenMenu ? NAV_MENU_STYLES : NAV_MENU_HIDDEN_STYLES;
+  const NAV_STYLES = isOpenMenu
+    ? classes.navMenu
+    : `${classes.navMenu} ${classes.navMenuHidden}`;
 
   return (
     <nav ref={refNav} className={NAV_STYLES}>
       <ul
-        role="menu" // TODO: read about
+        role={ElemRole.MENU}
         onClick={({ target }) =>
           (target as HTMLElement).closest('a') && toggleMenu()
         }
-        tabIndex={0}
-        onKeyPress={() => 'menu is closed'}
       >
         <li>
           <NavLink
             exact
             to={Path.ROOT}
-            className={NAV_ITEM_STYLES}
-            activeClassName={NAV_ITEM_ACTIVE_STYLES}
+            className={classes.navItem}
+            activeClassName={classes.navItemActive}
           >
             Main
             <img
-              className={NAV_ITEM_ICON_STYLES}
+              className={classes.navItemIcon}
               src={MAIN_ICON}
               alt={EMPTY_LINE}
             />
@@ -57,12 +52,12 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
         <li>
           <NavLink
             to={Path.STATISTICS}
-            className={NAV_ITEM_STYLES}
-            activeClassName={NAV_ITEM_ACTIVE_STYLES}
+            className={classes.navItem}
+            activeClassName={classes.navItemActive}
           >
             Statistics
             <img
-              className={NAV_ITEM_ICON_STYLES}
+              className={classes.navItemIcon}
               src={STATISTICS_ICON}
               alt={EMPTY_LINE}
             />

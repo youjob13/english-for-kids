@@ -4,8 +4,11 @@ import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { checkAuthorize } from './store/authSlice';
 import LoginPopup from './components/Popup/LoginPopup/LoginPopup';
-import { APP_WRAPPER } from './shared/stylesVariables';
-import { booleanStateValueDefault, Path } from './shared/globalVariables';
+import {
+  APP_WRAPPER_STYLES,
+  booleanStateValueDefault,
+  Path,
+} from './shared/globalVariables';
 import Game from './components/Game/Game';
 import { LoginContext } from './shared/context';
 import AdminPanel from './components/AdminPanel/AdminPanel';
@@ -29,7 +32,7 @@ const App = (): ReactElement => {
         toggleLoginPopup: toggleLoginPopupMode,
       }}
     >
-      <div className={APP_WRAPPER}>
+      <div className={APP_WRAPPER_STYLES}>
         <Switch>
           {localStorage.token && (
             <Route component={AdminPanel} path={Path.ADMIN_PANEL_ROOT} />

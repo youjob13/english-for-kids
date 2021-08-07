@@ -1,31 +1,26 @@
 import React, { ReactElement } from 'react';
-import {
-  TABLE_TITLE_ACTIVE_STYLES,
-  TABLE_TITLE_STYLES,
-} from '../../../../../shared/stylesVariables';
-import { ITableHeader } from '../../../../../shared/interfaces/api-models';
+import classes from '../../statistics.module.scss';
+import tableHeaders from '../../../../../shared/globalVariables';
+import { ITableHeaderProps } from '../../../../../shared/interfaces/props-models';
+import TableHeaderTitle from './TableHeaderTitle/TableHeaderTitle';
 
 const TableHeader = ({
-  content,
   selectSorting,
-  selectedSortingType,
-}: ITableHeader): ReactElement => {
-  const onTableHeaderClick = () => {
-    selectSorting(content.type);
-  };
-
-  return (
-    <th
-      className={
-        selectedSortingType === content.type
-          ? TABLE_TITLE_ACTIVE_STYLES
-          : TABLE_TITLE_STYLES
-      }
-      onClick={onTableHeaderClick}
-    >
-      {content.name}
-    </th>
-  );
-};
+  sortingType,
+}: ITableHeaderProps): ReactElement => (
+  <thead>
+    <tr className={classes.tableRow}>
+      <th className={classes.tableTitle}>№</th>
+      {tableHeaders.map((tableHeaderContent) => (
+        <TableHeaderTitle
+          key={tableHeaderContent.type}
+          selectedSortingType={sortingType.sortBy}
+          content={tableHeaderContent}
+          selectSorting={selectSorting}
+        />
+      ))}
+    </tr>
+  </thead>
+);
 
 export default TableHeader;

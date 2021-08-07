@@ -48,8 +48,3 @@ export type StateType<T> = CombinedState<T>;
 
 export type ThunkActionType<T> = ThunkAction<void, T, unknown, AnyAction>;
 export type ThunkDispatchType<T> = ThunkDispatch<T, unknown, AnyAction>;
-
-export type GameAndCardsReducerType = {
-  gameReducer: IGameState;
-  cardsReducer: ICardsState;
-};

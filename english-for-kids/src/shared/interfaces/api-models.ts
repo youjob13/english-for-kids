@@ -23,7 +23,7 @@ export interface ITableHeaderData {
   name: string;
 }
 
-export interface ITableHeader {
+export interface ITableHeaderTitleProps {
   content: ITableHeaderData;
   selectSorting: (sortingTypeName: string) => void;
   selectedSortingType: string;

@@ -1,34 +1,31 @@
 import React, { ReactElement } from 'react';
 import classes from './switch.module.scss';
 import { ISwitchProps } from '../../interfaces/props-models';
-import { GameMode } from '../../globalVariables';
+import {
+  GameMode,
+  InputType,
+  SWITCH_ID,
+  SwitchMode,
+} from '../../globalVariables';
 
-const INPUT_SWITCH_STYLES = classes.inputSwitch;
-const INPUT_SWITCH_ACTIVE_STYLES = classes.inputSwitchActive;
-const CHECKBOX_STYLES = classes.checkbox;
-const CHECKBOX_SWITCH_STYLES = classes.checkboxSwitch;
-const Switch = ({
-  on,
-  off,
-  onCheckboxClick,
-  gameMode,
-}: ISwitchProps): ReactElement => {
+const Switch = ({ onCheckboxClick, gameMode }: ISwitchProps): ReactElement => {
+  const INPUT_STYLES =
+    gameMode === GameMode.NO_GAME
+      ? classes.inputSwitch
+      : classes.inputSwitchActive;
+
   return (
-    <label htmlFor="switchBtn" className={CHECKBOX_STYLES}>
+    <label htmlFor={SWITCH_ID} className={classes.checkbox}>
       <input
-        className={
-          gameMode === GameMode.NO_GAME
-            ? INPUT_SWITCH_STYLES
-            : INPUT_SWITCH_ACTIVE_STYLES
-        }
+        className={INPUT_STYLES}
         onChange={onCheckboxClick}
-        id="switchBtn"
-        type="checkbox"
+        id={SWITCH_ID}
+        type={InputType.CHECKBOX}
       />
       <span
-        className={CHECKBOX_SWITCH_STYLES}
-        data-label-on={on}
-        data-label-off={off}
+        className={classes.checkboxSwitch}
+        data-label-on={SwitchMode.PLAY}
+        data-label-off={SwitchMode.TRAIN}
       />
     </label>
   );
