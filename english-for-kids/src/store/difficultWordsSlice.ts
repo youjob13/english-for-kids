@@ -6,9 +6,10 @@ import {
   IDifficultWordsState,
 } from '../shared/interfaces/store-models';
 import { ICardsData } from '../shared/interfaces/cards-models';
+import { Slice } from '../shared/globalVariables';
 
 const difficultWordsSlice = createSlice({
-  name: 'difficultWordsSlice',
+  name: Slice.DIFFICULT_WORDS,
   initialState: {
     currentDifficultWordList: [],
   } as IDifficultWordsState,
@@ -26,13 +27,15 @@ export const { setDifficultWords } = difficultWordsSlice.actions;
 
 export const getDifficultWords =
   (
-    wordsStatistics: any,
+    wordsStatistics: string[],
     cards: ICardsData[]
   ): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch): Promise<void> => {
-    const allCards = cards.map((category) => Object.values(category)).flat(4);
-    const difficultCards = allCards.filter((card) =>
-      wordsStatistics.includes(card.name)
-    ); // TODO: полностью переделать
+    const allWords = cards.map(({ words }) => words).flat();
+    console.log('wordsStatistics', wordsStatistics);
+    console.log(allWords);
+    const difficultCards = allWords.filter((word) =>
+      wordsStatistics.includes(word._id)
+    );
     dispatch(setDifficultWords(difficultCards));
   };

@@ -10,7 +10,6 @@ export interface IAuthState {
 
 export interface ICardsState {
   cardsData: ICardsData[];
-  isFetching: boolean;
   playingList: string[];
   currentPageCount: number;
   totalPageCount: number;
@@ -19,13 +18,11 @@ export interface ICardsState {
 
 export interface IStatisticState {
   wordsStatistics: IWordStatistic[];
-  statisticsData: any;
-  isFetching: boolean;
-  difficultWords: any;
+  difficultWords: Array<string>;
 }
 
 export interface IDifficultWordsState {
-  currentDifficultWordList: any[];
+  currentDifficultWordList: IWord[];
 }
 
 export interface IGameState {

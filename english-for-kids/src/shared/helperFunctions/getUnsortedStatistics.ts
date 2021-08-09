@@ -21,8 +21,8 @@ const getUnsortedStatistics = (
       train: (wordsStatistics[index] && wordsStatistics[index].train) || 0,
       wrong: (wordsStatistics[index] && wordsStatistics[index].wrong) || 0,
       correctAnswersPercent: calcPercentByCondition(
-        (wordsStatistics[index] && wordsStatistics[index].hit) || 0,
-        (wordsStatistics[index] && wordsStatistics[index].wrong) || 0
+        (wordsStatistics[index] && wordsStatistics[index].wrong) || 0,
+        (wordsStatistics[index] && wordsStatistics[index].hit) || 0
       ),
     }));
 

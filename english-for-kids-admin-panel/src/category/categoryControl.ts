@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
+import { getLogger } from 'log4js';
 import Category from '../models/Category';
 import Word from '../models/Word';
+import WordStatistics from '../models/WordStatistics';
 
+const logger = getLogger();
 export const createCategory = async (req: Request, res: Response) => {
   try {
     const { categoryName } = req.body;
@@ -9,7 +12,7 @@ export const createCategory = async (req: Request, res: Response) => {
     if (!categoryName) {
       return res.status(400).json({message: 'Not enough data: (category name)'});
     }
-
+    logger.debug(categoryName);
     const newCategory = new Category({
       category: categoryName,
       words: [],
@@ -56,13 +59,15 @@ export const removeCategory = async (req: Request, res: Response) => {
     }
 
     const category = await Category.findById(categoryId);
-    const deleteCardsRequests = category.cards.map((cardId: string) => Word.findByIdAndDelete(cardId));
+    const deleteCardsRequests = category.words.map((cardId: string) => Word.findByIdAndDelete(cardId));
+    const deleteWordStatisticsRequests = category.words.map((cardId: string) => WordStatistics.findByIdAndDelete(cardId));
 
     await Promise.all(deleteCardsRequests);
+    await Promise.all(deleteWordStatisticsRequests);
 
     await Category.findByIdAndDelete(categoryId);
 
-    return res.json('CategoryPage deleted');
+    return res.json('Category deleted');
   } catch (error) {
     return res.status(400).json(error);
   }

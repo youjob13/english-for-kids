@@ -6,6 +6,11 @@ export interface ILoginResponse {
   token?: string;
   message?: string;
 }
+export interface IWordStatisticsRequest {
+  hit: boolean;
+  wrong: boolean;
+  train: boolean;
+}
 
 export interface IWordStatistic {
   _id: string;

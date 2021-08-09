@@ -120,7 +120,7 @@ export interface ICardFrontProps {
 }
 
 export interface ITableCellProps {
-  index: number;
+  number: number;
   word: IWordStatisticData;
 }
 

@@ -17,7 +17,7 @@ export const getCards = async (req: Request, res: Response) => {
         .exec(),
       Category.countDocuments(),
     ]);
-
+    logger.debug(categories);
     return res.json({
       object: 'list',
       totalPageCount: categoryCount,

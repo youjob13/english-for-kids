@@ -1,13 +1,13 @@
 import { AnyAction, createSlice, ThunkAction } from '@reduxjs/toolkit';
 import { ICardsState } from '../shared/interfaces/store-models';
 import { cardsAPI, categoryAPI } from '../shared/api/api';
+import { Slice } from '../shared/globalVariables';
 
 const cardsSlice = createSlice({
-  name: 'cardsSlice',
+  name: Slice.CARDS,
   initialState: {
     cardsData: [],
     playingList: [],
-    isFetching: true,
     currentPageCount: 1,
     totalPageCount: 1,
     isForbiddenError: false,
@@ -17,18 +17,13 @@ const cardsSlice = createSlice({
       ...state,
       playingList: [...state.playingList, action.payload],
     }),
-    toggleIsFetching: (state: ICardsState, action) => ({
+    removeWordFromPLayingList: (state: ICardsState) => ({
       ...state,
-      isFetching: action.payload,
+      playingList: [],
     }),
-    removeWordFromPLayingList: (state: ICardsState) => {
-      return {
-        ...state,
-        playingList: [],
-      };
-    },
     setAllCards: (state: ICardsState, action) => {
       const { words, totalPageCount } = action.payload;
+
       return {
         ...state,
         cardsData: [...state.cardsData, ...words],
@@ -130,7 +125,6 @@ const cardsSlice = createSlice({
 export default cardsSlice.reducer;
 
 export const {
-  toggleIsFetching,
   removeWordFromPLayingList,
   updatePlayingList,
   setAllCards,
@@ -149,14 +143,10 @@ export const getWords =
     _page?: number
   ): ThunkAction<void, ICardsState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
-    // dispatch(toggleIsFetching(false));
-
     const { words, totalPageCount } = await cardsAPI.getWords(_limit, _page);
-    // dispatch(toggleIsFetching(true));
     dispatch(setAllCards({ words, totalPageCount }));
   };
 
-// TODO: realise preloader
 export const createWord =
   (
     data: FormData,

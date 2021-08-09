@@ -33,11 +33,17 @@ const Word = ({
   );
 
   const onShowTranslationClick = useCallback(() => {
-    if (gameMode === GameMode.READY_TO_GAME) return;
+    if (gameMode === GameMode.READY_TO_GAME) {
+      return;
+    }
+
     setIsShowTranslation(!isShowTranslation);
   }, [isShowTranslation]);
   const onCardPlayAudioClick = useCallback(() => {
-    if (gameMode === GameMode.READY_TO_GAME) return;
+    if (gameMode === GameMode.READY_TO_GAME) {
+      return;
+    }
+
     playAudio(audioSRC);
     dispatch(updateStatistics(_id, StatisticsParam.TRAIN));
   }, [audioSRC]);

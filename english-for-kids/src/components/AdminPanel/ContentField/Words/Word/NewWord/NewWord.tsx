@@ -44,7 +44,9 @@ const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
       return;
     }
 
-    if (isFormNotFullyCompleted) return;
+    if (isFormNotFullyCompleted) {
+      return;
+    }
 
     const isFormFilling = checkFormFilling(formData);
 

@@ -10,7 +10,7 @@ const StatisticsControls = ({
   <div className={classes.buttonsWrapper}>
     <Link
       className={classes.button}
-      to={Path.DIFFICULT_WORDS}
+      to={`/section/${Path.DIFFICULT_WORDS}`}
       type={ElemRole.BUTTON}
     >
       Repeat difficult words

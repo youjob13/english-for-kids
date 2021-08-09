@@ -23,10 +23,6 @@ export enum StatisticsParam {
 
 const tableHeaders: ITableHeaderData[] = [
   {
-    type: SortingTypes.CATEGORY,
-    name: 'category',
-  },
-  {
     type: SortingTypes.WORD,
     name: 'word',
   },
@@ -35,12 +31,16 @@ const tableHeaders: ITableHeaderData[] = [
     name: 'translation',
   },
   {
-    type: SortingTypes.TRAIN,
-    name: 'train',
+    type: SortingTypes.CATEGORY,
+    name: 'category',
   },
   {
     type: SortingTypes.HIT,
     name: 'hit',
+  },
+  {
+    type: SortingTypes.TRAIN,
+    name: 'train',
   },
   {
     type: SortingTypes.WRONG,
@@ -54,6 +54,14 @@ const tableHeaders: ITableHeaderData[] = [
 export default tableHeaders;
 
 export const EMPTY_LINE = '';
+
+export enum Slice {
+  AUTH = 'authSlice',
+  GAME = 'gameSlice',
+  STATISTICS = 'statisticsSlice',
+  CARDS = 'cardsSlice',
+  DIFFICULT_WORDS = 'difficultWordsSlice',
+}
 
 export enum HTTPMethods {
   GET = 'GET',
@@ -81,7 +89,7 @@ export enum Path {
   GAME = '/',
   CATEGORY = '/section/:category',
   STATISTICS = '/statistics',
-  DIFFICULT_WORDS = '/section/difficult-words',
+  DIFFICULT_WORDS = 'difficult-words',
   ROOT = '/',
   ADMIN_PANEL_CATEGORIES = '/admin-panel/categories',
   ADMIN_PANEL_WORD = '/admin-panel/categories/:category',
@@ -167,6 +175,7 @@ export const WIN_POPUP_SOUND = '/assets/win.mp3';
 export const LOSE_POPUP_SOUND = '/assets/lose.mp3';
 export const WIN_POPUP_IMAGE = `${process.env.PUBLIC_URL}/assets/cool.png`;
 export const LOSE_POPUP_IMAGE = `${process.env.PUBLIC_URL}/assets/fail.png`;
+export const TOKEN = 'token';
 
 export const navigationAdminPanel = [
   {

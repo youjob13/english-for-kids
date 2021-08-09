@@ -22,7 +22,7 @@ const TableBody = ({ sortingType }: ITableBodyProps): ReactElement => {
   return (
     <tbody className={classes.tableBody}>
       {sortTable(unsortedStatistics, sortingType).map((word, index) => (
-        <TableCell key={index.toString()} word={word} index={index + 1} />
+        <TableCell key={index.toString()} word={word} number={index + 1} />
       ))}
     </tbody>
   );

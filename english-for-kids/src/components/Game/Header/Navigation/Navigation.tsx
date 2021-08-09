@@ -19,7 +19,9 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
   const refNav = useRef<HTMLElement>(INITIAL_REF_NAV_VALUE);
 
   useOnClickOutsideOrNavItem(refNav, () => {
-    if (isOpenMenu) toggleMenu();
+    if (isOpenMenu) {
+      toggleMenu();
+    }
   });
 
   const NAV_STYLES = isOpenMenu

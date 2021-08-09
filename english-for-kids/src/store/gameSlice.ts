@@ -8,10 +8,10 @@ import {
 import { IWord } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helperFunctions/arraySort';
 import playAudio from '../shared/helperFunctions/playSound';
-import { GameMode } from '../shared/globalVariables';
+import { GameMode, Slice } from '../shared/globalVariables';
 
 const gameSlice = createSlice({
-  name: 'gameSlice',
+  name: Slice.GAME,
   initialState: {
     gameMode: GameMode.NO_GAME,
     currentGameCardList: [],
@@ -27,13 +27,17 @@ const gameSlice = createSlice({
         state.gameMode === GameMode.NO_GAME
           ? GameMode.READY_TO_GAME
           : GameMode.NO_GAME,
+    }),
+    resetGameData: (state: IGameState) => ({
+      ...state,
       currentQuestion: null,
       lastAnswer: null,
-      currentGameCardList: [],
-      currentGameAnswers: [], // TODO: reset reducer
+      currentGameWordList: [],
+      currentGameAnswers: [],
     }),
     startGame: (state: IGameState, action) => {
       const cards: IWord[] = action.payload;
+
       return {
         ...state,
         gameMode: GameMode.IN_GAME,
@@ -46,11 +50,12 @@ const gameSlice = createSlice({
     }),
     setRightAnswer: (state: IGameState, action) => {
       const answer: IWord = action.payload;
+
       return {
         ...state,
         lastAnswer: answer,
         currentGameCardList: state.currentGameCardList.filter(
-          (card) => JSON.stringify(card) !== JSON.stringify(answer)
+          (word) => word._id !== answer._id
         ),
         currentGameAnswers: [...state.currentGameAnswers, true],
       };
@@ -62,10 +67,6 @@ const gameSlice = createSlice({
     stopGame: (state: IGameState, action) => ({
       ...state,
       gameMode: action.payload,
-      currentGameAnswers: [], // TODO: reset reducer
-      currentGameCardList: [],
-      currentQuestion: null,
-      lastAnswer: null,
     }),
     toggleEndGamePopupMode: (state: IGameState, action) => ({
       ...state,
@@ -88,12 +89,13 @@ export const {
   setAudioQuestion,
   startGame,
   toggleGameMode,
+  resetGameData,
 } = gameSlice.actions;
 
 export const prepareGameProcess =
-  (cards: IWord[]): ThunkActionType<StateType<GameReducerType>> =>
+  (words: IWord[]): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch): Promise<void> => {
-    dispatch(startGame(sortCurrentGameQuestionList(cards)));
+    dispatch(startGame(sortCurrentGameQuestionList(words)));
     dispatch(setAudioQuestion());
   };
 
@@ -103,8 +105,6 @@ export const setGivenAnswer =
     answerResult: boolean
   ): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch, getState): Promise<void> => {
-    // const question = getState().gameReducer.currentQuestion;
-
     if (answerResult) {
       dispatch(setRightAnswer(answer));
 
@@ -112,12 +112,14 @@ export const setGivenAnswer =
       dispatch(setAudioQuestion());
 
       const newQuestion = getState().gameReducer.currentQuestion;
+
       if (!newQuestion) {
         dispatch(toggleEndGamePopupMode(true));
 
         setTimeout(() => {
           dispatch(toggleEndGamePopupMode(false));
           dispatch(stopGame(GameMode.READY_TO_GAME));
+          dispatch(resetGameData());
         }, 3000);
       }
 
@@ -125,7 +127,6 @@ export const setGivenAnswer =
     }
 
     dispatch(setFalseAnswer());
-    // updateWordStatistics(question!.name, false);
 
-    playAudio('/assets/error.mp3');
+    playAudio('/assets/error.mp3'); // TODO: think about it
   };

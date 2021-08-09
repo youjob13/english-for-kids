@@ -2,6 +2,7 @@ import { IWord, ICardsData } from '../interfaces/cards-models';
 import {
   ILoginResponse,
   IWordStatistic,
+  IWordStatisticsRequest,
   LoginData,
 } from '../interfaces/api-models';
 import {
@@ -26,6 +27,7 @@ export const cardsAPI = {
       const result = await response.json();
       const words: ICardsData[] = result.data;
       const { totalPageCount } = result;
+      console.log(words);
       return { words, totalPageCount };
     } catch (error) {
       throw new Error(error);
@@ -158,11 +160,10 @@ export const authAPI = {
     }
   },
 };
-
 export const statisticsAPI = {
   async updateStatistics(
     wordId: string,
-    wordStatistics: any
+    wordStatistics: IWordStatisticsRequest
   ): Promise<IWordStatistic> {
     try {
       const response = await fetch(`${baseUrl}${statisticsUrl}`, {

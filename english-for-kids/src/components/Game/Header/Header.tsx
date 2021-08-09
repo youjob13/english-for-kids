@@ -1,7 +1,7 @@
 import React, { ReactElement, useContext, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Navigation from './Navigation/Navigation';
-import { toggleGameMode } from '../../../store/gameSlice';
+import { resetGameData, toggleGameMode } from '../../../store/gameSlice';
 import Switch from '../../../shared/baseComponents/Switch/Switch';
 import MenuButton from '../../../shared/baseComponents/MenuButton/MenuButton';
 import MenuContext, { LoginContext } from '../../../shared/context';
@@ -22,6 +22,7 @@ const Header = (): ReactElement => {
 
   const switchGameMode = () => {
     dispatch(toggleGameMode());
+    dispatch(resetGameData());
   };
 
   const toggleMenuMode = () => {

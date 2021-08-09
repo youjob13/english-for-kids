@@ -7,14 +7,13 @@ import {
 } from '../shared/interfaces/store-models';
 import calcPercentByCondition from '../shared/helperFunctions/calcPercentByCondition';
 import { statisticsAPI } from '../shared/api/api';
-import { StatisticsParam } from '../shared/globalVariables';
+import { Slice, StatisticsParam } from '../shared/globalVariables';
+import { IWordStatistic } from '../shared/interfaces/api-models';
 
 const statisticSlice = createSlice({
-  name: 'statisticSlice',
+  name: Slice.STATISTICS,
   initialState: {
     wordsStatistics: [],
-    statisticsData: [],
-    isFetching: true,
     difficultWords: [],
   } as IStatisticState,
   reducers: {
@@ -36,21 +35,13 @@ const statisticSlice = createSlice({
       ...state,
       difficultWords: [...action.payload],
     }),
-    toggleIsFetching: (state: IStatisticState, action) => ({
-      ...state,
-      isFetching: action.payload,
-    }),
   },
 });
 
 export default statisticSlice.reducer;
 
-export const {
-  setDifficultWords,
-  toggleIsFetching,
-  setUpdatedWord,
-  setWordsStatistics,
-} = statisticSlice.actions;
+export const { setDifficultWords, setUpdatedWord, setWordsStatistics } =
+  statisticSlice.actions;
 
 export const updateStatistics =
   (
@@ -99,49 +90,45 @@ export const getStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
     const wordsStatistics = await statisticsAPI.getWordsStatistics();
+    console.log(wordsStatistics);
     dispatch(setWordsStatistics(wordsStatistics));
   };
 
 export const resetStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
-    // dispatch(toggleIsFetching(true));
     await statisticsAPI.resetWordsStatistics();
-    // dispatch(toggleIsFetching(false));
     dispatch(setWordsStatistics([]));
   };
-
-const defineDifficultWords = (words: any): any => {
-  const falseAnswers = Object.entries(words)
-    .sort((elem: [string, any], nextElem: any) => {
-      if (
-        !JSON.parse(elem[1]).falseAnswerCounter &&
-        !JSON.parse(elem[1]).trueAnswerCounter
-      ) {
+const defineDifficultWords = (words: IWordStatistic[]): string[] => {
+  const falseAnswers = [...words]
+    .sort((wordStatistics, nextWordStatistics) => {
+      if (!wordStatistics.wrong && !wordStatistics.hit) {
         return -1;
       }
       const firstWord = calcPercentByCondition(
-        JSON.parse(elem[1]).falseAnswerCounter || 0,
-        JSON.parse(elem[1]).trueAnswerCounter || 0
+        wordStatistics.wrong || 0,
+        wordStatistics.hit || 0
       );
 
       const secondWord = calcPercentByCondition(
-        JSON.parse(nextElem[1]).falseAnswerCounter || 0,
-        JSON.parse(nextElem[1]).trueAnswerCounter || 0
+        nextWordStatistics.wrong || 0,
+        nextWordStatistics.hit || 0
       );
+
       if (firstWord === 100 || secondWord === 100) {
         return -1;
       }
       return firstWord - secondWord;
     })
     .filter(
-      (elem: any) =>
+      (wordStatistics) =>
         calcPercentByCondition(
-          JSON.parse(elem[1]).falseAnswerCounter || 0,
-          JSON.parse(elem[1]).trueAnswerCounter || 0
+          wordStatistics.wrong || 0,
+          wordStatistics.hit || 0
         ) !== 100
     )
-    .map((elem) => elem[0]);
+    .map((wordStatistics) => wordStatistics._id);
   falseAnswers.length = 8;
 
   return falseAnswers;
@@ -150,9 +137,8 @@ const defineDifficultWords = (words: any): any => {
 export const getDifficultWordsStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch, getState): Promise<void> => {
-    const { statisticsData } = getState().statisticReducer;
-
-    const difficultWords = defineDifficultWords(statisticsData);
+    const { wordsStatistics } = getState().statisticReducer;
+    const difficultWords = defineDifficultWords(wordsStatistics);
 
     dispatch(setDifficultWords(difficultWords));
   };
