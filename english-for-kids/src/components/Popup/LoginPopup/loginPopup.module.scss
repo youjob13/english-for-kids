@@ -1,17 +1,16 @@
-.form {
-
-}
+@import "../../../shared/stylesVariables.scss";
 
 .title {
-  font-size: 23px;
+  font-size: 1.6rem;
   text-align: center;
   font-weight: 600;
-  margin-bottom: 1em;
+  margin-bottom: 3rem;
 }
 
 .input {
   display: block;
-  border: 2px solid gray;
+  border: 2px solid $dark-color;
+  box-shadow: 0 0.1rem 0.1rem 0.12rem rgba($dark-color, 0.23);
   font-size: 19px;
   margin-bottom: 0.6em;
   padding: 0.5em;
@@ -25,10 +24,12 @@
 .buttonsWrapper {
   display: flex;
   justify-content: space-between;
-  background-color: #73c773;
+  background-color: $aqwa-color;
+  box-shadow: 0 0.12rem 0.1rem 0.16rem rgba($aqwa-color, 0.5);
   padding: 1em;
   margin-top: 2em;
   border-radius: 4px;
+  column-gap: 1.1rem;
 }
 
 .button {
@@ -39,30 +40,51 @@
   font-size: 19px;
   cursor: pointer;
   transition: .2s;
+  width: 100%;
 
   &Cancel {
-    background-color: #ec2a2a;
+    background-color: $red-color;
+    box-shadow: 0 0.1rem 0.1rem 0.06rem rgba(#000, 0.42);
   }
 
   &Ok {
-    background-color: #1c98ce;
+    background-color: $dark-color;
+    box-shadow: 0 0.12rem 0.1rem 0.1rem rgba(#000, 0.42);
   }
 
-  &Cancel:hover {
-    background-color: #bb2c2c;
+  &Cancel {
+    &:hover {
+      background-color: $red-hover-color;
+      box-shadow: 0 0.1rem 0.05rem 0.1rem rgba(#000, 0.42);
+    }
+
+    &:active {
+      background-color: $red-active-color;
+      box-shadow: 0 0.1rem 0.1rem 0.06rem rgba(#000, 0.42);
+      transform: scale(0.974);
+      transform-origin: bottom;
+    }
   }
 
-  &Ok:hover {
-    background-color: #13668b;
+  &Ok {
+    &:hover {
+      background-color: #0c2436;
+      box-shadow: 0 0.1rem 0.05rem 0.1rem rgba(#000, 0.42);
+    }
+
+    &:active {
+      background-color: #1e4462;
+      box-shadow: 0 0.1rem 0.1rem 0.06rem rgba(#000, 0.42);
+      transform: scale(0.974);
+      transform-origin: bottom;
+    }
   }
 }
 
 .close {
   position: absolute;
-  right: 1em;
-  top: 1em;
-  width: 5em;
-  height: 5em;
+  right: 2.2rem;
+  top: 1.4rem;
 
   &::after, &::before {
     content: '';
@@ -70,27 +92,44 @@
     left: 50%;
     top: 50%;
     z-index: 99;
-    background-color: #1c98ce;
-    width: 1.7em;
-    height: 0.5em;
+    background-color: $dark-color;
+    width: 1.5em;
+    height: 0.33em;
     cursor: pointer;
     transition: .2s;
+    box-shadow: 0 0.1rem 0.1rem 0.08rem rgba(#000, 0.42);
   }
 
   &::after {
     transform: rotateZ(45deg) translate(-15%, -50%);
+
   }
 
   &::before {
-    transform: rotateZ(-45deg) translate(15%, -50%);
+    transform: rotateZ(-45deg) translate(11%, -66%);
+
   }
 
 
   &:hover::after {
-    transform: rotateZ(45deg) translate(-15%, -50%) scale(1.2);
+    transform: rotateZ(45deg) translate(-15%, -50%) scale(1.1);
+    box-shadow: 0 0.1rem 0.1rem 0.12rem rgba(#000, 0.42);
+
   }
 
   &:hover::before {
-    transform: rotateZ(-45deg) translate(15%, -50%) scale(1.2);
+    transform: rotateZ(-45deg) translate(15%, -50%) scale(1.1);
+    box-shadow: 0 0.1rem 0.1rem 0.12rem rgba(#000, 0.42);
+
+  }
+
+  &:active::after {
+    transform: rotateZ(45deg) translate(-15%, -50%) scale(0.96);
+    box-shadow: 0 0.06rem 0.1rem 0.1rem rgba(#000, 0.42);
+  }
+
+  &:active::before {
+    transform: rotateZ(-45deg) translate(15%, -50%) scale(0.96);
+    box-shadow: 0 0.06rem 0.1rem 0.1rem rgba(#000, 0.42);
   }
 }

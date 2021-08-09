@@ -1,11 +1,13 @@
+@import "../../../shared/stylesVariables.scss";
+
 .header {
   position: relative;
-  padding: 0.5em 14em;
+  padding: 0.2rem 14rem 0.68rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1c98ce;
-  height: 80px;
+  background-color: $dark-color;
+  height: 3rem;
 
   &::after {
     content: '';
@@ -13,8 +15,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 0.5rem;
-    background-color: #105474;
+    height: 0.21rem;
+    background-color: $light-color;
   }
 }
 

@@ -1,9 +1,11 @@
+@import "../../../../shared/stylesVariables.scss";
+
 .nav {
   &Menu {
     position: fixed;
     left: 0;
     top: 10em;
-    background-color: #7bb4c7;
+    background-color: $dark-gray-color;
     padding: 1.7em 3em;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;

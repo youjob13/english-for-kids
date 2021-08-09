@@ -1,3 +1,5 @@
+@import "../../../shared/stylesVariables.scss";
+
 .languageSwitch {
   position: fixed;
   display: flex;
@@ -5,8 +7,8 @@
   right:0;
   bottom: 16%;
   padding: 0.4rem 0.65rem;
-  z-index: 99;
-  background-color: #34343a;
+  z-index: 999;
+  background-color: $dark-gray-color;
 
   &Button {
     cursor: pointer;

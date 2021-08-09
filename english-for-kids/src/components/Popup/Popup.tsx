@@ -1,5 +1,5 @@
 import React, { Props, ReactElement } from 'react';
-import classes from './EndGamePopup/endGamePopup.module.scss';
+import classes from './popup.module.scss';
 
 const Popup = ({ children }: Props<string>): ReactElement => {
   return (

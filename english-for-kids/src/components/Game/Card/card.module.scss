@@ -1,3 +1,5 @@
+@import "../../../shared/stylesVariables.scss";
+
 .card {
   position: relative;
   border-radius: 10px;
@@ -8,11 +10,15 @@
   overflow: hidden;
 
   p {
-    background-color: #70c767;
+    background-color: $aqwa-color;
   }
 
-  &:hover &Image {
-    transform: scale(1.033);
+  &:hover {
+    box-shadow: 0 0.5rem 1.4rem 0.6rem rgba(255, 255, 255, 0.15);
+
+    & .cardImage {
+      transform: scale(1.033);
+    }
   }
 
   &Image {
@@ -41,7 +47,7 @@
 }
 
 .isStartedGame p {
-  background-color: orange;
+  background-color: #9eb3c7;
   padding: 0 2rem;
 }
 

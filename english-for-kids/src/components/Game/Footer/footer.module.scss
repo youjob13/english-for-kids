@@ -1,12 +1,13 @@
+@import "../../../shared/stylesVariables.scss";
+
 .footer {
-  background-color: #1c98ce;
+  background-color: #cbcbcb;
   position: relative;
-  padding: 0.5em 14em;
+  padding: 0.8em 14em 0.3em;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1c98ce;
-  height: 80px;
+  height: 2.7rem;
 
   &::before {
     content: '';
@@ -14,12 +15,16 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 0.5rem;
-    background-color: #105474;
+    height: 0.21rem;
+    background-color: $dark-color;
   }
 
   &Logo {
     width: 4rem;
+
+    &:last-child {
+      width: 2.5rem;
+    }
   }
 
   &Link {

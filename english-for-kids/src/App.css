@@ -6,14 +6,14 @@ body {
 
 .app-wrapper {
     max-width: 1920px;
-    background-image: url("./assets/images/main-bg.jpg");
+    background-image: url("./assets/images/bg.svg");
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
 }
 
 .app-content {
-    min-height: calc(100vh - 224px);
+    min-height: calc(100vh - 9.65469rem);
     padding: 1rem 14em;
 }
 
