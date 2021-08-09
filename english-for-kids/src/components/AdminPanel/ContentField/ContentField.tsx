@@ -8,8 +8,12 @@ import { Path } from '../../../shared/globalVariables';
 
 const ContentField = (): ReactElement => {
   const { cardsData } = useSelector(getWordsState);
+
   return (
     <Switch>
+      {!localStorage.token && (
+        <Redirect from={Path.ADMIN_PANEL_ROOT} to={Path.ROOT} />
+      )}
       <Route path={Path.ADMIN_PANEL_WORD}>
         <Words cardsData={cardsData} />
       </Route>

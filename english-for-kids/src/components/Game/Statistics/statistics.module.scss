@@ -11,6 +11,9 @@
     padding: 0.3em;
     transition: .2s;
     cursor: pointer;
+    text-decoration: none;
+    height: 2rem;
+    padding: 0 1rem;
 
     &:hover {
       background-color: #16a1de;
@@ -52,9 +55,15 @@
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      background-color: #0d78a6;
+    }
 
     &Active {
-      background-color: #165876;
+      background-color: #165876 !important;
     }
 
     &:not(:last-child) {

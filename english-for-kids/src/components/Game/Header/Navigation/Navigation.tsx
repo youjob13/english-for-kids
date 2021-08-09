@@ -1,5 +1,6 @@
 import React, { ReactElement, useContext, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { INavigationProps } from '../../../../shared/interfaces/props-models';
 import NavigationItem from './NavigationItem/NavigationItem';
 import useOnClickOutsideOrNavItem from '../../../../shared/hooks/useOnClickOutsideOrNavItem';
@@ -15,6 +16,7 @@ import {
 import classes from './navigation.module.scss';
 
 const Navigation = ({ categories }: INavigationProps): ReactElement => {
+  const { t } = useTranslation();
   const { isOpenMenu, toggleMenu } = useContext(MenuContext);
   const refNav = useRef<HTMLElement>(INITIAL_REF_NAV_VALUE);
 
@@ -43,7 +45,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
             className={classes.navItem}
             activeClassName={classes.navItemActive}
           >
-            Main
+            {t('main')}
             <img
               className={classes.navItemIcon}
               src={MAIN_ICON}
@@ -57,7 +59,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
             className={classes.navItem}
             activeClassName={classes.navItemActive}
           >
-            Statistics
+            {t('statistics')}
             <img
               className={classes.navItemIcon}
               src={STATISTICS_ICON}

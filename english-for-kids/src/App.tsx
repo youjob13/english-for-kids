@@ -12,6 +12,7 @@ import {
 import Game from './components/Game/Game';
 import { LoginContext } from './shared/context';
 import AdminPanel from './components/AdminPanel/AdminPanel';
+import LanguageSwitch from './shared/baseComponents/LanguageSwitch/LanguageSwitch';
 
 const App = (): ReactElement => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const App = (): ReactElement => {
       }}
     >
       <div className={APP_WRAPPER_STYLES}>
+        <LanguageSwitch />
         <Switch>
           {localStorage.token && (
             <Route component={AdminPanel} path={Path.ADMIN_PANEL_ROOT} />

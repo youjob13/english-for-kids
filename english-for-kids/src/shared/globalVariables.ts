@@ -21,6 +21,19 @@ export enum StatisticsParam {
   HIT = 'hit',
 }
 
+export const languages = [
+  {
+    code: 'en',
+    name: 'En',
+    countryCode: 'en',
+  },
+  {
+    code: 'ru',
+    name: 'Ru',
+    countryCode: 'ru',
+  },
+];
+
 const tableHeaders: ITableHeaderData[] = [
   {
     type: SortingTypes.WORD,
@@ -149,6 +162,11 @@ export enum ImageDescription {
 export enum SwitchMode {
   PLAY = 'play',
   TRAIN = 'train',
+}
+
+export enum SwitchModeRu {
+  PLAY = 'Играть',
+  TRAIN = 'Изучать',
 }
 
 export enum Target {

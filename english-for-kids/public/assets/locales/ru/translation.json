@@ -1,0 +1,17 @@
+{
+  "Train_&_Play": "Учись и играй",
+  "category_title": "Категория: {{categoryPath}}",
+  "main": "Главная",
+  "statistics": "Статистика",
+  "login": "Логин",
+  "password": "Пароль",
+  "login_btn": "Войти",
+  "cancel_btn": "Отменить",
+  "login_title": "Войдите в систему",
+  "repeat_difficult_words": "Повторить трудные слова",
+  "switch_train": "Изучать",
+  "switch_play": "Играть",
+  "repeat_word": "Повторить",
+  "start_game": "Начать игру",
+  "category_empty": "В данной категории нет слов"
+}

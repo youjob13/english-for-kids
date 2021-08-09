@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { RouteParams } from '../../../shared/interfaces/api-models';
 import { prepareGameProcess, stopGame } from '../../../store/gameSlice';
 import playAudio from '../../../shared/helperFunctions/playSound';
@@ -21,6 +22,7 @@ import CategoryControls from './CategoryControls/CategoryControls';
 
 const CategoryPage = (): ReactElement => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { category: categoryPath } = useParams<RouteParams>();
   const { difficultWords } = useSelector(getStatisticsState);
   const { currentDifficultWordList } = useSelector(getDifficultWordsState);
@@ -57,7 +59,6 @@ const CategoryPage = (): ReactElement => {
       playAudio(audioSRC);
     }
   };
-
   const onStartGameClick = (): void => {
     const currentCategoryPath =
       categoryPath === Path.DIFFICULT_WORDS ? currentDifficultWordList : cards;
@@ -70,7 +71,7 @@ const CategoryPage = (): ReactElement => {
 
   return (
     <>
-      <Title>Category: {categoryPath}</Title>
+      <Title>{t('category_title', { categoryPath })}</Title>
       <Words gameCards={gameCards} currentQuestion={currentQuestion} />
       <CategoryControls
         onStartGameClick={onStartGameClick}

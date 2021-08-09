@@ -5,10 +5,9 @@ import {
   StatisticReducerType,
   ThunkActionType,
 } from '../shared/interfaces/store-models';
-import calcPercentByCondition from '../shared/helperFunctions/calcPercentByCondition';
 import { statisticsAPI } from '../shared/api/api';
 import { Slice, StatisticsParam } from '../shared/globalVariables';
-import { IWordStatistic } from '../shared/interfaces/api-models';
+import defineDifficultWords from '../shared/helperFunctions/defineDifficultWords';
 
 const statisticSlice = createSlice({
   name: Slice.STATISTICS,
@@ -90,7 +89,6 @@ export const getStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
     const wordsStatistics = await statisticsAPI.getWordsStatistics();
-    console.log(wordsStatistics);
     dispatch(setWordsStatistics(wordsStatistics));
   };
 
@@ -100,39 +98,6 @@ export const resetStatistics =
     await statisticsAPI.resetWordsStatistics();
     dispatch(setWordsStatistics([]));
   };
-const defineDifficultWords = (words: IWordStatistic[]): string[] => {
-  const falseAnswers = [...words]
-    .sort((wordStatistics, nextWordStatistics) => {
-      if (!wordStatistics.wrong && !wordStatistics.hit) {
-        return -1;
-      }
-      const firstWord = calcPercentByCondition(
-        wordStatistics.wrong || 0,
-        wordStatistics.hit || 0
-      );
-
-      const secondWord = calcPercentByCondition(
-        nextWordStatistics.wrong || 0,
-        nextWordStatistics.hit || 0
-      );
-
-      if (firstWord === 100 || secondWord === 100) {
-        return -1;
-      }
-      return firstWord - secondWord;
-    })
-    .filter(
-      (wordStatistics) =>
-        calcPercentByCondition(
-          wordStatistics.wrong || 0,
-          wordStatistics.hit || 0
-        ) !== 100
-    )
-    .map((wordStatistics) => wordStatistics._id);
-  falseAnswers.length = 8;
-
-  return falseAnswers;
-};
 
 export const getDifficultWordsStatistics =
   (): ThunkActionType<StateType<StatisticReducerType>> =>

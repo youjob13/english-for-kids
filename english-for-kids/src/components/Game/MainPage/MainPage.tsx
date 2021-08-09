@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Title from '../../../shared/baseComponents/Title/Title';
 import Category from './Category/Category';
 import { getWordsState, getGameState } from '../../../store/selectors';
@@ -9,10 +10,11 @@ import Preloader from '../../../shared/baseComponents/Preloader/Preloader';
 const MainPage = (): ReactElement => {
   const { cardsData } = useSelector(getWordsState);
   const { gameMode } = useSelector(getGameState);
+  const { t } = useTranslation();
 
   return (
     <>
-      <Title>Train & Play</Title>
+      <Title>{t('Train_&_Play')}</Title>
       <ul className={classes.content}>
         {!cardsData.length ? (
           <Preloader />

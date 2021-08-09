@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import StatisticsTable from './StatisticsTable/StatisticsTable';
 import Title from '../../../shared/baseComponents/Title/Title';
 import { getStatistics, resetStatistics } from '../../../store/statisticSlice';
@@ -8,6 +9,7 @@ import classes from './statistics.module.scss';
 
 const Statistics = (): ReactElement => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(getStatistics());
@@ -20,7 +22,7 @@ const Statistics = (): ReactElement => {
   return (
     <>
       <div className={classes.statisticsHeader}>
-        <Title>Statistics</Title>
+        <Title>{t('statistics')}</Title>
         <StatisticsControls clearList={clearList} />
       </div>
       <div className={classes.tableWrapper}>
