@@ -9,7 +9,12 @@ import Title from '../../../shared/baseComponents/Title/Title';
 import AnswerList from './AnswerList/AnswerList';
 import { getDifficultWordsStatistics } from '../../../store/statisticSlice';
 import { getDifficultWords } from '../../../store/difficultWordsSlice';
-import { GameMode, Path } from '../../../shared/globalVariables';
+import {
+  failAnswerSound,
+  GameMode,
+  Path,
+  rightAnswerSound,
+} from '../../../shared/globalVariables';
 import defineCurrentCategory from '../../../shared/helperFunctions/defineCurrentCategory';
 import {
   getDifficultWordsState,
@@ -53,6 +58,16 @@ const CategoryPage = (): ReactElement => {
   useEffect(() => {
     dispatch(getDifficultWords(difficultWords, cardsData));
   }, [difficultWords, cardsData, dispatch]);
+  useEffect(() => {
+    if (gameMode === GameMode.IN_GAME) {
+      if (!currentGameAnswers.length) return;
+      if (currentGameAnswers[currentGameAnswers.length - 1]) {
+        playAudio(rightAnswerSound);
+      } else {
+        playAudio(failAnswerSound);
+      }
+    }
+  }, [currentGameAnswers, gameMode]);
 
   const onSoundPlayButtonClick = (): void => {
     if (audioSRC) {

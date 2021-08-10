@@ -7,7 +7,6 @@ import {
 } from '../shared/interfaces/store-models';
 import { IWord } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helperFunctions/arraySort';
-import playAudio from '../shared/helperFunctions/playSound';
 import { GameMode, Slice } from '../shared/globalVariables';
 
 const gameSlice = createSlice({
@@ -108,7 +107,6 @@ export const setGivenAnswer =
     if (answerResult) {
       dispatch(setRightAnswer(answer));
 
-      playAudio('/assets/success.mp3'); // TODO: think about it
       dispatch(setAudioQuestion());
 
       const newQuestion = getState().gameReducer.currentQuestion;
@@ -127,6 +125,4 @@ export const setGivenAnswer =
     }
 
     dispatch(setFalseAnswer());
-
-    playAudio('/assets/error.mp3'); // TODO: think about it
   };

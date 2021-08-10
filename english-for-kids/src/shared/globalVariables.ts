@@ -8,13 +8,15 @@ export const APP_WRAPPER_STYLES = 'app-wrapper';
 export const APP_CONTENT_STYLES = 'app-content';
 
 export const baseUrl = 'http://localhost:5000/';
-export const wordsUrl = 'words'; // TODO
+export const wordsUrl = 'words';
 export const categoryUrl = 'category';
 export const authUrl = 'auth';
 export const statisticsUrl = 'statistics';
 export const baseName = '/React';
 export const rootElementID = 'root';
 export const booleanStateValueDefault = false;
+export const rightAnswerSound = '/assets/success.mp3';
+export const failAnswerSound = '/assets/error.mp3';
 export enum StatisticsParam {
   TRAIN = 'train',
   WRONG = 'wrong',
