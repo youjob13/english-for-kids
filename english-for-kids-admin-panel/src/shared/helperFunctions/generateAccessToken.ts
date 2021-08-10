@@ -3,7 +3,7 @@ import Role from '../../models/Role';
 
 const { secret } = require('../../config');
 
-const generateAccessToken = (id: number, roles: typeof Role) => {
+const generateAccessToken = (id: number, roles: typeof Role): string => {
   const payload = {
     id, roles,
   };

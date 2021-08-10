@@ -1,9 +1,9 @@
 import { Schema, model } from 'mongoose';
-import Word from './Word';
+import { Model } from '../shared/globalVariables';
 
 const Category = new Schema({
   category: {type: String, required: true},
-  words: [{type: Schema.Types.ObjectId, ref: 'Word'}],
+  words: [{type: Schema.Types.ObjectId, ref: Model.WORD}],
 });
 
-export default model('Category', Category);
+export default model(Model.CATEGORY, Category);

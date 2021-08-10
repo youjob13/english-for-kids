@@ -2,24 +2,24 @@ import jwt from 'jsonwebtoken';
 import { NextFunction, Response } from 'express';
 import sessions from '../storage/sessions';
 import { RequestType } from '../shared/interfaces/api-models';
+import { RequestMethod, ResponseAuthMessage, ResponseStatus } from '../shared/globalVariables';
 
 const { secret } = require('../config');
 
-// eslint-disable-next-line consistent-return
 function checkAuth(req: RequestType, res: Response, next: NextFunction) {
-  if (req.method === 'OPTIONS') {
+  if (req.method === RequestMethod.OPTIONS) {
     next();
   }
 
   try {
     const token = req.headers.authorization;
     if (!token) {
-      return res.status(403).json({message: 'User not auth'});
+      return res.status(ResponseStatus.FORBIDDEN).json({message: ResponseAuthMessage.NOT_TOKEN});
     }
 
     const auth = sessions.find((session) => session === token);
     if (!auth) {
-      return res.status(403).json({message: 'User not auth'});
+      return res.status(ResponseStatus.FORBIDDEN).json({message: ResponseAuthMessage.NOT_AUTH});
     }
 
     const decodedData = jwt.verify(token, secret);
@@ -27,7 +27,7 @@ function checkAuth(req: RequestType, res: Response, next: NextFunction) {
 
     next();
   } catch (error) {
-    return res.status(403).json({statusText: error, message: 'Error'});
+    return res.status(ResponseStatus.FORBIDDEN).json({statusText: error});
   }
 }
 

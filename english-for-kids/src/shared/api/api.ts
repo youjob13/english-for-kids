@@ -8,7 +8,7 @@ import {
 import {
   authUrl,
   baseUrl,
-  cardsUrl,
+  wordsUrl,
   categoryUrl,
   ContentType,
   HTTPMethods,
@@ -22,7 +22,7 @@ export const cardsAPI = {
   ): Promise<{ words: ICardsData[]; totalPageCount: number }> {
     try {
       const response = await fetch(
-        `${baseUrl}${cardsUrl}?limit=${limit}&page=${page}`
+        `${baseUrl}${wordsUrl}?limit=${limit}&page=${page}`
       );
       const result = await response.json();
       const words: ICardsData[] = result.data;
@@ -35,7 +35,7 @@ export const cardsAPI = {
   },
   async removeWord(cardId: string): Promise<void> {
     try {
-      await fetch(`${baseUrl}${cardsUrl}?id=${cardId}`, {
+      await fetch(`${baseUrl}${wordsUrl}?id=${cardId}`, {
         method: HTTPMethods.DELETE,
         headers: {
           authorization: localStorage.token,
@@ -48,7 +48,7 @@ export const cardsAPI = {
   },
   async createWord(data: FormData, categoryId: string): Promise<IWord> {
     try {
-      const response = await fetch(`${baseUrl}${cardsUrl}?id=${categoryId}`, {
+      const response = await fetch(`${baseUrl}${wordsUrl}?id=${categoryId}`, {
         method: HTTPMethods.POST,
         headers: {
           Authorization: localStorage.token,
@@ -63,7 +63,7 @@ export const cardsAPI = {
   },
   async updateWord(cardId: string, data: FormData): Promise<IWord> {
     try {
-      const response = await fetch(`${baseUrl}${cardsUrl}?id=${cardId}`, {
+      const response = await fetch(`${baseUrl}${wordsUrl}?id=${cardId}`, {
         method: HTTPMethods.PUT,
         headers: {
           Authorization: localStorage.token,

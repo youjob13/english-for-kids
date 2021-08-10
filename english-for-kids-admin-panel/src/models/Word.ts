@@ -1,4 +1,5 @@
 import {Schema, model} from 'mongoose';
+import { Model } from '../shared/globalVariables';
 
 const Word = new Schema({
   name: {type: String, required: true},
@@ -7,4 +8,4 @@ const Word = new Schema({
   audioSRC: {type: String, required: true},
 });
 
-export default model('Word', Word);
+export default model(Model.WORD, Word);

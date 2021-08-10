@@ -2,22 +2,22 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import session from 'express-session';
-import log4js from 'log4js';
-import path from 'path';
+import { getLogger } from 'log4js';
 import swaggerUi from 'swagger-ui-express';
 import * as swaggerDocument from './swagger/swagger.json';
 import authRouter from './auth/authRouter';
-import cardsRouter from './cards/cardsRouter';
+import wordsRouter from './words/wordsRouter';
 import categoryRouter from './category/categoryRouter';
 import statisticsRouter from './statistics/statisticsRouter';
+import {
+  MongoDBOptions,
+  MongoDBURL, PORT, publicPath, RouterPath, ServerStartedMessage,
+} from './shared/globalVariables';
 
 const { secret } = require('./config');
 
-const logger = log4js.getLogger();
+const logger = getLogger();
 logger.level = 'debug';
-
-const PORT = process.env.PORT || 5000;
-const publicPath = path.resolve(__dirname, '../public');
 
 const app = express();
 
@@ -29,21 +29,18 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-app.use('/', express.static(publicPath));
-app.use('/auth', authRouter);
-app.use('/cards', cardsRouter);
-app.use('/category', categoryRouter);
-app.use('/statistics', statisticsRouter);
+app.use(RouterPath.ROOT, express.static(publicPath));
+app.use(RouterPath.AUTH, authRouter);
+app.use(RouterPath.WORDS, wordsRouter);
+app.use(RouterPath.CATEGORY, categoryRouter);
+app.use(RouterPath.STATISTICS, statisticsRouter);
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(RouterPath.SWAGGER, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const start = async () => {
   try {
-    await mongoose.connect('mongodb+srv://admin:admin@cluster0.5deel.mongodb.net/english-for-kids?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true,
-      });
-    app.listen(PORT, () => logger.info(`Server started on ${PORT}`));
+    await mongoose.connect(MongoDBURL, MongoDBOptions);
+    app.listen(PORT, () => logger.info(ServerStartedMessage));
   } catch (error) {
     logger.debug(error);
   }

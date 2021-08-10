@@ -1,4 +1,5 @@
 import {Schema, model} from 'mongoose';
+import { Model } from '../shared/globalVariables';
 
 const WordStatistics = new Schema({
   train: {type: Number},
@@ -6,4 +7,4 @@ const WordStatistics = new Schema({
   wrong: {type: Number},
 });
 
-export default model('WordStatistics', WordStatistics);
+export default model(Model.WORD_STATISTICS, WordStatistics);

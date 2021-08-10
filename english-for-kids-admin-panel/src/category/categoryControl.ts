@@ -1,18 +1,18 @@
 import { Request, Response } from 'express';
-import { getLogger } from 'log4js';
 import Category from '../models/Category';
 import Word from '../models/Word';
 import WordStatistics from '../models/WordStatistics';
+import { CategoryProp, ResponseCategoryMessage, ResponseStatus } from '../shared/globalVariables';
+import { ICategory, ResponseMessage } from '../shared/interfaces/api-models';
 
-const logger = getLogger();
-export const createCategory = async (req: Request, res: Response) => {
+export const createCategory = async (req: Request, res: Response): Promise<Response<ICategory | ResponseMessage>> => {
   try {
     const { categoryName } = req.body;
 
     if (!categoryName) {
-      return res.status(400).json({message: 'Not enough data: (category name)'});
+      return res.status(ResponseStatus.BAD_REQUEST).json({message: ResponseCategoryMessage.NOT_CATEGORY_NAME});
     }
-    logger.debug(categoryName);
+
     const newCategory = new Category({
       category: categoryName,
       words: [],
@@ -22,17 +22,17 @@ export const createCategory = async (req: Request, res: Response) => {
 
     return res.json(newCategory);
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(ResponseStatus.BAD_REQUEST).json({message: error});
   }
 };
 
-export const updateCategory = async (req: Request, res: Response) => {
+export const updateCategory = async (req: Request, res: Response): Promise<Response<ICategory | ResponseMessage>> => {
   try {
     const { id: categoryId } = req.query;
     const { newCategoryName } = req.body;
 
     if (!newCategoryName || !categoryId) {
-      return res.status(400).json('Not enough data: (new category name | category id)');
+      return res.status(ResponseStatus.BAD_REQUEST).json({message: ResponseCategoryMessage.NOT_CATEGORY_NAME_OR_ID});
     }
 
     const updatedCategory = await Category.findByIdAndUpdate(
@@ -42,20 +42,20 @@ export const updateCategory = async (req: Request, res: Response) => {
       }, {
         new: true,
       },
-    ).populate('words');
+    ).populate(CategoryProp.WORDS);
 
     return res.json(updatedCategory);
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(ResponseStatus.BAD_REQUEST).json({message: error});
   }
 };
 
-export const removeCategory = async (req: Request, res: Response) => {
+export const removeCategory = async (req: Request, res: Response): Promise<Response<ResponseMessage>> => {
   try {
     const { id: categoryId } = req.query;
 
     if (!categoryId) {
-      return res.status(400).json('Not enough data: (category id)');
+      return res.status(ResponseStatus.BAD_REQUEST).json({message: ResponseCategoryMessage.NOT_CATEGORY_ID});
     }
 
     const category = await Category.findById(categoryId);
@@ -67,8 +67,8 @@ export const removeCategory = async (req: Request, res: Response) => {
 
     await Category.findByIdAndDelete(categoryId);
 
-    return res.json('Category deleted');
+    return res.json({ message: ResponseCategoryMessage.CATEGORY_DELETED });
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(ResponseStatus.BAD_REQUEST).json({message: error});
   }
 };

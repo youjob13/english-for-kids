@@ -1,44 +1,37 @@
 import { Request, Response } from 'express';
-import { getLogger } from 'log4js';
-import { IWordStatistics } from '../shared/interfaces/api-models';
+import { IWordStatistics, ResponseMessage } from '../shared/interfaces/api-models';
 import WordStatistics from '../models/WordStatistics';
+import { ResponseStatisticsMessage, ResponseStatus } from '../shared/globalVariables';
 
-const logger = getLogger();
-
-export const getStatistics = async (req: Request, res: Response) => {
+export const getStatistics = async (req: Request, res: Response): Promise<Response<IWordStatistics[] | ResponseMessage>> => {
   try {
     const wordsStatistics = await WordStatistics.find();
     return res.json(wordsStatistics);
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(ResponseStatus.BAD_REQUEST).json({message: error});
   }
 };
 
-export const updateStatistics = async (req: Request, res: Response) => {
+export const updateStatistics = async (req: Request, res: Response): Promise<Response<IWordStatistics | ResponseMessage>> => {
   try {
     const { wordId, wordStatistics: { hit, wrong, train } } = req.body;
 
-    logger.debug('train', train);
-    logger.debug('wrong', wrong);
-
-    const updatedWord = await WordStatistics.findById(wordId);
-    const a = await updatedWord.updateOne({
-      hit: hit ? updatedWord.hit + 1 : updatedWord.hit,
-      wrong: wrong ? updatedWord.wrong + 1 : updatedWord.wrong,
-      train: train ? updatedWord.train + 1 : updatedWord.train,
+    const foundWord = await WordStatistics.findById(wordId);
+    const updatedWord = await foundWord.updateOne({
+      hit: hit ? foundWord.hit + 1 : foundWord.hit,
+      wrong: wrong ? foundWord.wrong + 1 : foundWord.wrong,
+      train: train ? foundWord.train + 1 : foundWord.train,
     }, {
       new: true,
     });
-    logger.debug('updatedWord', updatedWord);
-    logger.debug('a', a);
 
-    return res.json(a);
+    return res.json(updatedWord);
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(ResponseStatus.BAD_REQUEST).json({message: error});
   }
 };
 
-export const resetStatistics = async (req: Request, res: Response) => {
+export const resetStatistics = async (req: Request, res: Response): Promise<Response<ResponseMessage>> => {
   try {
     const wordsStatistics = await WordStatistics.find();
     const resetWordsStatisticsRequests = wordsStatistics.map((wordStatistics: IWordStatistics) => wordStatistics.update({
@@ -49,8 +42,8 @@ export const resetStatistics = async (req: Request, res: Response) => {
 
     await Promise.all(resetWordsStatisticsRequests);
 
-    return res.json('Statistics reset');
+    return res.json({ message: ResponseStatisticsMessage.RESET});
   } catch (error) {
-    return res.status(400).json({ message: error });
+    return res.status(ResponseStatus.BAD_REQUEST).json({ message: error });
   }
 };

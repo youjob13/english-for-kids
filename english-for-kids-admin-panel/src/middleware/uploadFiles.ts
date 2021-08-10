@@ -1,9 +1,9 @@
 import multer from 'multer';
-// import path from 'path';
+import { MulterDestination } from '../shared/globalVariables';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/');
+    cb(null, MulterDestination);
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}${file.originalname}`);
@@ -11,8 +11,6 @@ const storage = multer.diskStorage({
 });
 
 const uploadFiles = multer({storage});
-
-// const uploadFiles = multer({dest: path.join(__dirname, 'public')});
 
 module.exports = {
   uploadFilesMiddleware: uploadFiles,
