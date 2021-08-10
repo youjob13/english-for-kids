@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IStatisticsControlsProps } from '../../../../shared/interfaces/props-models';
-import classes from '../statistics.module.scss';
+import classes from './statisticsControls.module.scss';
 import { ElemRole, Path, SECTION } from '../../../../shared/globalVariables';
 
 const StatisticsControls = ({

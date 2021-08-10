@@ -1,8 +1,6 @@
 const checkFormFilling = (formData: FormData): boolean => {
   const formFields = [];
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [, inputValue] of formData.entries()) {
-    // TODO
+  for (const inputValue of formData.values()) {
     if (typeof inputValue === 'string') {
       formFields.push(!!inputValue);
     } else {

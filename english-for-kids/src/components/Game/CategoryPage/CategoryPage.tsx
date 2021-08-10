@@ -18,7 +18,7 @@ import {
   getWordsState,
 } from '../../../store/selectors';
 import Words from './Words/Words';
-import CategoryControls from './CategoryControls/CategoryControls';
+import GameControls from './GameControls/GameControls';
 
 const CategoryPage = (): ReactElement => {
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ const CategoryPage = (): ReactElement => {
     <>
       <Title>{t('category_title', { categoryPath })}</Title>
       <Words gameCards={gameCards} currentQuestion={currentQuestion} />
-      <CategoryControls
+      <GameControls
         onStartGameClick={onStartGameClick}
         onSoundPlayButtonClick={onSoundPlayButtonClick}
         gameMode={gameMode}

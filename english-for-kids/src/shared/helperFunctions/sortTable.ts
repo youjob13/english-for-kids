@@ -1,13 +1,18 @@
-import { IWordStatisticData, SortingTypes } from '../interfaces/api-models';
+import {
+  IWordStatisticData,
+  SortingTypes,
+  StringAndNumber,
+} from '../interfaces/api-models';
+import { SortProp } from '../globalVariables';
 
-const sortLetter = (
+const sortAlphabet = (
   sortingType: { sortBy: string; sortFromTop: boolean },
   unsortedList: IWordStatisticData[],
   prop: string
 ): IWordStatisticData[] => {
   if (sortingType.sortFromTop) {
-    return unsortedList.sort(
-      (a: { [key: string]: any }, b: { [key: string]: any }) => {
+    return (unsortedList as unknown as Record<string, StringAndNumber>[]).sort(
+      (a, b) => {
         const prevName = a[prop].toString().toLowerCase();
         const nextName = b[prop].toString().toLowerCase();
         if (prevName < nextName) {
@@ -18,12 +23,12 @@ const sortLetter = (
         }
         return 0;
       }
-    );
+    ) as unknown as IWordStatisticData[];
   }
-  return unsortedList.sort(
-    (a: { [key: string]: any }, b: { [key: string]: any }) => {
-      const prevName = a[prop].toLowerCase();
-      const nextName = b[prop].toLowerCase();
+  return (unsortedList as unknown as Record<string, StringAndNumber>[]).sort(
+    (a, b) => {
+      const prevName = a[prop].toString().toLowerCase();
+      const nextName = b[prop].toString().toLowerCase();
       if (prevName > nextName) {
         return -1;
       }
@@ -32,7 +37,7 @@ const sortLetter = (
       }
       return 0;
     }
-  );
+  ) as unknown as IWordStatisticData[];
 };
 
 const sortTable = (
@@ -41,85 +46,13 @@ const sortTable = (
 ): IWordStatisticData[] => {
   switch (sortingType.sortBy) {
     case SortingTypes.CATEGORY: {
-      return sortLetter(sortingType, unsortedList, 'category');
-      // if (sortingType.sortFromTop) {
-      //   return unsortedList.sort((a, b) => {
-      //     const prevName = a.category.toLowerCase();
-      //     const nextName = b.category.toLowerCase();
-      //     if (prevName < nextName) {
-      //       return -1;
-      //     }
-      //     if (prevName > nextName) {
-      //       return 1;
-      //     }
-      //     return 0;
-      //   });
-      // }
-      // return unsortedList.sort((a, b) => {
-      //   const prevName = a.category.toLowerCase();
-      //   const nextName = b.category.toLowerCase();
-      //   if (prevName > nextName) {
-      //     return -1;
-      //   }
-      //   if (prevName < nextName) {
-      //     return 1;
-      //   }
-      //   return 0;
-      // });
+      return sortAlphabet(sortingType, unsortedList, SortProp.CATEGORY);
     }
     case SortingTypes.WORD: {
-      return sortLetter(sortingType, unsortedList, 'wordName');
-      // if (sortingType.sortFromTop) {
-      //   return unsortedList.sort((a, b) => {
-      //     const prevName = a.wordName.toLowerCase();
-      //     const nextName = b.wordName.toLowerCase();
-      //     if (prevName < nextName) {
-      //       return -1;
-      //     }
-      //     if (prevName > nextName) {
-      //       return 1;
-      //     }
-      //     return 0;
-      //   });
-      // }
-      // return unsortedList.sort((a, b) => {
-      //   const prevName = a.wordName.toLowerCase();
-      //   const nextName = b.wordName.toLowerCase();
-      //   if (prevName > nextName) {
-      //     return -1;
-      //   }
-      //   if (prevName < nextName) {
-      //     return 1;
-      //   }
-      //   return 0;
-      // });
+      return sortAlphabet(sortingType, unsortedList, SortProp.WORD_NAME);
     }
     case SortingTypes.TRANSLATION: {
-      return sortLetter(sortingType, unsortedList, 'translation');
-      // if (sortingType.sortFromTop) {
-      //   return unsortedList.sort((a, b) => {
-      //     const prevName = a.translation.toLowerCase();
-      //     const nextName = b.translation.toLowerCase();
-      //     if (prevName < nextName) {
-      //       return -1;
-      //     }
-      //     if (prevName > nextName) {
-      //       return 1;
-      //     }
-      //     return 0;
-      //   });
-      // }
-      // return unsortedList.sort((a, b) => {
-      //   const prevName = a.translation.toLowerCase();
-      //   const nextName = b.translation.toLowerCase();
-      //   if (prevName > nextName) {
-      //     return -1;
-      //   }
-      //   if (prevName < nextName) {
-      //     return 1;
-      //   }
-      //   return 0;
-      // });
+      return sortAlphabet(sortingType, unsortedList, SortProp.TRANSLATION);
     }
     case SortingTypes.TRAIN: {
       return unsortedList.sort((a, b) =>

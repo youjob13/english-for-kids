@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { ElemRole, Path } from '../../../../shared/globalVariables';
 import { logoutUser } from '../../../../store/authSlice';
-import classes from '../header.module.scss';
+import classes from './logout.module.scss';
 
 const Logout = (): ReactElement => {
   const dispatch = useDispatch();

@@ -1,55 +1,6 @@
+@import "../../../shared/stylesVariables.scss";
+
 .header {
-  position: relative;
-  padding: 0.5em 14em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #00bf82;
-  height: 80px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0.2rem;
-    background-color: #0d1a16;
-  }
-}
-
-@media (max-width: 1440px) {
-  .header {
-    padding: 0.5em 6em;
-    height: 50px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .header {
-    padding: 0.5em 4em;
-  }
-}
-
-// TODO: создать компонент кнопки
-.logout {
-  padding: 0.5em;
-  border-radius: 0.2em;
-  font-size: 1.2em;
-  font-weight: 500;
-  transition: .2s;
-  cursor: pointer;
-  border: 0.2em solid #00bf82;
-
-  &:hover {
-    background-color: #00bf82;
-    border-color: #fff;
-    color: #fff;
-  }
-
-  &:active {
-    background-color: #fff;
-    color: #00bf82;
-    transform: scale(0.98);
-  }
+  background-color: $aqwa-color;
+  @extend %HeaderBasicStyles;
 }

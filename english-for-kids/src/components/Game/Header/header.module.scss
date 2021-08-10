@@ -1,34 +1,6 @@
 @import "../../../shared/stylesVariables.scss";
 
 .header {
-  position: relative;
-  padding: 0.2rem 14rem 0.68rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: $dark-color;
-  height: 3rem;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0.21rem;
-    background-color: $light-color;
-  }
-}
-
-@media (max-width: 1440px) {
-  .header {
-    padding: 0.5em 6em;
-    height: 50px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .header {
-    padding: 0.5em 4em;
-  }
+  @extend %HeaderBasicStyles;
 }

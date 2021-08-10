@@ -151,22 +151,18 @@ export enum AddCardText {
   WORD = 'Create new Word',
 }
 
+export enum SortProp {
+  CATEGORY = 'category',
+  WORD_NAME = 'wordName',
+  TRANSLATION = 'translation',
+}
+
 export enum ImageDescription {
   SPEAKER = 'speaker',
   ARROWS = 'rotate arrows',
   STAR = 'star',
   GITHUB = 'GitHub',
   RS_SCHOOL = 'RS School',
-}
-
-export enum SwitchMode {
-  PLAY = 'play',
-  TRAIN = 'train',
-}
-
-export enum SwitchModeRu {
-  PLAY = 'Играть',
-  TRAIN = 'Изучать',
 }
 
 export enum Target {

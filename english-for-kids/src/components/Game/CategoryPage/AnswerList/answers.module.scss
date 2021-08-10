@@ -26,3 +26,13 @@
     opacity: 1;
   }
 }
+
+.star {
+  width: 3rem;
+}
+
+@media (max-width: 768px) {
+  .star {
+    width: 2rem;
+  }
+}

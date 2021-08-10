@@ -26,6 +26,7 @@ const App = (): ReactElement => {
   const toggleLoginPopupMode = () => {
     setLoginPopupMode(!isOpenLoginPopup);
   };
+
   return (
     <LoginContext.Provider
       value={{

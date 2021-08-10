@@ -6,6 +6,7 @@ export interface ILoginResponse {
   token?: string;
   message?: string;
 }
+
 export interface IWordStatisticsRequest {
   hit: boolean;
   wrong: boolean;
@@ -27,6 +28,8 @@ export interface ITableHeaderData {
   type: SortingTypes;
   name: string;
 }
+
+export type StringAndNumber = string | number;
 
 export interface ITableHeaderTitleProps {
   content: ITableHeaderData;

@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import log4js from 'log4js';
 import Category from '../models/Category';
 import Word from '../models/Word';
-import getCardData from '../shared/helperFunctions/getCardData';
+import pullMediaData from '../shared/helperFunctions/pullMediaData';
 import WordStatistics from '../models/WordStatistics';
 
 const logger = log4js.getLogger();
@@ -33,7 +33,7 @@ export const updateCard = async (req: Request, res: Response) => {
     const { id: cardId } = req.query;
     const { wordName, wordTranslation } = req.body;
 
-    const [imageSRC, soundSRC] = await getCardData(req.files); // TODO: rename
+    const [imageSRC, soundSRC] = await pullMediaData(req.files);
 
     const card = await Word.findById(cardId);
 
@@ -78,7 +78,7 @@ export const createCard = async (req: Request, res: Response) => {
       return res.status(400).json({message: 'Not enough data: (category id)'});
     }
 
-    const [imageSRC, soundSRC] = await getCardData(req.files);
+    const [imageSRC, soundSRC] = await pullMediaData(req.files);
 
     logger.debug({
       name: wordName,

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { getLogger } from 'log4js';
+import { IWordStatistics } from '../shared/interfaces/api-models';
 import WordStatistics from '../models/WordStatistics';
 
 const logger = getLogger();
@@ -15,7 +16,7 @@ export const getStatistics = async (req: Request, res: Response) => {
 
 export const updateStatistics = async (req: Request, res: Response) => {
   try {
-    const { wordId, wordStatistics: {hit, wrong, train} } = req.body;
+    const { wordId, wordStatistics: { hit, wrong, train } } = req.body;
 
     logger.debug('train', train);
     logger.debug('wrong', wrong);
@@ -39,8 +40,8 @@ export const updateStatistics = async (req: Request, res: Response) => {
 
 export const resetStatistics = async (req: Request, res: Response) => {
   try {
-    const wordsStatistics = await WordStatistics.find(); // TODO: ask
-    const resetWordsStatisticsRequests = wordsStatistics.map((wordStatistics: any) => wordStatistics.update({
+    const wordsStatistics = await WordStatistics.find();
+    const resetWordsStatisticsRequests = wordsStatistics.map((wordStatistics: IWordStatistics) => wordStatistics.update({
       train: 0,
       hit: 0,
       wrong: 0,
@@ -50,6 +51,6 @@ export const resetStatistics = async (req: Request, res: Response) => {
 
     return res.json('Statistics reset');
   } catch (error) {
-    return res.status(400).json({message: error});
+    return res.status(400).json({ message: error });
   }
 };

@@ -17,15 +17,6 @@ import {
   SIX_CHARACTERS,
 } from '../../../../../../shared/globalVariables';
 
-export const ADMIN_WORD_FRONT = classes.cardAdminFront; // TODO: убрать константы для стилей
-export const ADMIN_WORD_CONTENT = classes.cardAdminContent;
-export const ADMIN_WORD_SOUND_BUTTON = classes.cardAdminSoundButton;
-export const ADMIN_WORD_SOUND_ICON = classes.cardAdminSoundButtonImage;
-export const ADMIN_WORD_IMAGE_PREVIEW = classes.cardAdminImage;
-export const ADMIN_WORD_BUTTONS_WRAPPER = classes.cardAdminButtons;
-export const ADMIN_WORD_REMOVE = `${classes.cardAdminButton} ${classes.removeButton}`;
-export const ADMIN_WORD_BUTTON = `${classes.cardAdminButton}`;
-
 const WordCardFront = ({
   categoryId,
   _id,
@@ -56,46 +47,49 @@ const WordCardFront = ({
     playSound(audioSRC);
   };
 
+  const REMOVE_BUTTON_STYLES = `${classes.cardAdminButton} ${classes.removeButton}`;
+  const CHANGE_BUTTON_STYLES = `${classes.cardAdminButton}`;
+
   return (
-    <div className={ADMIN_WORD_FRONT}>
-      <span className={ADMIN_WORD_CONTENT}>
+    <div className={classes.cardAdminFront}>
+      <span className={classes.cardAdminContent}>
         <h5>Word:</h5> <p>{name}</p>
       </span>
-      <span className={ADMIN_WORD_CONTENT}>
+      <span className={classes.cardAdminContent}>
         <h5>Translation:</h5> <p>{translate}</p>
       </span>
-      <span className={ADMIN_WORD_CONTENT}>
+      <span className={classes.cardAdminContent}>
         <h5>Sound file:</h5>
         <button
-          className={ADMIN_WORD_SOUND_BUTTON}
+          className={classes.cardAdminSoundButton}
           onClick={onSoundPlayButtonClick}
           type={ElemRole.BUTTON}
         >
           <img
             src={speakerImage}
-            className={ADMIN_WORD_SOUND_ICON}
+            className={classes.cardAdminSoundButtonImage}
             alt={ImageDescription.SPEAKER}
           />
         </button>
         <p>{hideTextPart(audio, SIX_CHARACTERS)}mp3</p>
       </span>
-      <span className={ADMIN_WORD_CONTENT}>
+      <span className={classes.cardAdminContent}>
         <h5>Image:</h5>
-        <div className={ADMIN_WORD_IMAGE_PREVIEW}>
+        <div className={classes.cardAdminImage}>
           <img src={imageSRC} alt={EMPTY_LINE} />
         </div>
       </span>
-      <div className={ADMIN_WORD_BUTTONS_WRAPPER}>
+      <div className={classes.cardAdminButtons}>
         <button
           onClick={onRemoveCardClick}
-          className={ADMIN_WORD_REMOVE}
+          className={REMOVE_BUTTON_STYLES}
           type={ElemRole.BUTTON}
         >
           Remove
         </button>
         <button
           onClick={flipCardToBack}
-          className={ADMIN_WORD_BUTTON}
+          className={CHANGE_BUTTON_STYLES}
           type={ElemRole.BUTTON}
         >
           Change
