@@ -160,6 +160,7 @@ export const authAPI = {
     }
   },
 };
+
 export const statisticsAPI = {
   async updateStatistics(
     wordId: string,

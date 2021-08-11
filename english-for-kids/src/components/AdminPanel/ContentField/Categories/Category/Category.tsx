@@ -5,7 +5,7 @@ import classes from './category.module.scss';
 import {
   removeCategory,
   updateCategory,
-} from '../../../../../store/cardsSlice';
+} from '../../../../../store/wordsSlice';
 import { logoutUser } from '../../../../../store/authSlice';
 import {
   booleanStateValueDefault,
@@ -27,6 +27,7 @@ const Category = ({
     booleanStateValueDefault
   );
   const [categoryName, setCategoryName] = useState(category);
+
   const updateCategoryName = (event: FormEvent): void => {
     const target = event.target as HTMLInputElement;
     setCategoryName(target.value);

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getWords } from '../../store/cardsSlice';
+import { getWords } from '../../store/wordsSlice';
 import { getWordsState } from '../../store/selectors';
 
 const usePaginate = (limit = 10): ((node: HTMLDivElement) => void) => {
@@ -23,6 +23,7 @@ const usePaginate = (limit = 10): ((node: HTMLDivElement) => void) => {
   const lastCategoryElem = useCallback(
     (node: HTMLDivElement) => {
       if (observer.current) observer.current.disconnect();
+
       observer.current = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting && hasMorePage) {
@@ -31,7 +32,10 @@ const usePaginate = (limit = 10): ((node: HTMLDivElement) => void) => {
         },
         { threshold: 1 }
       );
-      if (node) observer.current.observe(node);
+
+      if (node) {
+        observer.current.observe(node);
+      }
     },
     [hasMorePage]
   );

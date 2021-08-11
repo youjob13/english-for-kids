@@ -7,6 +7,7 @@ const LanguageSwitch = (): ReactElement => {
   const changeAppLanguage = (countryCode: string) => {
     i18next.changeLanguage(countryCode);
   };
+
   return (
     <div className={classes.languageSwitch}>
       {languages.map(({ code, countryCode, name }) => (
@@ -21,5 +22,4 @@ const LanguageSwitch = (): ReactElement => {
     </div>
   );
 };
-
 export default LanguageSwitch;

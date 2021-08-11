@@ -3,8 +3,8 @@ import { ICardsState } from '../shared/interfaces/store-models';
 import { cardsAPI, categoryAPI } from '../shared/api/api';
 import { Slice } from '../shared/globalVariables';
 
-const cardsSlice = createSlice({
-  name: Slice.CARDS,
+const wordsSlice = createSlice({
+  name: Slice.WORDS,
   initialState: {
     cardsData: [],
     playingList: [],
@@ -122,7 +122,7 @@ const cardsSlice = createSlice({
   },
 });
 
-export default cardsSlice.reducer;
+export default wordsSlice.reducer;
 
 export const {
   removeWordFromPLayingList,
@@ -135,7 +135,7 @@ export const {
   setUpdatedCategory,
   setCategoryWithoutDeletedCategory,
   nullifyCards,
-} = cardsSlice.actions;
+} = wordsSlice.actions;
 
 export const getWords =
   (

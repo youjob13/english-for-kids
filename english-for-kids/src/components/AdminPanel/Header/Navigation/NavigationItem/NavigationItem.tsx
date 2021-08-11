@@ -10,6 +10,7 @@ const NavigationItem = ({
   <li className={classes.navItem}>
     <NavLink
       to={path}
+      exact
       className={classes.navItemLink}
       activeClassName={classes.navItemLinkActive}
     >

@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import cardsSlice from './cardsSlice';
+import cardsSlice from './wordsSlice';
 import gameSlice from './gameSlice';
 import statisticSlice from './statisticSlice';
 import difficultWordsSlice from './difficultWordsSlice';

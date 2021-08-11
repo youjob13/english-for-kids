@@ -15,7 +15,7 @@ import checkIsGuessedCard from '../../../../../shared/helperFunctions/checkIsGue
 import compareAnswerAndQuestion from '../../../../../shared/helperFunctions/compareAnswerAndQuestion';
 import { updateStatistics } from '../../../../../store/statisticSlice';
 import { getGameState } from '../../../../../store/selectors';
-import classes from '../../category.module.scss';
+import classes from './word.module.scss';
 
 const Word = ({
   word,
@@ -26,6 +26,7 @@ const Word = ({
   const [isShowTranslation, setIsShowTranslation] = useState(
     booleanStateValueDefault
   );
+
   const { _id, name, translate, imageSRC, audioSRC } = word;
   const isGuessedCard = useMemo(
     () => checkIsGuessedCard(currentGameCardList, word),

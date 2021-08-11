@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import classes from '../../statistics.module.scss';
+import classes from '../statisticsTable.module.scss';
 import tableHeaders from '../../../../../shared/globalVariables';
 import { ITableHeaderProps } from '../../../../../shared/interfaces/props-models';
 import TableHeaderTitle from './TableHeaderTitle/TableHeaderTitle';

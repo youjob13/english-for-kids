@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { ITableHeaderTitleProps } from '../../../../../../shared/interfaces/api-models';
-import classesStatistics from '../../../statistics.module.scss';
+import classesStatistics from '../../statisticsTable.module.scss';
 
 const TableHeaderTitle = ({
   content: { name, type },

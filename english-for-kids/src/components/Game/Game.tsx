@@ -2,12 +2,16 @@ import React, { lazy, ReactElement, useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from './Header/Header';
-import { APP_CONTENT_STYLES, Path } from '../../shared/globalVariables';
+import {
+  APP_CONTENT_STYLES,
+  PageNotFound,
+  Path,
+} from '../../shared/globalVariables';
 import MainPage from './MainPage/MainPage';
 import CategoryPage from './CategoryPage/CategoryPage';
 import EndGamePopup from '../Popup/EndGamePopup/EndGamePopup';
 import Footer from './Footer/Footer';
-import { getWords, nullifyCards } from '../../store/cardsSlice';
+import { getWords, nullifyCards } from '../../store/wordsSlice';
 import withLazyLoading from '../../shared/hoc/withLazyLoading';
 import { getGameState } from '../../store/selectors';
 import ErrorPage from '../ErrorPage/ErrorPage';
@@ -23,6 +27,7 @@ const Game = (): ReactElement => {
     dispatch(nullifyCards());
     dispatch(getWords());
   }, [dispatch]);
+
   return (
     <>
       <Header />
@@ -36,7 +41,7 @@ const Game = (): ReactElement => {
           )}
           <Route
             path={Path.OTHER}
-            render={() => <ErrorPage errorMessage="404 Not Found" />}
+            render={() => <ErrorPage errorMessage={PageNotFound} />}
           />
         </Switch>
         {isActiveEndGamePopup && (
@@ -47,5 +52,4 @@ const Game = (): ReactElement => {
     </>
   );
 };
-
 export default React.memo(Game);

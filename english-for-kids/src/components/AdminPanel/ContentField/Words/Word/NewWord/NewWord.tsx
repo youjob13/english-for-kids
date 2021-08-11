@@ -2,8 +2,8 @@ import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import AddCard from '../../../../AddCard/AddCard';
-import CardForm from '../WordCardBack/CardForm/CardForm';
-import { createWord } from '../../../../../../store/cardsSlice';
+import WordForm from '../WordForm/WordForm';
+import { createWord } from '../../../../../../store/wordsSlice';
 import checkFormFilling from '../../../../../../shared/helperFunctions/checkFormFilling';
 import { logoutUser } from '../../../../../../store/authSlice';
 import { INewWordProps } from '../../../../../../shared/interfaces/props-models';
@@ -16,7 +16,7 @@ import {
 } from '../../../../../../shared/globalVariables';
 import typeNewWordData from '../../../../../../shared/helperFunctions/updateFormValue';
 import FormError from '../../../../../Popup/FormError/FormError';
-import classes from '../card.module.scss';
+import classes from '../word.module.scss';
 
 const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
   const history = useHistory();
@@ -29,11 +29,11 @@ const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
   );
   const [wordData, updateWordData] = useState(wordDataInitialState);
 
-  const flipCard = () => {
+  const flipCard = (): void => {
     toggleCreatingWordMode(!isCreatingWordMode);
   };
 
-  const updateFormValue = (event: FormEvent) => {
+  const updateFormValue = (event: FormEvent): void => {
     typeNewWordData(event, updateWordData);
   };
 
@@ -66,8 +66,8 @@ const NewWord = ({ categoryId }: INewWordProps): ReactElement => {
     <>
       {isFormNotFullyCompleted && <FormError />}
       {isCreatingWordMode ? (
-        <div className={classes.cardAdmin}>
-          <CardForm
+        <div className={classes.word}>
+          <WordForm
             submitForm={onCreateCardClick}
             updateInputValue={updateFormValue}
             wordData={wordData}

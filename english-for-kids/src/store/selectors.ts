@@ -1,4 +1,5 @@
 import {
+  AuthReducerType,
   CardsReducerType,
   DifficultWordsReducerType,
   GameReducerType,
@@ -22,3 +23,5 @@ export const getDifficultWordsState = (
 export const getStatisticsState = (
   state: StatisticReducerType
 ): IStatisticState => state.statisticReducer;
+
+export const getAuthState = (state: AuthReducerType) => state.authReducer;

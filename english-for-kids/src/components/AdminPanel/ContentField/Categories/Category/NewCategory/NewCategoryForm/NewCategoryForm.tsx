@@ -1,7 +1,7 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { INewCategoryForm } from '../../../../../../../shared/interfaces/props-models';
-import { createCategory } from '../../../../../../../store/cardsSlice';
+import { createCategory } from '../../../../../../../store/wordsSlice';
 import classes from '../../category.module.scss';
 import {
   ElemRole,
@@ -22,8 +22,10 @@ const NewCategoryForm = ({ flipCard }: INewCategoryForm): ReactElement => {
     flipCard();
     dispatch(createCategory(categoryName));
   };
+
   return (
     <form className={classes.card} onSubmit={onCreateNewCategoryClick}>
+      <h2 className={classes.cardTitle}>Write category name</h2>
       <input
         className={classes.cardInput}
         onInput={changeCategoryName}

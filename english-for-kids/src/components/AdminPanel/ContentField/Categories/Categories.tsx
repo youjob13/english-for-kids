@@ -5,7 +5,7 @@ import Category from './Category/Category';
 import NewCategory from './Category/NewCategory/NewCategory';
 import { ICardsProps } from '../../../../shared/interfaces/props-models';
 import usePaginate from '../../../../shared/hooks/usePaginate';
-import { nullifyCards } from '../../../../store/cardsSlice';
+import { nullifyCards } from '../../../../store/wordsSlice';
 
 const Categories = ({ cardsData }: ICardsProps): ReactElement => {
   const dispatch = useDispatch();

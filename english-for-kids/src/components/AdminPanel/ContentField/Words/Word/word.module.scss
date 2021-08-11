@@ -1,4 +1,6 @@
-.cardAdmin {
+@import "../../../../../shared/stylesVariables.scss";
+
+.word {
   position: relative;
   border: 2px solid gray;
   border-radius: 0.4em;
@@ -53,20 +55,19 @@
   }
 
   &Button {
-    padding: 1em;
-    border-radius: 0.4em;
-    border: 2px solid #00bf82;
-    color: #00bf82;;
+    padding: 0.66rem 1rem;
+    border-radius: 0.36em;
+    border: 2px solid $aqwa-color;
+    color: $aqwa-color;
     text-transform: uppercase;
     font-weight: 700;
-    transition: .2s;
-    cursor: pointer;
-    margin: 0 auto;
+    margin: 0.4em auto 0;
     display: block;
-    margin-top: 0.4em;
 
-    &:hover {
-      background-color: #00bf82;
+    @extend %ButtonBasicStyles;
+
+    &:active, &:hover {
+      background-color: $aqwa-color;
       color: #fff;
     }
   }
@@ -78,10 +79,10 @@
 }
 
 .removeButton {
-  border: 2px solid #c22f2f;
-  color: #c22f2f;;
+  border: 2px solid $red-color;
+  color: $red-color;
 
-  &:hover {
-    background-color: #c22f2f;
+  &:active, &:hover {
+    background-color: $red-color;
   }
 }

@@ -1,9 +1,8 @@
+@import "../../../shared/stylesVariables.scss";
+
 .category {
   &Field {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    height: 85%;
+    @extend %CardsFieldBasicStyles;
   }
 }
 
@@ -25,96 +24,4 @@
   .categoryField {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-.translation {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9;
-  background-color: #fff;
-}
-
-.cardWrapper {
-  position: relative;
-  height: 15.66rem;
-
-  &Guessed {
-    pointer-events: none;
-    filter: brightness(0.7);
-  }
-}
-
-@media (max-width: 1200px) {
-  .cardWrapper {
-    &Guessed {
-      height: 10rem;
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  .cardWrapper {
-    height: 10rem;
-  }
-}
-
-.cardContainer {
-  position: relative;
-  perspective: 1000px;
-  height: 100%;
-
-  &Rotated {
-    .cardFront {
-      transform: rotateY(180deg);
-    }
-
-    .cardBack {
-      transform: rotateY(360deg);
-    }
-  }
-}
-
-.cardBack, .cardFront {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  transition: 1s;
-  backface-visibility: hidden;
-}
-
-.cardBack {
-  transform: rotateY(180deg);
-}
-
-.translationBtn {
-  right: 0.6rem;
-}
-
-.playSoundBtn {
-  left: 0.6rem;
-}
-
-.buttonImages {
-  width: 20px;
-  transition: .2s;
-  cursor: pointer;
-}
-
-.translationBtn, .playSoundBtn {
-  position: absolute;
-  bottom: -0.2rem;
-  z-index: 9;
-  background-color: transparent;
-
-  &:hover > .buttonImages {
-    filter: brightness(0.77)
-  }
-}
-
-.translationBtn {
-  bottom: -0.3em;
 }

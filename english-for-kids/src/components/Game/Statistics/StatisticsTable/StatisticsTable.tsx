@@ -1,13 +1,16 @@
 import React, { ReactElement, useState } from 'react';
 import TableHeader from './TableHeader/TableHeader';
-import { EMPTY_LINE } from '../../../../shared/globalVariables';
-import classes from '../statistics.module.scss';
+import {
+  booleanStateValueDefault,
+  EMPTY_LINE,
+} from '../../../../shared/globalVariables';
+import classes from './statisticsTable.module.scss';
 import TableBody from './TableBody/TableBody';
 
 const StatisticsTable = (): ReactElement => {
   const [sortingType, setSortingType] = useState({
     sortBy: EMPTY_LINE,
-    sortFromTop: false,
+    sortFromTop: booleanStateValueDefault,
   });
 
   const selectSorting = (sortingTypeName: string): void => {

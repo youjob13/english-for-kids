@@ -47,3 +47,10 @@ $dark-gray-color: #34343a;
     background-color: $light-color;
   }
 }
+
+%CardsFieldBasicStyles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  height: 85%;
+}

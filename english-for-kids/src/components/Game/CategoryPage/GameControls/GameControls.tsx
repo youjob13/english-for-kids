@@ -1,6 +1,10 @@
 import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ElemRole, GameMode } from '../../../../shared/globalVariables';
+import {
+  ElemRole,
+  GameMode,
+  LocalesKey,
+} from '../../../../shared/globalVariables';
 import { ICategoryControlsProps } from '../../../../shared/interfaces/props-models';
 import classes from './gameControls.module.scss';
 
@@ -10,6 +14,7 @@ const GameControls = ({
   onSoundPlayButtonClick,
 }: ICategoryControlsProps): ReactElement => {
   const { t } = useTranslation();
+
   return (
     <>
       {gameMode === GameMode.READY_TO_GAME && (
@@ -18,7 +23,7 @@ const GameControls = ({
           type={ElemRole.BUTTON}
           onClick={onStartGameClick}
         >
-          {t('start_game')}
+          {t(LocalesKey.START_GAME)}
         </button>
       )}
       {gameMode === GameMode.IN_GAME && (
@@ -27,7 +32,7 @@ const GameControls = ({
           type={ElemRole.BUTTON}
           onClick={onSoundPlayButtonClick}
         >
-          {t('repeat_word')}
+          {t(LocalesKey.REPEAT_WORD)}
         </button>
       )}
     </>

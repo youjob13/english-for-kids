@@ -11,6 +11,7 @@ import {
   ElemRole,
   EMPTY_LINE,
   INITIAL_REF_NAV_VALUE,
+  LocalesKey,
   Path,
 } from '../../../../shared/globalVariables';
 import classes from './navigation.module.scss';
@@ -46,7 +47,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
             className={classes.navItem}
             activeClassName={classes.navItemActive}
           >
-            {t('main')}
+            {t(LocalesKey.MAIN)}
             <img
               className={classes.navItemIcon}
               src={MAIN_ICON}
@@ -60,7 +61,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
             className={classes.navItem}
             activeClassName={classes.navItemActive}
           >
-            {t('statistics')}
+            {t(LocalesKey.STATISTICS)}
             <img
               className={classes.navItemIcon}
               src={STATISTICS_ICON}

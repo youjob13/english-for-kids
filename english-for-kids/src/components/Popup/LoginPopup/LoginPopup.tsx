@@ -17,16 +17,17 @@ import {
   InputName,
   InputPlaceholder,
   InputType,
+  LocalesKey,
   Path,
 } from '../../../shared/globalVariables';
-import { AuthReducerType } from '../../../shared/interfaces/store-models';
 import classes from './loginPopup.module.scss';
+import { getAuthState } from '../../../store/selectors';
 
 const LoginPopup = (): ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { toggleLoginPopup } = useContext(LoginContext);
-  const { isAuth } = useSelector((state: AuthReducerType) => state.authReducer);
+  const { isAuth } = useSelector(getAuthState);
   const [authFormData, setAuthFormValue] = useState(initialAuthFormValue);
   const history = useHistory();
 
@@ -45,7 +46,7 @@ const LoginPopup = (): ReactElement => {
     }
   }, [isAuth]);
 
-  const updateAuthForm = (event: FormEvent) => {
+  const updateAuthForm = (event: FormEvent): void => {
     const target = event.target as HTMLInputElement;
     const newAuthFormValue: Record<string, string> = {
       ...authFormData,
@@ -63,9 +64,9 @@ const LoginPopup = (): ReactElement => {
         onClick={() => toggleLoginPopup()}
       />
       <form className={classes.form}>
-        <legend className={classes.title}>{t('login_title')}</legend>
-        <p>{t('login')} - admin</p>
-        <p>{t('password')} - admin</p>
+        <legend className={classes.title}>{t(LocalesKey.LOGIN_TITLE)}</legend>
+        <p>{t(LocalesKey.LOGIN)} - admin</p>
+        <p>{t(LocalesKey.PASSWORD)} - admin</p>
         <input
           onInput={updateAuthForm}
           className={classes.input}
@@ -86,14 +87,14 @@ const LoginPopup = (): ReactElement => {
             className={`${classes.button} ${classes.buttonCancel}`}
             type={ElemRole.BUTTON}
           >
-            {t('cancel_btn')}
+            {t(LocalesKey.CANCEL_BTN)}
           </button>
           <button
             onClick={sendData}
             className={`${classes.button} ${classes.buttonOk}`}
             type={ElemRole.BUTTON}
           >
-            {t('login_btn')}
+            {t(LocalesKey.LOGIN_BTN)}
           </button>
         </div>
       </form>

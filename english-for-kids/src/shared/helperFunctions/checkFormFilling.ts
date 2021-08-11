@@ -1,5 +1,6 @@
 const checkFormFilling = (formData: FormData): boolean => {
   const formFields = [];
+
   for (const inputValue of formData.values()) {
     if (typeof inputValue === 'string') {
       formFields.push(!!inputValue);

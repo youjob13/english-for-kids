@@ -2,8 +2,8 @@ import React, { FormEvent, ReactElement, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { ICardWithEditProps } from '../../../../../../shared/interfaces/props-models';
-import { updateWord } from '../../../../../../store/cardsSlice';
-import CardForm from './CardForm/CardForm';
+import { updateWord } from '../../../../../../store/wordsSlice';
+import WordForm from '../WordForm/WordForm';
 import { logoutUser } from '../../../../../../store/authSlice';
 import { Path } from '../../../../../../shared/globalVariables';
 import typeNewWordData from '../../../../../../shared/helperFunctions/updateFormValue';
@@ -38,7 +38,7 @@ const WordCardBack = ({
   };
 
   return (
-    <CardForm
+    <WordForm
       submitForm={onUpdateCardClick}
       updateInputValue={updateFormValue}
       wordData={wordData}

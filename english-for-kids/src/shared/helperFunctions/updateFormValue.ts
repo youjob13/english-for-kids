@@ -1,5 +1,6 @@
 import { FormEvent } from 'react';
 import { IFormState, IWordData } from '../interfaces/api-models';
+import { InputName } from '../globalVariables';
 
 const typeNewWordData = (
   event: FormEvent,
@@ -7,7 +8,7 @@ const typeNewWordData = (
 ): void => {
   const target = event.target as HTMLInputElement;
 
-  if (target.name === 'wordName') {
+  if (target.name === InputName.WORD_NAME) {
     updateWordData((prevState: IWordData) => ({
       ...prevState,
       name: target.value,

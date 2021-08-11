@@ -1,18 +1,21 @@
+@import "../../../../../shared/stylesVariables.scss";
+
 .card {
   position: relative;
-  border: 0.3em solid gray;
+  border: 0.3em solid $dark-gray-color;
   border-radius: 0.2em;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f0f0f0;
+  background-color: $light-color;
   min-height: 15em;
+  padding: 0.4rem;
 
   &Remove {
     position: absolute;
-    right: 1em;
-    top: 1em;
+    right: 1.2rem;
+    top: 1rem;
     z-index: 9;
 
     &::after, &::before {
@@ -36,34 +39,34 @@
   }
 
   &Title {
-    font-size: 1.65em;
+    font-size: 1.65rem;
     font-weight: 600;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.45rem;
     text-transform: capitalize;
+    text-align: center;
   }
 
   &ButtonsWrapper {
     display: flex;
-    gap: 2em;
+    gap: 1rem;
     align-items: center;
     margin: 1em auto 0;
   }
 
   &Button {
-    border: 0.3em solid #00bf82;
-    border-radius: 0.2em;
-    padding: 0.3em 0.36em;
+    border: 0.3em solid $aqwa-color;
     text-align: center;
-    cursor: pointer;
-    transition: .2s;
     font-weight: 700;
-    color: #00bf82;
+    color: $aqwa-color;
     text-transform: uppercase;
     font-size: 1em;
     text-decoration: none;
+    white-space: nowrap;
+
+    @extend %ButtonBasicStyles;
 
     &:hover {
-      background-color: #a1d5bb;
+      background-color: rgba($aqwa-active-color, 0.29);
     }
   }
 

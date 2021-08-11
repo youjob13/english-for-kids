@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import classes from '../card.module.scss';
+import classes from '../word.module.scss';
 import { ICardAdminFront } from '../../../../../../shared/interfaces/props-models';
-import { removeWord } from '../../../../../../store/cardsSlice';
+import { removeWord } from '../../../../../../store/wordsSlice';
 import playSound from '../../../../../../shared/helperFunctions/playSound';
 import hideTextPart from '../../../../../../shared/helperFunctions/hideTextPart';
 import speakerImage from '../../../../../../assets/images/speaker.png';
@@ -47,39 +47,39 @@ const WordCardFront = ({
     playSound(audioSRC);
   };
 
-  const REMOVE_BUTTON_STYLES = `${classes.cardAdminButton} ${classes.removeButton}`;
-  const CHANGE_BUTTON_STYLES = `${classes.cardAdminButton}`;
+  const REMOVE_BUTTON_STYLES = `${classes.wordButton} ${classes.removeButton}`;
+  const CHANGE_BUTTON_STYLES = `${classes.wordButton}`;
 
   return (
     <div className={classes.cardAdminFront}>
-      <span className={classes.cardAdminContent}>
+      <span className={classes.wordContent}>
         <h5>Word:</h5> <p>{name}</p>
       </span>
-      <span className={classes.cardAdminContent}>
+      <span className={classes.wordContent}>
         <h5>Translation:</h5> <p>{translate}</p>
       </span>
-      <span className={classes.cardAdminContent}>
+      <span className={classes.wordContent}>
         <h5>Sound file:</h5>
         <button
-          className={classes.cardAdminSoundButton}
+          className={classes.wordSoundButton}
           onClick={onSoundPlayButtonClick}
           type={ElemRole.BUTTON}
         >
           <img
             src={speakerImage}
-            className={classes.cardAdminSoundButtonImage}
+            className={classes.wordSoundButtonImage}
             alt={ImageDescription.SPEAKER}
           />
         </button>
         <p>{hideTextPart(audio, SIX_CHARACTERS)}mp3</p>
       </span>
-      <span className={classes.cardAdminContent}>
+      <span className={classes.wordContent}>
         <h5>Image:</h5>
-        <div className={classes.cardAdminImage}>
+        <div className={classes.wordImage}>
           <img src={imageSRC} alt={EMPTY_LINE} />
         </div>
       </span>
-      <div className={classes.cardAdminButtons}>
+      <div className={classes.wordButtons}>
         <button
           onClick={onRemoveCardClick}
           className={REMOVE_BUTTON_STYLES}

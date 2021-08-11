@@ -1,8 +1,7 @@
+@import "../../../shared/stylesVariables.scss";
+
 .content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  height: 85%;
+  @extend %CardsFieldBasicStyles;
 }
 
 @media (max-width: 1440px) {

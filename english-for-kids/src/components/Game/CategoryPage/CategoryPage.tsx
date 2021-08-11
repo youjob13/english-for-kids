@@ -12,6 +12,7 @@ import { getDifficultWords } from '../../../store/difficultWordsSlice';
 import {
   failAnswerSound,
   GameMode,
+  LocalesKey,
   Path,
   rightAnswerSound,
 } from '../../../shared/globalVariables';
@@ -43,21 +44,21 @@ const CategoryPage = (): ReactElement => {
   const cards = (currentCategory && currentCategory.words) || [];
 
   useEffect(() => {
+    dispatch(getDifficultWordsStatistics());
+  }, [dispatch]);
+  useEffect(() => {
     if (audioSRC) {
       playAudio(audioSRC);
     }
-  }, [audioSRC, dispatch]);
+  }, [dispatch, audioSRC]);
   useEffect(() => {
     return () => {
       dispatch(stopGame(GameMode.NO_GAME));
     };
-  }, [categoryPath, dispatch]);
-  useEffect(() => {
-    dispatch(getDifficultWordsStatistics());
-  }, [dispatch]);
+  }, [dispatch, categoryPath]);
   useEffect(() => {
     dispatch(getDifficultWords(difficultWords, cardsData));
-  }, [difficultWords, cardsData, dispatch]);
+  }, [dispatch, difficultWords, cardsData]);
   useEffect(() => {
     if (gameMode === GameMode.IN_GAME) {
       if (!currentGameAnswers.length) return;
@@ -67,7 +68,7 @@ const CategoryPage = (): ReactElement => {
         playAudio(failAnswerSound);
       }
     }
-  }, [currentGameAnswers, gameMode]);
+  }, [dispatch, currentGameAnswers, gameMode]);
 
   const onSoundPlayButtonClick = (): void => {
     if (audioSRC) {
@@ -86,7 +87,7 @@ const CategoryPage = (): ReactElement => {
 
   return (
     <>
-      <Title>{t('category_title', { categoryPath })}</Title>
+      <Title>{t(LocalesKey.CATEGORY_TITLE, { categoryPath })}</Title>
       <Words gameCards={gameCards} currentQuestion={currentQuestion} />
       <GameControls
         onStartGameClick={onStartGameClick}

@@ -138,11 +138,6 @@ export interface ICardFrontControlsProps {
   gameMode: GameMode;
 }
 
-export interface IHeaderProps {
-  isOpenLoginPopup: boolean;
-  setIsOpenLoginPopup: (setIsOpenLoginPopup: boolean) => void;
-}
-
 export interface INavigationItemProps {
   category: string;
 }

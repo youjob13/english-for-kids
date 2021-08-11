@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import classes from '../../../statistics.module.scss';
+import classes from '../../statisticsTable.module.scss';
 import { ITableCellProps } from '../../../../../../shared/interfaces/props-models';
 
 const TableCell = ({ number, word }: ITableCellProps): ReactElement => (

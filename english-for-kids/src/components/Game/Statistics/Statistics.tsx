@@ -6,6 +6,7 @@ import Title from '../../../shared/baseComponents/Title/Title';
 import { getStatistics, resetStatistics } from '../../../store/statisticSlice';
 import StatisticsControls from './StatisticsControls/StatisticsControls';
 import classes from './statistics.module.scss';
+import { LocalesKey } from '../../../shared/globalVariables';
 
 const Statistics = (): ReactElement => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Statistics = (): ReactElement => {
   return (
     <>
       <div className={classes.statisticsHeader}>
-        <Title>{t('statistics')}</Title>
+        <Title>{t(LocalesKey.STATISTICS)}</Title>
         <StatisticsControls clearList={clearList} />
       </div>
       <div className={classes.tableWrapper}>

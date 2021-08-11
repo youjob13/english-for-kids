@@ -17,6 +17,9 @@ export const rootElementID = 'root';
 export const booleanStateValueDefault = false;
 export const rightAnswerSound = '/assets/success.mp3';
 export const failAnswerSound = '/assets/error.mp3';
+export const NewCategoryText = 'Create new Category';
+export const PageNotFound = '404 Not Found';
+
 export enum StatisticsParam {
   TRAIN = 'train',
   WRONG = 'wrong',
@@ -74,7 +77,7 @@ export enum Slice {
   AUTH = 'authSlice',
   GAME = 'gameSlice',
   STATISTICS = 'statisticsSlice',
-  CARDS = 'cardsSlice',
+  WORDS = 'wordsSlice',
   DIFFICULT_WORDS = 'difficultWordsSlice',
 }
 
@@ -97,7 +100,22 @@ export enum GameMode {
 
 export enum EventName {
   MOUSEDOWN = 'mousedown',
-  CLICK = 'click',
+}
+
+export enum LocalesKey {
+  CATEGORY_TITLE = 'category_title',
+  START_GAME = 'start_game',
+  REPEAT_WORD = 'repeat_word',
+  MAIN = 'main',
+  STATISTICS = 'statistics',
+  LOGIN_BTN = 'login_btn',
+  MAIN_TITLE = 'Train_&_Play',
+  EMPTY_CATEGORY = 'category_empty',
+  REPEAT_DIFF_WORDS = 'repeat_difficult_words',
+  LOGIN_TITLE = 'login_title',
+  LOGIN = 'login',
+  PASSWORD = 'password',
+  CANCEL_BTN = 'cancel_btn',
 }
 
 export enum Path {
@@ -120,7 +138,6 @@ export enum ElemRole {
   MENU = 'menu',
   BUTTON = 'button',
   SUBMIT = 'submit',
-  ROW = 'row',
 }
 
 export enum InputType {
@@ -192,6 +209,7 @@ export const LOSE_POPUP_SOUND = '/assets/lose.mp3';
 export const WIN_POPUP_IMAGE = `${process.env.PUBLIC_URL}/assets/cool.png`;
 export const LOSE_POPUP_IMAGE = `${process.env.PUBLIC_URL}/assets/fail.png`;
 export const TOKEN = 'token';
+export const SHOWN_STARS_LIMIT = 10;
 
 export const navigationAdminPanel = [
   {
@@ -200,7 +218,7 @@ export const navigationAdminPanel = [
   },
   {
     name: 'words',
-    path: Path.ROOT,
+    path: Path.ADMIN_PANEL_WORD,
   },
 ];
 export const wordDataInitialState = {

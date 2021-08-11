@@ -1,6 +1,6 @@
 import React, { ReactElement, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import classes from '../../statistics.module.scss';
+import classes from '../statisticsTable.module.scss';
 import sortTable from '../../../../../shared/helperFunctions/sortTable';
 import { ITableBodyProps } from '../../../../../shared/interfaces/props-models';
 import {

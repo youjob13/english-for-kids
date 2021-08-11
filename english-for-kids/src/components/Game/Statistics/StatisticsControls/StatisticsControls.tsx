@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IStatisticsControlsProps } from '../../../../shared/interfaces/props-models';
 import classes from './statisticsControls.module.scss';
-import { ElemRole, Path, SECTION } from '../../../../shared/globalVariables';
+import {
+  ElemRole,
+  LocalesKey,
+  Path,
+  SECTION,
+} from '../../../../shared/globalVariables';
 
 const StatisticsControls = ({
   clearList,
@@ -17,7 +22,7 @@ const StatisticsControls = ({
         to={`/${SECTION}/${Path.DIFFICULT_WORDS}`}
         type={ElemRole.BUTTON}
       >
-        {t('repeat_difficult_words')}
+        {t(LocalesKey.REPEAT_DIFF_WORDS)}
       </Link>
       {localStorage.token && (
         <button

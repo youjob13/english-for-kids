@@ -6,6 +6,7 @@ import Category from './Category/Category';
 import { getWordsState, getGameState } from '../../../store/selectors';
 import classes from './mainPage.module.scss';
 import Preloader from '../../../shared/baseComponents/Preloader/Preloader';
+import { LocalesKey } from '../../../shared/globalVariables';
 
 const MainPage = (): ReactElement => {
   const { cardsData } = useSelector(getWordsState);
@@ -14,7 +15,7 @@ const MainPage = (): ReactElement => {
 
   return (
     <>
-      <Title>{t('Train_&_Play')}</Title>
+      <Title>{t(LocalesKey.MAIN_TITLE)}</Title>
       <ul className={classes.content}>
         {!cardsData.length ? (
           <Preloader />

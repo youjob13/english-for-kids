@@ -1,6 +1,6 @@
 import React, { FormEvent, ReactElement, useRef } from 'react';
-import classes from '../../card.module.scss';
-import { ICardForm } from '../../../../../../../shared/interfaces/props-models';
+import classes from '../word.module.scss';
+import { ICardForm } from '../../../../../../shared/interfaces/props-models';
 import {
   ElemRole,
   InputAccept,
@@ -8,9 +8,9 @@ import {
   InputType,
   WORD_NAME,
   WORD_TRANSLATION,
-} from '../../../../../../../shared/globalVariables';
+} from '../../../../../../shared/globalVariables';
 
-const CardForm = ({
+const WordForm = ({
   submitForm,
   updateInputValue,
   wordData,
@@ -29,8 +29,8 @@ const CardForm = ({
 
   return (
     <form ref={formRef} onSubmit={submitForms}>
-      <label className={classes.cardAdminLabel} htmlFor={WORD_NAME}>
-        Word
+      <label className={classes.wordLabel} htmlFor={WORD_NAME}>
+        <strong>Word:</strong>
         <input
           onInput={updateInputValue}
           name={InputName.WORD_NAME}
@@ -39,8 +39,8 @@ const CardForm = ({
           value={wordData.name}
         />
       </label>
-      <label className={classes.cardAdminLabel} htmlFor={WORD_TRANSLATION}>
-        Translation
+      <label className={classes.wordLabel} htmlFor={WORD_TRANSLATION}>
+        <strong>Translation:</strong>
         <input
           name={InputName.WORD_TRANSLATION}
           onInput={updateInputValue}
@@ -61,15 +61,15 @@ const CardForm = ({
         type={InputType.FILE}
         accept={InputAccept.IMAGE}
       />
-      <div className={classes.cardAdminButtons}>
+      <div className={classes.wordButtons}>
         <button
           onClick={closeForm}
-          className={classes.cardAdminButton}
+          className={classes.wordButton}
           type={ElemRole.BUTTON}
         >
           Cancel
         </button>
-        <button className={classes.cardAdminButton} type={ElemRole.SUBMIT}>
+        <button className={classes.wordButton} type={ElemRole.SUBMIT}>
           Update
         </button>
       </div>
@@ -77,4 +77,4 @@ const CardForm = ({
   );
 };
 
-export default CardForm;
+export default WordForm;
