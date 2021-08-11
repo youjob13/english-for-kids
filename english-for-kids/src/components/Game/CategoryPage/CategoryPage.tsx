@@ -46,7 +46,7 @@ const CategoryPage = (): ReactElement => {
     if (audioSRC) {
       playAudio(audioSRC);
     }
-  }, [currentQuestion, dispatch]);
+  }, [audioSRC, dispatch]);
   useEffect(() => {
     return () => {
       dispatch(stopGame(GameMode.NO_GAME));

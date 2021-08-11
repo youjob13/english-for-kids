@@ -84,5 +84,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-restricted-syntax': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'jsx-a11y/no-autofocus': 'off',
   },
 };

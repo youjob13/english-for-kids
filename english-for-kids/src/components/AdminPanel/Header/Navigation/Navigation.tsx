@@ -6,8 +6,8 @@ import classes from './navigation.module.scss';
 const Navigation = (): ReactElement => (
   <nav>
     <ul className={classes.nav}>
-      {navigationAdminPanel.map((navigationLink) => (
-        <NavigationItem {...navigationLink} />
+      {navigationAdminPanel.map((navigationLink, index) => (
+        <NavigationItem key={index.toString()} {...navigationLink} />
       ))}
     </ul>
   </nav>

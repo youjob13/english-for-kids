@@ -24,7 +24,7 @@ const NewCategory = (): ReactElement => {
       {isCreatingNewCategory ? (
         <NewCategoryForm flipCard={flipCard} />
       ) : (
-        <AddCard addItem={flipCard} text="Create new CategoryPage" />
+        <AddCard addItem={flipCard} text="Create new Category" />
       )}
     </>
   );

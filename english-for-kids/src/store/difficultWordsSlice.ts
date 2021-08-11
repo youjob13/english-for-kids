@@ -32,8 +32,6 @@ export const getDifficultWords =
   ): ThunkActionType<StateType<GameReducerType>> =>
   async (dispatch): Promise<void> => {
     const allWords = cards.map(({ words }) => words).flat();
-    console.log('wordsStatistics', wordsStatistics);
-    console.log(allWords);
     const difficultCards = allWords.filter((word) =>
       wordsStatistics.includes(word._id)
     );

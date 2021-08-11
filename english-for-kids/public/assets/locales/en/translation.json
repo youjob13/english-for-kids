@@ -13,5 +13,6 @@
   "switch_play": "Play",
   "repeat_word": "Repeat",
   "start_game": "Start game",
-  "category_empty": "Category is empty"
+  "category_empty": "Category is empty",
+  "logout": "Logout",
 }

@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ElemRole, Path } from '../../../../shared/globalVariables';
 import { logoutUser } from '../../../../store/authSlice';
 import classes from './logout.module.scss';
 
 const Logout = (): ReactElement => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,7 +22,7 @@ const Logout = (): ReactElement => {
       onClick={exitFromAdminPanel}
       type={ElemRole.BUTTON}
     >
-      Logout
+      {t('logout')}
     </button>
   );
 };

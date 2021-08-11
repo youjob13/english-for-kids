@@ -48,8 +48,7 @@ export const updateStatistics =
     statisticsParam: StatisticsParam
   ): ThunkActionType<StateType<StatisticReducerType>> =>
   async (dispatch): Promise<void> => {
-    let wordStatistics = {
-      // TODO: костыль
+    const wordStatistics = {
       hit: false,
       wrong: false,
       train: false,
@@ -60,21 +59,11 @@ export const updateStatistics =
     }
 
     if (statisticsParam === StatisticsParam.TRAIN) {
-      // TODO: спросить про паттерн стратегия
-      wordStatistics = {
-        ...wordStatistics,
-        train: true,
-      };
+      wordStatistics.train = true;
     } else if (statisticsParam === StatisticsParam.HIT) {
-      wordStatistics = {
-        ...wordStatistics,
-        hit: true,
-      };
+      wordStatistics.hit = true;
     } else if (statisticsParam === StatisticsParam.WRONG) {
-      wordStatistics = {
-        ...wordStatistics,
-        wrong: true,
-      };
+      wordStatistics.wrong = true;
     }
 
     const updatedWord = await statisticsAPI.updateStatistics(

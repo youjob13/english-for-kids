@@ -4,7 +4,7 @@ import { IFormState, IWordData } from '../interfaces/api-models';
 const typeNewWordData = (
   event: FormEvent,
   updateWordData: (prevState: IFormState) => void
-) => {
+): void => {
   const target = event.target as HTMLInputElement;
 
   if (target.name === 'wordName') {

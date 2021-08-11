@@ -4,17 +4,26 @@
   &Menu {
     position: fixed;
     left: 0;
-    top: 10em;
+    top: 50%;
     background-color: $dark-gray-color;
-    padding: 1.7em 3em;
+    padding: 1.7rem;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     z-index: 99;
-    transform: translateX(0);
+    transform: translate(0, -50%);
     transition: .4s;
+    height: 75%;
+
+    &List {
+      overflow-y: scroll;
+      overflow-x: clip;
+      height: 100%;
+      padding-right: 2.4rem;
+    }
 
     &Hidden {
-      transform: translateX(-100%);
+      top: 50%;
+      transform: translate(-100%, -50%);
     }
   }
 

@@ -3,7 +3,11 @@ import { useDispatch } from 'react-redux';
 import { INewCategoryForm } from '../../../../../../../shared/interfaces/props-models';
 import { createCategory } from '../../../../../../../store/cardsSlice';
 import classes from '../../category.module.scss';
-import { EMPTY_LINE } from '../../../../../../../shared/globalVariables';
+import {
+  ElemRole,
+  EMPTY_LINE,
+  InputType,
+} from '../../../../../../../shared/globalVariables';
 
 const NewCategoryForm = ({ flipCard }: INewCategoryForm): ReactElement => {
   const dispatch = useDispatch();
@@ -18,20 +22,24 @@ const NewCategoryForm = ({ flipCard }: INewCategoryForm): ReactElement => {
     flipCard();
     dispatch(createCategory(categoryName));
   };
-
   return (
     <form className={classes.card} onSubmit={onCreateNewCategoryClick}>
       <input
         className={classes.cardInput}
         onInput={changeCategoryName}
-        type="text"
+        type={InputType.TEXT}
+        autoFocus
         value={categoryName}
       />
       <div className={classes.cardButtonsWrapper}>
-        <button className={classes.cardButton} onClick={flipCard} type="button">
+        <button
+          className={classes.cardButton}
+          onClick={flipCard}
+          type={ElemRole.BUTTON}
+        >
           Cancel
         </button>
-        <button className={classes.cardButton} type="submit">
+        <button className={classes.cardButton} type={ElemRole.SUBMIT}>
           Create
         </button>
       </div>

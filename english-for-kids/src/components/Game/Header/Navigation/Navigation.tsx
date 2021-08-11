@@ -33,6 +33,7 @@ const Navigation = ({ categories }: INavigationProps): ReactElement => {
   return (
     <nav ref={refNav} className={NAV_STYLES}>
       <ul
+        className={classes.navMenuList}
         role={ElemRole.MENU}
         onClick={({ target }) =>
           (target as HTMLElement).closest('a') && toggleMenu()

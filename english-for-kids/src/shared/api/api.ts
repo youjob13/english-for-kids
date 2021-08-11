@@ -27,7 +27,7 @@ export const cardsAPI = {
       const result = await response.json();
       const words: ICardsData[] = result.data;
       const { totalPageCount } = result;
-      console.log(words);
+
       return { words, totalPageCount };
     } catch (error) {
       throw new Error(error);

@@ -38,7 +38,7 @@ const Word = ({
     }
 
     setIsShowTranslation(!isShowTranslation);
-  }, [isShowTranslation]);
+  }, [gameMode, isShowTranslation]);
   const onCardPlayAudioClick = useCallback(() => {
     if (gameMode === GameMode.READY_TO_GAME) {
       return;
@@ -46,7 +46,7 @@ const Word = ({
 
     playAudio(audioSRC);
     dispatch(updateStatistics(_id, StatisticsParam.TRAIN));
-  }, [audioSRC]);
+  }, [dispatch, gameMode, audioSRC]);
 
   const onCardClick = (): void => {
     const answerResult = compareAnswerAndQuestion(word, currentQuestion);

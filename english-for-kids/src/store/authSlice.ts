@@ -37,15 +37,6 @@ export const getAuthorize =
     dispatch(toggleAuthMode());
   };
 
-// TODO: think about
-export const checkAuthorize =
-  (): ThunkAction<void, IAuthState, unknown, AnyAction> =>
-  async (dispatch): Promise<void> => {
-    if (localStorage.token) {
-      dispatch(toggleAuthMode());
-    }
-  };
-
 export const logoutUser =
   (): ThunkAction<void, IAuthState, unknown, AnyAction> =>
   async (dispatch): Promise<void> => {
