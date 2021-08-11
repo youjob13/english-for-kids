@@ -1,3 +1,5 @@
+@import "../../../shared/stylesVariables.scss";
+
 .newCard {
   position: relative;
   border: 0.3em solid gray;
@@ -12,6 +14,7 @@
     font-size: 1.65em;
     font-weight: 600;
     margin-bottom: 0.3em;
+    text-align: center;
   }
 
   &Button {
@@ -22,6 +25,7 @@
     border: 0.3em solid gray;
     cursor: pointer;
     transition: .2s;
+    @extend %ButtonBasicStyles;
 
     &::after, &::before {
       content: '';

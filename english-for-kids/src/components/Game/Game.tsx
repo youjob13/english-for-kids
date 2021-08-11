@@ -10,6 +10,7 @@ import Footer from './Footer/Footer';
 import { getWords, nullifyCards } from '../../store/cardsSlice';
 import withLazyLoading from '../../shared/hoc/withLazyLoading';
 import { getGameState } from '../../store/selectors';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 const Statistics = lazy(() => import('./Statistics/Statistics'));
 
@@ -33,7 +34,10 @@ const Game = (): ReactElement => {
           {!localStorage.token && (
             <Redirect from={Path.ADMIN_PANEL_ROOT} to={Path.ROOT} />
           )}
-          <Route path={Path.OTHER} render={() => <div>404</div>} />
+          <Route
+            path={Path.OTHER}
+            render={() => <ErrorPage errorMessage="404 Not Found" />}
+          />
         </Switch>
         {isActiveEndGamePopup && (
           <EndGamePopup answerList={currentGameAnswers} />

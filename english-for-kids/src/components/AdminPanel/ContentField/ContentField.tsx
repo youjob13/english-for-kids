@@ -5,6 +5,7 @@ import Words from './Words/Words';
 import Categories from './Categories/Categories';
 import { getWordsState } from '../../../store/selectors';
 import { Path } from '../../../shared/globalVariables';
+import ErrorPage from '../../ErrorPage/ErrorPage';
 
 const ContentField = (): ReactElement => {
   const { cardsData } = useSelector(getWordsState);
@@ -25,7 +26,10 @@ const ContentField = (): ReactElement => {
         from={Path.ADMIN_PANEL_ROOT}
         to={Path.ADMIN_PANEL_CATEGORIES}
       />
-      <Route path={Path.OTHER} render={() => <div>404</div>} />
+      <Route
+        path={Path.OTHER}
+        render={() => <ErrorPage errorMessage="404 Not Found" />}
+      />
     </Switch>
   );
 };
