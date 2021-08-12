@@ -7,7 +7,7 @@ import {
 } from '../shared/interfaces/store-models';
 import { IWord } from '../shared/interfaces/cards-models';
 import sortCurrentGameQuestionList from '../shared/helperFunctions/arraySort';
-import { GameMode, Slice } from '../shared/globalVariables';
+import { GameMode, Slice, THREE_SECOND_DELAY } from '../shared/globalVariables';
 
 const gameSlice = createSlice({
   name: Slice.GAME,
@@ -118,7 +118,7 @@ export const setGivenAnswer =
           dispatch(toggleEndGamePopupMode(false));
           dispatch(stopGame(GameMode.READY_TO_GAME));
           dispatch(resetGameData());
-        }, 3000);
+        }, THREE_SECOND_DELAY);
       }
 
       return;

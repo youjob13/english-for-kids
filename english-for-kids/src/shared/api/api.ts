@@ -6,13 +6,15 @@ import {
   LoginData,
 } from '../interfaces/api-models';
 import {
-  authUrl,
   baseUrl,
   wordsUrl,
   categoryUrl,
   ContentType,
   HTTPMethods,
   statisticsUrl,
+  QueryParam,
+  authLoginUrl,
+  authLogoutUrl,
 } from '../globalVariables';
 
 export const cardsAPI = {
@@ -22,7 +24,7 @@ export const cardsAPI = {
   ): Promise<{ words: ICardsData[]; totalPageCount: number }> {
     try {
       const response = await fetch(
-        `${baseUrl}${wordsUrl}?limit=${limit}&page=${page}`
+        `${baseUrl}${wordsUrl}?${QueryParam.LIMIT}=${limit}&${QueryParam.PAGE}=${page}`
       );
       const result = await response.json();
       const words: ICardsData[] = result.data;
@@ -35,7 +37,7 @@ export const cardsAPI = {
   },
   async removeWord(cardId: string): Promise<void> {
     try {
-      await fetch(`${baseUrl}${wordsUrl}?id=${cardId}`, {
+      await fetch(`${baseUrl}${wordsUrl}?${QueryParam.ID}=${cardId}`, {
         method: HTTPMethods.DELETE,
         headers: {
           authorization: localStorage.token,
@@ -48,13 +50,16 @@ export const cardsAPI = {
   },
   async createWord(data: FormData, categoryId: string): Promise<IWord> {
     try {
-      const response = await fetch(`${baseUrl}${wordsUrl}?id=${categoryId}`, {
-        method: HTTPMethods.POST,
-        headers: {
-          Authorization: localStorage.token,
-        },
-        body: data,
-      });
+      const response = await fetch(
+        `${baseUrl}${wordsUrl}?${QueryParam.ID}=${categoryId}`,
+        {
+          method: HTTPMethods.POST,
+          headers: {
+            Authorization: localStorage.token,
+          },
+          body: data,
+        }
+      );
       const card: IWord = await response.json();
       return card;
     } catch (error) {
@@ -63,13 +68,16 @@ export const cardsAPI = {
   },
   async updateWord(cardId: string, data: FormData): Promise<IWord> {
     try {
-      const response = await fetch(`${baseUrl}${wordsUrl}?id=${cardId}`, {
-        method: HTTPMethods.PUT,
-        headers: {
-          Authorization: localStorage.token,
-        },
-        body: data,
-      });
+      const response = await fetch(
+        `${baseUrl}${wordsUrl}?${QueryParam.ID}=${cardId}`,
+        {
+          method: HTTPMethods.PUT,
+          headers: {
+            Authorization: localStorage.token,
+          },
+          body: data,
+        }
+      );
       const updatedCard: IWord = await response.json();
       return updatedCard;
     } catch (error) {
@@ -96,7 +104,7 @@ export const categoryAPI = {
   },
   async removeCategory(id: string): Promise<void> {
     try {
-      await fetch(`${baseUrl}${categoryUrl}?id=${id}`, {
+      await fetch(`${baseUrl}${categoryUrl}?${QueryParam.ID}=${id}`, {
         method: HTTPMethods.DELETE,
         headers: {
           authorization: localStorage.token,
@@ -113,7 +121,7 @@ export const categoryAPI = {
   ): Promise<ICardsData> {
     try {
       const response = await fetch(
-        `${baseUrl}${categoryUrl}?id=${categoryId}`,
+        `${baseUrl}${categoryUrl}?${QueryParam.ID}=${categoryId}`,
         {
           method: HTTPMethods.PUT,
           headers: {
@@ -134,7 +142,7 @@ export const categoryAPI = {
 export const authAPI = {
   async login(authFormData: LoginData): Promise<ILoginResponse> {
     try {
-      const response = await fetch(`${baseUrl}${authUrl}/login`, {
+      const response = await fetch(`${baseUrl}${authLoginUrl}`, {
         method: HTTPMethods.POST,
         headers: {
           'Content-Type': ContentType.APP_JSON,
@@ -148,7 +156,7 @@ export const authAPI = {
   },
   async logout(): Promise<void> {
     try {
-      await fetch(`${baseUrl}${authUrl}/logout`, {
+      await fetch(`${baseUrl}${authLogoutUrl}`, {
         method: HTTPMethods.DELETE,
         headers: {
           Authorization: localStorage.token,

@@ -75,15 +75,13 @@ const CategoryPage = (): ReactElement => {
       playAudio(audioSRC);
     }
   };
-  const onStartGameClick = (): void => {
-    const currentCategoryPath =
-      categoryPath === Path.DIFFICULT_WORDS ? currentDifficultWordList : cards;
-
-    dispatch(prepareGameProcess(currentCategoryPath));
-  };
 
   const gameCards =
     categoryPath === Path.DIFFICULT_WORDS ? currentDifficultWordList : cards;
+
+  const onStartGameClick = (): void => {
+    dispatch(prepareGameProcess(gameCards));
+  };
 
   return (
     <>

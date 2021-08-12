@@ -2,7 +2,12 @@ import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import classes from './switch.module.scss';
 import { ISwitchProps } from '../../interfaces/props-models';
-import { GameMode, InputType, SWITCH_ID } from '../../globalVariables';
+import {
+  GameMode,
+  InputType,
+  LocalesKey,
+  SWITCH_ID,
+} from '../../globalVariables';
 
 const Switch = ({ onCheckboxClick, gameMode }: ISwitchProps): ReactElement => {
   const { t } = useTranslation();
@@ -10,6 +15,7 @@ const Switch = ({ onCheckboxClick, gameMode }: ISwitchProps): ReactElement => {
     gameMode === GameMode.NO_GAME
       ? classes.inputSwitch
       : classes.inputSwitchActive;
+
   return (
     <label htmlFor={SWITCH_ID} className={classes.checkbox}>
       <input
@@ -20,8 +26,8 @@ const Switch = ({ onCheckboxClick, gameMode }: ISwitchProps): ReactElement => {
       />
       <span
         className={classes.checkboxSwitch}
-        data-label-on={t('switch_play')}
-        data-label-off={t('switch_train')}
+        data-label-on={t(LocalesKey.SWITCH_PLAY)}
+        data-label-off={t(LocalesKey.SWITCH_TRAIN)}
       />
     </label>
   );

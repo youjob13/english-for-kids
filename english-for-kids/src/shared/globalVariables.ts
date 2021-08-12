@@ -10,7 +10,8 @@ export const APP_CONTENT_STYLES = 'app-content';
 export const baseUrl = 'http://localhost:5000/';
 export const wordsUrl = 'words';
 export const categoryUrl = 'category';
-export const authUrl = 'auth';
+export const authLoginUrl = 'auth/login';
+export const authLogoutUrl = 'auth/logout';
 export const statisticsUrl = 'statistics';
 export const baseName = '/React';
 export const rootElementID = 'root';
@@ -73,6 +74,12 @@ export default tableHeaders;
 
 export const EMPTY_LINE = '';
 
+export enum QueryParam {
+  LIMIT = 'limit',
+  PAGE = 'page',
+  ID = 'id',
+}
+
 export enum Slice {
   AUTH = 'authSlice',
   GAME = 'gameSlice',
@@ -116,6 +123,8 @@ export enum LocalesKey {
   LOGIN = 'login',
   PASSWORD = 'password',
   CANCEL_BTN = 'cancel_btn',
+  SWITCH_PLAY = 'switch_play',
+  SWITCH_TRAIN = 'switch_train',
 }
 
 export enum Path {
@@ -200,6 +209,7 @@ export const SIX_CHARACTERS = 6;
 export const WORD_NAME = 'wordName';
 export const WORD_TRANSLATION = 'wordTranslation';
 export const TWO_SECOND_DELAY = 2000;
+export const THREE_SECOND_DELAY = 3000;
 export const RIGHT_ANSWER_IMAGE = `${process.env.PUBLIC_URL}/assets/star.webp`;
 export const FAIL_ANSWER_IMAGE = `${process.env.PUBLIC_URL}/assets/lose_star.png`;
 export const MY_GITHUB = 'https://github.com/youjob13';
