@@ -7,7 +7,7 @@ import {
 export const APP_WRAPPER_STYLES = 'app-wrapper';
 export const APP_CONTENT_STYLES = 'app-content';
 
-export const baseUrl = 'http://localhost:5000/';
+export const baseUrl = 'https://efk-serrver.herokuapp.com/';
 export const wordsUrl = 'words';
 export const categoryUrl = 'category';
 export const authLoginUrl = 'auth/login';
