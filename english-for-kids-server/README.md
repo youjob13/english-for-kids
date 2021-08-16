@@ -1,3 +1,7 @@
-**REST api with NodeJS**
+## REST API
+CRUD operations
 
-CRUD operations front/back
+---
+
+## Authorization
+Basic user authorization with access token
