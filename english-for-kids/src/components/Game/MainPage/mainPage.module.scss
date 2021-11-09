@@ -1,0 +1,23 @@
+@import "../../../shared/stylesVariables.scss";
+
+.content {
+  @extend %CardsFieldBasicStyles;
+}
+
+@media (max-width: 1440px) {
+  .content {
+    height: 80%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

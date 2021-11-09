@@ -1,0 +1,6 @@
+@import "../../../shared/stylesVariables.scss";
+
+.header {
+  background-color: $dark-color;
+  @extend %HeaderBasicStyles;
+}

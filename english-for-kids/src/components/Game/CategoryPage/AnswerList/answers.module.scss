@@ -1,0 +1,38 @@
+.answer {
+  &List {
+    position: absolute;
+    left: 3rem;
+    top: 8rem;
+  }
+
+  &Item {
+    animation: showStar 0.5s ease;
+  }
+}
+
+@media (max-width: 992px) {
+  .answer {
+    &List {
+      left: 1rem;
+    }
+  }
+}
+
+@keyframes showStar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.star {
+  width: 3rem;
+}
+
+@media (max-width: 768px) {
+  .star {
+    width: 2rem;
+  }
+}

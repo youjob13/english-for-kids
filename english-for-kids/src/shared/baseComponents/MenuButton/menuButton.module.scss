@@ -1,0 +1,63 @@
+@import "../../../shared/stylesVariables.scss";
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 2.4rem;
+  cursor: pointer;
+
+  .inputMenuBtnSpan {
+    background: $light-color;
+    border-radius: 10px;
+    height: 0.2rem;
+    margin: 0.2rem 0;
+    transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    &:nth-of-type(1) {
+      width: 50%;
+    }
+
+    &:nth-of-type(2) {
+      width: 100%;
+    }
+
+    &:nth-of-type(3) {
+      width: 75%;
+    }
+  }
+}
+
+.inputMenuBtn, .inputMenuBtnActive {
+  display: none;
+}
+
+.inputMenuBtnActive ~ .inputMenuBtnSpan:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(5px, 0px)
+}
+
+.inputMenuBtnActive ~ .inputMenuBtnSpan:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg)
+}
+
+.inputMenuBtnActive ~ .inputMenuBtnSpan:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(15px, -5px) rotatez(45deg);
+}
+
+@media (max-width: 1440px) {
+  .label {
+    width: 50px;
+
+    .inputMenuBtnSpan {
+      height: 4px;
+      margin: 4px 0;
+    }
+  }
+
+  .inputMenuBtnActive ~ .inputMenuBtnSpan:nth-of-type(3) {
+    transform: translate(21px, -4px) rotatez(45deg);
+  }
+}

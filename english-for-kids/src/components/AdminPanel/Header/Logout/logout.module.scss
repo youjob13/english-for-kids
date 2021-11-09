@@ -1,0 +1,15 @@
+@import "../../../../shared/stylesVariables.scss";
+
+.logout {
+  border-radius: 0.2em;
+  text-align: center;
+  font-size: 0.85em;
+  font-weight: 700;
+  color: rgba(0, 0, 0, .6);
+
+  @extend %ButtonBasicStyles;
+
+  &:active {
+    border: 1px solid $light-gray-color;
+  }
+}

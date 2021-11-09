@@ -1,0 +1,18 @@
+{
+  "Train_&_Play": "Train & Play",
+  "category_title": "Category: {{categoryPath}}",
+  "main": "Main",
+  "statistics": "Statistics",
+  "login": "Login",
+  "password": "Password",
+  "login_btn": "Login",
+  "cancel_btn": "Cancel",
+  "login_title": "Login",
+  "repeat_difficult_words": "Repeat difficult words",
+  "switch_train": "Train",
+  "switch_play": "Play",
+  "repeat_word": "Repeat",
+  "start_game": "Start game",
+  "category_empty": "Category is empty",
+  "logout": "Logout"
+}

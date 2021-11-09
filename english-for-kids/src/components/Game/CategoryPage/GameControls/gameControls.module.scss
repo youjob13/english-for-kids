@@ -1,0 +1,56 @@
+@import "../../../../shared/stylesVariables.scss";
+
+.repeatWord, .startGame {
+  position: fixed;
+  cursor: pointer;
+  right: 0;
+  top: 50%;
+  background-color: $dark-color;
+  box-shadow: 0px 0px 7px 4px rgba(255, 255, 255, 0.25) inset;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  height: 4.5rem;
+  width: 8.5rem;
+  color: #fff;
+  font-size: 1.175rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: transform .2s;
+  transform: translate(0, -50%);
+  z-index: 101;
+  padding-left: 0.85rem;
+
+  @extend %ButtonBasicStyles;
+
+  &:hover {
+    background-color: #000;
+  }
+
+  &:active {
+    background-color: #1f2636;
+    transform: translate(0, -50%);
+  }
+}
+
+.startGame {
+  animation: showButton 0.7s ease;
+}
+
+@media (max-width: 992px) {
+  .repeatWord, .startGame {
+    height: 4.5rem;
+    width: 7rem;
+    font-size: 0.975rem;
+    top: 93%;
+  }
+}
+
+@keyframes showButton {
+  0% {
+    transform: translate(100%, -50%);
+  }
+
+  100% {
+    transform: translate(0, -50%);
+  }
+}

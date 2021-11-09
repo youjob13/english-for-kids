@@ -1,0 +1,25 @@
+@import "../../../../shared/stylesVariables.scss";
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.65em;
+
+  &Item {
+    text-transform: capitalize;
+    text-shadow: 0 0.1rem 0.1rem rgba($dark-color, 0.29);
+
+    &:last-child {
+      pointer-events: none;
+    }
+
+    &Link {
+      text-decoration: none;
+      color: $light-color;
+
+      &Active {
+        box-shadow: 0 0.1rem 0.1rem rgba($dark-color, 0.29);
+      }
+    }
+  }
+}

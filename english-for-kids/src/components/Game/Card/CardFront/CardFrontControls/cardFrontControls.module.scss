@@ -1,0 +1,28 @@
+.translationBtn {
+  right: 0.6rem;
+}
+
+.playSoundBtn {
+  left: 0.6rem;
+}
+
+.buttonImages {
+  width: 20px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.translationBtn, .playSoundBtn {
+  position: absolute;
+  bottom: -0.2rem;
+  z-index: 9;
+  background-color: transparent;
+
+  &:hover > .buttonImages {
+    filter: brightness(0.77)
+  }
+}
+
+.translationBtn {
+  bottom: -0.3em;
+}

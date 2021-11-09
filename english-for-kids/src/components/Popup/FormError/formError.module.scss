@@ -1,0 +1,16 @@
+.cardForm {
+  &Message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    font-size: 1.2em;
+    padding: 0.5em;
+
+    &Error {
+      background-color: rgba(#d24949, 0.75);
+      border-radius: 0.2em;
+    }
+  }
+}

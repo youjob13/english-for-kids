@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: 'Gochi Hand', cursive;
+}
+
+.app-wrapper {
+    max-width: 1920px;
+    background-image: url("./assets/images/bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.app-content {
+    min-height: calc(100vh - 9.65469rem);
+    padding: 1rem 14em;
+}
+
+@media (max-width: 1440px) {
+    .app-content {
+        min-height: calc(100vh - 164px);
+        padding: 1rem 6em;
+    }
+
+    .app-wrapper {
+        max-width: 1440px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .app-wrapper {
+        height: auto;
+        max-width: 1200px;
+    }
+
+    .app-content {
+        padding: 1rem 4em;
+    }
+}
+
+@media (max-width: 992px) {
+    .app-wrapper {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-wrapper {
+    }
+}
+
+
+button {
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6, ul, li, p, span, button, a, input, div {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}

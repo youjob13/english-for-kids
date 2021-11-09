@@ -1,0 +1,88 @@
+@import "../../../../../shared/stylesVariables.scss";
+
+.word {
+  position: relative;
+  border: 2px solid gray;
+  border-radius: 0.4em;
+  padding: 0.4em;
+  background-color: #f0f0f0;
+
+  &SoundButton {
+    position: relative;
+    width: 1.7em;
+    height: 1.7em;
+    background-color: #000;
+    cursor: pointer;
+    padding: 0.15em;
+    transition: .2s;
+
+    &:hover {
+      background-color: #272828;
+    }
+
+    &:active {
+      background-color: #152121;
+    }
+
+    &Image {
+      width: 100%;
+    }
+  }
+
+  &Image {
+    width: 10em;
+    height: 8em;
+
+    img {
+      transition: .2s;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  &Content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &Buttons {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &Button {
+    padding: 0.66rem 1rem;
+    border-radius: 0.36em;
+    border: 2px solid $aqwa-color;
+    color: $aqwa-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0.4em auto 0;
+    display: block;
+
+    @extend %ButtonBasicStyles;
+
+    &:active, &:hover {
+      background-color: $aqwa-color;
+      color: #fff;
+    }
+  }
+
+  &Label {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.removeButton {
+  border: 2px solid $red-color;
+  color: $red-color;
+
+  &:active, &:hover {
+    background-color: $red-color;
+  }
+}

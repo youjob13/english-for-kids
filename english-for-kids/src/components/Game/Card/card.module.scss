@@ -1,0 +1,59 @@
+@import "../../../shared/stylesVariables.scss";
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0px 0px 13px 2px rgba(34, 60, 80, 0.23);
+  transition: .3s;
+  height: 16rem;
+  overflow: hidden;
+
+  p {
+    background-color: $aqwa-color;
+  }
+
+  &:hover {
+    box-shadow: 0 0.5rem 1.4rem 0.6rem rgba(255, 255, 255, 0.15);
+
+    & .cardImage {
+      transform: scale(1.033);
+    }
+  }
+
+  &Image {
+    transition: .2s;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  &Name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    font-size: 21px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #f0f0f0;
+    text-transform: capitalize;
+  }
+}
+
+.isStartedGame p {
+  background-color: #9eb3c7;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    &Name {
+      font-size: 16px;
+    }
+  }
+}

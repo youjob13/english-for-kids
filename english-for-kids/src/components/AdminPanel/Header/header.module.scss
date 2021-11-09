@@ -1,0 +1,6 @@
+@import "../../../shared/stylesVariables.scss";
+
+.header {
+  background-color: $aqwa-color;
+  @extend %HeaderBasicStyles;
+}
