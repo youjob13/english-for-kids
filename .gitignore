@@ -1,3 +1,5 @@
+.netlify
+.idea
 node_modules/
 
 # Logs
